@@ -1,0 +1,623 @@
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloud.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page2tutorial.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page3tutorial.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page4tutorial.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gray.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_empty.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gold.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_green.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_lightblue.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_pink.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_purple.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_red.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\alien_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\baby_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\burger_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cat_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cookie_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\demon_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\devil_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dog_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dolphin_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\eek_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\ghost_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\headphones_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\horse_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icecream_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\laugh_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\middlefinger_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\mouse_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\pumpkin_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\santa_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\shit_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\skull_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\sleeping_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\spy_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\teethsmile_character.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloudicon.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dropletfull_whiteb.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\medal_whiteb.png
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings_top.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloud.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page2tutorial.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page3tutorial.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page4tutorial.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gray.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_empty.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gold.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_green.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_lightblue.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_pink.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_purple.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_red.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\alien_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\baby_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\burger_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cat_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cookie_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\demon_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\devil_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dog_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dolphin_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\eek_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\ghost_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\headphones_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\horse_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icecream_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\laugh_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\middlefinger_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\mouse_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\pumpkin_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\santa_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\shit_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\skull_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\sleeping_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\spy_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\teethsmile_character.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloudicon.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dropletfull_whiteb.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\medal_whiteb.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings_top.png
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloud.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page2tutorial.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page3tutorial.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page4tutorial.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gray.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_empty.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gold.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_green.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_lightblue.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_pink.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_purple.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_red.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\alien_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\baby_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\burger_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cat_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cookie_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\demon_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\devil_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dog_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dolphin_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\eek_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\ghost_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\headphones_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\horse_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icecream_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\laugh_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\middlefinger_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\mouse_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\pumpkin_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\santa_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\shit_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\skull_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\sleeping_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\spy_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\teethsmile_character.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloudicon.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dropletfull_whiteb.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\medal_whiteb.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings_top.png
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloud.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page2tutorial.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page3tutorial.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page4tutorial.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gray.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_empty.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gold.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_green.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_lightblue.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_pink.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_purple.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_red.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\alien_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\baby_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\burger_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cat_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cookie_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\demon_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\devil_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dog_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dolphin_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\eek_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\ghost_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\headphones_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\horse_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icecream_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\laugh_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\middlefinger_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\mouse_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\pumpkin_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\santa_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\shit_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\skull_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\sleeping_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\spy_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\teethsmile_character.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloudicon.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dropletfull_whiteb.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\medal_whiteb.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings_top.png
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloud.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page2tutorial.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page3tutorial.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page4tutorial.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gray.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_empty.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gold.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_green.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_lightblue.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_pink.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_purple.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_red.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\alien_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\baby_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\burger_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cat_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cookie_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\demon_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\devil_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dog_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dolphin_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\eek_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\ghost_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\headphones_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\horse_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icecream_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\laugh_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\middlefinger_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\mouse_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\pumpkin_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\santa_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\shit_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\skull_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\sleeping_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\spy_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\teethsmile_character.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloudicon.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dropletfull_whiteb.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\medal_whiteb.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings_top.png
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.config
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid.apk
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1.x_2_.Droid-Signed.apk
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\FormsViewGroup.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.Ext.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Spatial.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\CloudClubv1.x_2_.Droid.apk
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icon.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloud.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page2tutorial.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page3tutorial.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\page4tutorial.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gray.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_empty.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_gold.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_green.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_lightblue.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_pink.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_purple.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\star_red.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\alien_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\baby_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\burger_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cat_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cookie_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\demon_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\devil_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dog_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dolphin_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\eek_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\ghost_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\headphones_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\horse_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\icecream_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\laugh_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\middlefinger_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\mouse_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\pumpkin_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\santa_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\shit_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\skull_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\sleeping_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\spy_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\teethsmile_character.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\cloudicon.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\dropletfull_whiteb.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\medal_whiteb.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings_top.png
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\news_profile.png

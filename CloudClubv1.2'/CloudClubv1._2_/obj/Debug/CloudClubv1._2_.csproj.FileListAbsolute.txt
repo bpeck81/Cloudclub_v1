@@ -1,0 +1,276 @@
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+c:\users\student\documents\visual studio 2013\Projects\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Documents\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Personal Programming\REPOSITORY\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+C:\Users\Student\Downloads\CloudClubv1.2' (3)\CloudClubv1.2'\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Downloads\CloudClubV3\CloudClubv1.3\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
