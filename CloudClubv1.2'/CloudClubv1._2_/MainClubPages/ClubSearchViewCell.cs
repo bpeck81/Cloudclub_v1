@@ -28,6 +28,7 @@ namespace FrontEnd
 
         public ClubSearchViewCell()
         {
+            
             clubText = "Most Recent Line of text from club";
             bool inClub = true;
             ch = new ColorHandler();

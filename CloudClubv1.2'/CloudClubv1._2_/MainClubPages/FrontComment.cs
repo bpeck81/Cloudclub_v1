@@ -17,6 +17,8 @@ namespace FrontEnd
 
         public string AuthorId { get; set; }
 
+        public string AuthorUsername { get; set; }
+
         public string Text { get; set; }
 
         public int NumDroplets { get; set; }
@@ -44,12 +46,12 @@ namespace FrontEnd
             TextColor = "black";
             
             if(comment.AuthorId == App.dbWrapper.GetUser().Id){
-                AuthorId = "You";
+                AuthorUsername = "You";
                 TextColor = AuthorAccountColor;
             }
             else
             {
-                AuthorId = comment.AuthorId;
+                AuthorUsername = authorAccount.Username;
             }
             
 

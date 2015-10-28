@@ -32,29 +32,33 @@ public final class R {
         public static int laugh_character=0x7f020012;
         public static int medal_whiteb=0x7f020013;
         public static int middlefinger_character=0x7f020014;
-        public static int mouse_character=0x7f020015;
-        public static int news_profile=0x7f020016;
-        public static int page2tutorial=0x7f020017;
-        public static int page3tutorial=0x7f020018;
-        public static int page4tutorial=0x7f020019;
-        public static int pumpkin_character=0x7f02001a;
-        public static int santa_character=0x7f02001b;
-        public static int settings_top=0x7f02001c;
-        public static int shit_character=0x7f02001d;
-        public static int skull_character=0x7f02001e;
-        public static int sleeping_character=0x7f02001f;
-        public static int spy_character=0x7f020020;
-        public static int star_empty=0x7f020021;
-        public static int star_gold=0x7f020022;
-        public static int star_gray=0x7f020023;
-        public static int star_green=0x7f020024;
-        public static int star_lightblue=0x7f020025;
-        public static int star_pink=0x7f020026;
-        public static int star_purple=0x7f020027;
-        public static int star_red=0x7f020028;
-        public static int teethsmile_character=0x7f020029;
+        public static int monoandroidsplash=0x7f020015;
+        public static int mouse_character=0x7f020016;
+        public static int news_profile=0x7f020017;
+        public static int page2tutorial=0x7f020018;
+        public static int page3tutorial=0x7f020019;
+        public static int page4tutorial=0x7f02001a;
+        public static int pumpkin_character=0x7f02001b;
+        public static int santa_character=0x7f02001c;
+        public static int settings_top=0x7f02001d;
+        public static int shit_character=0x7f02001e;
+        public static int skull_character=0x7f02001f;
+        public static int sleeping_character=0x7f020020;
+        public static int spy_character=0x7f020021;
+        public static int star_empty=0x7f020022;
+        public static int star_gold=0x7f020023;
+        public static int star_gray=0x7f020024;
+        public static int star_green=0x7f020025;
+        public static int star_lightblue=0x7f020026;
+        public static int star_pink=0x7f020027;
+        public static int star_purple=0x7f020028;
+        public static int star_red=0x7f020029;
+        public static int teethsmile_character=0x7f02002a;
     }
     public static final class string {
         public static int library_name=0x7f030000;
+    }
+    public static final class style {
+        public static int Mono_Android_Theme_Splash=0x7f040000;
     }
 }

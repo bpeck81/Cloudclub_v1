@@ -22,6 +22,7 @@ namespace FrontEnd
         {
             this.club = club;
             ch = new ColorHandler();
+            this.BackgroundColor = Color.Black;
             this.Title = club.Title;
             this.commentsList = new ObservableCollection<FrontComment>();
             for (int i = 0; i < commentsList.Count;i++)
@@ -42,7 +43,8 @@ namespace FrontEnd
             ListView listView = new ListView
             {
                 ItemsSource = CurrentCommentsList,
-                ItemTemplate = new DataTemplate(typeof(CommentViewCell))
+                ItemTemplate = new DataTemplate(typeof(CommentViewCell)),
+                HasUnevenRows = true
             };
 
             userEntry = new Entry
