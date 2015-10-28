@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cloudclub.cloudclubv1.x_2_" android:installLocation="auto" android:versionCode="1">
 	<uses-sdk android:minSdkVersion="15" />
-	<application></application>
+	<application android:label="Cloudclub"></application>
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

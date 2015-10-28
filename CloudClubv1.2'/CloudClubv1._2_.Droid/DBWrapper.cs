@@ -9,8 +9,9 @@ using Newtonsoft.Json.Linq;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
-
 using System.Text;
+//add for push notifications
+using Gcm.Client;
 
 using Android.App;
 using Android.Content;
@@ -49,11 +50,13 @@ namespace CloudClubv1._2_.Droid
         public static IMobileServiceTable<ClubRequest> clubRequestTable = client.GetTable<ClubRequest>();
         public static IMobileServiceTable<DBImage> DBImageTable = client.GetTable<DBImage>();
         public static IMobileServiceTable<Medal> medalTable = client.GetTable<Medal>();
-        public static IMobileServiceTable<DBNotification> DBNotificationTable = client.GetTable<DBNotification>();
+        public static IMobileServiceTable<DBNotification> dbNotificationTable = client.GetTable<DBNotification>();
         public static IMobileServiceTable<Ban> banTable = client.GetTable<Ban>();
 
         //class members
         private Account User;
+        //used to determine how to handle push notifications
+        private string CurrentClub;
 
         //constants
         private const int CLUB_SIZE = 50;
@@ -61,18 +64,12 @@ namespace CloudClubv1._2_.Droid
 
         public DBWrapper()
         {
-            
             //initialize mobile services
             CurrentPlatform.Init();
         }
 
 
         //FUNCTIONS
-
-        ///Returns the user; empty if not logged in
-        public Account GetUser() {
-            return User;
-        }
 
         /// Create an account; returns 1 if successful, 0 if username is already in use
         public async Task<bool> CreateAccount(string username, string password)
@@ -101,7 +98,11 @@ namespace CloudClubv1._2_.Droid
 
             if (list.Count > 0)
             {
+                //set user
                 User = list[0];
+                //establish push notification services
+                CreatePushRegister();
+
                 return true;
             }
             else
@@ -165,6 +166,10 @@ namespace CloudClubv1._2_.Droid
                 User.NumClubsIn++;
                 User.Points++;
                 await accountTable.UpdateAsync(User);
+
+                //make DBNotification
+                DBNotification DBNotification = new DBNotification(User.Id, "join", "You created the club " + club.Title + "!");
+                await dbNotificationTable.InsertAsync(DBNotification);
 
                 return true;
             }
@@ -249,7 +254,7 @@ namespace CloudClubv1._2_.Droid
 
             //make DBNotification
             DBNotification DBNotification = new DBNotification(User.Id,"join","You joined the club "+club.Title+"!");
-            await DBNotificationTable.InsertAsync(DBNotification);
+            await dbNotificationTable.InsertAsync(DBNotification);
 
             return 1;
 
@@ -417,10 +422,10 @@ namespace CloudClubv1._2_.Droid
 
             //add DBNotifications
             DBNotification DBNotificationAuthor = new DBNotification(author.Id,"friend","You and "+recipient.Username+" became friends!");
-            await DBNotificationTable.InsertAsync(DBNotificationAuthor);
+            await dbNotificationTable.InsertAsync(DBNotificationAuthor);
 
             DBNotification DBNotificationRecipient = new DBNotification(recipient.Id, "friend", "You and "+author.Username+" became friends!");
-            await DBNotificationTable.InsertAsync(DBNotificationRecipient);
+            await dbNotificationTable.InsertAsync(DBNotificationRecipient);
 
             //delete friendrequest
             try
@@ -471,7 +476,7 @@ namespace CloudClubv1._2_.Droid
                 //make a DBNotification
                 Club club = await clubTable.LookupAsync(clubId);
                 DBNotification DBNotification = new DBNotification(recipientId,"invite",User.Username+" has invited you to join "+club.Title+".");
-                await DBNotificationTable.InsertAsync(DBNotification);
+                await dbNotificationTable.InsertAsync(DBNotification);
 
                 return true;
             }
@@ -516,7 +521,7 @@ namespace CloudClubv1._2_.Droid
 
             //add DBNotifications
             DBNotification DBNotification = new DBNotification(account.Id,"join","You joined the club "+club.Title+"!");
-            await DBNotificationTable.InsertAsync(DBNotification);
+            await dbNotificationTable.InsertAsync(DBNotification);
 
             return 1;
 
@@ -597,7 +602,7 @@ namespace CloudClubv1._2_.Droid
             //make DBNotification
             Club club = await clubTable.LookupAsync(clubRequest.ClubId);
             DBNotification DBNotification = new DBNotification(clubRequest.AccountId,"request",club.Title+" has accepted your request!");
-            await DBNotificationTable.InsertAsync(DBNotification);
+            await dbNotificationTable.InsertAsync(DBNotification);
 
             //delete the club request
             try
@@ -779,7 +784,7 @@ namespace CloudClubv1._2_.Droid
             var medalList = await medalTable.Where(item=>item.AccountId==User.Id).Take(5).ToListAsync();
             list.AddRange(medalList);
             //droplets
-            var dropletList = await DBNotificationTable.Where(item => item.AccountId == User.Id && item.Type == "droplet").Take(5).ToListAsync();
+            var dropletList = await dbNotificationTable.Where(item => item.AccountId == User.Id && item.Type == "droplet").Take(5).ToListAsync();
             list.AddRange(dropletList);
             //rank
             list.Add(User);
@@ -791,7 +796,7 @@ namespace CloudClubv1._2_.Droid
             list.AddRange(invitesList);
             //club warnings
             //NOTE: is there a better way to do this than by giving each user a warning individually?
-            var warningList = await DBNotificationTable.Where(item => item.AccountId == User.Id && item.Type == "warning").Take(5).ToListAsync();
+            var warningList = await dbNotificationTable.Where(item => item.AccountId == User.Id && item.Type == "warning").Take(5).ToListAsync();
             list.AddRange(warningList);
             //friend requests
             var frqList = await friendRequestTable.Where(item => (item.AuthorId == User.Id
@@ -829,7 +834,7 @@ namespace CloudClubv1._2_.Droid
         ///Add a test DBNotification to see that they are working
         public async Task<DBNotification> TestDBNotification() {
             DBNotification DBNotification = new DBNotification(User.Id,"Medal","Test DBNotification");
-            await DBNotificationTable.InsertAsync(DBNotification);
+            await dbNotificationTable.InsertAsync(DBNotification);
             return DBNotification;
         }
 
@@ -838,6 +843,37 @@ namespace CloudClubv1._2_.Droid
             Ban ban = new Ban(accountId, commentId);
             await banTable.InsertAsync(ban);
             return ban.AccountId;
+        }
+
+        ///returns the user account; returns null if not logged in
+        public Account GetUser() {
+            return User;
+        }
+
+        private void CreatePushRegister(){
+            //error handling for push notifications
+            try
+            {
+                // Check to ensure everything's setup right
+                GcmClient.CheckDevice(MainActivity.Instance);
+                GcmClient.CheckManifest(MainActivity.Instance);
+
+                // Register for push notifications
+                System.Diagnostics.Debug.WriteLine("Registering...");
+                GcmClient.Register(MainActivity.Instance, PushHandlerBroadcastReceiver.SENDER_IDS);
+            }
+            catch (Java.Net.MalformedURLException)
+            {
+                //CreateAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+            }
+            catch (Exception e)
+            {
+                //CreateAndShowDialog(e, "Error");
+            }
+        }
+
+        public string GetCurrentClub(){
+            return CurrentClub;
         }
 
 

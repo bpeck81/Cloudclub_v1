@@ -6,12 +6,15 @@ using System.Text;
 using CloudClubv1._2_;
 using Backend;
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
 namespace FrontEnd
 {
     public class ClubChatPage : ContentPage
     {
-        List<FrontComment> commentsList;
+
+        public static ObservableCollection<FrontComment> CurrentCommentsList;
+        ObservableCollection<FrontComment> commentsList;
         ColorHandler ch;
         Entry userEntry;
         FrontClub club;
@@ -20,7 +23,7 @@ namespace FrontEnd
             this.club = club;
             ch = new ColorHandler();
             this.Title = club.Title;
-            this.commentsList = new List<FrontComment>();
+            this.commentsList = new ObservableCollection<FrontComment>();
             for (int i = 0; i < commentsList.Count;i++)
             {
                 if(users[i] != null)
@@ -29,10 +32,16 @@ namespace FrontEnd
 
                 }
             }
+            CurrentCommentsList = this.commentsList;
 
+            updatePage();
+                        
+        }
+        private void updatePage()
+        {
             ListView listView = new ListView
             {
-                ItemsSource = this.commentsList,
+                ItemsSource = CurrentCommentsList,
                 ItemTemplate = new DataTemplate(typeof(CommentViewCell))
             };
 
@@ -51,18 +60,18 @@ namespace FrontEnd
                     userEntry
                 },
                 BackgroundColor = ch.fromStringToColor("lightGray"),
-              HorizontalOptions = LayoutOptions.FillAndExpand,
-              VerticalOptions=  LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand
             };
-                        
         }
 
         private async void UserEntry_Completed(object sender, EventArgs e)
         {
             if(userEntry.Text != "")
             {
-                await App.dbWrapper.JoinClub(club.Id);
-                await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
+                var joinClub = await App.dbWrapper.JoinClub(club.Id);
+                var commentOutput = await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
+                System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
                 userEntry.Text = "";
             }
 

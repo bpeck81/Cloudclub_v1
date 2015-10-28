@@ -144,6 +144,7 @@ namespace FrontEnd
         private async void BRequestJoin_Clicked(object sender, EventArgs e)
         {
             var thisClub = (FrontClub)BindingContext;
+            System.Diagnostics.Debug.WriteLine(thisClub.Id.ToString());
              await App.dbWrapper.JoinClub(thisClub.Id);
             var btn = sender as Button;
             btn.Text = "Request Sent";

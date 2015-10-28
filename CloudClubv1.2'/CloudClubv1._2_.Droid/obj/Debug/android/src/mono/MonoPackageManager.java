@@ -82,6 +82,7 @@ class MonoPackageManager_Resources {
 		"CloudClubv1._2_.Droid.dll",
 		"CloudClubv1._2_.dll",
 		"FormsViewGroup.dll",
+		"GCM.Client.dll",
 		"Microsoft.Data.Edm.dll",
 		"Microsoft.Data.OData.dll",
 		"Microsoft.WindowsAzure.Mobile.dll",

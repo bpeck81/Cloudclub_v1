@@ -53,5 +53,6 @@ namespace CloudClubv1._2_
           Task<DBNotification> TestDBNotification();
           Task<string> CreateBan(string accountId, string commentId);
           Account GetUser();
+          string GetCurrentClub();
     }
 }

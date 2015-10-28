@@ -13,7 +13,7 @@ function update(item, user, request) {
     for(var i = 0;i<medalArray.length;i++){
         //if qualified for medal
         if(medalArray[i][0](item)==true){
-            addMedal(medalArray[i],item);
+            addMedal(medalArray[i],item,request);
         }
     }
 
@@ -23,14 +23,14 @@ function update(item, user, request) {
 }
 
 //adds a medal if the user does not have it already
-function addMedal(medal,item){
+function addMedal(medal,item,request){
     //check to see if the user has earned a medal
     medalTable.where({AccountId: item.id, MedalName: medal[1]}).read({
         success:function(medals){
             //if the user doesn't have the medal, add it
             if(medals.length==0){
                 console.log("make medal");
-                createMedal(medal[1],medal[2],item.id);
+                createMedal(medal[1],medal[2],item.id,request);
             }else{
                 console.log("medal exists");
             }
@@ -38,7 +38,7 @@ function addMedal(medal,item){
     });
 }
 
-function createMedal(name,points,id){
+function createMedal(name,points,id,request){
     //id is automatically added
     var medal = {
         Time: new Date(),
@@ -56,9 +56,31 @@ function createMedal(name,points,id){
             console.log("points being added");
             account.Points+=medal.Points;
             accountTable.update(account);
+            //send push notification
+            var tags = [medal.AccountId];
+            var payload = '{ "message" : "You have earned a medal!" }';
+            sendPush(tags,payload,request);
         }
     });
 }
+
+//PUSH NOTIFICATION
+ function sendPush(tags,payload,request){
+      // Write the default response and send a notification
+      // to all platforms.            
+      push.send(tags, payload, {               
+          success: function(pushResponse){
+          console.log("Sent push:", pushResponse);
+          // Send the default response.
+          request.respond();
+          },              
+          error: function (pushResponse) {
+              console.log("Error Sending push:", pushResponse);
+               // Send the an error response.
+              request.respond(500, { error: pushResponse });
+              }           
+       });    
+  }
 
 //QUALIFIER FUNCTIONS:
 function qualifyOne(item){

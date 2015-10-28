@@ -30,8 +30,7 @@ namespace CloudClubv1._2_
         {
             
             // Handle when your app starts
-            System.Diagnostics.Debug.WriteLine("swag");
-            System.Diagnostics.Debug.WriteLine("yolo");
+            
         }
 
         protected override void OnSleep()

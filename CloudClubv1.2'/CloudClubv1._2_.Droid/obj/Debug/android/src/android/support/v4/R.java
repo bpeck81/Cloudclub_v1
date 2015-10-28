@@ -32,8 +32,8 @@ public final class R {
         public static int laugh_character=0x7f020012;
         public static int medal_whiteb=0x7f020013;
         public static int middlefinger_character=0x7f020014;
-        public static int monoandroidsplash=0x7f020015;
-        public static int mouse_character=0x7f020016;
+        public static int mouse_character=0x7f020015;
+        public static int news_profile=0x7f020016;
         public static int page2tutorial=0x7f020017;
         public static int page3tutorial=0x7f020018;
         public static int page4tutorial=0x7f020019;
@@ -54,7 +54,7 @@ public final class R {
         public static int star_red=0x7f020028;
         public static int teethsmile_character=0x7f020029;
     }
-    public static final class style {
-        public static int Mono_Android_Theme_Splash=0x7f030000;
+    public static final class string {
+        public static int library_name=0x7f030000;
     }
 }
