@@ -109,17 +109,25 @@ namespace CloudClubv1._2_.Droid
                     createNotification("Cloudclub", "People have been talking in "+club.Title+".");
                     return;
                 }
+                else if (parsedMessage[0].Equals("like"))
+                {
+
+                    var dbComment = await DBWrapper.commentTable.LookupAsync(parsedMessage[1]);
+
+                    //hacky solution; i should implement the interface inotifypropertychanged https://msdn.microsoft.com/en-us/library/vstudio/ms743695(v=vs.100).aspx
+                    var comment = ClubChatPage.CurrentCommentsList.FirstOrDefault(item=>item.Id==dbComment.Id);
+                    comment.NumDroplets = dbComment.NumDroplets;
+                    int index = ClubChatPage.CurrentCommentsList.IndexOf(comment);
+                    ClubChatPage.CurrentCommentsList.Remove(comment);
+                    ClubChatPage.CurrentCommentsList.Insert(index,comment);
+
+
+                    System.Diagnostics.Debug.WriteLine("COMMENT LIKED");
+
+                    return;
+                }
             }
 
-            /*
-            string msg2 = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(msg2))
-            {
-                createNotification("New hub message!", msg2);
-                return;
-            }*/
-
-            //createNotification("Unknown message details", msg.ToString());
         }
 
         void createNotification(string title, string desc)

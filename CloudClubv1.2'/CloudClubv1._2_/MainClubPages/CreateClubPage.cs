@@ -195,7 +195,8 @@ namespace FrontEnd
 
         private async void BContinue_Clicked(object sender, EventArgs e)
         {
-            bool created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor,clubPublic,tagList);
+            //NOTE: for the parameter for exclusive, true means it is exclusive, but whether or not the club is public is tracked here, so reverse it when creating club
+            bool created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor,!clubPublic,tagList);
             if (created)
             {
                 await Navigation.PopAsync();
