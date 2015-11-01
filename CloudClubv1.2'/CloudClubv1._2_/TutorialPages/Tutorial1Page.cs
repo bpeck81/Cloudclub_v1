@@ -70,14 +70,13 @@ namespace FrontEnd
         private async void DebugDatabase(){
             string debug = "MYDEBUG-----";
             await App.dbWrapper.LoginAccount("Alpha","Alpha");
-            List<string> tags = new List<string>();
-            tags.Add("tITLe2");
-            var list = await App.dbWrapper.SearchClubs(tags);
-            for (int i = 0; i < list.Count;i++ )
-            {
-                System.Diagnostics.Debug.WriteLine(debug+list[i].Title);
-            }
-            
+            await App.dbWrapper.CreateClub("title","blue",false,new List<string>());
+            var club = (await App.dbWrapper.GetClubs())[0];
+
+            await App.dbWrapper.CreateInvite(club.Id,App.dbWrapper.GetUser().Id);
+            await App.dbWrapper.LeaveClub(club.Id);
+            var clubInvites = await App.dbWrapper.GetInvites();
+            await App.dbWrapper.AcceptInvite(clubInvites[0].Id);
         }
 
     }

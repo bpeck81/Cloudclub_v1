@@ -66,5 +66,6 @@ namespace CloudClubv1._2_
           Task<bool> IsClubMember(string clubId, string accountId);
           Task<bool> HasRatedComment(string accountId, string commentId);
           Task<bool> DeleteTag(string tag, string clubId);
+          Task<TimeSpan> TimeSinceActivity(string clubId);
     }
 }

@@ -104,7 +104,7 @@ namespace CloudClubv1._2_.Droid
                     var account = await DBWrapper.accountTable.LookupAsync(comment.AuthorId);
                     var club = await DBWrapper.clubTable.LookupAsync(comment.ClubId);
 
-                    ClubChatPage.CurrentCommentsList.Add(new FrontComment(comment, account));
+                    //ClubChatPage.CurrentCommentsList.Add(new FrontComment(comment, account));
 
                     createNotification("Cloudclub", "People have been talking in "+club.Title+".");
                     return;

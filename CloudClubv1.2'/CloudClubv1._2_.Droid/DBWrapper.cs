@@ -132,14 +132,20 @@ namespace CloudClubv1._2_.Droid
             return User.Color;
         }
 
-        /// Create a club; pass 0 for a public club and 1 for an exclusive club; returns if club was created, fails if 
-        /// the club name is already in use
+        /// Create a club; returns true if success, false if fails; fails if club name already in use or user is banned
         public async Task<bool> CreateClub(string title, string color, bool exclusive, List<string> tagList)
         {
             Club club = new Club(title, color, exclusive, User.Id);
 
+            //check if banned (must get current instance of user account incase ban happend since login)
+            User = await accountTable.LookupAsync(User.Id);
+            if (DateTime.Compare(User.Banned, DateTime.Now) > 0)
+            {
+                return false;
+            }
+
             //check if the club name is in use
-            var list = await clubTable.Where(item => item.Title == club.Title).ToListAsync();
+            var list = await clubTable.Where(item => item.Title.ToLower() == club.Title.ToLower()).ToListAsync();
 
             if (list.Count > 0)
             {
@@ -1056,6 +1062,13 @@ namespace CloudClubv1._2_.Droid
             else {
                 return false;
             }
+        }
+
+        ///returns the timespan from the most recent comment in a club to now
+        public async Task<TimeSpan> TimeSinceActivity(string clubId)
+        {
+            var comments = await commentTable.Where(item => item.ClubId == clubId).OrderByDescending(item => item.Time).Take(1).ToListAsync();
+            return (TimeSpan)(DateTime.Now - comments[0].Time);
         }
 
         //TODO: make time added in constructors? not on server?

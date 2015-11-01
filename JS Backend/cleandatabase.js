@@ -17,6 +17,7 @@ function CleanDatabase() {
     
     //NOTE: this should go in its own job once we have more schedulers
     updateRankings();
+    cleanBans();
     
     //Erase old comments ana images if they had one
     var commentTable = tables.getTable('Comment');
@@ -76,7 +77,7 @@ function cleanComment(comment){
 function isNew(timeObject){
     var timeNow = new Date().getTime();
     var timeExisted = (timeNow-timeObject)/(1000*60*60);
-    if(timeExisted<1){
+    if(timeExisted<.01){
         return true;
     }else{
         return false;
@@ -160,7 +161,7 @@ function createWarning(club,time){
     //if club will be deleted in an hour
     if(timeExisted>0){
         var memberJunctionTable = tables.getTable('MemberJunction');
-        var notificationTable = tables.getTable('DBNotification');
+        var notificationTable = tables.getTable('Notification');
         
         memberJunctionTable.where({ClubId: club.id}).read({
             success:function(memberships){
@@ -192,4 +193,18 @@ function updateRankings(){
         }
     });
     
+}
+
+//delete bans that are old
+function cleanBans(){
+    var banTable = tables.getTable('Ban');
+    banTable.read({
+        success:function(bans){
+            for(var i=0;i<bans.length;i++){
+                if(!isNew(bans[i].Time.getTime())){
+                    banTable.del(bans[i].id);
+                }
+            }
+        }
+    });
 }
