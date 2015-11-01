@@ -22,7 +22,7 @@ public class TrialSplashScreen extends Activity {
 		super.onCreate (bundle);
 		this.initial_bundle = bundle;
 		ImageView iv = new ImageView (this);
-		iv.setImageResource (R.drawable.monoandroidsplash);
+		//iv.setImageResource (R.drawable.monoandroidsplash);
 		iv.setScaleType (ImageView.ScaleType.FIT_CENTER);
 		ViewGroup.LayoutParams ivparams = new ViewGroup.LayoutParams (ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
 		setContentView (iv);

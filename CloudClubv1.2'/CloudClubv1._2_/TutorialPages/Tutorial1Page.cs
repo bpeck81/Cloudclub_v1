@@ -15,7 +15,7 @@ namespace FrontEnd
         public Tutorial1Page()
         {
             //Michael's debug function
-            //DebugDatabase();
+            DebugDatabase();
 
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
@@ -69,11 +69,15 @@ namespace FrontEnd
 
         private async void DebugDatabase(){
             string debug = "MYDEBUG-----";
-            await App.dbWrapper.CreateAccount("Alpha4", "Alpha3");
-            System.Diagnostics.Debug.WriteLine(debug + await App.dbWrapper.LoginAccount("Alpha4", "Alpha3"));
-            var list = await App.dbWrapper.GetClubs();
-            await App.dbWrapper.JoinClub(list[0].Id);
-            System.Diagnostics.Debug.WriteLine(debug + await App.dbWrapper.CreateComment("swag ylo it nasdkf", list[0].Id));
+            await App.dbWrapper.LoginAccount("Alpha","Alpha");
+            List<string> tags = new List<string>();
+            tags.Add("tITLe2");
+            var list = await App.dbWrapper.SearchClubs(tags);
+            for (int i = 0; i < list.Count;i++ )
+            {
+                System.Diagnostics.Debug.WriteLine(debug+list[i].Title);
+            }
+            
         }
 
     }

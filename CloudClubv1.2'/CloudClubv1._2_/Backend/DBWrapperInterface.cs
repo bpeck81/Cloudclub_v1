@@ -54,5 +54,17 @@ namespace CloudClubv1._2_
           Task<string> CreateBan(string accountId, string commentId);
           Account GetUser();
           string GetCurrentClub();
+          void LogoutUser();
+          Task<int> GetFriendship(string accountId);
+          Task<int> GetUserRating(string clubId);
+          Task<bool> LeaveClub(string clubId);
+          Task<List<Account>> GetFriends(string accountId);
+          Task<int> GetSharedFriendsCount(string accountId);
+          Task<bool> InSameClub(string accountId);
+          Task<bool> IsPendingClubRequest(string clubId);
+          Task<bool> IsPendingInvite(string clubId,string accountId);
+          Task<bool> IsClubMember(string clubId, string accountId);
+          Task<bool> HasRatedComment(string accountId, string commentId);
+          Task<bool> DeleteTag(string tag, string clubId);
     }
 }

@@ -149,10 +149,18 @@ namespace CloudClubv1._2_.Droid
             {
                 await clubTable.InsertAsync(club);
 
-                //add tags to table
+                //add tags to table based on title
+                string[] titleTagList = title.Split(' ');
+                foreach (string key in titleTagList)
+                {
+                    Tag tag = new Tag(key.ToLower(), club.Id);
+                    await tagTable.InsertAsync(tag);
+                }
+
+                //add tags to table based on tagList
                 foreach (string key in tagList)
                 {
-                    Tag tag = new Tag(key, club.Id);
+                    Tag tag = new Tag(key.ToLower(), club.Id);
                     await tagTable.InsertAsync(tag);
                 }
 
@@ -270,6 +278,7 @@ namespace CloudClubv1._2_.Droid
         }
 
         ///Create a comment; returns 1 if success, 2 if not a member of the club, 3 if banned
+        /// NOTE: calling thigs with push notifications before finished registering, ERROR
         public async Task<int> CreateComment(string text, string clubId)
         {
             //check if banned (must get current instance of user account incase ban happend since login)
@@ -313,6 +322,7 @@ namespace CloudClubv1._2_.Droid
         /// 1 - successfully rated comment; 2 - comment already rated
         /// TODO: unlike a comment?
         /// TODO: anyone can like a comment, even a non club member - i think this is a good idea but not entirely sure
+        /// NOTE: calling thigs with push notifications before finished registering, ERROR
         public async Task<int> RateComment(string commentId)
         {
             var list = await commentJuncTable.Where(item => item.RaterId == User.Id && item.CommentId == commentId).ToListAsync();
@@ -651,8 +661,15 @@ namespace CloudClubv1._2_.Droid
         }
 
         /// Get the top 20 clubs that match a search query; pass in a string list of tags and a list of clubs is returned
+        /// NOTE: all tags are stored in lowercase
         public async Task<List<Club>> SearchClubs(List<string> tags)
         {
+            //make all tags lowercase
+            for (int i = 0; i < tags.Count;i++ )
+            {
+                tags[i] = tags[i].ToLower();
+            }
+
             List<Club> clubs = await client.InvokeApiAsync<List<string>, List<Club>>("SearchClubs", tags);
             return clubs;
 
@@ -850,6 +867,7 @@ namespace CloudClubv1._2_.Droid
             return User;
         }
 
+        /// Creates a push register so the device can receive push notifications
         private void CreatePushRegister(){
             //error handling for push notifications
             try
@@ -872,10 +890,173 @@ namespace CloudClubv1._2_.Droid
             }
         }
 
+        /// Returns the current club the user is looking at; is necessary for determing when to display push notif.
         public string GetCurrentClub(){
             return CurrentClub;
         }
 
+        /// sets the user to null rather than an account value
+        public void LogoutUser() {
+            User = null;
+        }
+
+        /// returns a status int of the user and an accounts friendship: 0-not friends, 1- pending request, 2 - friends
+        public async Task<int> GetFriendship(string accountId) {
+            //already friends
+            var friendsList = await friendsTable.Where(item => ((item.AuthorId == User.Id && item.RecipientId == accountId
+                )||( item.RecipientId == User.Id && item.AuthorId == accountId))).ToListAsync();
+            if(friendsList.Count>0){
+                return 2;
+            }
+            //friend request pending
+            var pendingList = await friendRequestTable.Where(item => ((item.AuthorId == User.Id && item.RecipientId == accountId
+                ) || (item.RecipientId == User.Id && item.AuthorId == accountId))).ToListAsync();
+            if(pendingList.Count>0){
+                return 1;
+            }
+            //not friends in any way
+            return 0;
+        }
+
+        ///returns an int value of what the user has rated the club; returns 0 if they haven't
+        public async Task<int> GetUserRating(string clubId) {
+            var ratingList = await ratingJunctionTable.Where(item=>(item.AccountId==User.Id && item.ClubId==clubId)).ToListAsync();
+            //if they have rated it
+            if (ratingList.Count > 0)
+            {
+                return ratingList[0].Rating;
+            }
+            else {
+                return 0;
+            }
+        }
+
+        ///Removes the user from a club; returns true if success, false if they already aren't a member
+        public async Task<bool> LeaveClub(string clubId) {
+            var membership = await memberJuncTable.Where(item => (item.AccountId == User.Id && item.ClubId == clubId)).ToListAsync();
+            if(membership.Count>0){
+                await memberJuncTable.DeleteAsync(membership[0]);
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        ///Returns a list of accounts that are the user's friends
+        public async Task<List<Account>> GetFriends(string accountId) {
+            var friendsJunc = await friendsTable.Where(item=>(item.AuthorId==accountId || item.RecipientId==accountId)).ToListAsync();
+            List<Account> friends = new List<Account>();
+            for (int i = 0; i < friendsJunc.Count;i++ )
+            {
+                Account friend;
+                //loop through and make sure to add the friend, not the user, to the friendlist
+                if(friendsJunc[i].AuthorId==User.Id){
+                    friend = await GetAccount(friendsJunc[i].RecipientId);
+                }else{
+                    friend = await GetAccount(friendsJunc[i].AuthorId);
+                }
+                
+                friends.Add(friend);
+            }
+            return friends;
+        }
+
+        ///Returns the number of friends the user and a given account share
+        ///NOTE: not 100% sure this works, but I think it does
+        public async Task<int> GetSharedFriendsCount(string accountId) {
+            var userFriends = await GetFriends(User.Id);
+            var accountFriends = await GetFriends(accountId);
+            int sharedFriends=0;
+            //loop throuh user's frieds
+            for (int i = 0; i < userFriends.Count;i++ )
+            {
+                for (int j = 0; j < accountFriends.Count;j++ )
+                {
+                    //if they share a friend
+                    if(accountFriends[j].Id==userFriends[i].Id){
+                        sharedFriends++;
+                        break;
+                    }
+                }
+            }
+            return sharedFriends;
+        }
+
+        ///returns true if the user and a given account share any of the same clubs; false if not
+        public async Task<bool> InSameClub(string accountId) {
+            var userMemberships = await memberJuncTable.Where(item=>item.AccountId==User.Id).ToListAsync();
+            var accountMemberhsips = await memberJuncTable.Where(item => item.AccountId == accountId).ToListAsync();
+
+            for (int i = 0; i < userMemberships.Count;i++ )
+            {
+                for (int j = 0; j < accountMemberhsips.Count;j++ )
+                {
+                    //if they share club
+                    if(accountMemberhsips[j].ClubId==userMemberships[i].ClubId){
+                        return true;
+                    }
+                }
+            }
+            return false;
+
+        }
+
+        ///returns true if the user has a pending club request for a given club, false if not
+        public async Task<bool> IsPendingClubRequest(string clubId) {
+            var clubRequests = await clubRequestTable.Where(item=>(item.AccountId==User.Id && item.ClubId==clubId)).ToListAsync();
+            if(clubRequests.Count>0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        ///returns true if the there is a pending invite to a club for an account, false if not
+        public async Task<bool> IsPendingInvite(string clubId,string accountId)
+        {
+            var invites = await inviteTable.Where(item=>(item.ClubId==clubId && item.RecipientId==accountId)).ToListAsync();
+            if (invites.Count > 0)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        ///return true if the given account is a memer of the club, false if not
+        ///NOTE: this differs from is member in that ismember assumes the account is the user, isclubmember does not
+        public async Task<bool> IsClubMember(string clubId, string accountId) {
+            var members = await memberJuncTable.Where(item=>(item.ClubId==clubId && item.AccountId==accountId)).ToListAsync();
+            if(members.Count>0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        ///returns true if a given account has rated a comment, false if not
+        public async Task<bool> HasRatedComment(string accountId, string commentId) {
+            var ratings = await commentJuncTable.Where(item=>(item.CommentId==commentId && item.RaterId==accountId)).ToListAsync();
+            if(ratings.Count>0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        ///Delete a given tag for a club; returns true if success, false if failure
+        public async Task<bool> DeleteTag(string tag,string clubId) {
+            var tagList = await tagTable.Where(item => (item.Key == tag.ToLower() && item.ClubId == clubId)).ToListAsync();
+            if (tagList.Count > 0)
+            {
+                await tagTable.DeleteAsync(tagList[0]);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
         //TODO: make time added in constructors? not on server?
     }

@@ -69,6 +69,12 @@ function sortTags(tagHits,request,response){
 
 
 function getPopularity(tagHits,request,response){
+    //if no taghits, exit
+    if(tagHits.length==0){
+        console.log("no tag hits");
+        response.send(statusCodes.OK,null);
+        return;
+    }
     //make query to table
     var mssql = request.service.mssql;
     var sql = "SELECT * FROM Club WHERE id = ?;";
