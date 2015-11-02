@@ -19,7 +19,7 @@ namespace CloudClubv1._2_
             // The root page of your application
             dbWrapper = myDBWrapper;
             ColorHandler ch = new ColorHandler();
-           var navPage = new NavigationPage(new TabbedTutorialPage());
+           var navPage = new NavigationPage(new CarouselTutorialPage());
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
             MainPage = navPage;
 

@@ -27,6 +27,7 @@ namespace FrontEnd
             this.clubMemberList = clubMemberList;
             this.popularClubs = popularClubs;
             this.newestClubs = newestClubs;
+            this.Icon = "ClubSearch_TabView.png";
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
 
            popularPageContent = generatePopularPage();
@@ -251,15 +252,9 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Start
             };
 
-            
+
             List<Club> returnedSearchedClubs = new List<Club>();
-            searchEntry.Completed += async (sender, e) =>
-            {
-                //TODO see how to get tags to search by
-                List<string> tagsList = new List<string>();
-                string tagString = searchEntry.Text;
-                 returnedSearchedClubs=  await App.dbWrapper.SearchClubs(tagsList);
-            };
+
 
             ListView listView = new ListView
             {
@@ -330,6 +325,25 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.End,
                 BackgroundColor = ch.fromStringToColor("gray"),
                 Spacing = 1
+            };
+            searchEntry.Focused += (sender, e) =>
+            {
+                bottomButtonLayout.IsVisible = false;
+            };
+            searchEntry.Unfocused += (sender, e) =>
+             {
+                 bottomButtonLayout.IsVisible = true;
+             };
+            searchEntry.Completed += async (sender, e) =>
+            {
+                //TODO see how to get tags to search by
+                List<string> tagsList = new List<string>();
+                string tagString = searchEntry.Text;
+                
+                returnedSearchedClubs = await App.dbWrapper.SearchClubs(tagsList);
+                
+                bottomButtonLayout.IsVisible = true;
+                searchEntry.Text = "";
             };
             return new StackLayout
             {

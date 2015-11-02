@@ -24,6 +24,13 @@ namespace FrontEnd
             ch = new ColorHandler();
             this.BackgroundColor = Color.Black;
             this.Title = club.Title;
+            this.ToolbarItems.Add(new ToolbarItem
+            {
+                Icon = "Settings_Top.png",
+
+                Order = ToolbarItemOrder.Primary,
+                Command = new Command(() => menuPopup())
+            });
             this.commentsList = new ObservableCollection<FrontComment>();
             for (int i = 0; i < commentsList.Count;i++)
             {
@@ -78,6 +85,11 @@ namespace FrontEnd
             }
 
 
+        }
+        private async void menuPopup()
+        {
+            var tagsList = await App.dbWrapper.GetTags(club.Id);
+            Navigation.PushAsync(new ChatInfoPage(tagsList, club));
         }
     }
 }
