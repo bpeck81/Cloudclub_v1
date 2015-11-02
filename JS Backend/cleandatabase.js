@@ -18,6 +18,9 @@ function CleanDatabase() {
     //NOTE: this should go in its own job once we have more schedulers
     updateRankings();
     cleanBans();
+    cleanClubRequests();
+    cleanDBNotifications();
+    //NOTE: I am refraining from deleting old friend requests and invites
     
     //Erase old comments ana images if they had one
     var commentTable = tables.getTable('Comment');
@@ -32,6 +35,8 @@ function CleanDatabase() {
                     if(comments[i].Picture){
                         cleanImages(comments[i]);
                     }
+                    //clean ratings for the comment
+                    cleanCommentJunction(comments[i]);
                     
                     console.log(i+"-deleting: "+comments[i].id);
                     commentTable.del(comments[i].id);
@@ -111,10 +116,12 @@ function cleanClub(club){
     });
 }
 
+//deletes clubs, tags, and now ratings for clubs
 function deleteClubAndTags(bDelete,clubId){
     if(bDelete){
         console.log("deleting club: "+clubId);
         cleanTags(clubId);
+        cleanRatingJunction(clubId);
         var clubTable = tables.getTable('Club');
         clubTable.del(clubId);
         
@@ -204,6 +211,60 @@ function cleanBans(){
                 if(!isNew(bans[i].Time.getTime())){
                     banTable.del(bans[i].id);
                 }
+            }
+        }
+    });
+}
+
+//delete clubrequests that are old
+function cleanClubRequests(){
+    var clubRequestTable = tables.getTable('ClubRequest');
+    clubRequestTable.read({
+        success:function(requests){
+            for(var i=0;i<requests.length;i++){
+                if(!isNew(requests[i].Time.getTime())){
+                    clubRequestTable.del(requests[i].id);
+                    console.log("deleting old club request");
+                }
+            }
+        }
+    });
+}
+
+//delete comment ratings for a given comment
+function cleanCommentJunction(comment){
+    var commentJuncTable = tables.getTable('CommentJunction');
+    commentJuncTable.where({CommentId:comment.id}).read({
+        success:function(ratings){
+            for(var i=0;i<ratings.length;i++){
+                commentJuncTable.del(ratings[i].id);
+            }
+        }
+    });
+}
+
+//delete dbnotifications that are old
+function cleanDBNotifications(){
+    var dbNotificationTable = tables.getTable('DBNotification');
+    dbNotificationTable.read({
+        success:function(notifications){
+            for(var i=0;i<notifications.length;i++){
+                if(!isNew(notifications[i].Time.getTime())){
+                    dbNotificationTable.del(notifications[i].id);
+                    console.log("deleting old dbnotification");
+                }
+            }
+        }
+    });
+}
+
+//delete club ratings for a given club
+function cleanRatingJunction(clubId){
+    var ratingJuncTable = tables.getTable('RatingJunction');
+    ratingJuncTable.where({ClubId:clubId}).read({
+        success:function(ratings){
+            for(var i=0;i<ratings.length;i++){
+                ratingJuncTable.del(ratings[i].id);
             }
         }
     });

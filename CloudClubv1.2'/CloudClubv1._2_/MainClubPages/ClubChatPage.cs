@@ -36,6 +36,10 @@ namespace FrontEnd
             CurrentCommentsList = this.commentsList;
 
             updatePage();
+
+            //Michael's debug stuff
+            System.Diagnostics.Debug.WriteLine("mydebug---" + club.Id);
+            App.dbWrapper.SetCurrentClubId(club.Id);
                         
         }
         private void updatePage()

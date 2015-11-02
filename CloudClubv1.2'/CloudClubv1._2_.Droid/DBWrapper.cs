@@ -53,10 +53,11 @@ namespace CloudClubv1._2_.Droid
         public static IMobileServiceTable<DBNotification> dbNotificationTable = client.GetTable<DBNotification>();
         public static IMobileServiceTable<Ban> banTable = client.GetTable<Ban>();
 
+        //used to determine how to handle push notifications
+        public static string CurrentClubId = null;
+
         //class members
         private Account User;
-        //used to determine how to handle push notifications
-        private string CurrentClub;
 
         //constants
         private const int CLUB_SIZE = 50;
@@ -896,11 +897,6 @@ namespace CloudClubv1._2_.Droid
             }
         }
 
-        /// Returns the current club the user is looking at; is necessary for determing when to display push notif.
-        public string GetCurrentClub(){
-            return CurrentClub;
-        }
-
         /// sets the user to null rather than an account value
         public void LogoutUser() {
             User = null;
@@ -1069,6 +1065,24 @@ namespace CloudClubv1._2_.Droid
         {
             var comments = await commentTable.Where(item => item.ClubId == clubId).OrderByDescending(item => item.Time).Take(1).ToListAsync();
             return (TimeSpan)(DateTime.Now - comments[0].Time);
+        }
+
+        //NOTE: these functions are unecessary since the things is static, but for consistency sake, here they are
+        ///must be called when viewing a new club; notifys backend of what club is currenty being viewed for 
+        ///push notification purposes
+        public void SetCurrentClubId(string clubId) {
+            CurrentClubId = clubId;
+        }
+
+        ///returns the id of the club the user is currently looking at
+        public string GetCurrentClubId() {
+            return CurrentClubId;
+        }
+
+        ///must be called when leaving view of club;sets the id of the current club the user is looking at to null
+        public void RemoveCurrentClubId()
+        {
+            CurrentClubId = null;
         }
 
         //TODO: make time added in constructors? not on server?

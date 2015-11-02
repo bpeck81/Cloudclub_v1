@@ -58,7 +58,7 @@ function createMedal(name,points,id,request){
             accountTable.update(account);
             //send push notification
             var tags = [medal.AccountId];
-            var payload = '{ "message" : "You have earned a medal!" }';
+            var payload = '{ "message" : "medal,You have earned a medal!" }';
             sendPush(tags,payload,request);
         }
     });

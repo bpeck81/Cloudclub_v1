@@ -69,14 +69,16 @@ namespace FrontEnd
 
         private async void DebugDatabase(){
             string debug = "MYDEBUG-----";
-            await App.dbWrapper.LoginAccount("Alpha","Alpha");
-            await App.dbWrapper.CreateClub("title","blue",false,new List<string>());
+            //await App.dbWrapper.CreateAccount("6","6");
+            await App.dbWrapper.LoginAccount("6","6");
             var club = (await App.dbWrapper.GetClubs())[0];
-
-            await App.dbWrapper.CreateInvite(club.Id,App.dbWrapper.GetUser().Id);
-            await App.dbWrapper.LeaveClub(club.Id);
-            var clubInvites = await App.dbWrapper.GetInvites();
-            await App.dbWrapper.AcceptInvite(clubInvites[0].Id);
+            //await App.dbWrapper.JoinClubByInvite(App.dbWrapper.GetUser().Id,club.Id);
+            //await App.dbWrapper.CreateComment("haneous comment",club.Id);
+            var comment = (await App.dbWrapper.GetComments(club.Id))[0];
+            await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id,comment.Id);
+            //await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id, comment.Id);
+            //await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id, comment.Id);
+            //await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id, comment.Id);
         }
 
     }

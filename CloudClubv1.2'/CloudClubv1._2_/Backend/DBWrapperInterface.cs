@@ -53,7 +53,6 @@ namespace CloudClubv1._2_
           Task<DBNotification> TestDBNotification();
           Task<string> CreateBan(string accountId, string commentId);
           Account GetUser();
-          string GetCurrentClub();
           void LogoutUser();
           Task<int> GetFriendship(string accountId);
           Task<int> GetUserRating(string clubId);
@@ -67,5 +66,8 @@ namespace CloudClubv1._2_
           Task<bool> HasRatedComment(string accountId, string commentId);
           Task<bool> DeleteTag(string tag, string clubId);
           Task<TimeSpan> TimeSinceActivity(string clubId);
+          void SetCurrentClubId(string clubId);
+          string GetCurrentClubId();
+          void RemoveCurrentClubId();
     }
 }

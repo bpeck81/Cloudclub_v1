@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBWrapper.cs" />
+    <Compile Include="GcmPushes.cs" />
     <Compile Include="GcmService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

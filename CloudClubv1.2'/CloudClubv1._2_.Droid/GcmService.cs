@@ -34,9 +34,12 @@ namespace CloudClubv1._2_.Droid
     public class GcmService : GcmServiceBase
     {
         public static string RegistrationID { get; private set; }
+        private GcmPushes gcmPushes;
 
         public GcmService()
-            : base(PushHandlerBroadcastReceiver.SENDER_IDS) { }
+            : base(PushHandlerBroadcastReceiver.SENDER_IDS) {
+                gcmPushes = new GcmPushes(this);
+        }
 
         //needed to add this
         protected override void OnUnRegistered(Context context, string registrationId)
@@ -84,53 +87,37 @@ namespace CloudClubv1._2_.Droid
                     msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
             }
 
-            //Store the message
-            /*
-            var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-            var edit = prefs.Edit();
-            edit.PutString("last_msg", msg.ToString());
-            edit.Commit();*/
-
-            
             string message = intent.Extras.GetString("message");
             //message has format: "type of notification,id of class associate w/ notification"
             string[] parsedMessage = message.Split(',');
 
             if (!string.IsNullOrEmpty(message))
             {
+                //used for updating chats
                 if(parsedMessage[0].Equals("comment")){
-
-                    var comment = await DBWrapper.commentTable.LookupAsync(parsedMessage[1]);
-                    var account = await DBWrapper.accountTable.LookupAsync(comment.AuthorId);
-                    var club = await DBWrapper.clubTable.LookupAsync(comment.ClubId);
-
-                    //ClubChatPage.CurrentCommentsList.Add(new FrontComment(comment, account));
-
-                    createNotification("Cloudclub", "People have been talking in "+club.Title+".");
-                    return;
+                    await gcmPushes.CommentPush(parsedMessage);
                 }
                 else if (parsedMessage[0].Equals("like"))
                 {
-
-                    var dbComment = await DBWrapper.commentTable.LookupAsync(parsedMessage[1]);
-
-                    //hacky solution; i should implement the interface inotifypropertychanged https://msdn.microsoft.com/en-us/library/vstudio/ms743695(v=vs.100).aspx
-                    var comment = ClubChatPage.CurrentCommentsList.FirstOrDefault(item=>item.Id==dbComment.Id);
-                    comment.NumDroplets = dbComment.NumDroplets;
-                    int index = ClubChatPage.CurrentCommentsList.IndexOf(comment);
-                    ClubChatPage.CurrentCommentsList.Remove(comment);
-                    ClubChatPage.CurrentCommentsList.Insert(index,comment);
-
-
-                    System.Diagnostics.Debug.WriteLine("COMMENT LIKED");
-
-                    return;
+                    await gcmPushes.LikePush(parsedMessage);
+                }
+                //standard use for notifications
+                else if(parsedMessage[0].Equals("medal")){
+                    gcmPushes.MedalPush(parsedMessage);
+                }
+                else if (parsedMessage[0].Equals("droplet"))
+                {
+                    await gcmPushes.DropletPush(parsedMessage);
+                }
+                else if (parsedMessage[0].Equals("dbNotification"))
+                {
+                    gcmPushes.DBNotificationPush(parsedMessage);
                 }
             }
 
         }
 
-        void createNotification(string title, string desc)
+        public void createNotification(string title, string desc)
         {
             //Create notification
             var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
