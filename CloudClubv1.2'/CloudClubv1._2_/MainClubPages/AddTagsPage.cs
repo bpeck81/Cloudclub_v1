@@ -13,7 +13,7 @@ namespace FrontEnd
     {
         public List<FrontTag> addedTags = new List<FrontTag>();
        public Entry tagEntry;
-
+        
         ColorHandler ch;
         public AddTagsPage()
         {
@@ -52,7 +52,7 @@ namespace FrontEnd
             var tagE = (Entry)sender;
 
             if (addedTags.Count < 5) addedTags.Add(new FrontTag(tagE.Text));
-            CreateClubPage.bAddTags.Text = addedTags.Count.ToString();
+            //CreateClubPage.bAddTags.Text = addedTags.Count.ToString();
         }
     }
 }

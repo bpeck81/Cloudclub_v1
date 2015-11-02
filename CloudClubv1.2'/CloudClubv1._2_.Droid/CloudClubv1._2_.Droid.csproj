@@ -177,9 +177,12 @@
     <AndroidResource Include="Resources\drawable\DropletFull_WhiteB.png" />
     <AndroidResource Include="Resources\drawable\Medal_WhiteB.png" />
     <AndroidResource Include="Resources\drawable\Settings_Top.png" />
+    <AndroidResource Include="Resources\drawable\ClubSearch_TabView.png" />
     <Content Include="Resources\drawable\DropletEmpty_WhiteB.png" />
     <Content Include="Resources\drawable\Friends_Profile.png" />
     <AndroidResource Include="Resources\drawable\News_Profile.png" />
+    <AndroidResource Include="Resources\drawable\MyClubs_TabView.png" />
+    <AndroidResource Include="Resources\drawable\Profile_TabView.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">

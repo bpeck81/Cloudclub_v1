@@ -41,6 +41,23 @@ namespace FrontEnd
             if (frontMyClubList.Count > 0) Content = clubScroll;
             else
             {
+                Button bNewClub = new Button
+                {
+                    Text = "+",
+                    FontSize = 40,
+                    HeightRequest = 70,
+                    WidthRequest = 70,
+                    BorderRadius = 200,
+                    BackgroundColor = ch.fromStringToColor("purple"),
+                    TextColor = ch.fromStringToColor("white"),
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
+
+                };
+                bNewClub.Clicked += (object sender, EventArgs e) =>
+                {
+                    Navigation.PushAsync(new CreateClubPage());
+                };
                 Content = new StackLayout
                 {
                     Children =
@@ -49,11 +66,47 @@ namespace FrontEnd
                         {
                             Text = "You aren't in any Clubs!",
                             FontAttributes = FontAttributes.Bold,
-                            TextColor= ch.fromStringToColor("black"),
+                            TextColor= ch.fromStringToColor("red"),
+                            HorizontalOptions = LayoutOptions.CenterAndExpand,
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+
                             FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label)),
-                        }
+                        },
+                          new Label
+                        {
+                            Text = "Swipe right to explore and find interesting clubs!",
+                            FontAttributes = FontAttributes.Bold,
+                            TextColor= ch.fromStringToColor("gray"),
+                            XAlign = TextAlignment.Center,
+                            HorizontalOptions = LayoutOptions.CenterAndExpand,
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+                            FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label)),
+                        },
+                          new Label
+                        {
+                            Text = "OR",
+                            FontAttributes = FontAttributes.Bold,
+                            TextColor= ch.fromStringToColor("gray"),
+                            HorizontalOptions = LayoutOptions.CenterAndExpand,
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+
+                            FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label)),
+                        },
+                          new Label
+                        {
+                            Text = "Create a new club!",
+                            FontAttributes = FontAttributes.Bold,
+                            TextColor= ch.fromStringToColor("gray"),
+                            HorizontalOptions = LayoutOptions.CenterAndExpand,
+                            VerticalOptions = LayoutOptions.CenterAndExpand,
+                            FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Label)),
+                        },
+                          bNewClub
+
+
                     },
-                    BackgroundColor = ch.fromStringToColor("lightGray")
+                    Spacing = 20,
+                    BackgroundColor = ch.fromStringToColor("white")
 
                 };
             }

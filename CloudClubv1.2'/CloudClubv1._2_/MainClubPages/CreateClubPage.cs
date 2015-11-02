@@ -17,7 +17,8 @@ namespace FrontEnd
         Label titleLabel, colorLabel, tagsLabel, inviteLabel, lcouldntCreate;
         Grid colorGrid;
         Button bContinue, bAddFriends, bPublic, bPrivate;
-        public static Button bAddTags; //Must fix
+        public Button bAddTags; //Must fix
+        
         List<string> tagList;       
         List<Button> colorButtons;
         Entry clubNameEntry;
@@ -120,7 +121,7 @@ namespace FrontEnd
             };
             bAddTags = new Button
             {
-                Text = "0",
+                Text = tagPage.addedTags.Count.ToString(),
                 TextColor = Color.White,
                 BackgroundColor = ch.fromStringToColor("lightGray"),
                 FontAttributes =FontAttributes.Bold,
@@ -291,6 +292,7 @@ namespace FrontEnd
             {
                 tagList.Add(frontTagList[i].Tag);
             }
+            bAddTags.Text = tagList.Count.ToString();
          }
 
         private void BPrivate_Clicked(object sender, EventArgs e)

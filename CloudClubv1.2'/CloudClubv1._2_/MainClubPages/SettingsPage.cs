@@ -31,7 +31,7 @@ namespace FrontEnd
             tutorialTCell.Tapped += (sender, e) =>
             {
 
-                Navigation.PushAsync(new TabbedTutorialPageRedo());
+                Navigation.PushAsync(new CarouselTutorialPageRedo());
             };
             var contactUsTCell = new TextCell
             {

@@ -19,8 +19,9 @@ namespace FrontEnd
         public List<Medal> medals;
         TapGestureRecognizer friendsImagetgr;
         TapGestureRecognizer newsImagetgr;
-
-
+        TapGestureRecognizer userTextTgr;
+        Label userText;
+        Entry userTextEntry;
 
         public ProfilePage()
         {
@@ -28,6 +29,8 @@ namespace FrontEnd
             friendsImagetgr.Tapped += FriendsImagetgr_Tapped;
             newsImagetgr = new TapGestureRecognizer();
             newsImagetgr.Tapped += NewsImagetgr_Tapped;
+            userTextTgr = new TapGestureRecognizer();
+            userTextTgr.Tapped += UserTextTgr_Tapped;
             ch = new ColorHandler();
             friendRequests = new List<FriendRequest>();
             medals = new List<Medal>();
@@ -41,7 +44,7 @@ namespace FrontEnd
                 TextColor = ch.fromStringToColor(user.Color),
                 FontAttributes = FontAttributes.Bold,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-                HorizontalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
 
@@ -51,7 +54,8 @@ namespace FrontEnd
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                Scale = .3
+                WidthRequest = 115,
+                Scale = .8
             };
             Image medalsImg = new Image
             {
@@ -59,7 +63,7 @@ namespace FrontEnd
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                Scale = .6
+                WidthRequest = 50
             };
             Label lMedals = new Label
             {
@@ -68,7 +72,7 @@ namespace FrontEnd
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                Scale = .6
+                
             };
             var dropletPath = "DropletFull_WhiteB.png";
             if (user.NumDroplets > 0) dropletPath = "DropletFull_WhiteB.png";
@@ -77,7 +81,8 @@ namespace FrontEnd
                 Source = ImageSource.FromFile(dropletPath),
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                WidthRequest = 50
             };
             Label lDroplet = new Label
             {
@@ -91,20 +96,44 @@ namespace FrontEnd
             {
                 Text = "In Cloudclub",
                 TextColor = ch.fromStringToColor("gray"),
-                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+                FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
             Label lNumClubs = new Label
             {
                 Text = user.NumClubsIn.ToString(),
-                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
+                FontSize = 42,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                TextColor = ch.fromStringToColor("yellow")
+            };
+            userText = new Label
+            {
+                Text = user.Description,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
+                
+            };
+            userText.GestureRecognizers.Add(userTextTgr);
+            userTextEntry = new Entry
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Text = userText.Text,
+                BackgroundColor = ch.fromStringToColor("white"),
+                TextColor = ch.fromStringToColor("black"),
+                IsVisible = false,
+            };
+            userTextEntry.TextChanged += UserTextEntry_TextChanged;
+            userTextEntry.Completed += UserTextEntry_Completed;
+            userTextEntry.Unfocused += (sender, e)=>{
+                userText.Text = userTextEntry.Text;
+                userTextEntry.IsVisible = false;
+                userText.IsVisible = true;
             };
             Image friendsImg = new Image
             {
-                Source = FileImageSource.FromFile("Friends_Profile.png"),
+                Source = FileImageSource.FromFile("News_Profile.png"),
                 Aspect = Aspect.AspectFill,
                 HorizontalOptions= LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand
@@ -120,79 +149,127 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
             newsImg.GestureRecognizers.Add(newsImagetgr);
-
-            StackLayout contentStackLayout = new StackLayout
+            var medalSLayout = new StackLayout
             {
                 Children =
                 {
-                    new StackLayout
-                    {
-                        Children =
-                        {
-                            new StackLayout
-                            {
-                               Children =
-                                {
-                                     new StackLayout
-                                      {
-                                        Children =
-                                         {
-                                             medalsImg,
-                                             lMedals
-
-                                         },
-                                        Orientation = StackOrientation.Horizontal
-                                       },
-                                      new StackLayout
-                                        {
-                                          Children=
-                                          {
-                                              dropletImg,
-                                              lDroplet
-                                          },
-                                          Orientation=StackOrientation.Horizontal
-
-                                        },
-
-                                }
-                            },
-                            userEmoji,
-                            new StackLayout
-                            {
-                                Children =
-                                {
-                                    lNumClubs,
-                                    lInCloudClub
-                                }
-                            }
-                        },
-                        Orientation = StackOrientation.Horizontal,
-                        HorizontalOptions= LayoutOptions.FillAndExpand,
-                        VerticalOptions= LayoutOptions.FillAndExpand
-                    },
-                    lAccountName,
-                    new StackLayout
-                    {
-                        Children =
-                        {
-                            friendsImg,
-                            newsImg
-                        },
-                        Orientation = StackOrientation.Horizontal,
-                        Spacing = 10
-                    }
-                    //add account jargon
-                    // add two button images of friends and news for stack layout
+                    medalsImg,
+                    lMedals
                 },
-                BackgroundColor = ch.fromStringToColor("white")
+                Orientation=  StackOrientation.Horizontal
 
             };
-            Content = contentStackLayout;
+            var dropletSLayout = new StackLayout
+            {
+                Children =
+                {
+                    dropletImg,
+                    lDroplet
+                },
+                Orientation = StackOrientation.Horizontal
+            };
+            var medalsDropletStackLayout = new StackLayout
+            {
+                Children =
+                {
+                    medalSLayout,
+                    dropletSLayout
+                }
+
+            };
+            var inClubSLayout = new StackLayout
+            {
+                Children =
+                {
+                    lNumClubs,
+                    lInCloudClub
+
+                },
+                Padding = new Thickness(0,30,0,0)
+
+            };
+            var awardsEmojiInclubSLayout = new StackLayout
+            {
+                Children =
+                {
+                    medalsDropletStackLayout,
+                    userEmoji,
+                    inClubSLayout
+                },
+                Spacing = 35,
+                Orientation=  StackOrientation.Horizontal
+                
+
+            };
+            var topLayout = new StackLayout
+            {
+                Children =
+                {
+                    awardsEmojiInclubSLayout,
+                    lAccountName,
+                    userText,
+                    userTextEntry
+                },
+                Padding= new Thickness(20,20,20, 0),
+                Spacing = 25
+            };
+            var friendsNewsSLayout = new StackLayout
+            {
+                Children =
+                {
+                    friendsImg,
+                    newsImg
+                },
+                Spacing=  10,
+                Orientation = StackOrientation.Horizontal,
+                VerticalOptions = LayoutOptions.FillAndExpand
+            };
+            var contentLayout = new StackLayout
+            {
+                Children =
+                {
+                    topLayout,
+                    friendsNewsSLayout
+                },
+                Spacing = 10
+            };
+            
+            Content = contentLayout;
         }
 
-        private void FriendsImagetgr_Tapped(object sender, EventArgs e)
+        private void UserTextEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Navigation.PushAsync(new FriendsPage());
+            Entry entry = sender as Entry;
+            var val = entry.Text;
+            if(entry.Text.Length > 50)
+            {
+                entry.Text = val.Remove(entry.Text.Length - 1); 
+            }
+        }
+
+        private void UserTextEntry_Completed(object sender, EventArgs e)
+        {
+            userText.Text = userTextEntry.Text;
+            userTextEntry.IsVisible = false;
+            userText.IsVisible = true;
+        }
+
+        private void UserTextTgr_Tapped(object sender, EventArgs e)
+        {
+            userText.IsVisible = false;
+            userTextEntry.IsVisible = true;
+            userTextEntry.Text = userText.Text;
+        }
+
+        private async void FriendsImagetgr_Tapped(object sender, EventArgs e)
+        {
+            var friendsList = await App.dbWrapper.GetFriends(App.dbWrapper.GetUser().Id);
+            List<FrontFriends> frontFriendsList = new List<FrontFriends>();
+            for (int i = 0; i < friendsList.Count; i++)
+            {
+                frontFriendsList.Add(new FrontFriends(friendsList[i], await App.dbWrapper.InSameClub(friendsList[i].Id)));
+            }
+            await Navigation.PushAsync(new FriendsPage(frontFriendsList));
         }
 
         private void NewsImagetgr_Tapped(object sender, EventArgs e)
@@ -205,15 +282,7 @@ namespace FrontEnd
         private string getUserEmojiString()
         {
             string defaultImageString = "cloud.png";
-            /*  if (account.Emoji != "default")
-              {
-                  return account.Emoji;
-              }
-              else
-              {
-                  return defaultImageString;
-              }
-              */
+    
             return defaultImageString;
 
 
@@ -221,15 +290,7 @@ namespace FrontEnd
         private string getUserDropletString()
         {
             string dropletString = "";
-            /*
-            if (account.NumDroplets > 0)
-            {
-                dropletString = "DropletFull_WhiteB.png";
-            }
-            else
-            {
-                dropletString = "DropletEmpty_WhiteB.png";
-            }*/
+
             return dropletString;
         }
     }
