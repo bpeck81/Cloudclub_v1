@@ -39,7 +39,13 @@ namespace Backend
         //the user account is created
         public DateTime Banned { get; set; }
 
-		public Account (string username, string password){
+        public bool RatingNotificationToggle { get; set; }
+
+        public int NumMedals { get; set; }
+
+        public string Email { get; set; }
+
+		public Account (string username, string password, string email){
 			//datetime is null, passed in by server
 			Emoji = "none";
 			Color = "none";
@@ -53,9 +59,12 @@ namespace Backend
 			NumFriends = 0;
             Points = 0;
             Banned = DateTime.Now;
+            RatingNotificationToggle = false;
+            NumMedals = 0;
 
 			Username = username;
 			Password = password;
+            Email = email;
 		}
 
 

@@ -9,7 +9,9 @@ namespace CloudClubv1._2_
 {
     public interface DBWrapperInterface
     {
+          //NOTE: DEPRACATED METHOD, WILL BE REMOVED SOON!
           Task<bool> CreateAccount(string username, string password);
+          Task<int> CreateAccount(string username, string password, string email);
           Task<bool> LoginAccount(string username, string password);
           Task<string> SetUserEmoji(string emoji);
           Task<string> SetUserColor(string color);
@@ -51,9 +53,8 @@ namespace CloudClubv1._2_
           Task<string> CreateMedal(string medalName, int points) ;
           Task<List<Medal>> GetMedals();
           Task<DBNotification> TestDBNotification();
-          Task<string> CreateBan(string accountId, string commentId);
+          Task<bool> CreateBan(string accountId, string commentId, string reporterId);
           Account GetUser();
-          string GetCurrentClub();
           void LogoutUser();
           Task<int> GetFriendship(string accountId);
           Task<int> GetUserRating(string clubId);
@@ -67,5 +68,14 @@ namespace CloudClubv1._2_
           Task<bool> HasRatedComment(string accountId, string commentId);
           Task<bool> DeleteTag(string tag, string clubId);
           Task<TimeSpan> TimeSinceActivity(string clubId);
+          Task SetCurrentClubId(string clubId);
+          string GetCurrentClubId();
+          Task RemoveCurrentClubId();
+          Task<bool> EnableRankingNotification();
+          Task<bool> DisableRankingNotification();
+          Task<List<Account>> GetClubMembers(string clubId);
+          Task<List<Club>> GetAccountClubs(string accountId);
+          Task<List<DBItem>> GetChat(string clubId, int index);
+          Task<bool> CreateClubReport(string clubId, string reporterId);
     }
 }

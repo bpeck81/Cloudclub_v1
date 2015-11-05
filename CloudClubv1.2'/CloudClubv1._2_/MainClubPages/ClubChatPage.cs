@@ -43,6 +43,10 @@ namespace FrontEnd
             CurrentCommentsList = this.commentsList;
 
             updatePage();
+
+            //Michael's debug stuff
+            System.Diagnostics.Debug.WriteLine("mydebug---" + club.Id);
+            App.dbWrapper.SetCurrentClubId(club.Id);
                         
         }
         private void updatePage()
@@ -80,7 +84,7 @@ namespace FrontEnd
             {
                 var joinClub = await App.dbWrapper.JoinClub(club.Id);
                 var commentOutput = await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
-                System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
+                //System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
                 userEntry.Text = "";
             }
 

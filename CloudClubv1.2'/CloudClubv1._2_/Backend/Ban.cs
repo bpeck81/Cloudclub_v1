@@ -12,11 +12,14 @@ namespace Backend
 
         public string CommentId { get; set; }
 
-        public Ban(string accountId, string commentId)
+        public string ReporterId { get; set; }
+
+        public Ban(string accountId, string commentId, string reporterId)
         {
             Time = DateTime.Now;
             AccountId = accountId;
             CommentId = commentId;
+            ReporterId = reporterId;
         }
     }
 }

@@ -18,6 +18,11 @@ function CleanDatabase() {
     //NOTE: this should go in its own job once we have more schedulers
     updateRankings();
     cleanBans();
+    cleanClubReports();
+    cleanTemporaryMemberJunctions();
+    cleanClubRequests();
+    cleanDBNotifications();
+    //NOTE: I am refraining from deleting old friend requests and invites
     
     //Erase old comments ana images if they had one
     var commentTable = tables.getTable('Comment');
@@ -32,6 +37,8 @@ function CleanDatabase() {
                     if(comments[i].Picture){
                         cleanImages(comments[i]);
                     }
+                    //clean ratings for the comment
+                    cleanCommentJunction(comments[i]);
                     
                     console.log(i+"-deleting: "+comments[i].id);
                     commentTable.del(comments[i].id);
@@ -73,11 +80,22 @@ function cleanComment(comment){
     }
 }
 
-//returns true if whatever is passed in is new
+//returns true if whatever is passed in is less than 1 hour old
 function isNew(timeObject){
     var timeNow = new Date().getTime();
     var timeExisted = (timeNow-timeObject)/(1000*60*60);
     if(timeExisted<.01){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+//returns true if whatever is passed in is greater than 23 hours
+function isSemiOld(timeObject){
+    var timeNow = new Date().getTime();
+    var timeExisted = (timeNow-timeObject)/(1000*60*60);
+    if(timeExisted>.01){
         return true;
     }else{
         return false;
@@ -101,7 +119,9 @@ function cleanClub(club){
             for(var i = 0;i<comments.length;i++){
                 if(isNew(comments[i].Time.getTime())){
                     //if only an hour before the club is deleted, notify users
-                    createWarning(club,comments[i].Time.getTime());
+                    if(isSemiOld(comments[i].Time.getTime())){
+                        createWarning(club,comments[i].Time.getTime());
+                    }
         
                     return deleteClubAndTags(false,club.id);
                 }
@@ -111,10 +131,12 @@ function cleanClub(club){
     });
 }
 
+//deletes clubs, tags, and now ratings for clubs
 function deleteClubAndTags(bDelete,clubId){
     if(bDelete){
         console.log("deleting club: "+clubId);
         cleanTags(clubId);
+        cleanRatingJunction(clubId);
         var clubTable = tables.getTable('Club');
         clubTable.del(clubId);
         
@@ -161,19 +183,26 @@ function createWarning(club,time){
     //if club will be deleted in an hour
     if(timeExisted>0){
         var memberJunctionTable = tables.getTable('MemberJunction');
-        var notificationTable = tables.getTable('Notification');
+        var dbNotificationTable = tables.getTable('DBNotification');
         
         memberJunctionTable.where({ClubId: club.id}).read({
             success:function(memberships){
                 for(var i = 0;i<memberships.length;i++){
                     //id is automatically added
-                    var notification = {
+                    var dbNotification = {
                         Time: new Date(),
                         AccountId: memberships[i].AccountId,
                         Type: "warning",
                         Text: 'The club "'+club.Title+'" will expire if no one speaks!'
                     };
-                    notificationTable.insert(notification);
+                    dbNotificationTable.insert(dbNotification);
+                    
+                    //send push notification
+                    //NOTE: error just passing in dbnotification.text, due to the sequence of quotes
+                    var payloadText = 'The club \\"'+club.Title+'\\" will expire if no one speaks!';
+                    var tags = [memberships[i].AccountId];
+                    var payload = '{ "message" : "dbNotification,'+payloadText+'" }';
+                    sendPush(tags,payload);
                 }
             }
         });
@@ -183,12 +212,33 @@ function createWarning(club,time){
 //Update the user accounts with their ranks and add notifications for them
 function updateRankings(){
     var accountTable = tables.getTable('Account');
+    var dbNotificationTable = tables.getTable('DBNotification');
     accountTable.orderByDescending('Points').read({
         success:function(accounts){
             console.log('Rankings updated.');
             for(var i=0;i<accounts.length;i++){
                 accounts[i].Ranking=i;
                 accountTable.update(accounts[i]);
+                
+                //if user has enabled rating notifications
+                if(accounts[i].RatingNotificationToggle){
+                    //send push notification
+                    var payloadText = 'Congratulations! You are now the '+accounts[i].Ranking+'th highest ranked Cloudclub user.';
+                    var tags = [accounts[i].id];
+                    var payload = '{ "message" : "dbNotification,'+payloadText+'" }';
+                    sendPush(tags,payload);
+                    
+                    //add dbnotification
+                    //id is automatically added
+                    var dbNotification = {
+                        Time: new Date(),
+                        AccountId: accounts[i].id,
+                        Type: "rank",
+                        Text: payloadText
+                    };
+                    dbNotificationTable.insert(dbNotification);
+                }
+                
             }
         }
     });
@@ -208,3 +258,103 @@ function cleanBans(){
         }
     });
 }
+
+//delete club reports that are old
+function cleanClubReports(){
+    var clubReportTable = tables.getTable('ClubReport');
+    clubReportTable.read({
+        success:function(reports){
+            for(var i=0;i<reports.length;i++){
+                if(!isNew(reports[i].Time.getTime())){
+                    clubReportTable.del(reports[i].id);
+                }
+            }
+        }
+    });
+}
+
+//delete temporary memberships that are old
+function cleanTemporaryMemberJunctions(){
+    var tempMembJuncTable = tables.getTable('TemporaryMemberJunction');
+    tempMembJuncTable.read({
+        success:function(memberships){
+            for(var i=0;i<memberships.length;i++){
+                if(!isNew(memberships[i].Time.getTime())){
+                    tempMembJuncTable.del(memberships[i].id);
+                }
+            }
+        }
+    });
+}
+
+//delete clubrequests that are old
+function cleanClubRequests(){
+    var clubRequestTable = tables.getTable('ClubRequest');
+    clubRequestTable.read({
+        success:function(requests){
+            for(var i=0;i<requests.length;i++){
+                if(!isNew(requests[i].Time.getTime())){
+                    clubRequestTable.del(requests[i].id);
+                    console.log("deleting old club request");
+                }
+            }
+        }
+    });
+}
+
+//delete comment ratings for a given comment
+function cleanCommentJunction(comment){
+    var commentJuncTable = tables.getTable('CommentJunction');
+    commentJuncTable.where({CommentId:comment.id}).read({
+        success:function(ratings){
+            for(var i=0;i<ratings.length;i++){
+                commentJuncTable.del(ratings[i].id);
+            }
+        }
+    });
+}
+
+//delete dbnotifications that are old
+function cleanDBNotifications(){
+    var dbNotificationTable = tables.getTable('DBNotification');
+    dbNotificationTable.read({
+        success:function(notifications){
+            for(var i=0;i<notifications.length;i++){
+                if(!isNew(notifications[i].Time.getTime())){
+                    dbNotificationTable.del(notifications[i].id);
+                    console.log("deleting old dbnotification");
+                }
+            }
+        }
+    });
+}
+
+//delete club ratings for a given club
+function cleanRatingJunction(clubId){
+    var ratingJuncTable = tables.getTable('RatingJunction');
+    ratingJuncTable.where({ClubId:clubId}).read({
+        success:function(ratings){
+            for(var i=0;i<ratings.length;i++){
+                ratingJuncTable.del(ratings[i].id);
+            }
+        }
+    });
+}
+
+//PUSH NOTIFICATION
+ function sendPush(tags,payload){
+      // Write the default response and send a notification
+      // to all platforms.            
+      push.send(tags, payload, {               
+          success: function(pushResponse){
+          console.log("Sent push:", pushResponse);
+          // Send the default response.
+          //request.respond();
+          },              
+          error: function (pushResponse) {
+              console.log("Error Sending push:", pushResponse);
+               // Send the an error response.
+              //request.respond(500, { error: pushResponse });
+              }           
+       });    
+  }

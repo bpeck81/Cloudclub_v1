@@ -55,10 +55,11 @@ function createMedal(name,points,id,request){
         success:function(account){
             console.log("points being added");
             account.Points+=medal.Points;
+            account.NumMedals++;
             accountTable.update(account);
             //send push notification
             var tags = [medal.AccountId];
-            var payload = '{ "message" : "You have earned a medal!" }';
+            var payload = '{ "message" : "medal,You have earned a medal!" }';
             sendPush(tags,payload,request);
         }
     });

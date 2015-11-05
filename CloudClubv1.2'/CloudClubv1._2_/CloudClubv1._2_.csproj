@@ -39,6 +39,7 @@
     <Compile Include="Backend\Ban.cs" />
     <Compile Include="Backend\Club.cs" />
     <Compile Include="Backend\ClubNotification.cs" />
+    <Compile Include="Backend\ClubReport.cs" />
     <Compile Include="Backend\ClubRequest.cs" />
     <Compile Include="Backend\Comment.cs" />
     <Compile Include="Backend\CommentJunction.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Backend\MemberJunction.cs" />
     <Compile Include="Backend\DBMessage.cs" />
     <Compile Include="Backend\DBNotification.cs" />
+    <Compile Include="Backend\TemporaryMemberJunction.cs" />
     <Compile Include="MainClubPages\AddTagsPage.cs" />
     <Compile Include="MainClubPages\ChatInfoPage.cs" />
     <Compile Include="MainClubPages\ClubChatPage.cs" />
