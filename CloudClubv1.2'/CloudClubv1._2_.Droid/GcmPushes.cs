@@ -15,6 +15,8 @@ using Backend;
 using CloudClubv1._2_;
 using System.Threading.Tasks;
 
+//NOTE: sometimes pushes are tricky to debug since they come after the code has executed
+
 namespace CloudClubv1._2_.Droid
 {
     class GcmPushes
@@ -32,6 +34,7 @@ namespace CloudClubv1._2_.Droid
             //if the comment is in the club the user is currently in, add it to the currentCommentList
             if (club.Id.Equals(DBWrapper.CurrentClubId))
             {
+
                 var account = await DBWrapper.accountTable.LookupAsync(comment.AuthorId);
                 ClubChatPage.CurrentCommentsList.Add(new FrontComment(comment, account));
                 return;
@@ -40,9 +43,46 @@ namespace CloudClubv1._2_.Droid
             }
             else
             {
+                //add the club to a list of active clubs the user needs to still check
+                if(!DBWrapper.ActiveClubs.Contains(club.Id)){
+                    DBWrapper.ActiveClubs.Add(club.Id);
+                }
+
+                //make notification
                 GService.createNotification("Cloudclub", "People have been talking in " + club.Title + ".");
                 return;
             } 
+        }
+
+        public async Task ClubRequestPush(string[] parsedMessage)
+        {
+            var clubRequest = await DBWrapper.clubRequestTable.LookupAsync(parsedMessage[1]);
+            var club = await DBWrapper.clubTable.LookupAsync(clubRequest.ClubId);
+
+            //if the comment is in the club the user is currently in, add it to the currentCommentList
+            if (club.Id.Equals(DBWrapper.CurrentClubId))
+            {
+
+                var account = await DBWrapper.accountTable.LookupAsync(clubRequest.AccountId);
+
+                //TODO: MAKE FRONTCLUBREQUEST
+                //ClubChatPage.CurrentCommentsList.Add(new FrontComment(comment, account));
+                return;
+
+                //if the comment is not in the current opend club, make a push notification
+            }
+            else
+            {
+                //add the club to a list of active clubs the user needs to still check
+                if (!DBWrapper.ActiveClubs.Contains(club.Id))
+                {
+                    DBWrapper.ActiveClubs.Add(club.Id);
+                }
+
+                //make notification
+                GService.createNotification("Cloudclub", "People have been talking in " + club.Title + ".");
+                return;
+            }
         }
 
         public async Task LikePush(string[] parsedMessage) {

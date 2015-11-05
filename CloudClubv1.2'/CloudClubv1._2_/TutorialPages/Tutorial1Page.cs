@@ -69,16 +69,22 @@ namespace FrontEnd
 
         private async void DebugDatabase(){
             string debug = "MYDEBUG-----";
-            //await App.dbWrapper.CreateAccount("6","6");
-            await App.dbWrapper.LoginAccount("6","6");
+            await App.dbWrapper.CreateAccount("252","252");
+            await App.dbWrapper.LoginAccount("252","252");
+            System.Diagnostics.Debug.WriteLine(debug+App.dbWrapper.GetUser().Username);
+            await App.dbWrapper.CreateClub("title","blue",false,new List<string>());
             var club = (await App.dbWrapper.GetClubs())[0];
-            //await App.dbWrapper.JoinClubByInvite(App.dbWrapper.GetUser().Id,club.Id);
-            //await App.dbWrapper.CreateComment("haneous comment",club.Id);
-            var comment = (await App.dbWrapper.GetComments(club.Id))[0];
-            await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id,comment.Id);
-            //await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id, comment.Id);
-            //await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id, comment.Id);
-            //await App.dbWrapper.CreateBan(App.dbWrapper.GetUser().Id, comment.Id);
+            System.Diagnostics.Debug.WriteLine(debug+club.Title);
+
+            await App.dbWrapper.CreateComment(",yo",club.Id);
+           // await App.dbWrapper.CreateComment(",yo", club.Id);
+           // await App.dbWrapper.LoginAccount("22", "22");
+
+            //var user = App.dbWrapper.GetUser();
+            
+           // await App.dbWrapper.SetCurrentClubId(club.Id);
+            //await App.dbWrapper.RemoveCurrentClubId();
+            
         }
 
     }

@@ -113,6 +113,10 @@ namespace CloudClubv1._2_.Droid
                 {
                     gcmPushes.DBNotificationPush(parsedMessage);
                 }
+                else if (parsedMessage[0].Equals("clubRequest"))
+                {
+                    await gcmPushes.ClubRequestPush(parsedMessage);
+                }
             }
 
         }

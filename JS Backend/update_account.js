@@ -55,6 +55,7 @@ function createMedal(name,points,id,request){
         success:function(account){
             console.log("points being added");
             account.Points+=medal.Points;
+            account.NumMedals++;
             accountTable.update(account);
             //send push notification
             var tags = [medal.AccountId];

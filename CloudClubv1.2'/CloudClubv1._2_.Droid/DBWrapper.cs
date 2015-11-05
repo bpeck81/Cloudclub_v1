@@ -52,9 +52,13 @@ namespace CloudClubv1._2_.Droid
         public static IMobileServiceTable<Medal> medalTable = client.GetTable<Medal>();
         public static IMobileServiceTable<DBNotification> dbNotificationTable = client.GetTable<DBNotification>();
         public static IMobileServiceTable<Ban> banTable = client.GetTable<Ban>();
+        public static IMobileServiceTable<ClubReport> clubReportTable = client.GetTable<ClubReport>();
+        public static IMobileServiceTable<TemporaryMemberJunction> temporaryMemberJuncTable = client.GetTable<TemporaryMemberJunction>();
 
         //used to determine how to handle push notifications
         public static string CurrentClubId = null;
+        //used to determine missed updates in clubs
+        public static List<string> ActiveClubs = new List<string>();
 
         //class members
         private Account User;
@@ -72,15 +76,44 @@ namespace CloudClubv1._2_.Droid
 
         //FUNCTIONS
 
-        /// Create an account; returns 1 if successful, 0 if username is already in use
-        public async Task<bool> CreateAccount(string username, string password)
+        /// Create an account; returns 0 if successful, 1 if username is already in use, 2 if email is
+        public async Task<int> CreateAccount(string username, string password, string email)
         {
-            Account account = new Account(username, password);
+            Account account = new Account(username, password, email);
 
             //check if username in use
-            var list = await accountTable.Where(item => item.Username == account.Username).ToListAsync();
+            var usernameList = await accountTable.Where(item => item.Username == account.Username).ToListAsync();
+            var emailList = await accountTable.Where(item => item.Email == account.Email).ToListAsync();
 
-            if (list.Count > 0)
+            //if username in use
+            if (usernameList.Count > 0 )
+            {
+                return 1;
+            }
+            //if email in use
+            else if (emailList.Count > 0)
+            {
+                return 2;
+            }
+            //if ok
+            else
+            {
+                await accountTable.InsertAsync(account);
+                return 0;
+            }
+
+        }
+
+        /// NOTE: DEPRACATED; WILL BE REMOVED SOON
+        public async Task<bool> CreateAccount(string username, string password)
+        {
+            Account account = new Account(username, password, "no email");
+
+            //check if username in use
+            var usernameList = await accountTable.Where(item => item.Username == account.Username).ToListAsync();
+            //var emailList = await accountTable.Where(item => item.Email == account.Email).ToListAsync();
+
+            if (usernameList.Count > 0)
             {
                 return false;
             }
@@ -293,8 +326,11 @@ namespace CloudClubv1._2_.Droid
             if(DateTime.Compare(User.Banned,DateTime.Now)>0){
                 return 3;
             }
+            System.Diagnostics.Debug.WriteLine("mydebug---"+User.Id);
 
             Club club = await clubTable.LookupAsync(clubId);
+
+            System.Diagnostics.Debug.WriteLine("mydebug----"+club.Id);
 
             //check if user is in club
             var list = await memberJuncTable.Where(item => item.AccountId == User.Id && item.ClubId == club.Id).ToListAsync();
@@ -307,6 +343,8 @@ namespace CloudClubv1._2_.Droid
                 //update user
                 User.NumComments++;
                 await accountTable.UpdateAsync(User);
+
+                System.Diagnostics.Debug.WriteLine("mydebug----" + "finished");
 
                 return 1;
             }
@@ -802,32 +840,46 @@ namespace CloudClubv1._2_.Droid
         {
             List<DBItem> list = new List<DBItem>();
 
-            //by default, limits the size of each to the five most recent
+            //by default, limits the size of each
 
             //medals
-            var medalList = await medalTable.Where(item=>item.AccountId==User.Id).Take(5).ToListAsync();
+            var medalList = await medalTable.OrderByDescending(item=>item.Time).Where(item=>item.AccountId==User.Id).Take(2).ToListAsync();
             list.AddRange(medalList);
             //droplets
-            var dropletList = await dbNotificationTable.Where(item => item.AccountId == User.Id && item.Type == "droplet").Take(5).ToListAsync();
+            var dropletList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item => item.AccountId == User.Id && item.Type == "droplet").Take(4).ToListAsync();
             list.AddRange(dropletList);
             //rank
-            list.Add(User);
+            if(User.RatingNotificationToggle){
+                var rankList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item=>(item.AccountId==User.Id && item.Type=="rank")).Take(1).ToListAsync();
+                list.AddRange(rankList);
+            }
             //club requests
-            var clubrqList = await clubRequestTable.Where(item=>item.AccountId==User.Id).Take(5).ToListAsync();
+            var clubrqList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.AccountId == User.Id).Take(4).ToListAsync();
             list.AddRange(clubrqList);
             //club invites
-            var invitesList = await inviteTable.Where(item=>item.RecipientId==User.Id).Take(5).ToListAsync();
+            var invitesList = await inviteTable.OrderByDescending(item => item.Time).Where(item => item.RecipientId == User.Id).Take(4).ToListAsync();
             list.AddRange(invitesList);
             //club warnings
             //NOTE: is there a better way to do this than by giving each user a warning individually?
-            var warningList = await dbNotificationTable.Where(item => item.AccountId == User.Id && item.Type == "warning").Take(5).ToListAsync();
+            var warningList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item => item.AccountId == User.Id && item.Type == "warning").Take(4).ToListAsync();
             list.AddRange(warningList);
+            //club creations/joins
+            var joinsList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item => item.AccountId == User.Id && item.Type == "join").Take(4).ToListAsync();
+            list.AddRange(joinsList);
             //friend requests
-            var frqList = await friendRequestTable.Where(item => (item.AuthorId == User.Id
-                || item.RecipientId == User.Id)).Take(5).ToListAsync();
+            var frqList = await friendRequestTable.OrderByDescending(item => item.Time).Where(item => (item.AuthorId == User.Id
+                || item.RecipientId == User.Id)).Take(4).ToListAsync();
             list.AddRange(frqList);
-
-            //add clubrequests
+            //accepted friend requests
+            var friendsList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item => item.AccountId == User.Id && item.Type == "friend").Take(4).ToListAsync();
+            list.AddRange(friendsList);
+            //bans
+            var banList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item => (item.AccountId == User.Id && item.Type == "ban")).Take(2).ToListAsync();
+            list.AddRange(banList);
+            //club reports
+            var clubReportList = await dbNotificationTable.OrderByDescending(item => item.Time).Where(item => (item.AccountId == User.Id && item.Type == "clubReport")).Take(2).ToListAsync();
+            list.AddRange(clubReportList);
+            
 
             //TODO: THIS IS HALF DONE
             list.OrderByDescending(item=>item.Time);
@@ -843,6 +895,7 @@ namespace CloudClubv1._2_.Droid
 
             //update the user account by adding the points from the medal to the user's rating
             User.Points += medal.Points;
+            User.NumMedals++;
             await accountTable.UpdateAsync(User);
 
             return medal.MedalName;
@@ -863,10 +916,20 @@ namespace CloudClubv1._2_.Droid
         }
 
         ///Create a ban for a user; if a user accumulates 3 bans within 24 hours, they are banned for 24 hours
-        public async Task<string> CreateBan(string accountId, string commentId){
-            Ban ban = new Ban(accountId, commentId);
-            await banTable.InsertAsync(ban);
-            return ban.AccountId;
+        ///one user can only make 1 ban; returns false if one already is made, true if a new one was made
+        public async Task<bool> CreateBan(string accountId, string commentId, string reporterId){
+            //check to see if the user has already made a ban
+            var banList = await banTable.Where(item=> item.AccountId==accountId && item.ReporterId==reporterId).ToListAsync();
+
+            if (banList.Count > 0)
+            {
+                return false;
+            } else {
+                Ban ban = new Ban(accountId, commentId, reporterId);
+                await banTable.InsertAsync(ban);
+                return true;
+            }
+            
         }
 
         ///returns the user account; returns null if not logged in
@@ -1070,8 +1133,19 @@ namespace CloudClubv1._2_.Droid
         //NOTE: these functions are unecessary since the things is static, but for consistency sake, here they are
         ///must be called when viewing a new club; notifys backend of what club is currenty being viewed for 
         ///push notification purposes
-        public void SetCurrentClubId(string clubId) {
+        public async Task SetCurrentClubId(string clubId) {
             CurrentClubId = clubId;
+
+            //create a temporary member junction to enable chat updating if not in club
+            if(!(await IsMember(clubId))){
+                var tempMember = new TemporaryMemberJunction(User.Id,clubId);
+                await temporaryMemberJuncTable.InsertAsync(tempMember);
+            }
+
+            //remove from active clubs now that viewing it
+            if(ActiveClubs.Contains(clubId)){
+                ActiveClubs.Remove(clubId);
+            }
         }
 
         ///returns the id of the club the user is currently looking at
@@ -1080,10 +1154,97 @@ namespace CloudClubv1._2_.Droid
         }
 
         ///must be called when leaving view of club;sets the id of the current club the user is looking at to null
-        public void RemoveCurrentClubId()
+        public async Task RemoveCurrentClubId()
         {
+            //delete a temporary membership if not a member
+            var tempMemberships = (await temporaryMemberJuncTable.Where(item => item.ClubId == CurrentClubId && item.AccountId == User.Id)
+                .Take(1).ToListAsync());
+            if(tempMemberships.Count>0){
+                await temporaryMemberJuncTable.DeleteAsync(tempMemberships[0]);
+            }
+
             CurrentClubId = null;
         }
+
+        ///turn on push notification ranking updates for the user
+        public async Task<bool> EnableRankingNotification() {
+            User.RatingNotificationToggle = true;
+            await accountTable.UpdateAsync(User);
+            return User.RatingNotificationToggle;
+        }
+
+        ///turn off push notification ranking updates for the user
+        public async Task<bool> DisableRankingNotification()
+        {
+            User.RatingNotificationToggle = false;
+            await accountTable.UpdateAsync(User);
+            return User.RatingNotificationToggle;
+        }
+
+        ///returns a list of accounts that are members of a given club
+        public async Task<List<Account>> GetClubMembers(string clubId) {
+            var memberJuncs = await memberJuncTable.Where(item=>item.ClubId==clubId).ToListAsync();
+            List<Account> memberAccounts = new List<Account>();
+            for (int i = 0; i < memberJuncs.Count;i++ )
+            {
+                memberAccounts.Add(await accountTable.LookupAsync(memberJuncs[i].AccountId));
+            }
+            return memberAccounts;
+        }
+
+        ///returns a list of clubs a given account is member of
+        public async Task<List<Club>> GetAccountClubs(string accountId)
+        {
+            var clubMemberships = await memberJuncTable.Where(item=>item.AccountId==accountId).ToListAsync();
+            List<Club> accountsClubs = new List<Club>();
+            for (int i = 0; i < clubMemberships.Count;i++ )
+            {
+                accountsClubs.Add(await clubTable.LookupAsync(clubMemberships[i].ClubId));
+            }
+            return accountsClubs;
+        }
+
+        ///returns a list of comments and club requests; is what users see in chat
+        ///returns 20-25 items; index is used to get sets of 20, ex: 0 is most recent 20, 1 is next most recent 20...
+        public async Task<List<DBItem>> GetChat(string clubId, int index) {
+            List<DBItem> list = new List<DBItem>();
+
+            //get 20 most recent comments
+            var commentList = await commentTable.OrderByDescending(item => item.Time).Where(item=> item.ClubId==clubId)
+                .Skip(index*20).Take(20).ToListAsync();
+            //get 5 most recent club requests
+            var requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId)
+                .Skip(index*5).Take(5).ToListAsync();
+            //add to list and sort
+            list.AddRange(commentList);
+            list.AddRange(requestList);
+            list.OrderByDescending(item=>item.Time);
+
+            return list;
+        }
+
+        ///Create a report for a club; if a club accumulates 6 reports within 24 hours, it is deleted;
+        ///returns if report was made, fails if user already made a report
+        public async Task<bool> CreateClubReport(string clubId, string reporterId)
+        {
+            //check if the user has already made a club report
+            var clubReportList = await clubReportTable.Where(item=> item.ClubId==clubId && item.ReporterId==reporterId).ToListAsync();
+
+            //get club title
+            var club = await clubTable.LookupAsync(clubId);
+
+            //if report already exists
+            if(clubReportList.Count>0){
+                return false;
+            //if it doesn't already exist
+            }else{
+                ClubReport clubReport = new ClubReport(clubId, reporterId, club.Title);
+                await clubReportTable.InsertAsync(clubReport);
+                return true;
+            }
+            
+        }
+
 
         //TODO: make time added in constructors? not on server?
     }

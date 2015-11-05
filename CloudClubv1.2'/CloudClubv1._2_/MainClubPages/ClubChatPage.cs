@@ -84,7 +84,7 @@ namespace FrontEnd
             {
                 var joinClub = await App.dbWrapper.JoinClub(club.Id);
                 var commentOutput = await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
-                System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
+                //System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
                 userEntry.Text = "";
             }
 
