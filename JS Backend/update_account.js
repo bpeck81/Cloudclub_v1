@@ -1,8 +1,13 @@
-//an array of all possible medals
+//an array of functions that return medals as arrays; zeroeth value is if the user qualifies for medal
 var medalArray = [
-    [qualifyOne,"First Comment",10],
-    [qualifyTwo,"Millionth Comment",100],
-    [qualifyThree,"Veteran Commentor6",20]
+    easyDroplets,
+    mediumDroplets,
+    hardDroplets,
+    mediumTotalClubsRatings,
+    hardTotalClubsRatings,
+    easyNumFriends,
+    mediumNumFriends,
+    hardNumFriends
 ]
 
 var medalTable = tables.getTable('Medal');
@@ -11,9 +16,10 @@ var medalTable = tables.getTable('Medal');
 function update(item, user, request) {
     //check if user qualifies for medal
     for(var i = 0;i<medalArray.length;i++){
+        var medal = medalArray[i](item);
         //if qualified for medal
-        if(medalArray[i][0](item)==true){
-            addMedal(medalArray[i],item,request);
+        if(medal[0]==true){
+            addMedal(medal,item,request);
         }
     }
 
@@ -84,24 +90,68 @@ function createMedal(name,points,id,request){
   }
 
 //QUALIFIER FUNCTIONS:
-function qualifyOne(item){
-    if(item.NumComments>0){
-        return true;
+//FORMAT FOR MEDAL RETURN: [qualify, name, points]
+
+//droplets
+function easyDroplets(item){
+    if(item.NumDroplets==5 || item.NumDroplets==10){
+        return [true,"Earn "+item.NumDroplets+" droplets!",10];
     }else{
-        return false;
+        return [false];
     }
 }
-function qualifyTwo(item){
-    if(item.NumComments>1000000){
-        return true;
+function mediumDroplets(item){
+    if(item.NumDroplets==25 ||item.NumDroplets==50 ||item.NumDroplets==75){
+        return [true,"Earn "+item.NumDroplets+" droplets!",25];
     }else{
-        return false;
+        return [false];
     }
 }
-function qualifyThree(item){
-    if(item.NumComments>10){
-        return true;
+function hardDroplets(item){
+    if(item.NumDroplets>75 && item.NumDroplets%50==0){
+        return [true,"Earn "+item.NumDroplets+" droplets!",50];
     }else{
-        return false;
+        return [false];
+    }
+}
+
+//total club ratings
+function mediumTotalClubsRatings(item){
+    if(item.TotalClubsRatings >=5 && item.TotalClubsRatings<10){
+        return [true,"Earn 5 stars on clubs you have established!",25];
+    }else if(item.TotalClubsRatings >=10 && item.TotalClubsRatings<25){
+        return [true,"Earn 10 stars on clubs you have established!",25];
+    }else{
+        return [false];
+    }
+}
+function hardTotalClubsRatings(item){
+    if(item.TotalClubsRatings>24 && item.TotalClubsRatings%25==0){
+        return [true,"Earn "+item.TotalClubsRatings+" stars on clubs you have established!",50];
+    }else{
+        return [false];
+    }
+}
+
+//friends
+function easyNumFriends(item){
+    if(item.NumFriends==1){
+        return [true,"Make a friend!",10];
+    }else{
+        return [false];
+    }
+}
+function mediumNumFriends(item){
+    if(item.NumFriends==5 ||item.NumFriends==10){
+        return [true,"Make "+item.NumFriends+" friends!",25];
+    }else{
+        return [false];
+    }
+}
+function hardNumFriends(item){
+    if(item.NumFriends>24 && item.NumFriends%25==0){
+        return [true,"Make "+item.NumFriends+" friends!",50];
+    }else{
+        return [false];
     }
 }

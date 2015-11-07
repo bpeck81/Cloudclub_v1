@@ -80,11 +80,11 @@ function cleanComment(comment){
     }
 }
 
-//returns true if whatever is passed in is less than 1 hour old
+//returns true if whatever is passed in is less than 24 hour old
 function isNew(timeObject){
     var timeNow = new Date().getTime();
     var timeExisted = (timeNow-timeObject)/(1000*60*60);
-    if(timeExisted<.01){
+    if(timeExisted<24){
         return true;
     }else{
         return false;
@@ -95,7 +95,7 @@ function isNew(timeObject){
 function isSemiOld(timeObject){
     var timeNow = new Date().getTime();
     var timeExisted = (timeNow-timeObject)/(1000*60*60);
-    if(timeExisted>.01){
+    if(timeExisted>23){
         return true;
     }else{
         return false;

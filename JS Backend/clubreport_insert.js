@@ -8,7 +8,7 @@ function insert(item, user, request) {
     clubReportTable.where({ClubId: item.ClubId}).read({
         success:function(reports){
             //if the club has more than 5 reports
-            if(reports.length==0){
+            if(reports.length>5){
                 notifyAccounts(item,request);
             }
         }
