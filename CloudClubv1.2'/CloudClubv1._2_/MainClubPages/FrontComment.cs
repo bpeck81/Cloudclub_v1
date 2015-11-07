@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Backend;
 using CloudClubv1._2_;
+using System.ComponentModel;
 
 namespace FrontEnd
 {
-    public class FrontComment
+    public class FrontComment: INotifyPropertyChanged
     {
+
+        //declares an event
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Id { get; set; }
 
@@ -54,6 +58,15 @@ namespace FrontEnd
                 AuthorUsername = authorAccount.Username;
             }
             
+
+        }
+
+        //raise the event, which will cause the class to update
+        public void UpdateProperty(string propertyName) {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if(handler != null){
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
 
         }
 

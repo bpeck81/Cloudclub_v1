@@ -88,13 +88,11 @@ namespace CloudClubv1._2_.Droid
         public async Task LikePush(string[] parsedMessage) {
             var dbComment = await DBWrapper.commentTable.LookupAsync(parsedMessage[1]);
 
-            //hacky solution; i should implement the interface inotifypropertychanged https://msdn.microsoft.com/en-us/library/vstudio/ms743695(v=vs.100).aspx
             var comment = ClubChatPage.CurrentCommentsList.FirstOrDefault(item => item.Id == dbComment.Id);
             comment.NumDroplets = dbComment.NumDroplets;
-            int index = ClubChatPage.CurrentCommentsList.IndexOf(comment);
-            ClubChatPage.CurrentCommentsList.Remove(comment);
-            ClubChatPage.CurrentCommentsList.Insert(index, comment);
 
+            //the frontend comment implements inotifypropertychanged so it updates on property changed
+            comment.UpdateProperty("NumDroplets");
 
             System.Diagnostics.Debug.WriteLine("COMMENT LIKED");
 

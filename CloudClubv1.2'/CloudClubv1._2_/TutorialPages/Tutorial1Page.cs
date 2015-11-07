@@ -68,15 +68,15 @@ namespace FrontEnd
         }
 
         private async void DebugDatabase(){
-            string debug = "MYDEBUG-----";
+            string debug = "MYDEBUG-----";/*
             await App.dbWrapper.CreateAccount("252","252");
             await App.dbWrapper.LoginAccount("252","252");
             System.Diagnostics.Debug.WriteLine(debug+App.dbWrapper.GetUser().Username);
             await App.dbWrapper.CreateClub("title","blue",false,new List<string>());
             var club = (await App.dbWrapper.GetClubs())[0];
-            System.Diagnostics.Debug.WriteLine(debug+club.Title);
+            System.Diagnostics.Debug.WriteLine(debug+club.Title);*/
 
-            await App.dbWrapper.CreateComment(",yo",club.Id);
+          //  await App.dbWrapper.CreateComment(",yo",club.Id);
            // await App.dbWrapper.CreateComment(",yo", club.Id);
            // await App.dbWrapper.LoginAccount("22", "22");
 
