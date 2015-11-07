@@ -22,8 +22,10 @@ namespace CloudClubv1._2_.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+			DBWrapper dbWrapper = new DBWrapper ();
+
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(dbWrapper));
 
             return base.FinishedLaunching(app, options);
         }

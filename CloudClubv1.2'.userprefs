@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="CloudClubv1.2'/CloudClubv1._2_.iOS/CloudClubv1._2_.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CloudClubv1.2'/CloudClubv1._2_.iOS/DBWrapper.cs">
+    <Files>
+      <File FileName="CloudClubv1.2'/CloudClubv1._2_.iOS/AppDelegate.cs" Line="25" Column="39" />
+      <File FileName="CloudClubv1.2'/CloudClubv1._2_.iOS/DBWrapper.cs" Line="27" Column="46" />
+      <File FileName="CloudClubv1.2'/CloudClubv1._2_.Droid/MainActivity.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
