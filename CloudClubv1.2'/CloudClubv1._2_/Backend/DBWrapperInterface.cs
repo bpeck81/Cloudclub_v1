@@ -77,5 +77,6 @@ namespace CloudClubv1._2_
           Task<List<Club>> GetAccountClubs(string accountId);
           Task<List<DBItem>> GetChat(string clubId, int index);
           Task<bool> CreateClubReport(string clubId, string reporterId);
+          Task<string> GetLocation();
     }
 }

@@ -1415,3 +1415,4 @@ C:\Users\Student\Documents\Projects\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\Student\Documents\Projects\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
 C:\Users\Student\Documents\Projects\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
 C:\Users\Student\Documents\GitHub\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.dll.mdb
+C:\Users\Student\Documents\GitHub\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Mobile.dll

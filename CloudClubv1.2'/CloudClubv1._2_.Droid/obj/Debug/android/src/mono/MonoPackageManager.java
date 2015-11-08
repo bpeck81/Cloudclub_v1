@@ -96,6 +96,7 @@ class MonoPackageManager_Resources {
 		"Xamarin.Forms.Core.dll",
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Xaml.dll",
+		"Xamarin.Mobile.dll",
 		"System.Collections.Concurrent.dll",
 		"System.Collections.dll",
 		"System.ComponentModel.Annotations.dll",

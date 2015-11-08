@@ -68,7 +68,11 @@ namespace FrontEnd
         }
 
         private async void DebugDatabase(){
-            string debug = "MYDEBUG-----";/*
+            string debug = "MYDEBUG-----";
+
+            System.Diagnostics.Debug.WriteLine(debug+await App.dbWrapper.GetLocation());
+            
+            /*
             await App.dbWrapper.CreateAccount("252","252");
             await App.dbWrapper.LoginAccount("252","252");
             System.Diagnostics.Debug.WriteLine(debug+App.dbWrapper.GetUser().Username);
