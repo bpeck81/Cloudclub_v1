@@ -31,7 +31,8 @@ namespace FrontEnd
             Image cloudImage = new Image
             {
                 Aspect = Aspect.AspectFit,
-                Source = ImageSource.FromFile("TutorialImgs/page3Tutorial.png"),
+                Source = ImageSource.FromFile("page3Tutorial.png"),
+                HeightRequest = 175,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center
             };
@@ -58,28 +59,19 @@ namespace FrontEnd
             };
 
 
-            var spinningclock = new OpenGLView
-            {
-                HasRenderLoop = true,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-            spinningclock.OnDisplay = r =>
-            {
-                
-            };
+            
             StackLayout sLayout = new StackLayout
             {
                 Children = {
                     topHeader,
-                    spinningclock,
+                    cloudImage,
                     lowerHeader,
                     informerLabel
 
                 },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
-                Spacing = 20,
-                Padding = new Thickness(20, 0, 20, 20)
+                Spacing = 35,
+                Padding = new Thickness(20, 30, 20, 20)
 
 
             };

@@ -15,7 +15,7 @@ namespace FrontEnd
         public Tutorial1Page()
         {
             //Michael's debug function
-            DebugDatabase();
+        //    DebugDatabase();
 
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
@@ -69,7 +69,7 @@ namespace FrontEnd
 
         private async void DebugDatabase(){
             string debug = "MYDEBUG-----";
-            await App.dbWrapper.CreateAccount("252","252");
+            await App.dbWrapper.CreateAccount("252","252","252");
             await App.dbWrapper.LoginAccount("252","252");
             System.Diagnostics.Debug.WriteLine(debug+App.dbWrapper.GetUser().Username);
             await App.dbWrapper.CreateClub("title","blue",false,new List<string>());

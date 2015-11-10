@@ -31,11 +31,11 @@ namespace FrontEnd
             };
             Image cloudImage = new Image
             {
-                ////////////////change cloud file path to proper img
                 Aspect = Aspect.AspectFit,
-                Source = ImageSource.FromFile("page4Tutorial.png"),
+                Source = ImageSource.FromFile("Tutorial_Competition.png"),
                 VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center
+                HorizontalOptions = LayoutOptions.Center,
+                Scale = .75
             };
 
 

@@ -26,12 +26,14 @@ namespace FrontEnd
                 BackgroundColor = Color.FromRgb(210, 61, 235)
 
             };
+            
 
             Image cloudImage = new Image
             {
                 Aspect = Aspect.AspectFit,
                 Source = ImageSource.FromFile("page2Tutorial.png"),
                 VerticalOptions = LayoutOptions.Center,
+                Scale = .75,
                 HorizontalOptions = LayoutOptions.Center
             };
 
@@ -67,7 +69,7 @@ namespace FrontEnd
                 },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
                 Spacing = 20,
-                Padding = new Thickness(20, 0, 20, 20)
+                Padding = new Thickness(0, 0, 0, 0)
 
             };
 

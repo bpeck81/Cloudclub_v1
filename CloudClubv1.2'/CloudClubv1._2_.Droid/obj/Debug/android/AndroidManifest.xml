@@ -5,15 +5,15 @@
     <service android:name="md583a5db7bf3698299f4dd7c4eaa4db5c5.GcmService" />
     <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="md583a5db7bf3698299f4dd7c4eaa4db5c5.PushHandlerBroadcastReceiver">
       <intent-filter>
-        <action android:name="com.google.android.gcm.intent.RETRY" />
-        <category android:name="com.cloudclub.cloudclubv1.x_2_" />
-      </intent-filter>
-      <intent-filter>
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
         <category android:name="com.cloudclub.cloudclubv1.x_2_" />
       </intent-filter>
       <intent-filter>
         <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+        <category android:name="com.cloudclub.cloudclubv1.x_2_" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.google.android.gcm.intent.RETRY" />
         <category android:name="com.cloudclub.cloudclubv1.x_2_" />
       </intent-filter>
     </receiver>
@@ -36,9 +36,9 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <permission android:name="com.cloudclub.cloudclubv1.x_2_.permission.C2D_MESSAGE" />
-  <uses-permission android:name="android.permission.WAKE_LOCK" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="com.cloudclub.cloudclubv1.x_2_.permission.C2D_MESSAGE" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>
