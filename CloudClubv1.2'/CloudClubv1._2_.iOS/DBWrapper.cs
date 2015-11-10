@@ -13,6 +13,8 @@ using System.Text;
 using System.Net.Http;
 //add for push notifications
 //using Gcm.Client;
+using UIKit;
+using Foundation;
 
 
 using CloudClubv1._2_;
@@ -935,26 +937,16 @@ namespace CloudClubv1._2_.iOS
 
 		/// Creates a push register so the device can receive push notifications
 		private void CreatePushRegister(){
-			/*
-			//error handling for push notifications
-			try
-			{
-				// Check to ensure everything's setup right
-				GcmClient.CheckDevice(MainActivity.Instance);
-				GcmClient.CheckManifest(MainActivity.Instance);
 
-				// Register for push notifications
-				System.Diagnostics.Debug.WriteLine("Registering...");
-				GcmClient.Register(MainActivity.Instance, PushHandlerBroadcastReceiver.SENDER_IDS);
-			}
-			catch (Java.Net.MalformedURLException)
-			{
-				//CreateAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
-			}
-			catch (Exception e)
-			{
-				//CreateAndShowDialog(e, "Error");
-			}*/
+			// registers for push for iOS8
+			var settings = UIUserNotificationSettings.GetSettingsForTypes(
+				UIUserNotificationType.Alert
+				| UIUserNotificationType.Badge
+				| UIUserNotificationType.Sound,
+				new NSSet());
+
+			UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+			UIApplication.SharedApplication.RegisterForRemoteNotifications();
 		}
 
 		/// sets the user to null rather than an account value
