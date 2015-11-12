@@ -1234,6 +1234,52 @@ namespace CloudClubv1._2_.iOS
 
 		}
 
+        ///Returns the location a user is in; returns college name if in registered college, none if not in valid college
+        public async Task<string> GetLocation()
+        {
+            string location = "none";
+            /*
+            //college and latitude,longitude
+            List<string> colleges = new List<string>();
+            List<double[]> collegeLocations = new List<double[]>();
+            //radius of 2 miles; unit is degrees
+            double radius = .0290;
+            //add colleges
+            colleges.Add("UVA");
+            collegeLocations.Add(new double[] { 38.0350, -78.5050 });
+
+
+            System.Diagnostics.Debug.WriteLine("mydebug--started getting position");
+
+            var locator = new Geolocator(MainActivity.Instance) { DesiredAccuracy = 50 };
+            await locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
+            {
+                System.Diagnostics.Debug.WriteLine("mydebug--Position Status: {0}", t.Result.Timestamp);
+                System.Diagnostics.Debug.WriteLine("mydebug--Position Latitude: {0}", t.Result.Latitude);
+                System.Diagnostics.Debug.WriteLine("mydebug--Position Longitude: {0}", t.Result.Longitude);
+
+                //loop through colleges and find if in location
+                for (int i = 0; i < colleges.Count; i++)
+                {
+                    double latDist = Math.Abs(t.Result.Latitude - collegeLocations[i][0]);
+                    double lonDist = Math.Abs(t.Result.Longitude - collegeLocations[i][1]);
+                    if (latDist < radius && lonDist < radius)
+                    {
+                        location = colleges[i];
+                        break;
+                    }
+                }
+            }, TaskScheduler.FromCurrentSynchronizationContext());*/
+
+            return location;
+        }
+
+        ///Returns a club given an id
+        public async Task<Club> GetClub(string clubId)
+        {
+            var club = await clubTable.LookupAsync(clubId);
+            return club;
+        }
 
 		//TODO: make time added in constructors? not on server?
 	}
