@@ -9,8 +9,6 @@ namespace CloudClubv1._2_
 {
     public interface DBWrapperInterface
     {
-          //NOTE: DEPRACATED METHOD, WILL BE REMOVED SOON!
-          Task<bool> CreateAccount(string username, string password);
           Task<int> CreateAccount(string username, string password, string email);
           Task<bool> LoginAccount(string username, string password);
           Task<string> SetUserEmoji(string emoji);
@@ -78,5 +76,6 @@ namespace CloudClubv1._2_
           Task<List<DBItem>> GetChat(string clubId, int index);
           Task<bool> CreateClubReport(string clubId, string reporterId);
           Task<string> GetLocation();
+          Task<Club> GetClub(string clubId);
     }
 }

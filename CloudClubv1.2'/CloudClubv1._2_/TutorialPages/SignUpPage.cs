@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 using Backend;
 using CloudClubv1._2_;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace FrontEnd
     public class SignUpPage : ContentPage
     {
         string username, password, invalidSignupText;
-        Entry userNameEntry, passwordEntry;
+        Entry userNameEntry, passwordEntry, emailEntry;
         ColorHandler ch;
         public SignUpPage()
         {
@@ -72,6 +73,15 @@ namespace FrontEnd
                 BackgroundColor = Color.White
 
             };
+            this.emailEntry = new Entry
+            {
+                Placeholder = "Email",
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                TextColor = ch.fromStringToColor("black"),
+                BackgroundColor = Color.White
+            };
+
 
 
             Button continueB = new Button
@@ -126,7 +136,8 @@ namespace FrontEnd
                 Children =
                 {
                     userNameEntry,
-                    passwordEntry
+                    passwordEntry,
+                    emailEntry
 
                 },
                 VerticalOptions = LayoutOptions.Center,
@@ -309,19 +320,24 @@ namespace FrontEnd
 
             if (await App.dbWrapper.LoginAccount(username, password))
             {
-                List<Club> clubList = await App.dbWrapper.GetClubs();
-                List<Club> memberClubList = new List<Club>();
+                List<Club> clubs = await App.dbWrapper.GetClubs();
                 var popularClubs = await App.dbWrapper.GetPopularClubs();
                 var newestClubs = await App.dbWrapper.GetNewestClubs();
-                for (int i =0; i<clubList.Count; i++)
+                var memberClubList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+
+                //    var userAccount = await App.dbWrapper.
+                var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+
+                List<string> pendingInviteList = new List<string>();
+
+                for (int i = 0; i < clubs.Count; i++)
                 {
-                    if(await App.dbWrapper.IsMember(clubList[i].Id))
+                    if (await App.dbWrapper.IsPendingClubRequest(clubs[i].Id))
                     {
-                        memberClubList.Add(clubList[i]);
+                        pendingInviteList.Add(clubs[i].Id);
                     }
                 }
-            //    var userAccount = await App.dbWrapper.
-                var navPage = new NavigationPage(new TabbedMainClubPages(clubList, memberClubList, popularClubs,newestClubs));
+                var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList));
                 navPage.BarBackgroundColor = ch.fromStringToColor("purple");
                 Application.Current.MainPage = navPage;
 
@@ -335,14 +351,18 @@ namespace FrontEnd
 
         private async void ContinueSignUpB_Clicked(object sender, EventArgs e)
         {
+            string email = emailEntry.Text;
+
             this.username = userNameEntry.Text;
             this.password = passwordEntry.Text;
+            bool emailValidity = checkEmailValidity(email);
             string validityText = "valid";//await checkUserPassValidity(username, password);
-            if (validityText.Equals("valid"))
+            if (validityText.Equals("valid")&& emailValidity)
             {
-                await App.dbWrapper.CreateAccount(username, password);
+                System.Diagnostics.Debug.WriteLine(email);
+                await App.dbWrapper.CreateAccount(username, password, email);
                 await App.dbWrapper.LoginAccount(username, password);
-                await Navigation.PushModalAsync(new CustomizeProfilePage());
+                await Navigation.PushModalAsync(new AlternateCustomizeProfilePage());
 
             }
             else
@@ -360,6 +380,14 @@ namespace FrontEnd
             this.displayLoginContent();
 
 
+        }
+        private bool checkEmailValidity(string email)
+        {
+            bool validity = false;
+
+            var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
+            validity = match.Success;
+            return true;
         }
         private async Task<string> checkUserPassValidity(string username, string password)
         {

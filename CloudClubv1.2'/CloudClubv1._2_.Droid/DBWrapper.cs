@@ -107,7 +107,7 @@ namespace CloudClubv1._2_.Droid
         }
 
         /// NOTE: DEPRACATED; WILL BE REMOVED SOON
-        public async Task<bool> CreateAccount(string username, string password)
+        /*public async Task<bool> CreateAccount(string username, string password)
         {
             Account account = new Account(username, password, "no email");
 
@@ -125,7 +125,7 @@ namespace CloudClubv1._2_.Droid
                 return true;
             }
 
-        }
+        }*/
 
         /// Login to an account; returns 1 if successful, 0 if failure
         public async Task<bool> LoginAccount(string username, string password)
@@ -1283,6 +1283,13 @@ namespace CloudClubv1._2_.Droid
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
             return location;
+        }
+
+        ///Returns a club given an id
+        public async Task<Club> GetClub(string clubId)
+        {
+            var club = await clubTable.LookupAsync(clubId);
+            return club;
         }
 
 

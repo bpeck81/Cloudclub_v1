@@ -17,21 +17,38 @@ namespace FrontEnd
         string chosenColorId;
         List<string> characterNames;
         List<Button> colorButtons;
+        List<Image> characterButtons;
         ColorHandler ch;
-        TapGestureRecognizer tgr;
-
+        TapGestureRecognizer tgr, lastInitialImageTgr, extendedImagesTgr;
+        Label headerLabel, characterLabel, colorLabel;
+        Grid characterGrid, colorGrid;
+        ScrollView characterBoxes, colorBoxes;
+        Button bSkip, bContinue;
         public CustomizeProfilePage()
         {
             tgr = new TapGestureRecognizer();
+            lastInitialImageTgr = new TapGestureRecognizer();
+            extendedImagesTgr = new TapGestureRecognizer();
+            extendedImagesTgr.Tapped += ExtendedImagesTgr_Tapped;
+            lastInitialImageTgr.Tapped += LastInitialImageTgr_Tapped;
             tgr.Tapped += Tgr_Tapped;
             ch = new ColorHandler();
             chosenEmojiId = "Dog_Character.png";
-            chosenColorId = "default";
-            List<Image> characterButtons = generateCharacterButtons();
+            chosenColorId = "purple";
+            characterButtons = generateCharacterButtons();
             colorButtons = generateColorButtons();
             this.Padding = new Thickness(0, Device.OnPlatform(20, 0, 0), 0, 0);
 
-            Label headerLabel = new Label
+
+
+            this.generateInitialView();
+        }
+
+
+
+        private void generateInitialView()
+        {
+            headerLabel = new Label
             {
                 Text = "Customize Profile",
                 FontAttributes = FontAttributes.Bold,
@@ -40,7 +57,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 39
             };
-            Label characterLabel = new Label
+            characterLabel = new Label
             {
                 Text = "Your Emoji",
                 TextColor = Color.White,
@@ -51,7 +68,7 @@ namespace FrontEnd
 
             };
 
-            Grid characterGrid = new Grid
+            characterGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -85,7 +102,7 @@ namespace FrontEnd
 
             }
 
-            ScrollView characterBoxes = new ScrollView
+            characterBoxes = new ScrollView
             {
                 Content = characterGrid,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -93,7 +110,7 @@ namespace FrontEnd
                 Orientation = ScrollOrientation.Horizontal,
                 BackgroundColor = Color.White
             };
-            Label colorLabel = new Label
+            colorLabel = new Label
             {
                 Text = "Your Color",
                 TextColor = Color.White,
@@ -104,7 +121,7 @@ namespace FrontEnd
             };
 
             RowDefinition rd = new RowDefinition { Height = 60 };
-            Grid colorGrid = new Grid
+            colorGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 RowDefinitions =
@@ -137,7 +154,7 @@ namespace FrontEnd
             }
 
 
-            ScrollView colorBoxes = new ScrollView
+            colorBoxes = new ScrollView
             {
                 Content = colorGrid,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -147,7 +164,7 @@ namespace FrontEnd
                 Padding = new Thickness(0, 10, 10, 10)
             };
 
-            Button bSkip = new Button
+            bSkip = new Button
             {
                 Text = "Skip",
                 TextColor = Color.White,
@@ -159,7 +176,7 @@ namespace FrontEnd
                 HeightRequest = 70
             };
             bSkip.Clicked += BSkip_Clicked;
-            Button bContinue = new Button
+            bContinue = new Button
             {
                 Text = "Continue",
                 TextColor = Color.White,
@@ -206,9 +223,258 @@ namespace FrontEnd
             };
 
 
-
         }
 
+
+        private void generateExtendedCharacterView()
+        {
+           // characterButtons = generateExtendedCharacterButtons();
+
+            characterGrid = new Grid
+            {
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                RowDefinitions =
+                {
+                    new RowDefinition { Height = GridLength.Auto},
+                    new RowDefinition { Height =  GridLength.Auto },
+                    new RowDefinition { Height =  GridLength.Auto },
+                    new RowDefinition { Height =  GridLength.Auto },
+                    new RowDefinition { Height =  GridLength.Auto },
+                },
+                ColumnDefinitions =
+                {
+                    new ColumnDefinition { Width = GridLength.Auto },
+                    new ColumnDefinition { Width = GridLength.Auto },
+                    new ColumnDefinition { Width = GridLength.Auto },
+                    new ColumnDefinition { Width = GridLength.Auto },
+
+                },
+                BackgroundColor = Color.White,
+                ColumnSpacing = 5,
+                Padding = new Thickness(5, 5, 5, 5)
+            };
+            int counter = 0;
+            for (int i =0; i<characterButtons.Count/5; i++)
+            {
+                for (int j=0; j<5; j++)
+                {
+                    characterGrid.Children.Add(characterButtons[counter], i, j);
+                    counter++;
+                }
+            }
+
+            ScrollView characterScrollView = new ScrollView
+            {
+                Content = characterGrid,
+                HorizontalOptions= LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                BackgroundColor = ch.fromStringToColor("white"),
+                Orientation = ScrollOrientation.Horizontal
+            };
+            Content = new StackLayout
+            {
+                Children =
+                {
+                    headerLabel,
+                    characterScrollView,
+                    new StackLayout
+                    {
+
+                        Children = {
+
+                           bSkip,
+                           bContinue
+                        },
+                        Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Spacing =20,
+                        Padding = new Thickness(20,10,20,20)
+                    }
+                },
+                Spacing = 10f,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+
+                BackgroundColor = Color.FromRgb(210, 61, 235)
+            };
+
+        }
+        private void LastInitialImageTgr_Tapped(object sender, EventArgs e)
+        {
+            generateExtendedCharacterView();
+        }
+
+        private List<Image> generateExtendedCharacterButtons()
+        {
+
+            var characterNames = new List<string>();
+            characterNames.Add("AF1.png");
+            characterNames.Add("AF33.png");
+            characterNames.Add("AF32.png");
+            characterNames.Add("AF30.png");
+            characterNames.Add("AF38.png");
+            characterNames.Add("AF3.png");
+            characterNames.Add("AF40.png");
+            characterNames.Add("AF15.png");
+            characterNames.Add("AN11.png");
+            characterNames.Add("AN13.png");
+            characterNames.Add("AN20.png");
+            characterNames.Add("AN19.png");
+            characterNames.Add("AN31.png");
+            characterNames.Add("AN28.png");
+            characterNames.Add("AN33.png");
+            characterNames.Add("AN5.png");
+            characterNames.Add("AA10.png");
+            characterNames.Add("AA11.png");
+            characterNames.Add("AA12.png");
+            characterNames.Add("AA13.png");
+            characterNames.Add("AA31.png");
+            characterNames.Add("AA30.png");
+            characterNames.Add("AA1.png");
+            characterNames.Add("AA17.png");
+            characterNames.Add("AA17.png");
+            characterNames.Add("AA17.png");
+            characterNames.Add("AF1.png");
+            characterNames.Add("AF2.png");
+            characterNames.Add("AF3.png");
+            characterNames.Add("AF4.png");
+            characterNames.Add("AF5.png");
+            characterNames.Add("AF6.png");
+            characterNames.Add("AF7.png");
+            characterNames.Add("AF8.png");
+            characterNames.Add("AF9.png");
+            characterNames.Add("AF10.png");
+            characterNames.Add("AF11.png");
+            characterNames.Add("AF12.png");
+            characterNames.Add("AF13.png");
+            characterNames.Add("AF14.png");
+            characterNames.Add("AF15.png");
+            characterNames.Add("AF16.png");
+            characterNames.Add("AF17.png");
+            characterNames.Add("AF18.png");
+            characterNames.Add("AF19.png");
+            characterNames.Add("AF20.png");
+            characterNames.Add("AF21.png");
+            characterNames.Add("AF22.png");
+            characterNames.Add("AF23.png");
+            characterNames.Add("AF24.png");
+            characterNames.Add("AF25.png");
+            characterNames.Add("AF26.png");
+            characterNames.Add("AF27.png");
+            characterNames.Add("AF28.png");
+            characterNames.Add("AF29.png");
+            characterNames.Add("AF30.png");
+            characterNames.Add("AF31.png");
+            characterNames.Add("AF32.png");
+            characterNames.Add("AF33.png");
+            characterNames.Add("AF34.png");
+            characterNames.Add("AF35.png");
+            characterNames.Add("AF36.png");
+            characterNames.Add("AF37.png");
+            characterNames.Add("AF38.png");
+            characterNames.Add("AF39.png");
+            characterNames.Add("AF40.png");
+            characterNames.Add("Nature");
+            characterNames.Add("AN1.png");
+            characterNames.Add("AN2.png");
+            characterNames.Add("AN3.png");
+            characterNames.Add("AN4.png");
+            characterNames.Add("AN5.png");
+            characterNames.Add("AN6.png");
+            characterNames.Add("AN7.png");
+            characterNames.Add("AN8.png");
+            characterNames.Add("AN9.png");
+            characterNames.Add("AN10.png");
+            characterNames.Add("AN11.png");
+            characterNames.Add("AN12.png");
+            characterNames.Add("AN13.png");
+            characterNames.Add("AN14.png");
+            characterNames.Add("AN15.png");
+            characterNames.Add("AN16.png");
+            characterNames.Add("AN17.png");
+            characterNames.Add("AN18.png");
+            characterNames.Add("AN19.png");
+            characterNames.Add("AN20.png");
+            characterNames.Add("AN21.png");
+            characterNames.Add("AN22.png");
+            characterNames.Add("AN23.png");
+            characterNames.Add("AN24.png");
+            characterNames.Add("AN25.png");
+            characterNames.Add("AN26.png");
+            characterNames.Add("AN27.png");
+            characterNames.Add("AN28.png");
+            characterNames.Add("AN29.png");
+            characterNames.Add("AN30.png");
+            characterNames.Add("AN31.png");
+            characterNames.Add("AN32.png");
+            characterNames.Add("AN33.png");
+            characterNames.Add("AN34.png");
+            characterNames.Add("AN35.png");
+            characterNames.Add("AN36.png");
+            characterNames.Add("AN37.png");
+            characterNames.Add("AN38.png");
+            characterNames.Add("AN39.png");
+            characterNames.Add("AN40.png");
+            characterNames.Add("Interests");
+            characterNames.Add("AA1.png");
+            characterNames.Add("AA2.png");
+            characterNames.Add("AA3.png");
+            characterNames.Add("AA4.png");
+            characterNames.Add("AA5.png");
+            characterNames.Add("AA6.png");
+            characterNames.Add("AA7.png");
+            characterNames.Add("AA8.png");
+            characterNames.Add("AA9.png");
+            characterNames.Add("AA10.png");
+            characterNames.Add("AA11.png");
+            characterNames.Add("AA12.png");
+            characterNames.Add("AA13.png");
+            characterNames.Add("AA14.png");
+            characterNames.Add("AA15.png");
+            characterNames.Add("AA16.png");
+            characterNames.Add("AA17.png");
+            characterNames.Add("AA18.png");
+            characterNames.Add("AA19.png");
+            characterNames.Add("AA20.png");
+            characterNames.Add("AA21.png");
+            characterNames.Add("AA22.png");
+            characterNames.Add("AA23.png");
+            characterNames.Add("AA24.png");
+            characterNames.Add("AA25.png");
+            characterNames.Add("AA26.png");
+            characterNames.Add("AA27.png");
+            characterNames.Add("AA28.png");
+            characterNames.Add("AA29.png");
+            characterNames.Add("AA30.png");
+            characterNames.Add("AA31.png");
+            characterNames.Add("AA32.png");
+            characterNames.Add("AA33.png");
+            characterNames.Add("AA34.png");
+            characterNames.Add("AA35.png");
+            characterNames.Add("AA36.png");
+            characterNames.Add("AA37.png");
+            characterNames.Add("AA38.png");
+            characterNames.Add("AA39.png");
+            characterNames.Add("AA40.png");
+
+
+            var imageButtons = new List<Image>();
+            for (int i = 0; i < characterNames.Count; i++)
+            {
+                var img = new Image
+                {
+                    Source = FileImageSource.FromFile(characterNames[i]),
+                    Aspect = Aspect.AspectFit,
+                    HeightRequest =60,
+                    WidthRequest = 60
+                };
+                img.GestureRecognizers.Add(extendedImagesTgr);
+                imageButtons.Add(img);
+            }
+            return imageButtons;
+
+
+        }
         private List<Button> generateColorButtons()
         {
             var colorButtons = new List<Button>();
@@ -234,17 +500,33 @@ namespace FrontEnd
         private List<Image> generateCharacterButtons()
         {
             characterNames = new List<string>();
-            characterNames.Add("Alien_Character.png");
-            characterNames.Add("Baby_Character.png");
-            characterNames.Add("Burger_Character.png");
-            characterNames.Add("Cat_Character.png");
-            characterNames.Add("Cookie_Character.png");
-            characterNames.Add("Demon_Character.png");
-            characterNames.Add("Devil_Character.png");
-            characterNames.Add("Dog_Character.png");
-            characterNames.Add("Dolphin_Character");
-            characterNames.Add("Eek_Character.png");
-            characterNames.Add("Ghost_Character.png");
+            characterNames.Add("AF1.png");
+            characterNames.Add("AF33.png");
+            characterNames.Add("AF32.png");
+            characterNames.Add("AF30.png");
+            characterNames.Add("AF38.png");
+            characterNames.Add("AF3.png");
+            characterNames.Add("AF40.png");
+            characterNames.Add("AF15.png");
+            characterNames.Add("AN11.png");
+            characterNames.Add("AN13.png");
+            characterNames.Add("AN20.png");
+            characterNames.Add("AN19.png");
+            characterNames.Add("AN31.png");
+            characterNames.Add("AN28.png");
+            characterNames.Add("AN33.png");
+            characterNames.Add("AN5.png");
+            characterNames.Add("AA10.png");
+            characterNames.Add("AA11.png");
+            characterNames.Add("AA12.png");
+            characterNames.Add("AA13.png");
+            characterNames.Add("AA31.png");
+            characterNames.Add("AA30.png");
+            characterNames.Add("AA1.png");
+            characterNames.Add("AA17.png");
+            characterNames.Add("AA17.png");
+            characterNames.Add("AA17.png");
+
 
 
             var imageButtons = new List<Image>();
@@ -254,35 +536,19 @@ namespace FrontEnd
                 {
                     Source = FileImageSource.FromFile(characterNames[i]),
                     Aspect = Aspect.AspectFit,
-                    HeightRequest = 80,
-                    WidthRequest = 80
+                    HeightRequest = 60,
+                    WidthRequest = 60
                 };
+                if (i == characterNames.Count - 1)
+                {
+                    img.GestureRecognizers.Add(lastInitialImageTgr);
+                }
                 img.GestureRecognizers.Add(tgr);
                 imageButtons.Add(img);
             }
             return imageButtons;
 
 
-
-            var characterButtons = new List<Button>();
-            for (int i = 0; i < characterNames.Count(); i++)
-            {
-
-                Button bChar = new Button
-                {
-                    Image = characterNames[i],
-
-                    ClassId = characterNames[i],
-
-                    BorderRadius = 5,
-                    HeightRequest = 80,
-                    WidthRequest = 80,
-                    VerticalOptions = LayoutOptions.Center
-                };
-                bChar.Clicked += BChar_Clicked;
-
-                characterButtons.Add(bChar);
-            }
             //     return characterButtons;
 
         }
@@ -304,16 +570,7 @@ namespace FrontEnd
 
 
         }
-        private void BChar_Clicked(object sender, EventArgs e)
-        {
-            Button b = sender as Button;
-            if (b != null)
-            {
-                chosenEmojiId = b.Image;
-            }
-            System.Diagnostics.Debug.WriteLine("character Tapped!");
 
-        }
 
         private void Tgr_Tapped(object sender, EventArgs e)
         {
@@ -323,9 +580,23 @@ namespace FrontEnd
             {
                 chosenEmojiId = source.File;
             }
+
             System.Diagnostics.Debug.WriteLine(chosenEmojiId);
         }
+        private void ExtendedImagesTgr_Tapped(object sender, EventArgs e)
+        {
+            Image b = sender as Image;
+            var source = b.Source as FileImageSource;
+            if (source != null)
+            {
+                chosenEmojiId = source.File;
+            }
+            characterNames[0] = source.File;
+            generateInitialView();
 
+            System.Diagnostics.Debug.WriteLine(chosenEmojiId);
+
+        }
 
         private async void BContinue_Clicked(object sender, EventArgs e)
         {
@@ -335,10 +606,20 @@ namespace FrontEnd
             var newestClubs = await App.dbWrapper.GetNewestClubs();
 
             // send info to dbserver
-            await App.dbWrapper.SetUserColor(chosenColorId);
-            await App.dbWrapper.SetUserEmoji(chosenEmojiId);
-            
-            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, new List<Club>(),popularClubs,newestClubs));
+            await App.dbWrapper.SetUserColor(this.chosenColorId);
+            await App.dbWrapper.SetUserEmoji(this.chosenEmojiId);
+            var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+
+            List<string> pendingInviteList = new List<string>();
+
+            for (int i = 0; i < clubs.Count; i++)
+            {
+                if (await App.dbWrapper.IsPendingClubRequest(clubs[i].Id))
+                {
+                    pendingInviteList.Add(clubs[i].Id);
+                }
+            }
+            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }
@@ -350,8 +631,19 @@ namespace FrontEnd
             await App.dbWrapper.SetUserEmoji("default");
             var popularClubs = await App.dbWrapper.GetPopularClubs();
             var newestClubs = await App.dbWrapper.GetNewestClubs();
+            var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+            var clubs = await App.dbWrapper.GetClubs(); 
 
-            var navPage = new NavigationPage(new TabbedMainClubPages(await App.dbWrapper.GetClubs(), new List<Club>(),popularClubs,newestClubs));
+            List<string> pendingInviteList = new List<string>();
+
+            for (int i = 0; i < clubs.Count; i++)
+            {
+                if (await App.dbWrapper.IsPendingClubRequest(clubs[i].Id))
+                {
+                    pendingInviteList.Add(clubs[i].Id);
+                }
+            }
+            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }

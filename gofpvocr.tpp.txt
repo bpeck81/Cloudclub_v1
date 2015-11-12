@@ -1,0 +1,56 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/CloudClubv1.x_2_.Droid.apk
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/android/support/v4/R$style.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/cloudclubv1/x_2_/droid/R$attr.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/cloudclubv1/x_2_/droid/R$drawable.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/cloudclubv1/x_2_/droid/R$style.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/cloudclubv1/x_2_/droid/R.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/cloudclubv1/x_2_/droid/TrialSplashScreen$1.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/cloudclubv1/x_2_/droid/TrialSplashScreen.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/com/cloudclub/cloudclubv1/x_2_/R$style.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/com/cloudclub/cloudclubv1/x_2_/TrialSplashScreen$1.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/bin/classes/com/cloudclub/cloudclubv1/x_2_/TrialSplashScreen.class
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/cloudclubv1/x_2_/droid/R.java
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/src/cloudclubv1/x_2_/droid/R.java
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/src/cloudclubv1/x_2_/droid/TrialSplashScreen.java
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/android/src/com/cloudclub/cloudclubv1/x_2_/TrialSplashScreen.java
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/AndroidManifest.xml
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/aapt/AndroidManifest.xml
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/aidl/android/support/v4/media/MediaMetadataCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/aidl/android/support/v4/media/RatingCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/aidl/android/support/v4/media/session/MediaSessionCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/annotations.zip
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/classes.jar
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/07889E7E9CF5B5C8ACFC875CF1D48CC0/libs/internal_impl-23.0.1.jar
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/AndroidManifest.xml
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/aapt/AndroidManifest.xml
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/aidl/android/support/v4/media/MediaMetadataCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/aidl/android/support/v4/media/RatingCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/aidl/android/support/v4/media/session/MediaSessionCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/annotations.zip
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/classes.jar
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/5266D4998E7D27AF069370404B07E8F5/libs/internal_impl-23.0.1.jar
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/AndroidManifest.xml
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/aapt/AndroidManifest.xml
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/aidl/android/support/v4/media/MediaMetadataCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/aidl/android/support/v4/media/RatingCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/aidl/android/support/v4/media/session/MediaSessionCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/annotations.zip
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/classes.jar
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_.Droid/obj/Debug/resourcecache/BAD16E86E7D26502A8B8C54AA3957C40/libs/internal_impl-23.0.1.jar
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_/TutorialPages/TabbedTutorialPage.cs
+#	deleted:    CloudClubv1.2'/CloudClubv1._2_/TutorialPages/TabbedTutorialPageRedo.cs
+#
+
