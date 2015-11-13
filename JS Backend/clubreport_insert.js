@@ -9,7 +9,8 @@ function insert(item, user, request) {
         success:function(reports){
             //if the club has more than 5 reports
             if(reports.length>5){
-                notifyAccounts(item,request);
+                //disabling automated club deletions for now
+                //notifyAccounts(item,request);
             }
         }
     });

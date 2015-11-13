@@ -6,8 +6,8 @@ function insert(item, user, request) {
     banTable.where({AccountId: item.AccountId}).read({
         success:function(bans){
             console.log("bans found");
-            //if the user has 4  bans
-            if(bans.length>3){
+            //if the user has 5  bans
+            if(bans.length>4){
                 accountTable.lookup(item.AccountId,{
                     success:function(account){
                         //ban user for a minute
