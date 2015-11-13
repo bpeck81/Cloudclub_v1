@@ -40,6 +40,7 @@
     <Compile Include="Backend\Club.cs" />
     <Compile Include="Backend\ClubNotification.cs" />
     <Compile Include="Backend\ClubReport.cs" />
+    <Compile Include="Backend\ClubReqRatingJunc.cs" />
     <Compile Include="Backend\ClubRequest.cs" />
     <Compile Include="Backend\Comment.cs" />
     <Compile Include="Backend\CommentJunction.cs" />

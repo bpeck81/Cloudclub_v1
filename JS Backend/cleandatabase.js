@@ -18,6 +18,7 @@ function CleanDatabase() {
     //NOTE: this should go in its own job once we have more schedulers
     updateRankings();
     cleanBans();
+    cleanClubReqRatingJuncs();
     cleanClubReports();
     cleanTemporaryMemberJunctions();
     cleanClubRequests();
@@ -217,13 +218,14 @@ function updateRankings(){
         success:function(accounts){
             console.log('Rankings updated.');
             for(var i=0;i<accounts.length;i++){
-                accounts[i].Ranking=i;
+                //rounds to 10%
+                accounts[i].Ranking=Math.round(i/accounts.length*10)*10;
                 accountTable.update(accounts[i]);
                 
                 //if user has enabled rating notifications
                 if(accounts[i].RatingNotificationToggle){
                     //send push notification
-                    var payloadText = 'Congratulations! You are now the '+accounts[i].Ranking+'th highest ranked Cloudclub user.';
+                    var payloadText = 'Congratulations! You are now in the top '+accounts[i].Ranking+'% of Cloudclub users!';
                     var tags = [accounts[i].id];
                     var payload = '{ "message" : "dbNotification,'+payloadText+'" }';
                     sendPush(tags,payload);
@@ -253,6 +255,20 @@ function cleanBans(){
             for(var i=0;i<bans.length;i++){
                 if(!isNew(bans[i].Time.getTime())){
                     banTable.del(bans[i].id);
+                }
+            }
+        }
+    });
+}
+
+//delete clubreqratingjuncs that are old
+function cleanClubReqRatingJuncs(){
+    var clubReqRatingJuncTable = tables.getTable('ClubReqRatingJunc');
+    clubReqRatingJuncTable.read({
+        success:function(ratings){
+            for(var i=0;i<ratings.length;i++){
+                if(!isNew(ratings[i].Time.getTime())){
+                    clubReqRatingJuncTable.del(ratings[i].id);
                 }
             }
         }
@@ -351,12 +367,12 @@ function sendPush(tags,payload,request){
               success: function(pushResponse){
               console.log("Sent push:", pushResponse);
               // Send the default response.
-              request.respond();
+              //request.respond();
               },              
               error: function (pushResponse) {
                   console.log("Error Sending push:", pushResponse);
                    // Send the an error response.
-                  request.respond(500, { error: pushResponse });
+                  //request.respond(500, { error: pushResponse });
                   }           
            });
       }else{

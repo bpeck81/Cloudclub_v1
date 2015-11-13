@@ -14,7 +14,11 @@ namespace Backend
 
 		public string Text{get;set;}
 
+        public bool Visible { get; set; }
+
 		public ClubRequest (string accountId, string clubId, string text){
+            Visible = true;
+
 			AccountId = accountId;
 			ClubId = clubId;
 			Text = text;

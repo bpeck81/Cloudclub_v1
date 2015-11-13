@@ -45,6 +45,8 @@ namespace Backend
 
         public string Email { get; set; }
 
+        public int NumInvites { get; set; }
+
 		public Account (string username, string password, string email){
 			//datetime is null, passed in by server
 			Emoji = "none";
@@ -61,6 +63,7 @@ namespace Backend
             Banned = DateTime.Now;
             RatingNotificationToggle = false;
             NumMedals = 0;
+            NumInvites = 0;
 
 			Username = username;
 			Password = password;

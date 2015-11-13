@@ -77,5 +77,6 @@ namespace CloudClubv1._2_
           Task<bool> CreateClubReport(string clubId, string reporterId);
           Task<string> GetLocation();
           Task<Club> GetClub(string clubId);
+          Task<bool> HasReportedClub(string clubId);
     }
 }

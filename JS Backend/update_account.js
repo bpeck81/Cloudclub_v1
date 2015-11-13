@@ -7,7 +7,10 @@ var medalArray = [
     hardTotalClubsRatings,
     easyNumFriends,
     mediumNumFriends,
-    hardNumFriends
+    hardNumFriends,
+    easyNumInvites,
+    mediumNumInvites,
+    hardNumInvites
 ]
 
 var medalTable = tables.getTable('Medal');
@@ -164,6 +167,29 @@ function mediumNumFriends(item){
 function hardNumFriends(item){
     if(item.NumFriends>24 && item.NumFriends%25==0){
         return [true,"Make "+item.NumFriends+" friends!",50];
+    }else{
+        return [false];
+    }
+}
+
+//invites
+function easyNumInvites(item){
+    if(item.NumInvites==1 || item.NumInvites==3 || item.NumInvites==5){
+        return [true,"Invite "+item.NumInvites+" friends into a club!",10];
+    }else{
+        return [false];
+    }
+}
+function mediumNumInvites(item){
+    if(item.NumInvites==10 ||item.NumInvites==15 ||item.NumInvites==20){
+        return [true,"Invite "+item.NumInvites+" friends into a club!",25];
+    }else{
+        return [false];
+    }
+}
+function hardNumInvites(item){
+    if(item.NumInvites>20 && item.NumInvites%15==0){
+        return [true,"Invite "+item.NumInvites+" friends into a club!",50];
     }else{
         return [false];
     }

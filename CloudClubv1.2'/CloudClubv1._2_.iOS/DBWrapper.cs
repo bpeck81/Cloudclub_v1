@@ -585,10 +585,16 @@ namespace CloudClubv1._2_.iOS
 		{
 			Invite invite = await inviteTable.LookupAsync(inviteId);
 
-			//join the club: NOTE: the DBNotification is made in the joinclubbyinvite function
-			await JoinClubByInvite(User.Id, invite.ClubId);
+            //join the club: NOTE: the DBNotification is made in the joinclubbyinvite function
+            await JoinClubByInvite(User.Id, invite.ClubId);
 
-			//delete the invite
+            //give the author credit for the invite
+            var author = await accountTable.LookupAsync(invite.AuthorId);
+            author.NumInvites++;
+            //_async
+            await accountTable.UpdateAsync(author);
+
+            //delete the invite
 			try
 			{
 				await inviteTable.DeleteAsync(invite);
@@ -1279,6 +1285,24 @@ namespace CloudClubv1._2_.iOS
         {
             var club = await clubTable.LookupAsync(clubId);
             return club;
+        }
+
+        /// Returns if the user has already reported a club
+        public async Task<bool> HasReportedClub(string clubId)
+        {
+            //check if the reporter has already made a club report
+            var clubReportList = await clubReportTable.Where(item => item.ClubId == clubId && item.ReporterId == User.Id).ToListAsync();
+
+            //if report already exists
+            if (clubReportList.Count > 0)
+            {
+                return true;
+            }
+            //if no report exists
+            else
+            {
+                return false;
+            }
         }
 
 		//TODO: make time added in constructors? not on server?

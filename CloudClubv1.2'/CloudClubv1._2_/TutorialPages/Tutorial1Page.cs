@@ -15,7 +15,7 @@ namespace FrontEnd
         public Tutorial1Page()
         {
             //Michael's debug function
-        //    DebugDatabase();
+            DebugDatabase();
 
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
@@ -71,6 +71,27 @@ namespace FrontEnd
             string debug = "MYDEBUG-----";
 
             System.Diagnostics.Debug.WriteLine(debug+await App.dbWrapper.GetLocation());
+            
+            /*await App.dbWrapper.CreateAccount("jo1","jo1","jo1");
+            await App.dbWrapper.LoginAccount("jo1","jo1");
+            var club = (await App.dbWrapper.GetClubs())[0];
+            var user = App.dbWrapper.GetUser();
+            await App.dbWrapper.JoinClubByInvite(user.Id,club.Id);
+            await App.dbWrapper.CreateAccount("shmo1","shmo1","shmo1");*/
+            await App.dbWrapper.LoginAccount("jo","jo");
+            var user = App.dbWrapper.GetUser();
+           // await App.dbWrapper.LoginAccount("jo1","jo1");
+           // await App.dbWrapper.CreateInvite(club.Id,user2.Id);
+            var club = (await App.dbWrapper.GetClubs())[0];
+            //var frqs = await App.dbWrapper.GetInvites();
+            System.Diagnostics.Debug.WriteLine(debug+await App.dbWrapper.CreateClubRequest("1",club.Id));
+            var req = (await App.dbWrapper.GetClubRequests(club.Id))[0];
+            System.Diagnostics.Debug.WriteLine(debug + await App.dbWrapper.DeclineClubRequest(req.Id));
+            System.Diagnostics.Debug.WriteLine(debug+(await App.dbWrapper.GetClubRequests(club.Id)).Count);
+
+            
+
+
             /*
 
             await App.dbWrapper.LoginAccount("252","252");

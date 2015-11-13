@@ -56,6 +56,7 @@ namespace CloudClubv1._2_.Droid
         public static IMobileServiceTable<Ban> banTable = client.GetTable<Ban>();
         public static IMobileServiceTable<ClubReport> clubReportTable = client.GetTable<ClubReport>();
         public static IMobileServiceTable<TemporaryMemberJunction> temporaryMemberJuncTable = client.GetTable<TemporaryMemberJunction>();
+        public static IMobileServiceTable<ClubReqRatingJunc> clubReqRatingJuncTable = client.GetTable<ClubReqRatingJunc>();
 
         //used to determine how to handle push notifications
         public static string CurrentClubId = null;
@@ -592,6 +593,12 @@ namespace CloudClubv1._2_.Droid
             //join the club: NOTE: the DBNotification is made in the joinclubbyinvite function
             await JoinClubByInvite(User.Id, invite.ClubId);
 
+            //give the author credit for the invite
+            var author = await accountTable.LookupAsync(invite.AuthorId);
+            author.NumInvites++;
+                //_async
+            await accountTable.UpdateAsync(author);
+
             //delete the invite
             try
             {
@@ -641,10 +648,10 @@ namespace CloudClubv1._2_.Droid
             }
         }
 
-        /// Returns a list of club request instances for a given club
+        /// Returns a list of club request instances for a given club (only if they're visible)
         public async Task<List<ClubRequest>> GetClubRequests(string clubId)
         {
-            var list = await clubRequestTable.Where(item => item.ClubId == clubId).ToListAsync();
+            var list = await clubRequestTable.Where(item => item.ClubId == clubId && item.Visible==true).ToListAsync();
             return list;
         }
 
@@ -674,20 +681,23 @@ namespace CloudClubv1._2_.Droid
             }
         }
 
-        /// delete a club request; returns true if success, false if failure
+        /// create a decline rating for a club request; returns true if success; false if user already declined
         public async Task<bool> DeclineClubRequest(string clubRequestId)
         {
-            ClubRequest clubRequest = await clubRequestTable.LookupAsync(clubRequestId);
+            //check to see if the user has already declined the request
+            var declineList = await clubReqRatingJuncTable.Where(item=>item.ClubRequestId==clubRequestId && item.RaterId==User.Id).ToListAsync();
 
-            try
-            {
-                await clubRequestTable.DeleteAsync(clubRequest);
-                return true;
-
-            }
-            catch (Exception e)
+            if (declineList.Count > 0)
             {
                 return false;
+            }
+            //if not a rating, create a decline
+            else {
+                //the server checks to see if there are 3 declines, if there are, the club request is set to invisible
+                //after 24 hours it is deleted and the 
+                ClubReqRatingJunc decline = new ClubReqRatingJunc(clubRequestId,User.Id);
+                await clubReqRatingJuncTable.InsertAsync(decline);
+                return true;
             }
         }
 
@@ -1068,7 +1078,7 @@ namespace CloudClubv1._2_.Droid
 
         }
 
-        ///returns true if the user has a pending club request for a given club, false if not
+        ///returns true if the user has a pending club request for a given club, false if not (if invisible, still returns true)
         public async Task<bool> IsPendingClubRequest(string clubId) {
             var clubRequests = await clubRequestTable.Where(item=>(item.AccountId==User.Id && item.ClubId==clubId)).ToListAsync();
             if(clubRequests.Count>0){
@@ -1214,8 +1224,8 @@ namespace CloudClubv1._2_.Droid
             //get 20 most recent comments
             var commentList = await commentTable.OrderByDescending(item => item.Time).Where(item=> item.ClubId==clubId)
                 .Skip(index*20).Take(20).ToListAsync();
-            //get 5 most recent club requests
-            var requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId)
+            //get 5 most recent club requests that are visible
+            var requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId && item.Visible==true)
                 .Skip(index*5).Take(5).ToListAsync();
             //add to list and sort
             list.AddRange(commentList);
@@ -1292,6 +1302,22 @@ namespace CloudClubv1._2_.Droid
             return club;
         }
 
+        /// Returns if the user has already reported a club
+        public async Task<bool> HasReportedClub(string clubId) {
+            //check if the reporter has already made a club report
+            var clubReportList = await clubReportTable.Where(item => item.ClubId == clubId && item.ReporterId == User.Id).ToListAsync();
+
+            //if report already exists
+            if (clubReportList.Count > 0)
+            {
+                return true;
+            }
+            //if no report exists
+            else
+            {
+                return false;
+            }
+        }
 
         //TODO: make time added in constructors? not on server?
     }
