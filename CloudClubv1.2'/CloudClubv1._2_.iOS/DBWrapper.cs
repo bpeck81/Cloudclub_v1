@@ -1201,9 +1201,9 @@ namespace CloudClubv1._2_.iOS
 
 		///returns a list of comments and club requests; is what users see in chat
 		///returns 20-25 items; index is used to get sets of 20, ex: 0 is most recent 20, 1 is next most recent 20...
-		public async Task<List<DBItem>> GetChat(string clubId, int index) {
+		public async Task<List<DBItem>> GetChat(string clubId, string indexCommentId) {
 			List<DBItem> list = new List<DBItem>();
-
+            /*
 			//get 20 most recent comments
 			var commentList = await commentTable.OrderByDescending(item => item.Time).Where(item=> item.ClubId==clubId)
 				.Skip(index*20).Take(20).ToListAsync();
@@ -1214,7 +1214,7 @@ namespace CloudClubv1._2_.iOS
 			list.AddRange(commentList);
 			list.AddRange(requestList);
 			list.OrderByDescending(item=>item.Time);
-
+            */
 			return list;
 		}
 

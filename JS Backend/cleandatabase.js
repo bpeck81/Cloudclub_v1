@@ -23,6 +23,7 @@ function CleanDatabase() {
     cleanTemporaryMemberJunctions();
     cleanClubRequests();
     cleanDBNotifications();
+    cleanFriendRequests();
     //NOTE: I am refraining from deleting old friend requests and invites
     
     //Erase old comments ana images if they had one
@@ -136,8 +137,10 @@ function cleanClub(club){
 function deleteClubAndTags(bDelete,clubId){
     if(bDelete){
         console.log("deleting club: "+clubId);
+        cleanInvites(clubId);
         cleanTags(clubId);
         cleanRatingJunction(clubId);
+        cleanMemberJunctions(clubId);
         var clubTable = tables.getTable('Club');
         clubTable.del(clubId);
         
@@ -146,6 +149,7 @@ function deleteClubAndTags(bDelete,clubId){
     }
 }
 
+//deletetags associate w/ club
 function cleanTags(clubId){
     var tagTable = tables.getTable('Tag');
     tagTable.where({ClubId: clubId}).read({
@@ -153,6 +157,30 @@ function cleanTags(clubId){
             for(var k = 0;k<tags.length;k++){
                 console.log("deleting tags: "+tags[k].ClubId);
                 tagTable.del(tags[k].id);
+            }
+        }
+    });
+}
+
+//delete invites associated w/ club
+function cleanInvites(clubId){
+    var inviteTable = tables.getTable('Invite');
+    inviteTable.where({ClubId: clubId}).read({
+        success:function(invites){
+            for(var k = 0;k<invites.length;k++){
+                inviteTable.del(invites[k].id);
+            }
+        }
+    });
+}
+
+//delete members associated w/ clubs
+function cleanMemberJunctions(clubId){
+    var memberJunctionTable = tables.getTable('MemberJunction');
+    memberJunctionTable.where({ClubId:clubId}).read({
+        success:function(memberships){
+            for(var i=0;i<memberships.length;i++){
+                memberJunctionTable.del(memberships[i].id);
             }
         }
     });
@@ -312,6 +340,20 @@ function cleanClubRequests(){
                 if(!isNew(requests[i].Time.getTime())){
                     clubRequestTable.del(requests[i].id);
                     console.log("deleting old club request");
+                }
+            }
+        }
+    });
+}
+
+//delete friendrequests that are old
+function cleanFriendRequests(){
+    var friendRequestTable = tables.getTable('FriendRequest');
+    friendRequestTable.read({
+        success:function(requests){
+            for(var i=0;i<requests.length;i++){
+                if(!isNew(requests[i].Time.getTime())){
+                    friendRequestTable.del(requests[i].id);
                 }
             }
         }

@@ -59,7 +59,7 @@ namespace FrontEnd
                 // var club = 
                 var invite = (Invite) news.dbItem;
                 
-                var chatList = await App.dbWrapper.GetChat(invite.ClubId, 0);
+                var chatList = await App.dbWrapper.GetChat(invite.ClubId,"","");
 
                 List<Account> requestUsersList = new List<Account>();
                 List<Account> commentUsersList = new List<Account>();

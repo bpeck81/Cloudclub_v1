@@ -73,10 +73,11 @@ namespace CloudClubv1._2_
           Task<bool> DisableRankingNotification();
           Task<List<Account>> GetClubMembers(string clubId);
           Task<List<Club>> GetAccountClubs(string accountId);
-          Task<List<DBItem>> GetChat(string clubId, int index);
+          Task<List<DBItem>> GetChat(string clubId,string indexType, string indexId);
           Task<bool> CreateClubReport(string clubId, string reporterId);
           Task<string> GetLocation();
           Task<Club> GetClub(string clubId);
           Task<bool> HasReportedClub(string clubId);
+          Task<string> DeleteUser();
     }
 }

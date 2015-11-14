@@ -464,7 +464,7 @@ namespace FrontEnd
             }
 
             var club = (FrontClub)e.SelectedItem;
-            var chatList = await App.dbWrapper.GetChat(club.Id, 0);
+            var chatList = await App.dbWrapper.GetChat(club.Id,"", "");
 
             List<Account> requestUsersList = new List<Account>();
             List<Account> commentUsersList = new List<Account>();

@@ -1217,16 +1217,44 @@ namespace CloudClubv1._2_.Droid
         }
 
         ///returns a list of comments and club requests; is what users see in chat
-        ///returns 20-25 items; index is used to get sets of 20, ex: 0 is most recent 20, 1 is next most recent 20...
-        public async Task<List<DBItem>> GetChat(string clubId, int index) {
+        ///returns 20-25 items; indexCommentId is used to retrieve sets of comments; if "", gets 20 most recent items
+        ///if not "", gets the 20 most recent comments prior to the passed in comment;
+        ///must pass in index type - can be "comment" or "clubRequest"
+        public async Task<List<DBItem>> GetChat(string clubId, string indexType, string indexId) {
             List<DBItem> list = new List<DBItem>();
+            List<Comment> commentList = new List<Comment>();
+            List<ClubRequest> requestList = new List<ClubRequest>();
 
-            //get 20 most recent comments
-            var commentList = await commentTable.OrderByDescending(item => item.Time).Where(item=> item.ClubId==clubId)
-                .Skip(index*20).Take(20).ToListAsync();
-            //get 5 most recent club requests that are visible
-            var requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId && item.Visible==true)
-                .Skip(index*5).Take(5).ToListAsync();
+            //if empty string, get newest ~25 items
+            if (indexId.Equals(""))
+            {
+                //get 20 most recent comments
+                commentList = await commentTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId)
+                    .Take(20).ToListAsync();
+                //get 5 most recent club requests that are visible
+                requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId && item.Visible == true)
+                    .Take(5).ToListAsync();
+            }
+            else {
+                //get the reference point comment; use the passed in type to determine what class it is
+                DBItem refItem;
+
+                if (indexType.Equals("comment"))
+                {
+                    refItem = await commentTable.LookupAsync(indexId);
+                }
+                else {
+                    refItem = await clubRequestTable.LookupAsync(indexId);
+                }
+
+                //get 20 most recent comments; skip determined by time
+                commentList = await commentTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId
+                    && item.Time<refItem.Time).Take(20).ToListAsync();
+                //get 5 most recent club requests that are visible; skip determined by time
+                requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId && item.Visible == true
+                    && item.Time < refItem.Time).Take(5).ToListAsync();
+            }
+            
             //add to list and sort
             list.AddRange(commentList);
             list.AddRange(requestList);
@@ -1317,6 +1345,59 @@ namespace CloudClubv1._2_.Droid
             {
                 return false;
             }
+        }
+
+        /// Delete the user's account; note: attempt to access their account after this will throw error
+        public async Task<string> DeleteUser()
+        {
+            var account = User;
+            //delete dependencies on account
+            //club requests
+            var clubRequests = await clubRequestTable.Where(item => item.AccountId == account.Id).ToListAsync();
+            foreach (ClubRequest req in clubRequests)
+            {
+                await clubRequestTable.DeleteAsync(req);
+            }
+            //comment
+            var comments = await commentTable.Where(item => item.AuthorId == account.Id).ToListAsync();
+            foreach (Comment comment in comments)
+            {
+                await commentTable.DeleteAsync(comment);
+            }
+            //friend requests
+            var friendRequests = await friendRequestTable.Where(item => item.AuthorId == account.Id
+                || item.RecipientId == account.Id).ToListAsync();
+            foreach (FriendRequest req in friendRequests)
+            {
+                await friendRequestTable.DeleteAsync(req);
+            }
+            //friends
+            var friends = await friendsTable.Where(item => item.AuthorId == account.Id
+                || item.RecipientId == account.Id).ToListAsync();
+            foreach (Friends fr in friends)
+            {
+                await friendsTable.DeleteAsync(fr);
+            }
+            //medals
+            var medals = await medalTable.Where(item => item.AccountId == account.Id).ToListAsync();
+            foreach (Medal m in medals)
+            {
+                await medalTable.DeleteAsync(m);
+            }
+            //members
+            var memberJunctions = await memberJuncTable.Where(item => item.AccountId == account.Id).ToListAsync();
+            foreach (MemberJunction m in memberJunctions)
+            {
+                await memberJuncTable.DeleteAsync(m);
+            }
+
+            //delete account
+            await accountTable.DeleteAsync(account);
+
+            //logout user
+            LogoutUser();
+
+            return "Account deleted.";
         }
 
         //TODO: make time added in constructors? not on server?
