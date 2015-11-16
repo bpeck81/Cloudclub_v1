@@ -29,7 +29,7 @@ namespace CloudClubv1._2_
           Task<bool> AcceptFriendRequest(string friendRequestId);
           Task<string> CreateDBMessage(string text, string recipientId);
           Task<List<DBMessage>> GetDBMessages();
-          Task<bool> CreateInvite(string clubId, string recipientId);
+          Task<int> CreateInvite(string clubId, string recipientId);
           Task<List<Invite>> GetInvites();
           Task<int> JoinClubByInvite(string accountId, string clubId);
           Task<bool> AcceptInvite(string inviteId);
@@ -75,9 +75,14 @@ namespace CloudClubv1._2_
           Task<List<Club>> GetAccountClubs(string accountId);
           Task<List<DBItem>> GetChat(string clubId,string indexType, string indexId);
           Task<bool> CreateClubReport(string clubId, string reporterId);
-          Task<string> GetLocation();
+          Task<double[]> GetLocation();
           Task<Club> GetClub(string clubId);
           Task<bool> HasReportedClub(string clubId);
           Task<string> DeleteUser();
+          Task<Cloud> CreateCloud(string title, string description, double lat, double lon, double radius);
+          Task<List<Cloud>> GetClouds();
+          Task<CloudJunction> JoinCloud(string cloudId);
+          Task<string> SetCurrentCloud(string cloudId);
+          Task<List<Cloud>> GetAvailableClouds(double latitude, double longitude);
     }
 }

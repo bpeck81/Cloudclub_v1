@@ -25,7 +25,9 @@ namespace Backend
 
 		public string FounderId{ get; set; }
 
-		public Club (string title, string color, bool exclusive, string founderId){
+        public string CloudId { get; set; }
+
+		public Club (string cloudId,string title, string color, bool exclusive, string founderId){
 			//Note: tags have their own table
 			NumRatings = 0;
 			TotalRating = 0;
@@ -35,6 +37,7 @@ namespace Backend
 			Color = color;
 			Exclusive = exclusive;
 			FounderId = founderId;
+            CloudId = cloudId;
 		}
 
 

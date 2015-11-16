@@ -47,6 +47,8 @@ namespace Backend
 
         public int NumInvites { get; set; }
 
+        public string CurrentCloudId { get; set; }
+
 		public Account (string username, string password, string email){
 			//datetime is null, passed in by server
 			Emoji = "none";
@@ -64,6 +66,7 @@ namespace Backend
             RatingNotificationToggle = false;
             NumMedals = 0;
             NumInvites = 0;
+            CurrentCloudId = "";
 
 			Username = username;
 			Password = password;

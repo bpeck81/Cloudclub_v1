@@ -12,9 +12,12 @@ namespace Backend
 
 		public string ClubId{ get; set; }
 
-		public Tag (string key, string clubId){
+        public string CloudId { get; set; }
+
+		public Tag (string key, string clubId, string cloudId){
 			Key = key;
 			ClubId = clubId;
+            CloudId = cloudId;
 		}
 
 	}

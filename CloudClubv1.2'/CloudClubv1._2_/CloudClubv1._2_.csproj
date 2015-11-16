@@ -37,6 +37,8 @@
     <Compile Include="Backend\Account.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Backend\Ban.cs" />
+    <Compile Include="Backend\Cloud.cs" />
+    <Compile Include="Backend\CloudJunction.cs" />
     <Compile Include="Backend\Club.cs" />
     <Compile Include="Backend\ClubNotification.cs" />
     <Compile Include="Backend\ClubReport.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Backend\MemberJunction.cs" />
     <Compile Include="Backend\DBMessage.cs" />
     <Compile Include="Backend\DBNotification.cs" />
+    <Compile Include="Backend\SearchArray.cs" />
     <Compile Include="Backend\TemporaryMemberJunction.cs" />
     <Compile Include="MainClubPages\ChatPages\FrontClubMember.cs" />
     <Compile Include="MainClubPages\Helpers\InvertBoolConverter.cs" />

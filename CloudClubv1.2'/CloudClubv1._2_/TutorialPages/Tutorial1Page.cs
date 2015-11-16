@@ -70,30 +70,18 @@ namespace FrontEnd
         private async void DebugDatabase(){
             string debug = "MYDEBUG-----";
 
-            System.Diagnostics.Debug.WriteLine(debug+await App.dbWrapper.GetLocation());
+            //await App.dbWrapper.CreateCloud("Wahoos","wahoo was",38.03,-78.500,.00001);
+            //await App.dbWrapper.CreateCloud("Wahoos3", "wahoo was", 38.03, -78.500, .02);
 
-            await App.dbWrapper.LoginAccount("jo","jo");
-            await App.dbWrapper.DeleteUser();
-
+            double[] array = await App.dbWrapper.GetLocation();
+            var clouds = await App.dbWrapper.GetAvailableClouds(array[0],array[1]);
             
+            foreach(Cloud c in clouds){
+                System.Diagnostics.Debug.WriteLine(c.Title);
+            }
 
-
-            /*
-
-            await App.dbWrapper.LoginAccount("252","252");
-            System.Diagnostics.Debug.WriteLine(debug+App.dbWrapper.GetUser().Username);
-            await App.dbWrapper.CreateClub("title","blue",false,new List<string>());
-            var club = (await App.dbWrapper.GetClubs())[0];
-            System.Diagnostics.Debug.WriteLine(debug+club.Title);*/
-
-          //  await App.dbWrapper.CreateComment(",yo",club.Id);
-           // await App.dbWrapper.CreateComment(",yo", club.Id);
-           // await App.dbWrapper.LoginAccount("22", "22");
-
-            //var user = App.dbWrapper.GetUser();
-            
-           // await App.dbWrapper.SetCurrentClubId(club.Id);
-            //await App.dbWrapper.RemoveCurrentClubId();
+            //await App.dbWrapper.CreateCloud("title","desc",1,2,3);
+            //await App.dbWrapper.JoinCloud((await App.dbWrapper.GetClouds())[0].Id);
             
         }
 

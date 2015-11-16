@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="ArcGIS.PCL" is-shell="true">
+  <name>ArcGIS.PCL</name>
+  <publisher>Dave Timmins</publisher>
+  <publisher-url>http://davetimmins.com</publisher-url>
+  <version>5.0.3</version>
+  <summary>Use ArcGIS Server REST types and resources without an official SDK. You can also convert between ArcGIS Features and GeoJSON.</summary>
+  <packages>
+    <package id="modernhttpclient" version="2.1.4" framework="ios-unified" />
+    <package id="Newtonsoft.Json" version="6.0.6" framework="ios-unified" />
+    <package id="modernhttpclient" version="2.1.4" framework="ios" />
+    <package id="Newtonsoft.Json" version="6.0.6" framework="ios" />
+    <package id="modernhttpclient" version="2.1.4" framework="android" />
+    <package id="Newtonsoft.Json" version="6.0.6" framework="android" />
+  </packages>
+  <samples>
+    <sample id="ArcGIS.Portable.iOS">
+      <name>Demonstrates calling query and geocode ArcGIS Server operations.</name>
+      <summary>Demonstrates calling query and geocode ArcGIS Server operations.</summary>
+    </sample>
+    <sample id="ArcGIS.Portable.iOSUnified">
+      <name>Demonstrates calling query and geocode ArcGIS Server operations.</name>
+      <summary>Demonstrates calling query and geocode ArcGIS Server operations.</summary>
+    </sample>
+    <sample id="ArcGIS.Portable.Android">
+      <name>Demonstrates calling query and geocode ArcGIS Server operations.</name>
+      <summary>Demonstrates calling query and geocode ArcGIS Server operations.</summary>
+    </sample>
+  </samples>
+</component>

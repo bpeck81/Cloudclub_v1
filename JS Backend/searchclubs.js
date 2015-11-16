@@ -10,7 +10,10 @@ exports.post = function(request, response) {
     var tagTable = request.service.tables.getTable('Tag');
     tagTable.read({
         success:function(tags){
-            var tagHits = searchTags(tags,request.body);
+            console.log("-here'");
+            
+            //request.body is a searcharray type
+            var tagHits = searchTags(tags,request.body.Tags,request.body.CloudId);
             startSort(tagHits,request,response);
         }
     });
@@ -18,15 +21,15 @@ exports.post = function(request, response) {
     //response.send(statusCodes.OK, { message : 'Hello World!' });
 };
 
-function searchTags(tags,queryTags){
+function searchTags(tags,queryTags,cloudId){
     //store results as a 2d array: [clubid,numHits]
     var results =[];
     //loop through passed in query tags
     for(var i = 0;i<queryTags.length;i++){
         //loop through tags in table
         for(var j = 0;j<tags.length;j++){
-            //if tags equal
-            if(tags[j].Key==queryTags[i]){
+            //if tags equal and in same cloud as user
+            if(tags[j].Key==queryTags[i] && tags[j].CloudId==cloudId){
                 var uniqueMatch = true;
                 //see if tag's club is in the results 2d array
                 for(var k = 0;k<results.length;k++){
