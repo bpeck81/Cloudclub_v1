@@ -82,6 +82,13 @@ namespace FrontEnd
                 System.Diagnostics.Debug.WriteLine(c.Title);
             }
 
+            await App.dbWrapper.LoginAccount("g","g");
+            var user = App.dbWrapper.GetUser();
+            var club = (await App.dbWrapper.GetClubs())[0];
+            await App.dbWrapper.JoinClubByInvite(user.Id,club.Id);
+            await App.dbWrapper.CreateComment("first comment nl",club.Id);
+            System.Diagnostics.Debug.WriteLine((await App.dbWrapper.GetRecentComment(club.Id)).Text);
+
             //await App.dbWrapper.CreateCloud("title","desc",1,2,3);
             //await App.dbWrapper.JoinCloud((await App.dbWrapper.GetClouds())[0].Id);
             

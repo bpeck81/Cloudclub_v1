@@ -69,7 +69,7 @@ namespace CloudClubv1._2_.Droid
         private Account User;
 
         //constants
-        private const int CLUB_SIZE = 50;
+        private const int CLUB_SIZE = 500;
 
 
         public DBWrapper()
@@ -828,10 +828,13 @@ namespace CloudClubv1._2_.Droid
             }
         }
 
-        /// Returns a list of the twenty most rated clubs
+        /// Returns a list of the twenty most rated clubs; only clubs less than 2 days old returned
         public async Task<List<Club>> GetPopularClubs()
         {
-            List<Club> clubs = await clubTable.Where(item=>item.CloudId==User.CurrentCloudId).OrderByDescending(item => item.TotalRating).Take(20).ToListAsync();
+            //eligible time is 48 hours old
+            var eligibleTime = DateTime.Now.AddHours(-48);
+            //get if in same cloud and less than 48 hours old, ordered by num ratings
+            List<Club> clubs = await clubTable.Where(item=>item.CloudId==User.CurrentCloudId && item.Time>eligibleTime).OrderByDescending(item => item.TotalRating).Take(20).ToListAsync();
             return clubs;
         }
 
@@ -1449,6 +1452,12 @@ namespace CloudClubv1._2_.Droid
             }
 
             return clouds;
+        }
+
+        ///Returns the most recent comment to be written in a club
+        public async Task<Comment> GetRecentComment(string clubId) {
+            var comment = (await commentTable.Where(item=>item.ClubId==clubId).OrderByDescending(item=>item.Time).Take(1).ToListAsync())[0];
+            return comment;
         }
 
 

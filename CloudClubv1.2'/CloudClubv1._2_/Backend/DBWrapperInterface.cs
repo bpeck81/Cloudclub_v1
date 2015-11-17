@@ -84,5 +84,6 @@ namespace CloudClubv1._2_
           Task<CloudJunction> JoinCloud(string cloudId);
           Task<string> SetCurrentCloud(string cloudId);
           Task<List<Cloud>> GetAvailableClouds(double latitude, double longitude);
+          Task<Comment> GetRecentComment(string clubId);
     }
 }
