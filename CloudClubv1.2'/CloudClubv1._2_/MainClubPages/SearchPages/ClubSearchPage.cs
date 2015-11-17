@@ -70,7 +70,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white"),
                 IsPullToRefreshEnabled = true,
-                SeparatorColor = ch.fromStringToColor("lightGray")
+                SeparatorColor = ch.fromStringToColor("gray")
 
             };
             listView.ItemSelected += ListView_ItemSelected;
@@ -172,7 +172,7 @@ namespace FrontEnd
                 RowHeight = 160,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white"),
-                SeparatorColor = ch.fromStringToColor("lightGray")
+                SeparatorColor = ch.fromStringToColor("gray")
             };
 
             listView.ItemSelected += ListView_ItemSelected;
@@ -357,6 +357,10 @@ namespace FrontEnd
                 var tagsArray = tagString.Split(' ');
                 tagsList = tagsArray.ToList();
                 if (tagsList.Count != 0) returnedSearchedClubs = await App.dbWrapper.SearchClubs(tagsList);
+                if(returnedSearchedClubs == null)
+                {
+                    returnedSearchedClubs = new List<Club>();
+                }
 
 
                 bottomButtonLayout.IsVisible = true;

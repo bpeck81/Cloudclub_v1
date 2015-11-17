@@ -22,17 +22,20 @@ namespace FrontEnd
         {
 
             ch = new ColorHandler();
-            updatePage(memberClubList);
+
+            generateDisplayList(memberClubList);
+            updatePage();
+
         }
 
-        private void updatePage(List<Club> memberClubList)
+        private void updatePage()
         {
-            generateDisplayList(memberClubList);
 
             listView = new ListView
             {
                 ItemsSource = frontMyClubList,
                 ItemTemplate = new DataTemplate(typeof(MyClubViewCell)),
+                SeparatorColor = ch.fromStringToColor("gray"),
                 HasUnevenRows = true
             };
             listView.ItemSelected += ListView_ItemSelected;
@@ -43,6 +46,7 @@ namespace FrontEnd
                 Orientation = ScrollOrientation.Vertical,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
+                
                 BackgroundColor = Color.White
             };
             if (frontMyClubList.Count > 0)
@@ -146,13 +150,15 @@ namespace FrontEnd
             }
             var isMember = await App.dbWrapper.IsMember(club.Id);
             await Navigation.PushAsync(new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember));
-            updatePage(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id));
+            generateDisplayList(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id));
+            updatePage();
 
         }
         public async void updateData()
         {
             var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
             generateDisplayList(memberClubsList);
+            updatePage();
         }
 
 

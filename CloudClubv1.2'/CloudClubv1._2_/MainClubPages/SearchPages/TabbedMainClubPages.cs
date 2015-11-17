@@ -61,6 +61,7 @@ namespace FrontEnd
             {
                 this.Title = mcp.title;
                 mcp.updateData();
+                
             }
             else if (CurrentPage == pp)
             {
