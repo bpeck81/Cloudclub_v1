@@ -35,7 +35,7 @@ namespace FrontEnd
             {
                 Text = "Report",
                 TextColor = ch.fromStringToColor("gray"),
-                
+
 
             };
             reportTextCell.Tapped += ReportTextCell_Tapped;
@@ -47,10 +47,11 @@ namespace FrontEnd
         private async void ReportTextCell_Tapped(object sender, EventArgs e)
         {
             //TODO: tie to backend
-            
-           var answer =await DisplayAlert("Reported Friend", "Do you really want to report your friend?", "Yes", "No");
+
+            var answer = await DisplayAlert("Reported Friend", "Do you really want to report your friend?", "Yes", "No");
             if (answer == true)
             {
+                // await App.dbWrapper.CreateBan()
                 await Navigation.PopAsync();
             }
 
@@ -59,7 +60,7 @@ namespace FrontEnd
 
         private async void RemoveFriendCell_Tapped(object sender, EventArgs e)
         {
-            var answer =await DisplayAlert("Removed Friend", "Do you really want to remove your Friend", "Yes","No");
+            var answer = await DisplayAlert("Removed Friend", "Do you really want to remove your Friend", "Yes", "No");
             if (answer == true)
             {
                 await Navigation.PopAsync();

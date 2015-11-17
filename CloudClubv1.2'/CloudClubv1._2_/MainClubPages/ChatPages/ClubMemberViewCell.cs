@@ -9,19 +9,20 @@ using CloudClubv1._2_;
 
 namespace FrontEnd
 {
-    public class ClubMemberViewCell :ViewCell
+    public class ClubMemberViewCell : ViewCell
     {
         ColorHandler ch;
         Image iEmoji;
         Label lUsername;
         Button bAddFriend, bFriendsIndicator;
+        TapGestureRecognizer nameTGR;
         public ClubMemberViewCell()
         {
+
+            nameTGR = new TapGestureRecognizer();
+            nameTGR.Tapped += NameTGR_Tapped;
+
             ch = new ColorHandler();
-            updateView();
-        }
-        private void updateView()
-        {
             iEmoji = new Image
             {
                 Aspect = Aspect.AspectFit,
@@ -30,7 +31,6 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
             iEmoji.SetBinding(Image.SourceProperty, "Emoji");
-
             lUsername = new Label
             {
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -39,6 +39,15 @@ namespace FrontEnd
             };
             lUsername.SetBinding(Label.TextProperty, "Username");
             lUsername.SetBinding(Label.TextColorProperty, "UserColor", converter: new ColorConverter());
+            lUsername.GestureRecognizers.Add(nameTGR);
+            updateView();
+        }
+
+
+        private void updateView()
+        {
+
+
 
             bAddFriend = new Button
             {
@@ -57,7 +66,9 @@ namespace FrontEnd
                 HeightRequest = 20,
                 WidthRequest = 20,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
-                VerticalOptions = LayoutOptions.Center                
+                VerticalOptions = LayoutOptions.Center,
+                BackgroundColor = ch.fromStringToColor("yellow")
+
             };
             bFriendsIndicator.SetBinding(Button.BackgroundColorProperty, "FriendIndicator");
             bFriendsIndicator.SetBinding(Button.IsVisibleProperty, "AreFriends");
@@ -67,7 +78,18 @@ namespace FrontEnd
                     iEmoji,
                     lUsername,
                     bAddFriend,
-                    bFriendsIndicator
+                    new StackLayout
+                    {
+                        Children =
+                        {
+                            bFriendsIndicator
+                        },
+                        HorizontalOptions = LayoutOptions.EndAndExpand,
+                        VerticalOptions = LayoutOptions.Center,
+                        Padding = new Thickness(0,0,5,0)
+
+                    }
+
                 },
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -75,15 +97,26 @@ namespace FrontEnd
                 BackgroundColor = ch.fromStringToColor("white")
             };
         }
+        private void NameTGR_Tapped(object sender, EventArgs e)
+        {
+            var name = (Label)sender;
+
+            var user = (FrontClubMember)BindingContext;
+            MessagingCenter.Send<ClubMemberViewCell, FrontClubMember>(this, "friendsProfilePage", user);
+        }
+
         private async void BAddFriend_Clicked(object sender, EventArgs e)
         {
-            FrontClubMember clubMember = (FrontClubMember) BindingContext;
+            FrontClubMember clubMember = (FrontClubMember)BindingContext;
             var btn = sender as Button;
-            
+
             await App.dbWrapper.CreateFriendRequest(clubMember.Id);
-            clubMember.friendship = await App.dbWrapper.GetFriendship(clubMember.Id);
-            bAddFriend.IsVisible = false;
-            bFriendsIndicator.IsVisible = true;
+            //clubMember.friendship = await App.dbWrapper.GetFriendship(clubMember.Id
+
+            clubMember.NotFriends = false;
+            clubMember.AreFriends = true;
+            clubMember.FriendIndicator = ch.fromStringToColor("yellow");
+
             updateView();
 
         }

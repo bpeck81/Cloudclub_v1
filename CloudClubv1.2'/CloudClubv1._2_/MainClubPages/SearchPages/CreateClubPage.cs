@@ -18,8 +18,8 @@ namespace FrontEnd
         Grid colorGrid;
         Button bContinue, bAddFriends, bPublic, bPrivate;
         public Button bAddTags; //Must fix
-        
-        List<string> tagList;       
+
+        List<string> tagList;
         List<Button> colorButtons;
         Entry clubNameEntry;
         public AddTagsPage tagPage;
@@ -50,9 +50,9 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center,
                 BackgroundColor = Color.White,
                 TextColor = Color.Black,
-                Placeholder =  "Club Name"
+                Placeholder = "Club Name"
             };
-             colorLabel = new Label
+            colorLabel = new Label
             {
                 Text = "Color",
                 TextColor = Color.White,
@@ -63,7 +63,7 @@ namespace FrontEnd
             };
             RowDefinition rd = new RowDefinition { Height = 60 };
 
-             colorGrid = new Grid
+            colorGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.Center,
 
@@ -81,12 +81,12 @@ namespace FrontEnd
                     new ColumnDefinition { Width = rd.Height }
 
                 },
-                
-               HorizontalOptions = LayoutOptions.CenterAndExpand,
+
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
                 RowSpacing = 5,
                 ColumnSpacing = 10,
                 BackgroundColor = Color.White,
-                Padding = new Thickness(70, 5, 70,5)
+                Padding = new Thickness(70, 5, 70, 5)
             };
             int counter = 0;
             for (int i = 0; i < (colorButtons.Count) / 2; i++)
@@ -99,7 +99,7 @@ namespace FrontEnd
             }
 
 
-             inviteLabel = new Label
+            inviteLabel = new Label
             {
                 Text = "Invite Friends",
                 TextColor = Color.White,
@@ -109,7 +109,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
 
             };
-             tagsLabel = new Label
+            tagsLabel = new Label
             {
                 Text = "Add Tags",
                 TextColor = Color.White,
@@ -124,7 +124,7 @@ namespace FrontEnd
                 Text = tagPage.addedTags.Count.ToString(),
                 TextColor = Color.White,
                 BackgroundColor = ch.fromStringToColor("lightGray"),
-                FontAttributes =FontAttributes.Bold,
+                FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 BorderRadius = 7,
                 VerticalOptions = LayoutOptions.Center
@@ -134,7 +134,7 @@ namespace FrontEnd
             {
                 Text = "+",
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-                TextColor = Color.FromRgb(210,61,235),
+                TextColor = Color.FromRgb(210, 61, 235),
                 BackgroundColor = Color.White,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -143,7 +143,7 @@ namespace FrontEnd
             };
             bAddFriends.Clicked += BAddFriends_Clicked;
 
-             bPublic = new Button
+            bPublic = new Button
             {
                 Text = "Public",
                 TextColor = Color.White,
@@ -154,7 +154,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
             bPublic.Clicked += BPublic_Clicked;
-             bPrivate = new Button
+            bPrivate = new Button
             {
                 Text = "Private",
                 TextColor = Color.White,
@@ -165,7 +165,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
             bPrivate.Clicked += BPrivate_Clicked;
-             bContinue = new Button
+            bContinue = new Button
             {
                 Text = "Continue",
                 TextColor = Color.White,
@@ -199,7 +199,7 @@ namespace FrontEnd
             //NOTE: for the parameter for exclusive, true means it is exclusive, but whether or not the club is public is tracked here, so reverse it when creating club
             var nameValidity = checkNameValidity();
             bool created = false;
-            if(nameValidity =="Valid") 
+            if (nameValidity == "Valid")
             {
                 created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor, !clubPublic, tagList);
             }
@@ -221,7 +221,7 @@ namespace FrontEnd
             StackLayout sLayout;
             if (lcouldntCreate.Text == "")
             {
-                 sLayout = new StackLayout
+                sLayout = new StackLayout
                 {
 
                     Children =
@@ -348,21 +348,21 @@ namespace FrontEnd
 
                 };
             }
-               
-                return sLayout;
-           
+
+            return sLayout;
+
         }
 
         private async void BAddFriends_Clicked(object sender, EventArgs e)
         {
             var friends = await App.dbWrapper.GetFriends(App.dbWrapper.GetUser().Id);
             List<FrontFriends> frontFriendsList = new List<FrontFriends>();
-            for(int i =0; i<friends.Count; i++)
+            for (int i = 0; i < friends.Count; i++)
             {
-                frontFriendsList.Add(new FrontFriends(friends[i], true));   
+                frontFriendsList.Add(new FrontFriends(friends[i], true));
             }
             await Navigation.PushAsync(new AddFriendsToCreateClubPage(frontFriendsList));
-            
+
         }
 
         private void BAddTags_Clicked(object sender, EventArgs e)
@@ -370,12 +370,12 @@ namespace FrontEnd
             Navigation.PushAsync(tagPage);
             var frontTagList = tagPage.addedTags;
             tagList = new List<string>();
-            for(int i = 0; i< frontTagList.Count; i++)
+            for (int i = 0; i < frontTagList.Count; i++)
             {
                 tagList.Add(frontTagList[i].Tag);
             }
             bAddTags.Text = tagList.Count.ToString();
-         }
+        }
 
         private void BPrivate_Clicked(object sender, EventArgs e)
         {
@@ -395,7 +395,7 @@ namespace FrontEnd
         private List<Button> generateColorButtons()
         {
             List<Button> colorButtons = new List<Button>();
-            
+
             for (int i = 0; i < ch.colorList.Count; i++)
             {
                 Button bcolor = new Button
@@ -406,8 +406,8 @@ namespace FrontEnd
                     VerticalOptions = LayoutOptions.Center,
                     HorizontalOptions = LayoutOptions.Center
                 };
-                bcolor.Clicked += Bcolor_Clicked; 
-                colorButtons.Add( bcolor);
+                bcolor.Clicked += Bcolor_Clicked;
+                colorButtons.Add(bcolor);
             }
 
             return colorButtons;
@@ -415,7 +415,7 @@ namespace FrontEnd
 
         private void Bcolor_Clicked(object sender, EventArgs e)
         {
-            for(int i  = 0; i<colorButtons.Count; i++)
+            for (int i = 0; i < colorButtons.Count; i++)
             {
                 colorButtons[i].BorderRadius = 5;
             }
@@ -427,9 +427,9 @@ namespace FrontEnd
         }
         private string checkNameValidity()
         {
-            string badWords = "pussy cock penis fuck porn sex vagina cum cunt";
+            string badWords = "pussy cock penis fuck porn sex vagina cum cunt orgy";
             var badWordsList = badWords.Split(' ');
-            for (int i =0; i<badWordsList.Length; i++)
+            for (int i = 0; i < badWordsList.Length; i++)
             {
                 if (clubNameEntry.Text.Contains(badWordsList[i]))
                 {

@@ -10,8 +10,11 @@ namespace FrontEnd
 {
     public class Tutorial2Page : ContentPage
     {
+        ColorHandler ch;
         public Tutorial2Page()
         {
+            ch = new ColorHandler();
+            BackgroundColor = ch.fromStringToColor("purple");
             // page 2 of tutorial
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
             Label topHeader = new Label

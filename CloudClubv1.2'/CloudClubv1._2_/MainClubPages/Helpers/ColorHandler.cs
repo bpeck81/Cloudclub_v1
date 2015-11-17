@@ -11,9 +11,9 @@ namespace FrontEnd
     {
         public Dictionary<string, Color> colorMap;
         public Dictionary<Color, string> nameMap;
-       public Dictionary<string, string> nameToImageStringMap;
-        public  List<Color> colorList;
-        
+        public Dictionary<string, string> nameToImageStringMap;
+        public List<Color> colorList;
+
         public ColorHandler()
         {
 
@@ -27,14 +27,14 @@ namespace FrontEnd
             colorMap.Add("yellow", Color.FromRgb(255, 192, 0));
             colorMap.Add("gold", Color.FromRgb(255, 192, 0));
             colorMap.Add("red", Color.FromRgb(255, 0, 0));
-            colorMap.Add("redPressed", Color.FromRgb(255,200,200));
+            colorMap.Add("redPressed", Color.FromRgb(255, 200, 200));
             colorMap.Add("black", Color.FromRgb(0, 0, 0));
             colorMap.Add("white", Color.White);
             colorMap.Add("navy", Color.FromRgb(31, 78, 121));
             colorMap.Add("purple", Color.FromRgb(210, 61, 235));
             colorMap.Add("purplePressed", Color.FromRgb(150, 61, 205));
             colorMap.Add("gray", Color.FromRgb(127, 127, 127));
-            colorMap.Add("grayPressed", Color.FromRgb(127,5 , 127));
+            colorMap.Add("grayPressed", Color.FromRgb(127, 5, 127));
 
             colorMap.Add("lightGray", Color.FromRgb(231, 230, 230));
             colorMap.Add("lightGrayPressed", colorMap["gray"]);
@@ -44,13 +44,13 @@ namespace FrontEnd
             colorMap.Add("default", Color.FromRgb(210, 61, 235)); //default set to cloudclub purple
 
             nameMap.Add(Color.FromRgb(0, 234, 106), "green");
-            nameMap.Add(Color.FromRgb(0, 176, 240),"blue");
-            nameMap.Add( Color.FromRgb(255, 192, 0),"yellow");
-            nameMap.Add( Color.FromRgb(255, 0, 0),"red");
-            nameMap.Add( Color.FromRgb(31, 78, 121),"navy");
-            nameMap.Add( Color.FromRgb(210, 61, 235),"purple");
-            nameMap.Add( Color.FromRgb(127, 127, 127),"gray");
-            nameMap.Add( Color.FromRgb(251, 33, 241),"magenta");
+            nameMap.Add(Color.FromRgb(0, 176, 240), "blue");
+            nameMap.Add(Color.FromRgb(255, 192, 0), "yellow");
+            nameMap.Add(Color.FromRgb(255, 0, 0), "red");
+            nameMap.Add(Color.FromRgb(31, 78, 121), "navy");
+            nameMap.Add(Color.FromRgb(210, 61, 235), "purple");
+            nameMap.Add(Color.FromRgb(127, 127, 127), "gray");
+            nameMap.Add(Color.FromRgb(251, 33, 241), "magenta");
             nameMap.Add(Color.FromRgb(231, 230, 230), "lightGray");
 
 
@@ -61,7 +61,7 @@ namespace FrontEnd
             colorList.Add(Color.FromRgb(255, 192, 0));
             colorList.Add(Color.FromRgb(255, 0, 0));
             colorList.Add(Color.FromRgb(31, 78, 121));
-            colorList.Add( Color.FromRgb(210, 61, 235));
+            colorList.Add(Color.FromRgb(210, 61, 235));
             colorList.Add(Color.FromRgb(127, 127, 127));
             colorList.Add(Color.FromRgb(251, 33, 241));
 
@@ -86,13 +86,13 @@ namespace FrontEnd
         }
         public string fromColorToString(Color color)
         {
-            if(nameMap.ContainsKey(color))
+            if (nameMap.ContainsKey(color))
             {
                 return nameMap[color];
             }
             else
             {
-                return nameMap[Color.FromRgb(210,61,235)];
+                return nameMap[Color.FromRgb(210, 61, 235)];
             }
         }
         public string getStarColorString(string colorString)

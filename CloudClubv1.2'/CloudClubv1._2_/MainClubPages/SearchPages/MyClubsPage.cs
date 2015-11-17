@@ -15,23 +15,29 @@ namespace FrontEnd
         List<FrontMyClub> frontMyClubList;
         public string title = "Subscriptions";
         ColorHandler ch;
+        ListView listView;
+        ScrollView clubScroll;
+        Button bNewClub;
         public MyClubsPage(List<Club> memberClubList)
         {
 
             ch = new ColorHandler();
-            frontMyClubList = new List<FrontMyClub>();
+            updatePage(memberClubList);
+        }
+
+        private void updatePage(List<Club> memberClubList)
+        {
             generateDisplayList(memberClubList);
 
-            ListView listView = new ListView
+            listView = new ListView
             {
                 ItemsSource = frontMyClubList,
-                ItemTemplate = new DataTemplate(typeof(MyClubViewCell))
-
-
+                ItemTemplate = new DataTemplate(typeof(MyClubViewCell)),
+                HasUnevenRows = true
             };
             listView.ItemSelected += ListView_ItemSelected;
 
-            ScrollView clubScroll = new ScrollView
+            clubScroll = new ScrollView
             {
                 Content = listView,
                 Orientation = ScrollOrientation.Vertical,
@@ -39,10 +45,13 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = Color.White
             };
-            if (frontMyClubList.Count > 0) Content = clubScroll;
+            if (frontMyClubList.Count > 0)
+            {
+                Content = clubScroll;
+            }
             else
             {
-                Button bNewClub = new Button
+                bNewClub = new Button
                 {
                     Text = "+",
                     FontSize = 40,
@@ -115,8 +124,8 @@ namespace FrontEnd
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var club = (FrontClub)e.SelectedItem;
-            var chatList = await App.dbWrapper.GetChat(club.Id,"", "");
+            var club = (FrontMyClub)e.SelectedItem;
+            var chatList = await App.dbWrapper.GetChat(club.Id, "","");
 
             List<Account> requestUsersList = new List<Account>();
             List<Account> commentUsersList = new List<Account>();
@@ -137,11 +146,20 @@ namespace FrontEnd
             }
             var isMember = await App.dbWrapper.IsMember(club.Id);
             await Navigation.PushAsync(new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember));
+            updatePage(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id));
 
         }
+        public async void updateData()
+        {
+            var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+            generateDisplayList(memberClubsList);
+        }
+
 
         private void generateDisplayList(List<Club> clubList)
         {
+            frontMyClubList = new List<FrontMyClub>();
+
             for (int i = 0; i < clubList.Count; i++)
             {
                 frontMyClubList.Add(new FrontMyClub(clubList[i]));

@@ -13,7 +13,7 @@ namespace FrontEnd
     public class ProfilePage : ContentPage
     {
         ColorHandler ch;
-       // Account account;
+        // Account account;
         public string title = "Profile";
         public List<FriendRequest> friendRequests;
         public List<Medal> medals;
@@ -36,7 +36,7 @@ namespace FrontEnd
             medals = new List<Medal>();
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             BackgroundColor = ch.fromStringToColor("white");
-            Account user = App.dbWrapper.GetUser(); 
+            Account user = App.dbWrapper.GetUser();
 
             Label lAccountName = new Label
             {
@@ -72,7 +72,7 @@ namespace FrontEnd
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                
+
             };
             var dropletPath = "DropletFull_WhiteB.png";
             if (user.NumDroplets > 0) dropletPath = "DropletFull_WhiteB.png";
@@ -113,7 +113,7 @@ namespace FrontEnd
                 Text = user.Description,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
-                
+
             };
             userText.GestureRecognizers.Add(userTextTgr);
             userTextEntry = new Entry
@@ -126,7 +126,7 @@ namespace FrontEnd
             };
             userTextEntry.TextChanged += UserTextEntry_TextChanged;
             userTextEntry.Completed += UserTextEntry_Completed;
-            userTextEntry.Unfocused += (sender, e)=>{
+            userTextEntry.Unfocused += (sender, e) => {
                 userText.Text = userTextEntry.Text;
                 userTextEntry.IsVisible = false;
                 userText.IsVisible = true;
@@ -135,19 +135,19 @@ namespace FrontEnd
             {
                 Source = FileImageSource.FromFile("Friends_Profile1.png"),
                 Aspect = Aspect.AspectFit,
-                WidthRequest = 180,
-                HorizontalOptions= LayoutOptions.FillAndExpand,
+                WidthRequest = 187,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
             };
             friendsImg.GestureRecognizers.Add(friendsImagetgr);
-            
+
             Image newsImg = new Image
             {
                 Source = FileImageSource.FromFile("News_Profile1.png"),
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                WidthRequest = 180,
+                WidthRequest = 187,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
             newsImg.GestureRecognizers.Add(newsImagetgr);
@@ -158,7 +158,7 @@ namespace FrontEnd
                     medalsImg,
                     lMedals
                 },
-                Orientation=  StackOrientation.Horizontal
+                Orientation = StackOrientation.Horizontal
 
             };
             var dropletSLayout = new StackLayout
@@ -187,7 +187,7 @@ namespace FrontEnd
                     lInCloudClub
 
                 },
-                Padding = new Thickness(0,30,0,0)
+                Padding = new Thickness(0, 30, 0, 0)
 
             };
             var awardsEmojiInclubSLayout = new StackLayout
@@ -199,8 +199,8 @@ namespace FrontEnd
                     inClubSLayout
                 },
                 Spacing = 35,
-                Orientation=  StackOrientation.Horizontal
-                
+                Orientation = StackOrientation.Horizontal
+
 
             };
             var topLayout = new StackLayout
@@ -212,7 +212,7 @@ namespace FrontEnd
                     userText,
                     userTextEntry
                 },
-                Padding= new Thickness(20,20,20, 0),
+                Padding = new Thickness(20, 20, 20, 0),
                 Spacing = 25
             };
             var friendsNewsSLayout = new StackLayout
@@ -222,7 +222,7 @@ namespace FrontEnd
                     friendsImg,
                     newsImg
                 },
-                Spacing=  10,
+                Spacing = 10,
                 Orientation = StackOrientation.Horizontal,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
@@ -235,7 +235,7 @@ namespace FrontEnd
                 },
                 Spacing = 10
             };
-            
+
             Content = contentLayout;
         }
 
@@ -243,9 +243,9 @@ namespace FrontEnd
         {
             Entry entry = sender as Entry;
             var val = entry.Text;
-            if(entry.Text.Length > 50)
+            if (entry.Text.Length > 50)
             {
-                entry.Text = val.Remove(entry.Text.Length - 1); 
+                entry.Text = val.Remove(entry.Text.Length - 1);
             }
         }
 
@@ -278,24 +278,24 @@ namespace FrontEnd
         {
             var news = await App.dbWrapper.GetNewsFeed();
             string friendRequest = "A friend";
-            for (int i = 0; i< news.Count; i++)
+            for (int i = 0; i < news.Count; i++)
             {
                 if (news[i].GetType() == typeof(FriendRequest))
                 {
                     var item = (FriendRequest)news[i];
-                    
+
                     var friend = await App.dbWrapper.GetAccount(item.AuthorId);
                     friendRequest = friend.Username;
                 }
-                else if(news[i].GetType() == typeof(Invite))
-                    //TODO add invite get club
+                else if (news[i].GetType() == typeof(Invite))
+                //TODO add invite get club
                 {
                     var item = (Invite)news[i];
                     var inviteAuthor = await App.dbWrapper.GetAccount(item.AuthorId);
                 }
             }
 
-            Navigation.PushAsync(new NewsPage(news, friendRequest));
+            await Navigation.PushAsync(new NewsPage(news, friendRequest));
         }
 
 
@@ -303,7 +303,7 @@ namespace FrontEnd
         private string getUserEmojiString()
         {
             string defaultImageString = "cloud.png";
-    
+
             return defaultImageString;
 
 

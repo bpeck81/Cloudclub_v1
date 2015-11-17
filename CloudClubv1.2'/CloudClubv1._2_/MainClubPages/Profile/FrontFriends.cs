@@ -13,7 +13,7 @@ namespace FrontEnd
     {
         public string Emoji { get; set; }
         public string Username { get; set; }
-        public  Color SharedClubIndicator { get; set; }
+        public Color SharedClubIndicator { get; set; }
         ColorHandler ch;
         public string Id { get; set; }
         public FrontFriends(Account account, bool inSameClub)
@@ -30,7 +30,7 @@ namespace FrontEnd
             {
                 SharedClubIndicator = ch.fromStringToColor("green");
             }
-            
+
         }
     }
 }

@@ -22,15 +22,14 @@ namespace FrontEnd
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
             };
             headerL.SetBinding(Label.TextProperty, "Title");
-            //   headerL.SetBinding(Label.TextColorProperty, "clubColor");
+            headerL.SetBinding(Label.TextColorProperty, "clubColor", converter: new ColorConverter());
 
 
             Label recentTextL = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                FontAttributes = FontAttributes.Bold,
-                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
-                TextColor = Color.Black
+                FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+                TextColor = ch.fromStringToColor("black")
             };
             recentTextL.SetBinding(Label.TextProperty, "recentText");
             View = new StackLayout
@@ -40,6 +39,7 @@ namespace FrontEnd
                     headerL,
                     recentTextL
                 },
+                Padding = new Thickness(0, 10, 0, 10),
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };

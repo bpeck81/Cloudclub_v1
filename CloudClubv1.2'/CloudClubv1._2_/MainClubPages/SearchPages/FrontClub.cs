@@ -8,27 +8,31 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    public class FrontClub
+    public class FrontClub : ParentFrontClub
     {
         public string star1 { get; set; }
         public string star2 { get; set; }
         public string star3 { get; set; }
         public string star4 { get; set; }
         public string star5 { get; set; }
-        public int starNumber { get; set; }
-        public string clubColor { get; set; }
         public string mostRecentLine { get; set; }
-        public string Title{get; set;}
         public string timeSinceActivity { get; set; }
         public bool isMember { get; set; }
-        public string Id { get; set; }
-        public string founderId { get; set; }
+        public bool isNotMemberNoPending { get; set; }
         private ColorHandler ch;
         public bool pendingInvite { get; set; }
         public FrontClub(Club club, bool member, bool pendingInvite)
         {
             isMember = member;
             this.pendingInvite = pendingInvite;
+            if (member == false && pendingInvite == false)
+            {
+                isNotMemberNoPending = true;
+            }
+            else
+            {
+                isNotMemberNoPending = false;
+            }
             founderId = club.FounderId;
             Id = club.Id;
             ch = new ColorHandler();
@@ -38,9 +42,9 @@ namespace FrontEnd
             timeSinceActivity = getTimeSpan(club);
             mostRecentLine = "Most recent line" + "...";
             starNumber = club.GetRating();
-            
-            
-            
+
+
+
         }
         private void generateStarImages(int starNumber)
         {
@@ -51,7 +55,7 @@ namespace FrontEnd
             star5 = "Star_Empty.png";
 
             string starPath = ch.getStarColorString(clubColor);
-            
+
             switch (starNumber)
             {
                 case 0:
@@ -82,7 +86,7 @@ namespace FrontEnd
                     star5 = starPath;
                     break;
             }
-            
+
 
         }
 

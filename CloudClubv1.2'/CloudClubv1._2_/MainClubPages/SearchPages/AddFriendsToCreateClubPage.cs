@@ -17,14 +17,14 @@ namespace FrontEnd
         {
             ch = new ColorHandler();
             Title = "Invite Friends";
-            
+
             Entry eSearchFriends = new Entry
             {
                 Placeholder = "Search",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Start,
                 BackgroundColor = ch.fromStringToColor("white"),
-                TextColor= ch.fromStringToColor("black")
+                TextColor = ch.fromStringToColor("black")
             };
 
             ListView listView = new ListView

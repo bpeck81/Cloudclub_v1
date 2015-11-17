@@ -47,7 +47,7 @@ namespace FrontEnd
             {
                 FriendRequest request = (FriendRequest)news.dbItem;
                 var authAcc = await App.dbWrapper.GetAccount(request.AuthorId);
-                await Navigation.PushAsync(new FriendProfilePage(authAcc, 1));
+                await Navigation.PushAsync(new FriendProfilePage(authAcc, 1, request));
 
             }
             else if (news.NotificationType == "warning")
@@ -57,9 +57,9 @@ namespace FrontEnd
             else if (news.NotificationType == "invite")
             {
                 // var club = 
-                var invite = (Invite) news.dbItem;
-                
-                var chatList = await App.dbWrapper.GetChat(invite.ClubId,"","");
+                var invite = (Invite)news.dbItem;
+
+                var chatList = await App.dbWrapper.GetChat(invite.ClubId, "","");
 
                 List<Account> requestUsersList = new List<Account>();
                 List<Account> commentUsersList = new List<Account>();
@@ -80,9 +80,9 @@ namespace FrontEnd
                 }
 
                 bool isMember = await App.dbWrapper.IsMember(invite.ClubId);
-                var club =await App.dbWrapper.GetClub(invite.ClubId);
+                var club = await App.dbWrapper.GetClub(invite.ClubId);
 
-                Navigation.PushAsync(new ClubChatPage(new FrontClub(club, false,false), chatList, commentUsersList, requestUsersList, isMember));
+                Navigation.PushAsync(new ClubChatPage(new FrontClub(club, false, false), chatList, commentUsersList, requestUsersList, isMember));
 
 
 
@@ -120,7 +120,7 @@ namespace FrontEnd
                             frontNewsList.Add(new FrontNews("join", notification.Text, newsItems[i].Time, newsItems[i]));
                             break;
                         case "friend":
-                            frontNewsList.Add(new FrontNews("friend", notification.Text, newsItems[i].Time,newsItems[i]));
+                            frontNewsList.Add(new FrontNews("friend", notification.Text, newsItems[i].Time, newsItems[i]));
                             break;
                         case "ban":
                             frontNewsList.Add(new FrontNews("ban", notification.Text, newsItems[i].Time, newsItems[i]));
@@ -135,23 +135,23 @@ namespace FrontEnd
                 else if (newsItems[i].GetType() == typeof(ClubRequest))
                 {
                     var item = (ClubRequest)newsItems[i];
-                    frontNewsList.Add(new FrontNews("clubRequest", item.Text, newsItems[i].Time,newsItems[i]));
+                    frontNewsList.Add(new FrontNews("clubRequest", item.Text, newsItems[i].Time, newsItems[i]));
 
                 }
                 else if (newsItems[i].GetType() == typeof(Invite))
                 {
 
                     var item = (Invite)newsItems[i];
-                    frontNewsList.Add(new FrontNews("invite", item.ClubId, newsItems[i].Time,newsItems[i]));
+                    frontNewsList.Add(new FrontNews("invite", item.ClubId, newsItems[i].Time, newsItems[i]));
 
                 }
                 else if (newsItems[i].GetType() == typeof(FriendRequest))
                 {
                     var item = (FriendRequest)newsItems[i];
-                    frontNewsList.Add(new FrontNews("friendRequest", friendRequestUsername, newsItems[i].Time,newsItems[i]));
+                    frontNewsList.Add(new FrontNews("friendRequest", friendRequestUsername, newsItems[i].Time, newsItems[i]));
                 }
 
             }
         }
     }
- }
+}

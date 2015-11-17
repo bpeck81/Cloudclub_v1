@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using CloudClubv1._2_;
 using System.Globalization;
 
-namespace FrontEnd 
+namespace FrontEnd
 {
     public class ColorConverter : IValueConverter
     {
@@ -33,10 +33,10 @@ namespace FrontEnd
                     return (Color.FromRgb(210, 61, 235));
                 default:
                     return (Color.FromRgb(210, 61, 235));
-                   
+
             }
 
-            
+
 
         }
 

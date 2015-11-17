@@ -20,6 +20,8 @@ namespace FrontEnd
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             //  Title = "";
+            ColorHandler ch = new ColorHandler();
+            BackgroundColor = ch.fromStringToColor("purple");
             
             Image cloudImage = new Image
             {

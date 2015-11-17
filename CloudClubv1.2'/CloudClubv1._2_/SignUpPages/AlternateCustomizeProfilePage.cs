@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using PCLStorage;
 
 using Xamarin.Forms;
 using Backend;
@@ -26,7 +27,7 @@ namespace FrontEnd
         Button bSkip, bContinue;
         Image displayedEmoji;
         public AlternateCustomizeProfilePage()
-     
+
         {
             characterBoxTgr = new TapGestureRecognizer();
             extendedImagesTgr = new TapGestureRecognizer();
@@ -89,13 +90,13 @@ namespace FrontEnd
                 },
                 BackgroundColor = Color.White,
                 ColumnSpacing = 5,
-                
+
                 Padding = new Thickness(5, 5, 5, 5)
             };
             characterGrid.GestureRecognizers.Add(characterBoxTgr);
 
-            characterGrid.Children.Add(displayedEmoji,0,0);
-            
+            characterGrid.Children.Add(displayedEmoji, 0, 0);
+
             colorLabel = new Label
             {
                 Text = "Your Color",
@@ -215,7 +216,7 @@ namespace FrontEnd
 
         private void generateExtendedCharacterView()
         {
-           // characterButtons = generateExtendedCharacterButtons();
+            // characterButtons = generateExtendedCharacterButtons();
 
             characterGrid = new Grid
             {
@@ -547,8 +548,7 @@ namespace FrontEnd
 
         private async void BContinue_Clicked(object sender, EventArgs e)
         {
-            var clubs = new List<Club>();
-            clubs = await App.dbWrapper.GetClubs();
+            var clubs = await App.dbWrapper.GetClubs();
             var popularClubs = await App.dbWrapper.GetPopularClubs();
             var newestClubs = await App.dbWrapper.GetNewestClubs();
 
@@ -558,7 +558,7 @@ namespace FrontEnd
             var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
             var pendingClubList = new List<string>();
             //TODO check if get clubs returns all clubs
-            for (int i= 0; i<clubs.Count; i++)
+            for (int i = 0; i < clubs.Count; i++)
             {
                 if (await App.dbWrapper.IsPendingClubRequest(clubs[i].Id))
                 {
@@ -575,8 +575,8 @@ namespace FrontEnd
         private async void BSkip_Clicked(object sender, EventArgs e)
         {
 
-            await App.dbWrapper.SetUserColor("default");
-            await App.dbWrapper.SetUserEmoji("default");
+            await App.dbWrapper.SetUserColor(chosenColorId);
+            await App.dbWrapper.SetUserEmoji(chosenEmojiId);
             var popularClubs = await App.dbWrapper.GetPopularClubs();
             var newestClubs = await App.dbWrapper.GetNewestClubs();
             var clubs = await App.dbWrapper.GetClubs();
@@ -591,12 +591,12 @@ namespace FrontEnd
                     pendingInviteList.Add(clubs[i].Id);
                 }
             }
-            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs,pendingInviteList));
+            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }
     }
 }
 
-    
+
 

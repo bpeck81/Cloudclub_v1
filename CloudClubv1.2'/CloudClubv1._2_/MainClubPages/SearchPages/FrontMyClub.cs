@@ -9,18 +9,19 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    class FrontMyClub
+    public class FrontMyClub : ParentFrontClub
     {
-        Color clubColor { get; set; }
-        string Title { get; set; }
-        string recentText { get; set; }
+        public string recentText { get; set; }
 
         public FrontMyClub(Club club)
         {
+            this.Id = club.Id;
             ColorHandler ch = new ColorHandler();
-            clubColor = ch.fromStringToColor(club.Color);
-            recentText = "most recent text";
+            clubColor = club.Color;
+            recentText = "Most recent text...";
             Title = club.Title;
+            founderId = club.FounderId;
+            starNumber = club.GetRating();
 
 
         }

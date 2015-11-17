@@ -27,7 +27,7 @@ namespace FrontEnd
                 Placeholder = "Search",
                 BackgroundColor = ch.fromStringToColor("white"),
                 TextColor = ch.fromStringToColor("black")
-           
+
             };
             searchBar.Completed += SearchBar_Completed;
             ListView listView = new ListView
@@ -52,9 +52,10 @@ namespace FrontEnd
         private void SearchBar_Completed(object sender, EventArgs e)
         {
             var searchedList = new List<FrontFriends>();
-            for(int i =0; i< friendsList.Count; i++)
+            for (int i = 0; i < friendsList.Count; i++)
             {
-                if (friendsList[i].Username.Contains(searchBar.Text)){
+                if (friendsList[i].Username.Contains(searchBar.Text))
+                {
                     searchedList.Add(friendsList[i]);
                 }
             }
@@ -68,7 +69,7 @@ namespace FrontEnd
             var friendStatus = await App.dbWrapper.GetFriendship(frontFriend.Id);
 
 
-            
+
             await Navigation.PushAsync(new FriendProfilePage(friend, friendStatus));
         }
     }

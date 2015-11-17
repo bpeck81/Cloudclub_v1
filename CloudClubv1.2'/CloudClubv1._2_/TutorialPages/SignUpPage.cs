@@ -8,6 +8,7 @@ using Backend;
 using CloudClubv1._2_;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using PCLStorage;
 
 namespace FrontEnd
 {
@@ -18,12 +19,16 @@ namespace FrontEnd
         string username, password, invalidSignupText;
         Entry userNameEntry, passwordEntry, emailEntry;
         ColorHandler ch;
+        Label invalidSignupLabel, invalidLoginLabel;
+        bool invalidSignup, invalidLogin;
         public SignUpPage()
         {
             // sign up and Login toggle page 
             ch = new ColorHandler();
             invalidSignupText = "";
             this.displaySignUpContent();
+            invalidLogin = false;
+            invalidSignup = false;
 
         }
 
@@ -31,13 +36,17 @@ namespace FrontEnd
         private void displaySignUpContent()
         {
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
-            Label invalidSignupLabel = new Label
+            invalidSignupLabel = new Label
             {
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-                TextColor = Color.Red,
-                HorizontalOptions = LayoutOptions.Center
+                TextColor = ch.fromStringToColor("white"),
+                Text = "Invalid Entry",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Center,
+                IsVisible = invalidSignup
 
             };
+
             // sign up page
             Label topHeader = new Label
             {
@@ -58,7 +67,7 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 TextColor = Color.Black,
-               
+
 
                 BackgroundColor = Color.White,
 
@@ -66,6 +75,7 @@ namespace FrontEnd
             this.passwordEntry = new Entry
             {
                 Placeholder = "Password",
+
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 IsPassword = true,
@@ -90,13 +100,13 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BorderWidth = 1,
                 Text = "Continue",
-                Font = Font.SystemFontOfSize(NamedSize.Large),
+                //     Font = Font.SystemFontOfSize(NamedSize.Large),
                 FontSize = 36,
                 FontAttributes = FontAttributes.Bold,
                 BackgroundColor = Color.Lime,
                 TextColor = Color.White,
                 HeightRequest = 110,
-                WidthRequest =335,
+                WidthRequest = 335,
                 BorderRadius = 20
 
 
@@ -122,7 +132,6 @@ namespace FrontEnd
                 FontSize = 36,
                 WidthRequest = 335,
                 FontAttributes = FontAttributes.Bold,
-                Font = Font.SystemFontOfSize(NamedSize.Large),
                 BackgroundColor = Color.Gray,
                 TextColor = Color.White,
                 BorderRadius = 20
@@ -141,7 +150,7 @@ namespace FrontEnd
 
                 },
                 VerticalOptions = LayoutOptions.Center,
-                
+
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Spacing = 1f
             };
@@ -150,14 +159,13 @@ namespace FrontEnd
             {
                 Children = {
                     topHeader,
-                  //  invalidSignupLabel,
+                    invalidSignupLabel,
                     entryFields,
                     new StackLayout
                     {
                         Children =
                         {
                             continueB,
-                         //   orLabel,
                             loginB,
                         },
                         Spacing = 20f,
@@ -168,7 +176,7 @@ namespace FrontEnd
                  },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
                 Spacing = 50f,
-                Padding = new Thickness(0,0,0,20),
+                Padding = new Thickness(0, 0, 0, 20),
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             Content = sLayout;
@@ -182,25 +190,33 @@ namespace FrontEnd
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
 
             // sign login page
+            Label invalidLoginText = new Label
+            {
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Center,
+                FontSize = 24,
+                TextColor = ch.fromStringToColor("white"),
+                FontAttributes = FontAttributes.Bold
+            };
             Label topHeader = new Label
             {
                 Text = "Login",
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.EndAndExpand,
                 FontAttributes = FontAttributes.Bold,
-                //    FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 FontSize = 42,
                 TextColor = Color.White,
                 FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
                 BackgroundColor = Color.FromRgb(210, 61, 235)
 
             };
-            Label invalLoginLabel = new Label
+            invalidLoginLabel = new Label
             {
                 Text = "Invalid Login",
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-                TextColor = Color.Red,
-                HorizontalOptions = LayoutOptions.Center
+                TextColor = ch.fromStringToColor("white"),
+                HorizontalOptions = LayoutOptions.Center,
+                IsVisible = invalidLogin
 
             };
             userNameEntry = new Entry
@@ -230,7 +246,6 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BorderWidth = 1,
                 Text = "Continue",
-                Font = Font.SystemFontOfSize(NamedSize.Large),
                 FontAttributes = FontAttributes.Bold,
                 BackgroundColor = Color.Lime,
                 TextColor = Color.White,
@@ -262,7 +277,7 @@ namespace FrontEnd
                 FontSize = 36,
                 WidthRequest = 335,
                 FontAttributes = FontAttributes.Bold,
-                Font = Font.SystemFontOfSize(NamedSize.Large),
+                //Font = Font.SystemFontOfSize(NamedSize.Large),
                 BackgroundColor = Color.Blue,
                 TextColor = Color.White,
                 BorderRadius = 20
@@ -287,14 +302,15 @@ namespace FrontEnd
             StackLayout sLayout = new StackLayout
             {
                 Children = {
+
                     topHeader,
+                    invalidLoginLabel,
                     entryFields,
                     new StackLayout
                     {
                         Children =
                         {
                             continueB,
-                           // orLabel,
                             signUpB,
                         },
                         Spacing = 20f,
@@ -320,6 +336,31 @@ namespace FrontEnd
 
             if (await App.dbWrapper.LoginAccount(username, password))
             {
+                invalidLogin = false;
+                var fileSystem = FileSystem.Current.LocalStorage;
+                var exists = await fileSystem.CheckExistsAsync("PhoneData.txt");
+                var userId = App.dbWrapper.GetUser().Id;
+
+                if (exists.Equals(ExistenceCheckResult.FileExists))
+                {
+                    IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
+                    var fileCopy = await file.ReadAllTextAsync();
+                    var fileLines = fileCopy.Split('\n');
+                    var idLine = fileLines[0].Split(':');
+                    idLine[1] = userId.ToString();
+                    string lineString = idLine[0] + ':' + idLine[1];
+                    fileLines[0] = lineString;
+                    string contents = "";
+                    for (int i = 0; i < fileLines.Length; i++)
+                    {
+                        contents += fileLines[i] + '\n';
+                    }
+                    System.Diagnostics.Debug.WriteLine(contents);
+                    await file.WriteAllTextAsync(contents);
+                }
+
+
+
                 List<Club> clubs = await App.dbWrapper.GetClubs();
                 var popularClubs = await App.dbWrapper.GetPopularClubs();
                 var newestClubs = await App.dbWrapper.GetNewestClubs();
@@ -342,6 +383,12 @@ namespace FrontEnd
                 Application.Current.MainPage = navPage;
 
             }/// return value if dne check 
+            else
+            {
+                invalidLoginLabel.Text = "Invaild Username or Password";
+                invalidLogin = true;
+                displayLoginContent();
+            }
         }
 
         private void BSignUp_Clicked(object sender, EventArgs e)
@@ -355,18 +402,49 @@ namespace FrontEnd
 
             this.username = userNameEntry.Text;
             this.password = passwordEntry.Text;
+
+
             bool emailValidity = checkEmailValidity(email);
             string validityText = "valid";//await checkUserPassValidity(username, password);
-            if (validityText.Equals("valid")&& emailValidity)
+            if (validityText.Equals("valid") && emailValidity)
             {
+                invalidSignup = false;
                 System.Diagnostics.Debug.WriteLine(email);
                 await App.dbWrapper.CreateAccount(username, password, email);
                 await App.dbWrapper.LoginAccount(username, password);
+                var userId = App.dbWrapper.GetUser().Id;
+
+
+                var fileSystem = FileSystem.Current.LocalStorage;
+                var exists = await fileSystem.CheckExistsAsync("PhoneData.txt");
+
+                if (exists.Equals(ExistenceCheckResult.FileExists))
+                {
+                    IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
+                    var fileCopy = await file.ReadAllTextAsync();
+                    var fileLines = fileCopy.Split('\n');
+                    var idLine = fileLines[0].Split(':');
+                    idLine[1] = userId.ToString();
+                    string lineString = idLine[0] + ':' + idLine[1];
+                    fileLines[0] = lineString;
+                    string contents = "";
+                    for (int i = 0; i < fileLines.Length; i++)
+                    {
+                        contents += fileLines[i] + '\n';
+                    }
+                    System.Diagnostics.Debug.WriteLine(contents);
+                    await file.WriteAllTextAsync(contents);
+
+                    //write contents to file
+
+                }
+
                 await Navigation.PushModalAsync(new AlternateCustomizeProfilePage());
 
             }
             else
             {
+                invalidSignup = true;
                 invalidSignupText = validityText;
                 this.displaySignUpContent();
             }
@@ -376,7 +454,7 @@ namespace FrontEnd
 
         private void LoginB_Clicked(object sender, EventArgs e)
         {
-            
+
             this.displayLoginContent();
 
 
@@ -384,35 +462,53 @@ namespace FrontEnd
         private bool checkEmailValidity(string email)
         {
             bool validity = false;
+            if (email != null)
+            {
+                var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
+                validity = match.Success;
 
-            var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
-            validity = match.Success;
+            }
+            else
+            {
+                return false;
+            }
             return true;
         }
         private async Task<string> checkUserPassValidity(string username, string password)
         {
-            string validityCase = "Invalid Entry";
             string[] invalidChars = new string[13] { " ", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "," };
-            bool usernameValid = false, passwordValid = false;
-            bool login = await App.dbWrapper.LoginAccount(username, password); 
-           if (username != null)
+            bool login = await App.dbWrapper.LoginAccount(username, password);
+
+            if (username != null)
             {
-                if (login == true) 
+                if (login == true)
                 {
                     return "Username Exists";
                 }
-                for (int i = 0; i < invalidChars.Length; i++)
+                else
                 {
-                    if (username.Contains(invalidChars[i]))
+                    if (!this.checkNameValidity(username).Equals("valid"))
                     {
-                        return "Username Contains Invalid Characters";
+                        return (checkNameValidity(username));
                     }
+                    else if (username.Length < 5)
+                    {
+                        return "Username Too Short";
+                    }
+                    else
+                    {
+                        for (int i = 0; i < invalidChars.Length; i++)
+                        {
+                            if (username.Contains(invalidChars[i]))
+                            {
+                                return "Username Contains Invalid Characters";
+                            }
+                        }
+                    }
+
+
                 }
-                if (username.Length < 5)
-                {
-                    return "Username Too Short";
-                }
-                usernameValid = true;
+
 
             }
             if (password != null)
@@ -421,18 +517,25 @@ namespace FrontEnd
                 {
                     return "Password Must Be Greater Than 6 Characters";
                 }
-                else
+
+            }
+
+            return "valid";
+
+        }
+        private string checkNameValidity(string username)
+        {
+            string badWords = "pussy cock penis fuck porn sex vagina cum cunt orgy";
+            var badWordsList = badWords.Split(' ');
+            for (int i = 0; i < badWordsList.Length; i++)
+            {
+                if (username.Contains(badWordsList[i]))
                 {
-                    passwordValid = true;
+                    return "Invalid Name";
                 }
 
             }
-            if(usernameValid && passwordValid)
-            {
-                return "valid";
-
-            }
-            return validityCase;
+            return "Valid";
 
         }
     }

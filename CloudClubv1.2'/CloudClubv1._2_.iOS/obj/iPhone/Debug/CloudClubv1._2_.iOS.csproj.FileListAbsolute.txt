@@ -60,3 +60,8 @@ C:\Users\Student\Documents\today\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS
 C:\Users\Student\Documents\today\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\zh-Hant\System.Spatial.resources.dll
 C:\Users\Student\Documents\today\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.exe
 C:\Users\Student\Documents\today\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\optimized\
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1._2_.iOS.csprojResolveAssemblyReference.cache
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1._2_.iOS.csproj.CloudClubv1_2_iOS.exe.config
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.exe
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.pdb

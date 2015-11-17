@@ -10,8 +10,11 @@ namespace FrontEnd
 {
     public class Tutorial3Page : ContentPage
     {
+        ColorHandler ch;
         public Tutorial3Page()
         {
+            ch = new ColorHandler();
+            BackgroundColor = ch.fromStringToColor("purple");
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             // page 3 of tutorial

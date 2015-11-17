@@ -14,11 +14,18 @@ namespace FrontEnd
         Account user;
         ColorHandler ch;
         StackLayout bottomLayout;
-        Label clubsLabel, lFriendRequestReceived;
+        Label clubsLabel, lFriendRequestReceived, lAccountName, lMedals, lDroplet, userText;
+        Image userEmoji, medalsImg, dropletImg;
         Button bNumClubs, bAccept, bReject, bSendFriendRequest;
-        public FriendProfilePage(Account user, int activeFriendRequest)
+        FriendRequest friendRequest;
+        int activeFriendRequest;
+        public FriendProfilePage(Account user, int activeFriendRequest, FriendRequest friendRequest = null)
         {
+            //activeFriendRequest key 0 = not friends 1 = pending request from them 2 =friends 3= pending request from you
+
             ch = new ColorHandler();
+            this.activeFriendRequest = activeFriendRequest;
+            this.friendRequest = friendRequest;
             this.user = user;
             BackgroundColor = ch.fromStringToColor("purple");
             this.ToolbarItems.Add(new ToolbarItem
@@ -30,8 +37,12 @@ namespace FrontEnd
             });
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
+            updateView();
 
-            Label lAccountName = new Label
+        }
+        private void updateView()
+        {
+            lAccountName = new Label
             {
                 Text = user.Username,
                 TextColor = ch.fromStringToColor(user.Color),
@@ -41,7 +52,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
 
-            Image userEmoji = new Image
+            userEmoji = new Image
             {
                 Source = ImageSource.FromFile("Dog_Character.png"),
                 Aspect = Aspect.AspectFit,
@@ -50,7 +61,7 @@ namespace FrontEnd
                 WidthRequest = 115,
                 Scale = .8
             };
-            Image medalsImg = new Image
+            medalsImg = new Image
             {
                 Source = ImageSource.FromFile("Medal_WhiteB.png"),
                 Aspect = Aspect.AspectFit,
@@ -58,7 +69,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center,
                 WidthRequest = 50
             };
-            Label lMedals = new Label
+            lMedals = new Label
             {
                 Text = 5.ToString(),//TODO: Update medals
                 TextColor = ch.fromStringToColor("yellow"),
@@ -69,7 +80,7 @@ namespace FrontEnd
             };
             var dropletPath = "DropletFull_WhiteB.png";
             if (user.NumDroplets > 0) dropletPath = "DropletFull_WhiteB.png";
-            Image dropletImg = new Image
+            dropletImg = new Image
             {
                 Source = ImageSource.FromFile(dropletPath),
                 Aspect = Aspect.AspectFit,
@@ -77,7 +88,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center,
                 WidthRequest = 50
             };
-            Label lDroplet = new Label
+            lDroplet = new Label
             {
                 Text = user.NumDroplets.ToString(),
                 TextColor = ch.fromStringToColor("blue"),
@@ -85,16 +96,16 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
-        
 
 
-            Label userText = new Label
+
+            userText = new Label
             {
                 Text = user.Description,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
 
             };
-             clubsLabel = new Label
+            clubsLabel = new Label
             {
                 Text = "Clubs",
                 TextColor = ch.fromStringToColor("white"),
@@ -102,7 +113,7 @@ namespace FrontEnd
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 30
             };
-             bNumClubs = new Button
+            bNumClubs = new Button
             {
                 Text = user.NumClubsIn.ToString(),
                 TextColor = ch.fromStringToColor("white"),
@@ -114,16 +125,16 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             bNumClubs.Clicked += BNumClubs_Clicked;
-             lFriendRequestReceived = new Label
+            lFriendRequestReceived = new Label
             {
                 Text = "Friend Request Received",
                 TextColor = ch.fromStringToColor("white"),
                 HorizontalOptions = LayoutOptions.Center,
-                FontAttributes= FontAttributes.Bold,
+                FontAttributes = FontAttributes.Bold,
                 VerticalOptions = LayoutOptions.Center,
                 FontSize = 30
             };
-             bAccept = new Button
+            bAccept = new Button
             {
                 Text = "Accept",
                 TextColor = ch.fromStringToColor("white"),
@@ -134,7 +145,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             bAccept.Clicked += BAccept_Clicked;
-             bReject = new Button
+            bReject = new Button
             {
                 Text = "Reject",
                 TextColor = ch.fromStringToColor("white"),
@@ -142,7 +153,7 @@ namespace FrontEnd
                 HeightRequest = 75,
                 FontAttributes = FontAttributes.Bold,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                BorderRadius =15
+                BorderRadius = 15
             };
             bReject.Clicked += BReject_Clicked;
             bSendFriendRequest = new Button
@@ -188,7 +199,7 @@ namespace FrontEnd
                     dropletSLayout
                 },
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Padding = new Thickness(20,40,20,20),
+                Padding = new Thickness(20, 40, 20, 20),
                 Orientation = StackOrientation.Horizontal
             };
             var topLayout = new StackLayout
@@ -204,7 +215,7 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
 
-            bottomLayout = getBottomlayout(activeFriendRequest);
+            bottomLayout = getBottomlayout();
 
             Content = new StackLayout
             {
@@ -221,9 +232,9 @@ namespace FrontEnd
             await App.dbWrapper.CreateFriendRequest(user.Id);
         }
 
-        private StackLayout getBottomlayout(int activeFriendRequest)
+        private StackLayout getBottomlayout()
         {
-            if (activeFriendRequest ==2)
+            if (activeFriendRequest == 2)
             {
                 return new StackLayout
                 {
@@ -233,12 +244,12 @@ namespace FrontEnd
                         bNumClubs
                     },
                     VerticalOptions = LayoutOptions.FillAndExpand,
-                    Padding = new Thickness(15,10,15,15)
-                    
+                    Padding = new Thickness(15, 10, 15, 15)
+
                 };
 
             }
-            else if(activeFriendRequest == 1)
+            else if (activeFriendRequest == 1)
             {
                 return new StackLayout
                 {
@@ -253,7 +264,8 @@ namespace FrontEnd
 
                 };
             }
-            else
+
+            else if (activeFriendRequest == 0)
             {
                 return new StackLayout
                 {
@@ -273,6 +285,30 @@ namespace FrontEnd
                     Padding = new Thickness(15, 10, 15, 15)
                 };
             }
+            else
+            {
+                return new StackLayout
+                {
+                    Children =
+                    {
+                        new Label
+                        {
+                           Text = "Your Friend Request Is Pending",
+                           TextColor = ch.fromStringToColor("black"),
+                           FontAttributes = FontAttributes.Bold,
+                           FontSize = 30,
+                           HorizontalOptions = LayoutOptions.CenterAndExpand,
+                           VerticalOptions = LayoutOptions.CenterAndExpand
+
+                        }
+                    },
+                    BackgroundColor = ch.fromStringToColor("white"),
+                    VerticalOptions = LayoutOptions.FillAndExpand,
+
+                    Padding = new Thickness(15, 10, 15, 15)
+
+                };
+            }
 
         }
         private async void BNumClubs_Clicked(object sender, EventArgs e)
@@ -280,9 +316,9 @@ namespace FrontEnd
             //TODO: change method for getting membership list
             var memberList = new List<Club>();
             var allClubs = await App.dbWrapper.GetClubs();
-            for(int i =0; i< allClubs.Count; i++)
+            for (int i = 0; i < allClubs.Count; i++)
             {
-                if(await App.dbWrapper.IsClubMember(allClubs[i].Id, user.Id))
+                if (await App.dbWrapper.IsClubMember(allClubs[i].Id, user.Id))
                 {
                     memberList.Add(allClubs[i]);
                 }
@@ -292,14 +328,18 @@ namespace FrontEnd
 
         private async void BReject_Clicked(object sender, EventArgs e)
         {
-            await App.dbWrapper.DeclineFriendRequest(user.Id);
-            getBottomlayout(await App.dbWrapper.GetFriendship(user.Id));
+            await App.dbWrapper.DeclineFriendRequest(friendRequest.Id);
+            activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
+            updateView();
+            await Navigation.PopAsync();
         }
 
         private async void BAccept_Clicked(object sender, EventArgs e)
         {
-            await App.dbWrapper.AcceptFriendRequest(user.Id);
-            getBottomlayout(await App.dbWrapper.GetFriendship(user.Id));
+            await App.dbWrapper.AcceptFriendRequest(friendRequest.Id);
+            activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
+            updateView();
+            await Navigation.PopAsync();
         }
 
         private void menuPopup()

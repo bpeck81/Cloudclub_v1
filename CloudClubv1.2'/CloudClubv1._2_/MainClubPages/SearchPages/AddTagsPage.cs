@@ -12,12 +12,12 @@ namespace FrontEnd
     public class AddTagsPage : ContentPage
     {
         public List<FrontTag> addedTags = new List<FrontTag>();
-       public Entry tagEntry;
-        
+        public Entry tagEntry;
+
         ColorHandler ch;
         public AddTagsPage()
         {
-          //  addedTags = new List<FrontTag>();
+            //  addedTags = new List<FrontTag>();
             ch = new ColorHandler();
             tagEntry = new Entry
             {

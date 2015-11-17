@@ -5,7 +5,6 @@ using System.Reflection.Emit;
 using System.Text;
 using CloudClubv1._2_;
 using Backend;
-
 using Xamarin.Forms;
 
 namespace FrontEnd
@@ -17,22 +16,27 @@ namespace FrontEnd
         ClubSearchPage csp;
         MyClubsPage mcp;
         ProfilePage pp;
-        public TabbedMainClubPages(List<Club> clubList, List<Club> memberClubList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList)   
+        public TabbedMainClubPages(List<Club> clubList, List<Club> memberClubList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList)
         {
             ch = new ColorHandler();
+            BackgroundColor = ch.fromStringToColor("purple");
             
+
+            // BarTintColor = ch.fromStringToColor("purple");
             NavigationPage.SetHasNavigationBar(this, true);
-           // NavigationPage.SetTitleIcon(CurrentPage,"CloudIcon.png");
-            this.BackgroundColor = ch.fromStringToColor("purple");
+            // NavigationPage.SetTitleIcon(CurrentPage,"CloudIcon.png");
+
 
             this.ToolbarItems.Add(new ToolbarItem
             {
                 Icon = "Settings_Top.png",
 
+
                 Order = ToolbarItemOrder.Primary,
-                Command = new Command(() => menuPopup())
+                Command = new Command(() => menuPopup()),
+
             });
-            csp = new ClubSearchPage(clubList, memberClubList, popularClubs,newestClubs,pendingInviteList);
+            csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList);
             mcp = new MyClubsPage(memberClubList);
             pp = new ProfilePage();
             this.Children.Add(csp);
@@ -40,23 +44,29 @@ namespace FrontEnd
             this.Children.Add(pp);
             this.Title = "Explore";
 
-            this.CurrentPageChanged += TabbedMainClubPages_CurrentPageChanged;
+
+            CurrentPageChanged += TabbedMainClubPages_CurrentPageChanged;
 
         }
 
         private async void TabbedMainClubPages_CurrentPageChanged(object sender, EventArgs e)
         {
 
-            if (CurrentPage == csp) { this.Title = csp.title; }
-            else if (CurrentPage == mcp) { this.Title = mcp.title; }
-            else if (CurrentPage == pp) {
+            if (CurrentPage == csp)
+            {
+                this.Title = csp.title;
+                csp.updateData();
+            }
+            else if (CurrentPage == mcp)
+            {
+                this.Title = mcp.title;
+                mcp.updateData();
+            }
+            else if (CurrentPage == pp)
+            {
                 this.Title = pp.title;
-                pp.friendRequests= await App.dbWrapper.GetFriendRequests();
+                pp.friendRequests = await App.dbWrapper.GetFriendRequests();
                 pp.medals = await App.dbWrapper.GetMedals();
-                
-               
-                ///await App.dbWrapper.get
-                             
 
             }
         }

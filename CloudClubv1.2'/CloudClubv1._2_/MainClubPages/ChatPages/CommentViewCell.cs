@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    class CommentViewCell: ViewCell
+    class CommentViewCell : ViewCell
     {
 
         ColorHandler ch;
@@ -17,19 +17,22 @@ namespace FrontEnd
         int dropletPressedCount;
         StackLayout decidingButtons;
         Label lVoted;
+        TapGestureRecognizer reportUserTgr;
         public CommentViewCell()
         {
             dropletPressedCount = 0;
             dropletTGR = new TapGestureRecognizer();
             dropletTGR.Tapped += DropletTGR_Tapped;
             ch = new ColorHandler();
+            reportUserTgr = new TapGestureRecognizer();
+            reportUserTgr.Tapped += ReportUserTgr_Tapped;
             Image userEmoji = new Image
             {
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.Center,
                 Scale = 1,
-                HeightRequest =30
+                HeightRequest = 30
 
             };
             userEmoji.SetBinding(Image.SourceProperty, "UserEmoji");
@@ -56,24 +59,33 @@ namespace FrontEnd
             {
                 Source = FileImageSource.FromFile("DropletFull_WhiteB.png"),
                 Aspect = Aspect.AspectFit,
-                HeightRequest = 25,        
-                      
+                HeightRequest = 25,
+
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
 
             };
             dropletImage.GestureRecognizers.Add(dropletTGR);
-            
+
             Label lCommentText = new Label
             {
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 TextColor = ch.fromStringToColor("black"),
-                
-                
+
+
             };
             lCommentText.SetBinding(Label.TextProperty, "Text");
-            System.Diagnostics.Debug.WriteLine("Comment Text " +lCommentText.Text);
-           
+
+            Label lReportUser = new Label
+            {
+                Text = "Report User",
+                FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+                TextColor = ch.fromStringToColor("gray"),
+                HorizontalOptions = LayoutOptions.Center
+            };
+            lReportUser.SetBinding(Label.IsVisibleProperty, "ShowReport");
+            lReportUser.GestureRecognizers.Add(reportUserTgr);
+
             //lCommentText.SetBinding(Label.TextColorProperty, "TextColor", converter: new ColorConverter());
             StackLayout headerLayout = new StackLayout
             {
@@ -86,7 +98,7 @@ namespace FrontEnd
                 },
                 Orientation = StackOrientation.Horizontal,
                 Spacing = 11,
-                VerticalOptions = LayoutOptions. Center,
+                VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Fill
             };
 
@@ -99,20 +111,22 @@ namespace FrontEnd
                    {
                        Children =
                        {
-                           lCommentText
+                           lCommentText,
+                           lReportUser
                        },
+                       Spacing = 6,
                        Padding = new Thickness(5,0,0,0)
-                       
+
                    }
                 },
                 BackgroundColor = ch.fromStringToColor("white"),
-                Spacing =11,
-                Padding = new Thickness(12,10,10,10),
+                Spacing = 11,
+                Padding = new Thickness(12, 10, 10, 10),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand
-          
+
             };
-            commentSLayout.SetBinding(StackLayout.IsVisibleProperty, "ClubRequest", converter: new InvertBoolConverter());
+            commentSLayout.SetBinding(StackLayout.IsVisibleProperty, "ClubRequestBool", converter: new InvertBoolConverter());
 
             Label clubRequestHeader = new Label
             {
@@ -128,7 +142,7 @@ namespace FrontEnd
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 TextColor = ch.fromStringToColor("black"),
             };
-            clubRequestText.SetBinding(Label.TextProperty,"ClubRequestText");
+            clubRequestText.SetBinding(Label.TextProperty, "ClubRequestText");
 
             var bReject = new Button
             {
@@ -138,7 +152,7 @@ namespace FrontEnd
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 FontSize = 16,
-                
+
 
             };
             bReject.SetBinding(Button.IsEnabledProperty, "IsMember");
@@ -151,7 +165,7 @@ namespace FrontEnd
                 TextColor = ch.fromStringToColor("white"),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 16                
+                FontSize = 16
             };
             bAccept.SetBinding(Button.IsEnabledProperty, "IsMember");
             bAccept.Clicked += BAccept_Clicked;
@@ -172,10 +186,8 @@ namespace FrontEnd
                 },
                 Orientation = StackOrientation.Horizontal,
                 Spacing = 5,
-
-                
             };
-            
+
 
 
             var clubRequestSLayout = new StackLayout
@@ -194,7 +206,7 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
-            clubRequestSLayout.SetBinding(StackLayout.IsVisibleProperty, "ClubRequest");
+            clubRequestSLayout.SetBinding(StackLayout.IsVisibleProperty, "ClubRequestBool");
 
             View = new StackLayout
             {
@@ -204,25 +216,33 @@ namespace FrontEnd
                     clubRequestSLayout
                 }
             };
-            
+
+        }
+
+        private void ReportUserTgr_Tapped(object sender, EventArgs e)
+        {
+            var comment = (FrontComment)BindingContext;
+            MessagingCenter.Send<CommentViewCell, FrontComment>(this, "hi", comment);
+
+
         }
 
         private async void BReject_Clicked(object sender, EventArgs e)
         {
-            
+
             var frontComment = (FrontComment)BindingContext;
-            
+
             await App.dbWrapper.DeclineClubRequest(frontComment.ClubRequestInstance.Id);
             decidingButtons.IsVisible = false;
             lVoted.IsVisible = true;
-            
-            
+
+
         }
 
         private async void BAccept_Clicked(object sender, EventArgs e)
         {
             var frontComment = (FrontComment)BindingContext;
-            var isMember = await App.dbWrapper.IsClubMember(frontComment.ClubId,App.dbWrapper.GetUser().Id);
+            var isMember = await App.dbWrapper.IsClubMember(frontComment.ClubId, App.dbWrapper.GetUser().Id);
 
             await App.dbWrapper.AcceptClubRequest(frontComment.ClubRequestInstance.Id);
             decidingButtons.IsVisible = false;
@@ -241,10 +261,10 @@ namespace FrontEnd
         {
             double heightRequest = 30;
             // assume a height of 10:1 height to line ratio where one line has 50 chars
-            heightRequest = commentText.Length/5;
+            heightRequest = commentText.Length / 5;
 
 
-            return (int) heightRequest;
+            return (int)heightRequest;
         }
     }
 }

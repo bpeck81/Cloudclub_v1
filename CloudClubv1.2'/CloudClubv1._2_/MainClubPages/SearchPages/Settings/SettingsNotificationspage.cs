@@ -21,7 +21,7 @@ namespace FrontEnd
             var dailyRankSwitch = new SwitchCell
             {
                 Text = "Daily Rank",
-                On  = false                
+                On = false
 
             };
             dailyRankSwitch.OnChanged += async (sender, e) =>
@@ -29,7 +29,7 @@ namespace FrontEnd
                 if (dailyRankSwitch.On)
                 {
                     await App.dbWrapper.EnableRankingNotification();
-                
+
 
                 }
                 else
@@ -39,13 +39,13 @@ namespace FrontEnd
             };
             var usersNearYouSwitch = new SwitchCell
             {
-                Text = "Users Near You"                
-                
+                Text = "Users Near You"
+
             };
             usersNearYouSwitch.OnChanged += async (sender, e) =>
-             {
-                 throw new NotImplementedException();
-             };
+            {
+                throw new NotImplementedException();
+            };
 
             Content = new StackLayout
             {

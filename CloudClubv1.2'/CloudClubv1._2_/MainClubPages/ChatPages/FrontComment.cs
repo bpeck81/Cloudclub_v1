@@ -7,14 +7,13 @@ using Backend;
 using CloudClubv1._2_;
 using System.ComponentModel;
 
+
 namespace FrontEnd
 {
     public class FrontComment: INotifyPropertyChanged
     {
 
-        //declares an event
         public event PropertyChangedEventHandler PropertyChanged;
-
         public string Id { get; set; }
 
         public DateTime? Time { get; set; }
@@ -32,7 +31,7 @@ namespace FrontEnd
         public bool Picture { get; set; }
 
         public string UserEmoji { get; set; }
-        
+
         public string AuthorAccountColor { get; set; }
 
         public string TextColor { get; set; }
@@ -40,18 +39,24 @@ namespace FrontEnd
         public string ClubRequestText { get; set; }
 
         public bool ClubRequestBool { get; set; }
-        
+
         public string ClubRequestUsername { get; set; }
-        
+
         public ClubRequest ClubRequestInstance { get; set; }
 
+
+
         public bool IsMember { get; set; }
+        public bool Voted { get; set; }
+
+        public bool ShowReport { get; set; }
 
 
-        public FrontComment(Comment comment, Account authorAccount)
+        public FrontComment(Comment comment, Account authorAccount, bool showReport = false)
         {
+            this.ShowReport = showReport;
             Id = comment.Id;
-            IsMember = false;
+            IsMember = true;
             ClubRequestBool = false;
             Time = comment.Time;
             Text = comment.Text;
@@ -61,8 +66,9 @@ namespace FrontEnd
             UserEmoji = authorAccount.Emoji;
             AuthorAccountColor = authorAccount.Color;
             TextColor = "black";
-            
-            if(comment.AuthorId == App.dbWrapper.GetUser().Id){
+
+            if (comment.AuthorId == App.dbWrapper.GetUser().Id)
+            {
                 AuthorUsername = "You";
                 TextColor = AuthorAccountColor;
             }
@@ -70,19 +76,19 @@ namespace FrontEnd
             {
                 AuthorUsername = authorAccount.Username;
             }
-            
+
 
         }
         public FrontComment(ClubRequest clubRequest, Account authorAccount, bool isMember)
         {
-            this.IsMember= isMember;
+            IsMember = isMember;
             ClubRequestBool = true;
             ClubId = clubRequest.ClubId;
             ClubRequestText = clubRequest.Text;
             ClubRequestUsername = authorAccount.Username;
             ClubRequestInstance = clubRequest;
-            
-          
+
+
         }
 
         //raise the event, which will cause the class to update

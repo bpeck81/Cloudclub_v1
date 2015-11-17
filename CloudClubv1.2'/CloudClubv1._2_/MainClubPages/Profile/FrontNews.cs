@@ -21,12 +21,12 @@ namespace FrontEnd
             this.dbItem = dbItem;
             NotificationType = type;
             var now = DateTime.Now;
-            var timeSpan = (TimeSpan) (now - time);
+            var timeSpan = (TimeSpan)(now - time);
             Time = getTimeSpan(timeSpan);
             Text = text;
             switch (type)
             {
-                
+
                 case "medal":
                     NotificationImage = "Medal_WhiteB";
                     break;

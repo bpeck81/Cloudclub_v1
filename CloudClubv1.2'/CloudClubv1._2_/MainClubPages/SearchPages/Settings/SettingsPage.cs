@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Backend;
 using CloudClubv1._2_;
+using PCLStorage;
 using Xamarin.Forms;
 namespace FrontEnd
 {
@@ -26,7 +27,7 @@ namespace FrontEnd
             {
                 Navigation.PushAsync(new SettingsNotificationspage());
             };
-          
+
             var tutorialTCell = new TextCell
             {
                 Text = "Tutorial",
@@ -53,12 +54,32 @@ namespace FrontEnd
                 Text = "Sign Out",
                 TextColor = ch.fromStringToColor("black"),
             };
-            signOutTCell.Tapped += (sender, args) =>
+            signOutTCell.Tapped += async (sender, args) =>
             {
 
+                var response = await DisplayAlert("Logout", "Are you sure you want to logout?", "Yes", "No");
+                if (response)
+                {
+                    var fileSystem = FileSystem.Current.LocalStorage;
+                    var exists = await fileSystem.CheckExistsAsync("PhoneData.txt");
+                    if (exists.Equals(ExistenceCheckResult.FileExists))
+                    {
+                        IFile file = await fileSystem.CreateFileAsync("PhoneData.txt", CreationCollisionOption.ReplaceExisting);
+                        string baseString = "USERID:a\nCLOUDREGION:UVA\n";
+                        await file.WriteAllTextAsync(baseString);
+                        var navPage = new NavigationPage(new CarouselTutorialPage());
+                        Application.Current.MainPage = navPage;
+                    }
+                    else
+                    {
+                        throw new System.IO.FileNotFoundException("PhoneData.txt");
+                    }
+                }
+
+
             };
-                // Navigation.PushModalAsync(new SignUpPage());
-            
+            // Navigation.PushModalAsync(new SignUpPage());
+
             TableView tableView = new TableView
             {
                 Intent = TableIntent.Settings,
@@ -82,7 +103,7 @@ namespace FrontEnd
 
         private void SwitchCell_Tapped(object sender, EventArgs e)
         {
-          //  App.dbWrapper.
+            //  App.dbWrapper.
             //// add turn on notifications 
         }
     }
