@@ -13,12 +13,12 @@ namespace FrontEnd
     {
         public string recentText { get; set; }
 
-        public FrontMyClub(Club club)
+        public FrontMyClub(Club club, string recentText)
         {
             this.Id = club.Id;
             ColorHandler ch = new ColorHandler();
+            this.recentText = recentText;
             clubColor = club.Color;
-            recentText = "Most recent text...";
             Title = club.Title;
             founderId = club.FounderId;
             starNumber = club.GetRating();

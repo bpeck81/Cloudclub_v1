@@ -16,7 +16,7 @@ namespace FrontEnd
         ClubSearchPage csp;
         MyClubsPage mcp;
         ProfilePage pp;
-        public TabbedMainClubPages(List<Club> clubList, List<Club> memberClubList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList)
+        public TabbedMainClubPages(List<Club> clubList, List<Club> memberClubList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
             ch = new ColorHandler();
             BackgroundColor = ch.fromStringToColor("purple");
@@ -36,8 +36,8 @@ namespace FrontEnd
                 Command = new Command(() => menuPopup()),
 
             });
-            csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList);
-            mcp = new MyClubsPage(memberClubList);
+            csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList);
+            mcp = new MyClubsPage(memberClubList, firstLineCommentList);
             pp = new ProfilePage();
             this.Children.Add(csp);
             this.Children.Add(mcp);

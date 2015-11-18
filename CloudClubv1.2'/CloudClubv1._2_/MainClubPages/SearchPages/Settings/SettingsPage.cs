@@ -12,11 +12,26 @@ namespace FrontEnd
     class SettingsPage : ContentPage
     {
         ColorHandler ch;
+        List<string> savedCloudList;
 
         public SettingsPage()
         {
             Title = "Settings";
             ch = new ColorHandler();
+
+            var cloudsTCell = new TextCell
+            {
+                Text = "Clouds",
+                TextColor = ch.fromStringToColor("black")
+            };
+            cloudsTCell.Tapped += async (sender, e) =>
+            {
+                var location = await App.dbWrapper.GetLocation();
+                var cloudsList = await App.dbWrapper.GetAvailableClouds(location[0],location[1]);
+                this.getSavedClouds();
+                await Navigation.PushAsync(new CloudsPage(cloudsList,savedCloudList));
+
+            };
 
             var notificationsTCell = new TextCell
             {
@@ -65,7 +80,7 @@ namespace FrontEnd
                     if (exists.Equals(ExistenceCheckResult.FileExists))
                     {
                         IFile file = await fileSystem.CreateFileAsync("PhoneData.txt", CreationCollisionOption.ReplaceExisting);
-                        string baseString = "USERID:a\nCLOUDREGION:UVA\n";
+                        string baseString = "a\nUVA,\n";
                         await file.WriteAllTextAsync(baseString);
                         var navPage = new NavigationPage(new CarouselTutorialPage());
                         Application.Current.MainPage = navPage;
@@ -87,20 +102,38 @@ namespace FrontEnd
                 {
                     new TableSection
                     {
+                        cloudsTCell,
                         notificationsTCell,
                         tutorialTCell,
                         contactUsTCell,
                         signOutTCell
                     }
                 },
-                BackgroundColor = ch.fromStringToColor("white")
-
+                BackgroundColor = ch.fromStringToColor("white"),
+                
             };
             Content = tableView;
 
 
         }
 
+        private async void getSavedClouds()
+        {
+            var saveFileKey = new SaveFileDictionary();
+            savedCloudList = new List<string>();
+            var fileSystem = FileSystem.Current.LocalStorage;
+            var exists = await fileSystem.CheckExistsAsync("PhoneData.txt");
+            if (exists.Equals(ExistenceCheckResult.FileExists))
+            {
+                var file = await fileSystem.GetFileAsync("PhoneData.txt");
+                var text = await file.ReadAllTextAsync();
+                var fileLines = text.Split('\n');
+                var cloudsList = fileLines[saveFileKey.dict["CLOUDREGION"]].Split(',');
+                System.Diagnostics.Debug.WriteLine(cloudsList[0].ToString());
+                savedCloudList= cloudsList.ToList<string>();
+            }
+            else throw new System.IO.IOException();
+        }
         private void SwitchCell_Tapped(object sender, EventArgs e)
         {
             //  App.dbWrapper.

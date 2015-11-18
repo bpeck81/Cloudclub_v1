@@ -337,19 +337,17 @@ namespace FrontEnd
             if (await App.dbWrapper.LoginAccount(username, password))
             {
                 invalidLogin = false;
+                var sfd = new SaveFileDictionary();
                 var fileSystem = FileSystem.Current.LocalStorage;
                 var exists = await fileSystem.CheckExistsAsync("PhoneData.txt");
-                var userId = App.dbWrapper.GetUser().Id;
 
                 if (exists.Equals(ExistenceCheckResult.FileExists))
                 {
                     IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
                     var fileCopy = await file.ReadAllTextAsync();
                     var fileLines = fileCopy.Split('\n');
-                    var idLine = fileLines[0].Split(':');
-                    idLine[1] = userId.ToString();
-                    string lineString = idLine[0] + ':' + idLine[1];
-                    fileLines[0] = lineString;
+                   
+                    fileLines[sfd.dict["USERID"]] = App.dbWrapper.GetUser().Id.ToString();
                     string contents = "";
                     for (int i = 0; i < fileLines.Length; i++)
                     {
@@ -357,7 +355,11 @@ namespace FrontEnd
                     }
                     System.Diagnostics.Debug.WriteLine(contents);
                     await file.WriteAllTextAsync(contents);
+
+                    //write contents to file
+
                 }
+
 
 
 
@@ -378,7 +380,16 @@ namespace FrontEnd
                         pendingInviteList.Add(clubs[i].Id);
                     }
                 }
-                var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList));
+
+                List<string> firstLineCommentList = new List<string>();
+                for (int i = 0; i < memberClubsList.Count; i++)
+                {
+                    var comment = await App.dbWrapper.GetRecentComment(memberClubsList[i].Id);
+
+                    firstLineCommentList.Add(comment.Text);
+                }
+
+                var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList));
                 navPage.BarBackgroundColor = ch.fromStringToColor("purple");
                 Application.Current.MainPage = navPage;
 
@@ -414,7 +425,7 @@ namespace FrontEnd
                 await App.dbWrapper.LoginAccount(username, password);
                 var userId = App.dbWrapper.GetUser().Id;
 
-
+                var sfd = new SaveFileDictionary();
                 var fileSystem = FileSystem.Current.LocalStorage;
                 var exists = await fileSystem.CheckExistsAsync("PhoneData.txt");
 
@@ -423,10 +434,7 @@ namespace FrontEnd
                     IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
                     var fileCopy = await file.ReadAllTextAsync();
                     var fileLines = fileCopy.Split('\n');
-                    var idLine = fileLines[0].Split(':');
-                    idLine[1] = userId.ToString();
-                    string lineString = idLine[0] + ':' + idLine[1];
-                    fileLines[0] = lineString;
+                    fileLines[sfd.dict["USERID"]] = userId.ToString();
                     string contents = "";
                     for (int i = 0; i < fileLines.Length; i++)
                     {

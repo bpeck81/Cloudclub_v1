@@ -112,7 +112,6 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\PCLStorage.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\PCLStorage.Abstractions.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Platform.dll
-C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.config
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.pdb
@@ -173,3 +172,4 @@ C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csprojResolveAssemblyReference.cache

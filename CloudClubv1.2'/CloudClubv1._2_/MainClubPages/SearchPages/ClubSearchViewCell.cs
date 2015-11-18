@@ -34,7 +34,6 @@ namespace FrontEnd
             flagTgr = new TapGestureRecognizer();
             flagTgr.Tapped += FlagTgr_Tapped;
 
-            clubText = "Most Recent Line of text from club";
             ch = new ColorHandler();
 
             header = new Label

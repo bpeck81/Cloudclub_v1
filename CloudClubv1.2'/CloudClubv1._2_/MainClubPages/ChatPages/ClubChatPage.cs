@@ -91,7 +91,8 @@ namespace FrontEnd
             {
                 BackgroundColor = ch.fromStringToColor("white"),
                 TextColor = ch.fromStringToColor("black"),
-                VerticalOptions = LayoutOptions.End
+                VerticalOptions = LayoutOptions.End,
+                IsEnabled = isMember
             };
             userEntry.Completed += UserEntry_Completed;
             Label lEmptyChat = new Label

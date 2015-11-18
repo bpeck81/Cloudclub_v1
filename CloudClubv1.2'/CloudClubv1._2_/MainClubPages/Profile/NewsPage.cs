@@ -34,15 +34,15 @@ namespace FrontEnd
                 HasUnevenRows = true
 
             };
-            listView.ItemSelected += ListView_ItemSelected;
+            listView.ItemTapped += ListView_ItemSelected;
 
             Content = listView;
 
         }
 
-        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelected(object sender, ItemTappedEventArgs e)
         {
-            var news = (FrontNews)e.SelectedItem;
+            var news = (FrontNews)e.Item;
             if (news.NotificationType == "friendRequest")
             {
                 FriendRequest request = (FriendRequest)news.dbItem;
@@ -82,7 +82,7 @@ namespace FrontEnd
                 bool isMember = await App.dbWrapper.IsMember(invite.ClubId);
                 var club = await App.dbWrapper.GetClub(invite.ClubId);
 
-                Navigation.PushAsync(new ClubChatPage(new FrontClub(club, false, false), chatList, commentUsersList, requestUsersList, isMember));
+                await Navigation.PushAsync(new ClubChatPage(new FrontClub(club, false, false), chatList, commentUsersList, requestUsersList, isMember));
 
 
 

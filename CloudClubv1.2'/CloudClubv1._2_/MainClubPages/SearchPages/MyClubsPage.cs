@@ -18,12 +18,12 @@ namespace FrontEnd
         ListView listView;
         ScrollView clubScroll;
         Button bNewClub;
-        public MyClubsPage(List<Club> memberClubList)
+        public MyClubsPage(List<Club> memberClubList, List<string> recentCommentsList)
         {
 
             ch = new ColorHandler();
 
-            generateDisplayList(memberClubList);
+            generateDisplayList(memberClubList, recentCommentsList);
             updatePage();
 
         }
@@ -148,27 +148,29 @@ namespace FrontEnd
                     requestUsersList.Add(await App.dbWrapper.GetAccount(request.AccountId));
                 }
             }
+            var memberClubList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id); 
             var isMember = await App.dbWrapper.IsMember(club.Id);
             await Navigation.PushAsync(new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember));
-            generateDisplayList(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id));
+            generateDisplayList(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id), await App.getMostRecentComment(memberClubList));
             updatePage();
 
         }
         public async void updateData()
         {
             var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
-            generateDisplayList(memberClubsList);
+
+            generateDisplayList(memberClubsList, await App.getMostRecentComment(memberClubsList));
             updatePage();
         }
 
 
-        private void generateDisplayList(List<Club> clubList)
+        private void generateDisplayList(List<Club> clubList, List<string> commentList)
         {
             frontMyClubList = new List<FrontMyClub>();
 
             for (int i = 0; i < clubList.Count; i++)
             {
-                frontMyClubList.Add(new FrontMyClub(clubList[i]));
+                frontMyClubList.Add(new FrontMyClub(clubList[i], commentList[i]));
             }
 
 

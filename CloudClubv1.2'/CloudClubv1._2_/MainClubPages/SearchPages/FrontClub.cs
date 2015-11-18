@@ -21,9 +21,10 @@ namespace FrontEnd
         public bool isNotMemberNoPending { get; set; }
         private ColorHandler ch;
         public bool pendingInvite { get; set; }
-        public FrontClub(Club club, bool member, bool pendingInvite)
+        public FrontClub(Club club, bool member, bool pendingInvite, string mostRecentComment = "")
         {
             isMember = member;
+            mostRecentLine = mostRecentComment;
             this.pendingInvite = pendingInvite;
             if (member == false && pendingInvite == false)
             {
@@ -40,7 +41,6 @@ namespace FrontEnd
             Title = club.Title;
             generateStarImages(club.GetRating());
             timeSinceActivity = getTimeSpan(club);
-            mostRecentLine = "Most recent line" + "...";
             starNumber = club.GetRating();
 
 
@@ -95,27 +95,22 @@ namespace FrontEnd
             string timeString = "";
             int timeInt = 0;
             var timeElapsed = club.GetTimeSinceActivity();
-            if (timeElapsed.TotalMinutes > 60)
-            {
-                if (timeElapsed.TotalHours > 24)
-                {
-                    timeInt = (int)timeElapsed.TotalDays;
-                    timeString = timeInt.ToString() + "d";
-                }
-                else
-                {
-                    timeInt = (int)timeElapsed.TotalHours;
-                    timeString = timeInt.ToString() + "hr";
 
-                }
-            }
-            else
+            if (-timeElapsed.Days >= 1)
             {
-                timeInt = (int)timeElapsed.TotalMinutes;
-                timeString = timeInt.ToString() + "m";
-            }
+                return timeElapsed.Days.ToString()+" D";
 
-            return timeString;
+            }
+            else if (-timeElapsed.Hours >= 1)
+            {
+                return timeElapsed.Hours.ToString()+" Hr";
+            }
+            else if (-timeElapsed.Minutes >= 1)
+            {
+                return timeElapsed.Minutes.ToString()+" Min";
+            }
+            else return "<1 Min";
+           
         }
     }
 }

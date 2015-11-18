@@ -62,6 +62,7 @@
     <Compile Include="Backend\TemporaryMemberJunction.cs" />
     <Compile Include="MainClubPages\ChatPages\FrontClubMember.cs" />
     <Compile Include="MainClubPages\Helpers\InvertBoolConverter.cs" />
+    <Compile Include="MainClubPages\Helpers\SaveFileDictionary.cs" />
     <Compile Include="MainClubPages\Profile\FrontNews.cs" />
     <Compile Include="MainClubPages\Profile\NewsPageViewCell.cs" />
     <Compile Include="MainClubPages\SearchPages\AddFriendsToCreateClubPage.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="MainClubPages\ChatPages\CommentViewCell.cs" />
     <Compile Include="MainClubPages\SearchPages\inviteFriendsViewCell.cs" />
     <Compile Include="MainClubPages\SearchPages\ParentFrontClub.cs" />
+    <Compile Include="MainClubPages\SearchPages\Settings\CloudsPage.cs" />
     <Compile Include="MainClubPages\SearchPages\Settings\ContactUsPage.cs" />
     <Compile Include="MainClubPages\SearchPages\CreateClubPage.cs" />
     <Compile Include="MainClubPages\FriendPages\FriendProfilePage.cs" />

@@ -566,8 +566,15 @@ namespace FrontEnd
                 }
 
             }
+            List<string> firstLineCommentList = new List<string>();
+            for (int i = 0; i < memberClubsList.Count; i++)
+            {
+                var comment = await App.dbWrapper.GetRecentComment(memberClubsList[i].Id);
 
-            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList));
+                firstLineCommentList.Add(comment.Text);
+            }
+
+            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList, firstLineCommentList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }
@@ -581,6 +588,7 @@ namespace FrontEnd
             var newestClubs = await App.dbWrapper.GetNewestClubs();
             var clubs = await App.dbWrapper.GetClubs();
             var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+            List<string> firstLineCommentList = await App.getMostRecentComment(memberClubsList);
 
             List<string> pendingInviteList = new List<string>();
 
@@ -591,7 +599,7 @@ namespace FrontEnd
                     pendingInviteList.Add(clubs[i].Id);
                 }
             }
-            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList));
+            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }

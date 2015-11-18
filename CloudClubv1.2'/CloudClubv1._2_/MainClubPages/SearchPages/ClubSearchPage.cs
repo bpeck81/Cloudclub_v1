@@ -18,14 +18,15 @@ namespace FrontEnd
         public CreateClubPage createClubPage;
         public string title = "Explore";
         ColorHandler ch;
+        
         string currentPage;
         List<Club> clubList, clubMemberList, popularClubs, newestClubs, returnedSearchedClubs;
-        List<string> pendingInviteList;
+        List<string> pendingInviteList, firstLineCommentList;
         bool isBusy;
-        public ClubSearchPage(List<Club> clubList, List<Club> clubMemberList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList)
+        public ClubSearchPage(List<Club> clubList, List<Club> clubMemberList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
             ch = new ColorHandler();
-
+            this.firstLineCommentList = firstLineCommentList;
             this.pendingInviteList = pendingInviteList;
             this.clubList = clubList;
             this.clubMemberList = clubMemberList;
@@ -35,6 +36,10 @@ namespace FrontEnd
             this.Icon = "ClubSearch_TabView.png";
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             returnedSearchedClubs = new List<Club>();
+            System.Diagnostics.Debug.WriteLine(firstLineCommentList.Count.ToString());
+            System.Diagnostics.Debug.WriteLine(clubMemberList.Count.ToString());
+
+
             MessagingCenter.Subscribe<ClubSearchViewCell, string>(this, "Hi", async (sender, arg) => {
 
                 var clubId = (string)arg;
@@ -409,6 +414,7 @@ namespace FrontEnd
         private void modClubList(List<Club> clubList, List<Club> memberClubList)
         {
             frontClubList = new ObservableCollection<FrontClub>();
+            var mostRecentComment= "";
 
             for (int i = 0; i < clubList.Count; i++)
             {
@@ -420,6 +426,7 @@ namespace FrontEnd
                     if (clubList[i].Id.Equals(memberClubList[j].Id))
                     {
                         isMember = true;
+                        mostRecentComment = firstLineCommentList[j];
                     }
 
                 }
@@ -427,8 +434,16 @@ namespace FrontEnd
                 {
                     if (pendingInviteList[j] == clubList[i].Id) pendingInvite = true;
                 }
+                FrontClub fClub;
+                if (isMember)
+                {
+                    fClub = new FrontClub(clubList[i], isMember, pendingInvite, mostRecentComment);
+                }
+                else
+                {
+                    fClub = new FrontClub(clubList[i], isMember, pendingInvite);
 
-                FrontClub fClub = new FrontClub(clubList[i], isMember, pendingInvite);
+                }
                 frontClubList.Add(fClub);
 
             }
@@ -447,6 +462,8 @@ namespace FrontEnd
             clubList = await App.dbWrapper.GetClubs();
 
             pendingInviteList = new List<string>();
+            firstLineCommentList = await App.getMostRecentComment(clubMemberList);
+
 
             for (int i = 0; i < clubList.Count; i++)
             {
