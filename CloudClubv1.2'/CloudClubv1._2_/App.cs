@@ -65,6 +65,8 @@ namespace CloudClubv1._2_
 
                     }
                     var firstLineCommentList = await App.getMostRecentComment(memberClubsList);
+                  //  await App.dbWrapper.cloud
+                  
                     var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList, firstLineCommentList));
 
                     navPage.BarBackgroundColor = ch.fromStringToColor("purple");

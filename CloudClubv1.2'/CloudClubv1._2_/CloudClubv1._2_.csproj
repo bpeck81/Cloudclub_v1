@@ -99,6 +99,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Backend\RatingJunction.cs" />
     <Compile Include="Backend\Tag.cs" />
+    <Compile Include="Renderers\MyTabbedPage.cs" />
     <Compile Include="SignUpPages\AlternateCustomizeProfilePage.cs" />
     <Compile Include="SignUpPages\CustomizeProfilePage.cs" />
     <Compile Include="MainClubPages\SearchPages\FrontClub.cs" />

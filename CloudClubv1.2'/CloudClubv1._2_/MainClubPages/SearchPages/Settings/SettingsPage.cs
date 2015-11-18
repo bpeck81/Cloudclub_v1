@@ -27,9 +27,9 @@ namespace FrontEnd
             cloudsTCell.Tapped += async (sender, e) =>
             {
                 var location = await App.dbWrapper.GetLocation();
-                var cloudsList = await App.dbWrapper.GetAvailableClouds(location[0],location[1]);
+                var cloudsList = await App.dbWrapper.GetAvailableClouds(location[0], location[1]);
                 this.getSavedClouds();
-                await Navigation.PushAsync(new CloudsPage(cloudsList,savedCloudList));
+                await Navigation.PushAsync(new CloudsPage(cloudsList, savedCloudList));
 
             };
 
@@ -110,7 +110,7 @@ namespace FrontEnd
                     }
                 },
                 BackgroundColor = ch.fromStringToColor("white"),
-                
+
             };
             Content = tableView;
 
@@ -130,7 +130,7 @@ namespace FrontEnd
                 var fileLines = text.Split('\n');
                 var cloudsList = fileLines[saveFileKey.dict["CLOUDREGION"]].Split(',');
                 System.Diagnostics.Debug.WriteLine(cloudsList[0].ToString());
-                savedCloudList= cloudsList.ToList<string>();
+                savedCloudList = cloudsList.ToList<string>();
             }
             else throw new System.IO.IOException();
         }

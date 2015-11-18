@@ -98,19 +98,19 @@ namespace FrontEnd
 
             if (-timeElapsed.Days >= 1)
             {
-                return timeElapsed.Days.ToString()+" D";
+                return timeElapsed.Days.ToString() + " D";
 
             }
             else if (-timeElapsed.Hours >= 1)
             {
-                return timeElapsed.Hours.ToString()+" Hr";
+                return timeElapsed.Hours.ToString() + " Hr";
             }
             else if (-timeElapsed.Minutes >= 1)
             {
-                return timeElapsed.Minutes.ToString()+" Min";
+                return timeElapsed.Minutes.ToString() + " Min";
             }
             else return "<1 Min";
-           
+
         }
     }
 }

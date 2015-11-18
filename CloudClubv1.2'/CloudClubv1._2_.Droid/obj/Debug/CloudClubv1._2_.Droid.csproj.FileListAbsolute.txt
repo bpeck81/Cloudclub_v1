@@ -744,3 +744,4 @@ C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\friends_profile1.png
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\R.cs.flag
 C:\Users\Student\Documents\tomorrow\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\uploadflags.txt
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Storage.dll.mdb

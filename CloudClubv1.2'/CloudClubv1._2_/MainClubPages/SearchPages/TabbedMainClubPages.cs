@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    public class TabbedMainClubPages : TabbedPage
+    public class TabbedMainClubPages : MyTabbedPage
     {
         ColorHandler ch;
         public string var;
@@ -39,6 +39,10 @@ namespace FrontEnd
             csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList);
             mcp = new MyClubsPage(memberClubList, firstLineCommentList);
             pp = new ProfilePage();
+            csp.Padding = 1;
+
+            mcp.Padding = 1;
+            pp.Padding = 1;
             this.Children.Add(csp);
             this.Children.Add(mcp);
             this.Children.Add(pp);

@@ -18,13 +18,16 @@ namespace FrontEnd
         public CreateClubPage createClubPage;
         public string title = "Explore";
         ColorHandler ch;
-        
+
         string currentPage;
         List<Club> clubList, clubMemberList, popularClubs, newestClubs, returnedSearchedClubs;
         List<string> pendingInviteList, firstLineCommentList;
         bool isBusy;
         public ClubSearchPage(List<Club> clubList, List<Club> clubMemberList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
+            var iconSource = new FileImageSource();
+            iconSource.File = "ClubSearch_TabView.png";
+            Icon = iconSource;
             ch = new ColorHandler();
             this.firstLineCommentList = firstLineCommentList;
             this.pendingInviteList = pendingInviteList;
@@ -362,7 +365,7 @@ namespace FrontEnd
                 var tagsArray = tagString.Split(' ');
                 tagsList = tagsArray.ToList();
                 if (tagsList.Count != 0) returnedSearchedClubs = await App.dbWrapper.SearchClubs(tagsList);
-                if(returnedSearchedClubs == null)
+                if (returnedSearchedClubs == null)
                 {
                     returnedSearchedClubs = new List<Club>();
                 }
@@ -414,7 +417,7 @@ namespace FrontEnd
         private void modClubList(List<Club> clubList, List<Club> memberClubList)
         {
             frontClubList = new ObservableCollection<FrontClub>();
-            var mostRecentComment= "";
+            var mostRecentComment = "";
 
             for (int i = 0; i < clubList.Count; i++)
             {
@@ -478,7 +481,7 @@ namespace FrontEnd
         {
 
             var club = (FrontClub)e.SelectedItem;
-            var chatList = await App.dbWrapper.GetChat(club.Id, "","");
+            var chatList = await App.dbWrapper.GetChat(club.Id, "", "");
 
             List<Account> requestUsersList = new List<Account>();
             List<Account> commentUsersList = new List<Account>();
