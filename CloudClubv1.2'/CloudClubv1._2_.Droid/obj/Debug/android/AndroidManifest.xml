@@ -1,7 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cloudclub.cloudclubv1.x_2_" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
+  <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="15" />
-  <application android:label="Cloudclub" android:name="mono.android.app.Application" android:debuggable="true">
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <permission android:name="com.cloudclub.cloudclubv1.x_2_.permission.C2D_MESSAGE" />
+  <uses-permission android:name="com.cloudclub.cloudclubv1.x_2_.permission.C2D_MESSAGE" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <application android:label="Cloudclub" android:name="mono.android.app.Application" android:allowBackup="true" android:icon="@drawable/cloudicon" android:debuggable="true">
     <service android:name="md583a5db7bf3698299f4dd7c4eaa4db5c5.GcmService" />
     <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="md583a5db7bf3698299f4dd7c4eaa4db5c5.PushHandlerBroadcastReceiver">
       <intent-filter>
@@ -27,6 +38,7 @@
     <activity android:label="Web Authenticator" android:name="md588920fb9403ed228b036d6919cddd329.WebAuthenticatorActivity" />
     <activity android:name="md50575d4ab16fc336ade1879255cf984b5.MediaPickerActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.cloudclub.cloudclubv1.x_2_.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">
       <intent-filter>
         <action android:name="mono.android.intent.action.SEPPUKU" />
@@ -34,6 +46,7 @@
       </intent-filter>
     </receiver>
   </application>
+<<<<<<< HEAD
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -44,4 +57,6 @@
   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+=======
+>>>>>>> 9d5a5d4887a09227db4382b237236465a819a10f
 </manifest>

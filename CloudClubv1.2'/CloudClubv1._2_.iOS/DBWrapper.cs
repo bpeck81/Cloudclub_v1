@@ -15,10 +15,12 @@ using System.Net.Http;
 //using Gcm.Client;
 using UIKit;
 using Foundation;
+using Xamarin.Geolocation;
 
 
 using CloudClubv1._2_;
 using Backend;
+
 
 namespace CloudClubv1._2_.iOS
 {
@@ -52,6 +54,9 @@ namespace CloudClubv1._2_.iOS
 		public static IMobileServiceTable<Ban> banTable = client.GetTable<Ban>();
 		public static IMobileServiceTable<ClubReport> clubReportTable = client.GetTable<ClubReport>();
 		public static IMobileServiceTable<TemporaryMemberJunction> temporaryMemberJuncTable = client.GetTable<TemporaryMemberJunction>();
+		public static IMobileServiceTable<ClubReqRatingJunc> clubReqRatingJuncTable = client.GetTable<ClubReqRatingJunc>();
+		public static IMobileServiceTable<Cloud> cloudTable = client.GetTable<Cloud>();
+		public static IMobileServiceTable<CloudJunction> cloudJuncTable = client.GetTable<CloudJunction>();
 
 		//used to determine how to handle push notifications
 		public static string CurrentClubId = null;
@@ -62,7 +67,7 @@ namespace CloudClubv1._2_.iOS
 		private Account User;
 
 		//constants
-		private const int CLUB_SIZE = 50;
+		private const int CLUB_SIZE = 500;
 
 
 		public DBWrapper()
@@ -103,25 +108,25 @@ namespace CloudClubv1._2_.iOS
 		}
 
 		/// NOTE: DEPRACATED; WILL BE REMOVED SOON
-		public async Task<bool> CreateAccount(string username, string password)
-		{
-			Account account = new Account(username, password, "no email");
+		/*public async Task<bool> CreateAccount(string username, string password)
+        {
+            Account account = new Account(username, password, "no email");
 
-			//check if username in use
-			var usernameList = await accountTable.Where(item => item.Username == account.Username).ToListAsync();
-			//var emailList = await accountTable.Where(item => item.Email == account.Email).ToListAsync();
+            //check if username in use
+            var usernameList = await accountTable.Where(item => item.Username == account.Username).ToListAsync();
+            //var emailList = await accountTable.Where(item => item.Email == account.Email).ToListAsync();
 
-			if (usernameList.Count > 0)
-			{
-				return false;
-			}
-			else
-			{
-				await accountTable.InsertAsync(account);
-				return true;
-			}
+            if (usernameList.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                await accountTable.InsertAsync(account);
+                return true;
+            }
 
-		}
+        }*/
 
 		/// Login to an account; returns 1 if successful, 0 if failure
 		public async Task<bool> LoginAccount(string username, string password)
@@ -167,8 +172,6 @@ namespace CloudClubv1._2_.iOS
 		/// Create a club; returns true if success, false if fails; fails if club name already in use or user is banned
 		public async Task<bool> CreateClub(string title, string color, bool exclusive, List<string> tagList)
 		{
-			Club club = new Club(title, color, exclusive, User.Id);
-
 			//check if banned (must get current instance of user account incase ban happend since login)
 			User = await accountTable.LookupAsync(User.Id);
 			if (DateTime.Compare(User.Banned, DateTime.Now) > 0)
@@ -176,8 +179,10 @@ namespace CloudClubv1._2_.iOS
 				return false;
 			}
 
+			Club club = new Club(User.CurrentCloudId, title, color, exclusive, User.Id);
+
 			//check if the club name is in use
-			var list = await clubTable.Where(item => item.Title.ToLower() == club.Title.ToLower()).ToListAsync();
+			var list = await clubTable.Where(item => item.Title.ToLower() == club.Title.ToLower() && item.CloudId==User.CurrentCloudId).ToListAsync();
 
 			if (list.Count > 0)
 			{
@@ -191,14 +196,14 @@ namespace CloudClubv1._2_.iOS
 				string[] titleTagList = title.Split(' ');
 				foreach (string key in titleTagList)
 				{
-					Tag tag = new Tag(key.ToLower(), club.Id);
+					Tag tag = new Tag(key.ToLower(), club.Id, club.CloudId);
 					await tagTable.InsertAsync(tag);
 				}
 
 				//add tags to table based on tagList
 				foreach (string key in tagList)
 				{
-					Tag tag = new Tag(key.ToLower(), club.Id);
+					Tag tag = new Tag(key.ToLower(), club.Id,club.CloudId);
 					await tagTable.InsertAsync(tag);
 				}
 
@@ -222,8 +227,7 @@ namespace CloudClubv1._2_.iOS
 
 		}
 
-		/// Get clubs; returns a list of club instances
-		/// TODO: sort by popularity
+		/// Get clubs; returns a list of all club items regardless of cloud; for debug use only
 		public async Task<List<Club>> GetClubs()
 		{
 			List<Club> list = await clubTable.ToListAsync();
@@ -510,28 +514,36 @@ namespace CloudClubv1._2_.iOS
 			return list;
 		}
 
-		/// Send an invite to join a club to an account; returns true if success, false if the account already has an invite
+		/// Send an invite to join a club to an account; returns 0 if success,1 if account is not a member of cloud club is in, 2 if invite already exists
 		/// NOTE: you can currently send an invite to someone already in the club
-		public async Task<bool> CreateInvite(string clubId, string recipientId)
+		public async Task<int> CreateInvite(string clubId, string recipientId)
 		{
 			var list = await inviteTable.Where(item => item.ClubId == clubId && item.RecipientId == recipientId).ToListAsync();
 
 			//if the user doesn not already have in invite, make one
 			if (list.Count > 0)
 			{
-				return false;
+				return 2;
 			}
 			else
 			{
+				Club club = await clubTable.LookupAsync(clubId);
+
+				//check if recipient is a member of the cloud of the club
+				var cloudMemList = await cloudJuncTable.Where(item=>item.CloudId==club.CloudId && item.AccountId==recipientId).ToListAsync();
+				if(cloudMemList.Count==0){
+					return 1;
+				}
+
+				//make invite
 				Invite invite = new Invite(User.Id, recipientId, clubId);
 				await inviteTable.InsertAsync(invite);
 
 				//make a DBNotification
-				Club club = await clubTable.LookupAsync(clubId);
 				DBNotification DBNotification = new DBNotification(recipientId,"invite",User.Username+" has invited you to join "+club.Title+".");
 				await dbNotificationTable.InsertAsync(DBNotification);
 
-				return true;
+				return 0;
 			}
 		}
 
@@ -585,16 +597,16 @@ namespace CloudClubv1._2_.iOS
 		{
 			Invite invite = await inviteTable.LookupAsync(inviteId);
 
-            //join the club: NOTE: the DBNotification is made in the joinclubbyinvite function
-            await JoinClubByInvite(User.Id, invite.ClubId);
+			//join the club: NOTE: the DBNotification is made in the joinclubbyinvite function
+			await JoinClubByInvite(User.Id, invite.ClubId);
 
-            //give the author credit for the invite
-            var author = await accountTable.LookupAsync(invite.AuthorId);
-            author.NumInvites++;
-            //_async
-            await accountTable.UpdateAsync(author);
+			//give the author credit for the invite
+			var author = await accountTable.LookupAsync(invite.AuthorId);
+			author.NumInvites++;
+			//_async
+			await accountTable.UpdateAsync(author);
 
-            //delete the invite
+			//delete the invite
 			try
 			{
 				await inviteTable.DeleteAsync(invite);
@@ -643,10 +655,10 @@ namespace CloudClubv1._2_.iOS
 			}
 		}
 
-		/// Returns a list of club request instances for a given club
+		/// Returns a list of club request instances for a given club (only if they're visible)
 		public async Task<List<ClubRequest>> GetClubRequests(string clubId)
 		{
-			var list = await clubRequestTable.Where(item => item.ClubId == clubId).ToListAsync();
+			var list = await clubRequestTable.Where(item => item.ClubId == clubId && item.Visible==true).ToListAsync();
 			return list;
 		}
 
@@ -676,20 +688,23 @@ namespace CloudClubv1._2_.iOS
 			}
 		}
 
-		/// delete a club request; returns true if success, false if failure
+		/// create a decline rating for a club request; returns true if success; false if user already declined
 		public async Task<bool> DeclineClubRequest(string clubRequestId)
 		{
-			ClubRequest clubRequest = await clubRequestTable.LookupAsync(clubRequestId);
+			//check to see if the user has already declined the request
+			var declineList = await clubReqRatingJuncTable.Where(item=>item.ClubRequestId==clubRequestId && item.RaterId==User.Id).ToListAsync();
 
-			try
-			{
-				await clubRequestTable.DeleteAsync(clubRequest);
-				return true;
-
-			}
-			catch (Exception e)
+			if (declineList.Count > 0)
 			{
 				return false;
+			}
+			//if not a rating, create a decline
+			else {
+				//the server checks to see if there are 3 declines, if there are, the club request is set to invisible
+				//after 24 hours it is deleted and the 
+				ClubReqRatingJunc decline = new ClubReqRatingJunc(clubRequestId,User.Id);
+				await clubReqRatingJuncTable.InsertAsync(decline);
+				return true;
 			}
 		}
 
@@ -705,7 +720,7 @@ namespace CloudClubv1._2_.iOS
 		/// Returns a list of the twenty newest clubs to be made
 		public async Task<List<Club>> GetNewestClubs()
 		{
-			List<Club> clubs = await clubTable.OrderByDescending(item => item.Time).Take(20).ToListAsync();
+			List<Club> clubs = await clubTable.Where(item=>item.CloudId==User.CurrentCloudId).OrderByDescending(item => item.Time).Take(20).ToListAsync();
 			return clubs;
 		}
 
@@ -714,12 +729,14 @@ namespace CloudClubv1._2_.iOS
 		public async Task<List<Club>> SearchClubs(List<string> tags)
 		{
 			//make all tags lowercase
-			for (int i = 0; i < tags.Count;i++ )
+			for (int i = 0; i < tags.Count; i++)
 			{
 				tags[i] = tags[i].ToLower();
 			}
 
-			List<Club> clubs = await client.InvokeApiAsync<List<string>, List<Club>>("SearchClubs", tags);
+			SearchArray parameters = new SearchArray(tags,User.CurrentCloudId);
+
+			List<Club> clubs = await client.InvokeApiAsync<SearchArray, List<Club>>("SearchClubs", parameters);
 			return clubs;
 
 		}
@@ -809,10 +826,13 @@ namespace CloudClubv1._2_.iOS
 			}
 		}
 
-		/// Returns a list of the twenty most rated clubs
+		/// Returns a list of the twenty most rated clubs; only clubs less than 2 days old returned
 		public async Task<List<Club>> GetPopularClubs()
 		{
-			List<Club> clubs = await clubTable.OrderByDescending(item => item.TotalRating).Take(20).ToListAsync();
+			//eligible time is 48 hours old
+			var eligibleTime = DateTime.Now.AddHours(-48);
+			//get if in same cloud and less than 48 hours old, ordered by num ratings
+			List<Club> clubs = await clubTable.Where(item=>item.CloudId==User.CurrentCloudId && item.Time>eligibleTime).OrderByDescending(item => item.TotalRating).Take(20).ToListAsync();
 			return clubs;
 		}
 
@@ -835,6 +855,9 @@ namespace CloudClubv1._2_.iOS
 				Club club = (await clubTable.Where(item => item.Id == clubId).ToListAsync())[0];
 				clubList.Add(club);
 			}
+			//remove clubs not in current cloud
+			clubList = clubList.Where(item => item.CloudId == User.CurrentCloudId).ToList();
+
 			clubList.OrderByDescending(item => item.LatestActivity);
 			return clubList;
 		}
@@ -943,16 +966,26 @@ namespace CloudClubv1._2_.iOS
 
 		/// Creates a push register so the device can receive push notifications
 		private void CreatePushRegister(){
+			//error handling for push notifications
+			/*
+            try
+            {
+                // Check to ensure everything's setup right
+                GcmClient.CheckDevice(MainActivity.Instance);
+                GcmClient.CheckManifest(MainActivity.Instance);
 
-			// registers for push for iOS8
-			var settings = UIUserNotificationSettings.GetSettingsForTypes(
-				UIUserNotificationType.Alert
-				| UIUserNotificationType.Badge
-				| UIUserNotificationType.Sound,
-				new NSSet());
-
-			UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-			UIApplication.SharedApplication.RegisterForRemoteNotifications();
+                // Register for push notifications
+                System.Diagnostics.Debug.WriteLine("Registering...");
+                GcmClient.Register(MainActivity.Instance, PushHandlerBroadcastReceiver.SENDER_IDS);
+            }
+            catch (Java.Net.MalformedURLException)
+            {
+                //CreateAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+            }
+            catch (Exception e)
+            {
+                //CreateAndShowDialog(e, "Error");
+            }*/
 		}
 
 		/// sets the user to null rather than an account value
@@ -1061,7 +1094,7 @@ namespace CloudClubv1._2_.iOS
 
 		}
 
-		///returns true if the user has a pending club request for a given club, false if not
+		///returns true if the user has a pending club request for a given club, false if not (if invisible, still returns true)
 		public async Task<bool> IsPendingClubRequest(string clubId) {
 			var clubRequests = await clubRequestTable.Where(item=>(item.AccountId==User.Id && item.ClubId==clubId)).ToListAsync();
 			if(clubRequests.Count>0){
@@ -1200,21 +1233,49 @@ namespace CloudClubv1._2_.iOS
 		}
 
 		///returns a list of comments and club requests; is what users see in chat
-		///returns 20-25 items; index is used to get sets of 20, ex: 0 is most recent 20, 1 is next most recent 20...
-		public async Task<List<DBItem>> GetChat(string clubId, string indexCommentId) {
+		///returns 20-25 items; indexCommentId is used to retrieve sets of comments; if "", gets 20 most recent items
+		///if not "", gets the 20 most recent comments prior to the passed in comment;
+		///must pass in index type - can be "comment" or "clubRequest"
+		public async Task<List<DBItem>> GetChat(string clubId, string indexType, string indexId) {
 			List<DBItem> list = new List<DBItem>();
-            /*
-			//get 20 most recent comments
-			var commentList = await commentTable.OrderByDescending(item => item.Time).Where(item=> item.ClubId==clubId)
-				.Skip(index*20).Take(20).ToListAsync();
-			//get 5 most recent club requests
-			var requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId)
-				.Skip(index*5).Take(5).ToListAsync();
+			List<Comment> commentList = new List<Comment>();
+			List<ClubRequest> requestList = new List<ClubRequest>();
+
+			//if empty string, get newest ~25 items
+			if (indexId.Equals(""))
+			{
+				//get 20 most recent comments
+				commentList = await commentTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId)
+					.Take(20).ToListAsync();
+				//get 5 most recent club requests that are visible
+				requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId && item.Visible == true)
+					.Take(5).ToListAsync();
+			}
+			else {
+				//get the reference point comment; use the passed in type to determine what class it is
+				DBItem refItem;
+
+				if (indexType.Equals("comment"))
+				{
+					refItem = await commentTable.LookupAsync(indexId);
+				}
+				else {
+					refItem = await clubRequestTable.LookupAsync(indexId);
+				}
+
+				//get 20 most recent comments; skip determined by time
+				commentList = await commentTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId
+					&& item.Time<refItem.Time).Take(20).ToListAsync();
+				//get 5 most recent club requests that are visible; skip determined by time
+				requestList = await clubRequestTable.OrderByDescending(item => item.Time).Where(item => item.ClubId == clubId && item.Visible == true
+					&& item.Time < refItem.Time).Take(5).ToListAsync();
+			}
+
 			//add to list and sort
 			list.AddRange(commentList);
 			list.AddRange(requestList);
 			list.OrderByDescending(item=>item.Time);
-            */
+
 			return list;
 		}
 
@@ -1240,72 +1301,172 @@ namespace CloudClubv1._2_.iOS
 
 		}
 
-        ///Returns the location a user is in; returns college name if in registered college, none if not in valid college
-        public async Task<string> GetLocation()
-        {
-            string location = "none";
-            /*
-            //college and latitude,longitude
-            List<string> colleges = new List<string>();
-            List<double[]> collegeLocations = new List<double[]>();
-            //radius of 2 miles; unit is degrees
-            double radius = .0290;
-            //add colleges
-            colleges.Add("UVA");
-            collegeLocations.Add(new double[] { 38.0350, -78.5050 });
+		///Returns double array of user location, {latitude,longitude}; returns {0,0} if location not found
+		public async Task<double[]> GetLocation() {
+			double[] location={0,0};
+
+			System.Diagnostics.Debug.WriteLine("mydebug--started getting position");
+
+			var locator = new Geolocator() { DesiredAccuracy = 50 };
+			await locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
+				{
+					System.Diagnostics.Debug.WriteLine("mydebug--Position Status: {0}", t.Result.Timestamp);
+					System.Diagnostics.Debug.WriteLine("mydebug--Position Latitude: {0}", t.Result.Latitude);
+					System.Diagnostics.Debug.WriteLine("mydebug--Position Longitude: {0}", t.Result.Longitude);
+
+					//save the location for return
+					location[0] = t.Result.Latitude;
+					location[1] = t.Result.Longitude;
+
+				}, TaskScheduler.FromCurrentSynchronizationContext());
+
+			return location;
+		}
+
+		///Returns a club given an id
+		public async Task<Club> GetClub(string clubId)
+		{
+			var club = await clubTable.LookupAsync(clubId);
+			return club;
+		}
+
+		/// Returns if the user has already reported a club
+		public async Task<bool> HasReportedClub(string clubId) {
+			//check if the reporter has already made a club report
+			var clubReportList = await clubReportTable.Where(item => item.ClubId == clubId && item.ReporterId == User.Id).ToListAsync();
+
+			//if report already exists
+			if (clubReportList.Count > 0)
+			{
+				return true;
+			}
+			//if no report exists
+			else
+			{
+				return false;
+			}
+		}
+
+		/// Delete the user's account; note: attempt to access their account after this will throw error
+		public async Task<string> DeleteUser()
+		{
+			var account = User;
+			//delete dependencies on account
+			//club requests
+			var clubRequests = await clubRequestTable.Where(item => item.AccountId == account.Id).ToListAsync();
+			foreach (ClubRequest req in clubRequests)
+			{
+				await clubRequestTable.DeleteAsync(req);
+			}
+			//comment
+			var comments = await commentTable.Where(item => item.AuthorId == account.Id).ToListAsync();
+			foreach (Comment comment in comments)
+			{
+				await commentTable.DeleteAsync(comment);
+			}
+			//friend requests
+			var friendRequests = await friendRequestTable.Where(item => item.AuthorId == account.Id
+				|| item.RecipientId == account.Id).ToListAsync();
+			foreach (FriendRequest req in friendRequests)
+			{
+				await friendRequestTable.DeleteAsync(req);
+			}
+			//friends
+			var friends = await friendsTable.Where(item => item.AuthorId == account.Id
+				|| item.RecipientId == account.Id).ToListAsync();
+			foreach (Friends fr in friends)
+			{
+				await friendsTable.DeleteAsync(fr);
+			}
+			//medals
+			var medals = await medalTable.Where(item => item.AccountId == account.Id).ToListAsync();
+			foreach (Medal m in medals)
+			{
+				await medalTable.DeleteAsync(m);
+			}
+			//members
+			var memberJunctions = await memberJuncTable.Where(item => item.AccountId == account.Id).ToListAsync();
+			foreach (MemberJunction m in memberJunctions)
+			{
+				await memberJuncTable.DeleteAsync(m);
+			}
+
+			//delete account
+			await accountTable.DeleteAsync(account);
+
+			//logout user
+			LogoutUser();
+
+			return "Account deleted.";
+		}
+
+		/// Create a cloud; clouds are organizational layers for clubs; position passed in is of university or state
+		public async Task<Cloud> CreateCloud(string title, string description, double lat, double lon, double radius) {
+			Cloud cloud = new Cloud(title,description,lat,lon,radius);
+			await cloudTable.InsertAsync(cloud);
+
+			return cloud;
+		}
+
+		/// Create cloud and account junction; shows membership of clouds
+		public async Task<CloudJunction> JoinCloud(string cloudId) {
+			//make cloud member junction
+			CloudJunction cloudJunc = new CloudJunction(cloudId,User.Id);
+			await cloudJuncTable.InsertAsync(cloudJunc);
+
+			//set the user's current cloud now that they joined
+			await SetCurrentCloud(cloudId);
+
+			return cloudJunc;
+		}
+
+		///Returns all of the clouds that exist
+		public async Task<List<Cloud>> GetClouds() {
+			var clouds = await cloudTable.ToListAsync();
+			return clouds;
+		}
+
+		///set the user's current cloud field to the cloud currently viewing
+		public async Task<string> SetCurrentCloud(string cloudId) {
+			User.CurrentCloudId = cloudId;
+			await accountTable.UpdateAsync(User);
+			return User.CurrentCloudId;
+		}
+
+		///Returns the clouds that are available for the user's location
+		public async Task<List<Cloud>> GetAvailableClouds(double latitude, double longitude)
+		{
+			var clouds = new List<Cloud>();
+
+			//get clouds
+			clouds = await cloudTable.ToListAsync();
+
+			//remove if not in range
+			for (int i = (clouds.Count-1); i>=0;i-- )
+			{
+				var dist = Distance(clouds[i].Latitude,clouds[i].Longitude,latitude,longitude);
+				if(!(dist<clouds[i].Radius)){
+					clouds.RemoveAt(i);
+				}
+			}
+
+			return clouds;
+		}
+
+		///Returns the most recent comment to be written in a club
+		public async Task<Comment> GetRecentComment(string clubId) {
+			var comment = (await commentTable.Where(item=>item.ClubId==clubId).OrderByDescending(item=>item.Time).Take(1).ToListAsync())[0];
+			return comment;
+		}
 
 
-            System.Diagnostics.Debug.WriteLine("mydebug--started getting position");
+		//PRIVATE FUNCTIONS
 
-            var locator = new Geolocator(MainActivity.Instance) { DesiredAccuracy = 50 };
-            await locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
-            {
-                System.Diagnostics.Debug.WriteLine("mydebug--Position Status: {0}", t.Result.Timestamp);
-                System.Diagnostics.Debug.WriteLine("mydebug--Position Latitude: {0}", t.Result.Latitude);
-                System.Diagnostics.Debug.WriteLine("mydebug--Position Longitude: {0}", t.Result.Longitude);
+		//calculate distance from one point to another
+		private double Distance(double x1, double y1, double x2, double y2) {
+			double dist = Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2));
+			return dist;
+		}
 
-                //loop through colleges and find if in location
-                for (int i = 0; i < colleges.Count; i++)
-                {
-                    double latDist = Math.Abs(t.Result.Latitude - collegeLocations[i][0]);
-                    double lonDist = Math.Abs(t.Result.Longitude - collegeLocations[i][1]);
-                    if (latDist < radius && lonDist < radius)
-                    {
-                        location = colleges[i];
-                        break;
-                    }
-                }
-            }, TaskScheduler.FromCurrentSynchronizationContext());*/
-
-            return location;
-        }
-
-        ///Returns a club given an id
-        public async Task<Club> GetClub(string clubId)
-        {
-            var club = await clubTable.LookupAsync(clubId);
-            return club;
-        }
-
-        /// Returns if the user has already reported a club
-        public async Task<bool> HasReportedClub(string clubId)
-        {
-            //check if the reporter has already made a club report
-            var clubReportList = await clubReportTable.Where(item => item.ClubId == clubId && item.ReporterId == User.Id).ToListAsync();
-
-            //if report already exists
-            if (clubReportList.Count > 0)
-            {
-                return true;
-            }
-            //if no report exists
-            else
-            {
-                return false;
-            }
-        }
-
-		//TODO: make time added in constructors? not on server?
 	}
 }
-
