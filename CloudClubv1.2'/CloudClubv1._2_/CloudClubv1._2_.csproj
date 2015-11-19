@@ -112,6 +112,7 @@
     <Compile Include="TutorialPages\Tutorial3Page.cs" />
     <Compile Include="TutorialPages\Tutorial4Page.cs" />
     <Compile Include="TutorialPages\Tutorial4PageRedo.cs" />
+    <Compile Include="TutorialPages\TutorialPage5.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">

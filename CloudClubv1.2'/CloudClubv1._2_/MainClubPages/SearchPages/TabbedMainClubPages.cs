@@ -19,12 +19,13 @@ namespace FrontEnd
         public TabbedMainClubPages(List<Club> clubList, List<Club> memberClubList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
             ch = new ColorHandler();
-            BackgroundColor = ch.fromStringToColor("purple");
             
 
             // BarTintColor = ch.fromStringToColor("purple");
             NavigationPage.SetHasNavigationBar(this, true);
             // NavigationPage.SetTitleIcon(CurrentPage,"CloudIcon.png");
+            BackgroundColor = ch.fromStringToColor("purple");
+
 
 
             this.ToolbarItems.Add(new ToolbarItem
@@ -39,10 +40,7 @@ namespace FrontEnd
             csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList);
             mcp = new MyClubsPage(memberClubList, firstLineCommentList);
             pp = new ProfilePage();
-            csp.Padding = 1;
 
-            mcp.Padding = 1;
-            pp.Padding = 1;
             this.Children.Add(csp);
             this.Children.Add(mcp);
             this.Children.Add(pp);

@@ -2423,7 +2423,7 @@ containing a value of this type.
         public static final int myclubs_tabview=0x7f0200f1;
         public static final int news_profile=0x7f0200f2;
         public static final int news_profile1=0x7f0200f3;
-        public static final int notification_template_icon_bg=0x7f020109;
+        public static final int notification_template_icon_bg=0x7f02010a;
         public static final int page2tutorial=0x7f0200f4;
         public static final int page3tutorial=0x7f0200f5;
         public static final int page4tutorial=0x7f0200f6;
@@ -2444,7 +2444,8 @@ containing a value of this type.
         public static final int star_purple=0x7f020105;
         public static final int star_red=0x7f020106;
         public static final int teethsmile_character=0x7f020107;
-        public static final int tutorial_competition=0x7f020108;
+        public static final int tutorial_clouds=0x7f020108;
+        public static final int tutorial_competition=0x7f020109;
     }
     public static final class id {
         public static final int action0=0x7f0b0074;

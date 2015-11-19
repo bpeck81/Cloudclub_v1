@@ -330,6 +330,7 @@
     <AndroidResource Include="Resources\drawable\Tutorial_Competition.png" />
     <AndroidResource Include="Resources\drawable\News_Profile1.png" />
     <AndroidResource Include="Resources\drawable\Friends_Profile1.png" />
+    <AndroidResource Include="Resources\drawable\Tutorial_Clouds.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">

@@ -2288,8 +2288,8 @@ namespace CloudClubv1._2_.Droid
 			// aapt resource value: 0x7f0200f3
 			public const int News_Profile1 = 2130837747;
 			
-			// aapt resource value: 0x7f020109
-			public const int notification_template_icon_bg = 2130837769;
+			// aapt resource value: 0x7f02010a
+			public const int notification_template_icon_bg = 2130837770;
 			
 			// aapt resource value: 0x7f0200f4
 			public const int page2Tutorial = 2130837748;
@@ -2352,7 +2352,10 @@ namespace CloudClubv1._2_.Droid
 			public const int Teethsmile_Character = 2130837767;
 			
 			// aapt resource value: 0x7f020108
-			public const int Tutorial_Competition = 2130837768;
+			public const int Tutorial_Clouds = 2130837768;
+			
+			// aapt resource value: 0x7f020109
+			public const int Tutorial_Competition = 2130837769;
 			
 			static Drawable()
 			{

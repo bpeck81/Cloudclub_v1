@@ -20,6 +20,7 @@ namespace FrontEnd
             this.Title = "Tutorial";
             NavigationPage.SetHasNavigationBar(this, false);
             this.Children.Add(new Tutorial1Page());
+            this.Children.Add(new TutorialPage5());
             this.Children.Add(new Tutorial2Page());
             this.Children.Add(new Tutorial3Page());
             this.Children.Add(new Tutorial4PageRedo());
