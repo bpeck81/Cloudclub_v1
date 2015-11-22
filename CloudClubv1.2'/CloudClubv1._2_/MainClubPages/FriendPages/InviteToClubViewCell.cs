@@ -28,7 +28,7 @@ namespace FrontEnd
             lClubName.SetBinding(Label.TextProperty, "Title");
             lClubName.SetBinding(Label.TextColorProperty, "clubColor");
 
-            var bMutualIndiicator = new Button
+            var bMutualIndicator = new Button
             {
                 IsEnabled = false,
                 BackgroundColor = ch.fromStringToColor("green"),
@@ -37,7 +37,7 @@ namespace FrontEnd
                 Text = "Mutual",
                 TextColor = ch.fromStringToColor("white")
             };
-            bMutualIndiicator.SetBinding(Button.IsVisibleProperty, "mutualClubBool");
+            bMutualIndicator.SetBinding(Button.IsVisibleProperty, "mutualClubBool");
 
             var bInvite = new Button
             {
@@ -54,7 +54,10 @@ namespace FrontEnd
              {
                  var item = (FrontInviteToClubFriend)BindingContext;
                  await App.dbWrapper.CreateInvite(item.Id, item.friendId);
-
+                 bInvite.Text = "Invite Sent";
+                 bInvite.IsEnabled = false;
+                 bInvite.BackgroundColor = ch.fromStringToColor("gray");
+                 bInvite.TextColor = ch.fromStringToColor("white");
              };
            
             var bpendingJoinRequest = new Button
@@ -65,7 +68,8 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.Center,
                 // WidthRequest = 50,
-                Text = "Pending Request",
+                Text = "Invite Sent",
+
                 IsEnabled = false
             };
             bpendingJoinRequest.SetBinding(Button.IsVisibleProperty, "pendingInviteBool");
@@ -75,7 +79,7 @@ namespace FrontEnd
                 Children =
                 {
                     lClubName,
-                    bMutualIndiicator,
+                    bMutualIndicator,
                     bInvite,
                     bpendingJoinRequest
                 },

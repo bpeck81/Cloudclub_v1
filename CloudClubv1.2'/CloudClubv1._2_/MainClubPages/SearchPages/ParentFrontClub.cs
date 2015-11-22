@@ -16,5 +16,6 @@ namespace FrontEnd
         public string founderId { get; set; }
         public int starNumber { get; set; }
         public string clubColor { get; set; }
+        public string cloudId { get; set; }
     }
 }

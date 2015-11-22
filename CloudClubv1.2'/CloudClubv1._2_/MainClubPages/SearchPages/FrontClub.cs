@@ -25,6 +25,7 @@ namespace FrontEnd
         {
             isMember = member;
             mostRecentLine = mostRecentComment;
+            this.cloudId = club.CloudId;
             this.pendingInvite = pendingInvite;
             if (member == false && pendingInvite == false)
             {
@@ -98,16 +99,19 @@ namespace FrontEnd
 
             if (-timeElapsed.Days >= 1)
             {
-                return timeElapsed.Days.ToString() + " D";
+                var time = timeElapsed.Days.ToString() + " D";
+                return time.Substring(1,time.Length-1);
 
             }
             else if (-timeElapsed.Hours >= 1)
             {
-                return timeElapsed.Hours.ToString() + " Hr";
+                var time = timeElapsed.Hours.ToString() + " Hr";
+                return time.Substring(1,time.Length-1);
             }
             else if (-timeElapsed.Minutes >= 1)
             {
-                return timeElapsed.Minutes.ToString() + " Min";
+                var time = timeElapsed.Minutes.ToString() + " Min";
+                return time.Substring(1,time.Length-1);
             }
             else return "<1 Min";
 

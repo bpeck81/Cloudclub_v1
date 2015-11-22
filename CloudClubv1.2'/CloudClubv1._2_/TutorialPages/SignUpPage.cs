@@ -349,8 +349,10 @@ namespace FrontEnd
                    
                     fileLines[sfd.dict["USERID"]] = App.dbWrapper.GetUser().Id.ToString();
                     string contents = "";
+
                     for (int i = 0; i < fileLines.Length; i++)
                     {
+                        System.Diagnostics.Debug.WriteLine(fileLines[i]);
                         contents += fileLines[i] + '\n';
                     }
                     System.Diagnostics.Debug.WriteLine(contents);
@@ -385,12 +387,12 @@ namespace FrontEnd
                 for (int i = 0; i < memberClubsList.Count; i++)
                 {
                     var comment = await App.dbWrapper.GetRecentComment(memberClubsList[i].Id);
-
+                    System.Diagnostics.Debug.WriteLine(memberClubList[i].Id);
                     firstLineCommentList.Add(comment.Text);
                 }
 
                 var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList));
-                navPage.BarBackgroundColor = ch.fromStringToColor("purple");
+                navPage.BarBackgroundColor = ch.fromStringToColor("purple");                
                 Application.Current.MainPage = navPage;
 
             }/// return value if dne check 

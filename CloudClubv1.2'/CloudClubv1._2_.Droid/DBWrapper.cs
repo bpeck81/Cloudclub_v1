@@ -1456,13 +1456,38 @@ namespace CloudClubv1._2_.Droid
 
         ///Returns the most recent comment to be written in a club
         public async Task<Comment> GetRecentComment(string clubId) {
-            var comment = (await commentTable.Where(item=>item.ClubId==clubId).OrderByDescending(item=>item.Time).Take(1).ToListAsync())[0];
+            var comments = await commentTable.Where(item=>item.ClubId==clubId).OrderByDescending(item=>item.Time).Take(1).ToListAsync();
+            Comment comment;
+            //if comment exists
+            if (comments.Count > 0)
+            {
+                comment = comments[0];
+            }
+            else {
+                //create an empty comment so not null value
+                comment = new Comment("", "", "");
+            }
+            
             return comment;
+        }
+
+        /// Returns a list of all invites the user has received
+        public async Task<List<Invite>> GetAccountInvites(string recipientId) {
+            var list = await inviteTable.Where(item=>item.RecipientId==recipientId && item.AuthorId==User.Id).ToListAsync();
+            return list;
+        }
+
+        /// Add tags to a club
+        public async Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags) {
+            foreach (string key in tags) {
+                await tagTable.InsertAsync(new Tag(key,clubId,cloudId));
+            }
+            return tags;
         }
 
 
         //PRIVATE FUNCTIONS
-        
+
         //calculate distance from one point to another
         private double Distance(double x1, double y1, double x2, double y2) {
             double dist = Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2));

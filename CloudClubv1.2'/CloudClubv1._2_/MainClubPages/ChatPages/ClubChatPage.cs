@@ -77,8 +77,9 @@ namespace FrontEnd
 
             var bBack = new Image
             {
-                Source = FileImageSource.FromFile("oie_transparent.png"),
-                WidthRequest=50,
+                Source = FileImageSource.FromFile("arrow_back.png"),
+                WidthRequest=30,
+               // Scale = ,
 
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.Center,
@@ -98,7 +99,8 @@ namespace FrontEnd
             };
             var bSettings = new Image
             {
-                Source = ImageSource.FromFile("Settings_Top.png"),
+                Source = ImageSource.FromFile("settings.png"),
+                Scale = .8,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
@@ -116,7 +118,7 @@ namespace FrontEnd
                 Orientation = StackOrientation.Horizontal,
                 BackgroundColor = ch.fromStringToColor(this.club.clubColor),
                 VerticalOptions = LayoutOptions.Start,
-                Padding = new Thickness(10,20,10,10)
+                Padding = new Thickness(10,20,0,10)
             };
 
             listView = new ListView

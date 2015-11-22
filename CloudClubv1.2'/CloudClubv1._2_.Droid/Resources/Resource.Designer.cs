@@ -2300,8 +2300,8 @@ namespace CloudClubv1._2_.Droid
 			// aapt resource value: 0x7f0200f7
 			public const int News_Profile1 = 2130837751;
 			
-			// aapt resource value: 0x7f02011a
-			public const int notification_template_icon_bg = 2130837786;
+			// aapt resource value: 0x7f02011b
+			public const int notification_template_icon_bg = 2130837787;
 			
 			// aapt resource value: 0x7f0200f8
 			public const int oie_transparent = 2130837752;
@@ -2352,58 +2352,61 @@ namespace CloudClubv1._2_.Droid
 			public const int search_iOS2 = 2130837767;
 			
 			// aapt resource value: 0x7f020108
-			public const int Settings_Top = 2130837768;
+			public const int settings = 2130837768;
 			
 			// aapt resource value: 0x7f020109
-			public const int Shit_Character = 2130837769;
+			public const int Settings_Top = 2130837769;
 			
 			// aapt resource value: 0x7f02010a
-			public const int Skull_Character = 2130837770;
+			public const int Shit_Character = 2130837770;
 			
 			// aapt resource value: 0x7f02010b
-			public const int Sleeping_Character = 2130837771;
+			public const int Skull_Character = 2130837771;
 			
 			// aapt resource value: 0x7f02010c
-			public const int Spy_Character = 2130837772;
+			public const int Sleeping_Character = 2130837772;
 			
 			// aapt resource value: 0x7f02010d
-			public const int Star_Empty = 2130837773;
+			public const int Spy_Character = 2130837773;
 			
 			// aapt resource value: 0x7f02010e
-			public const int Star_Gold = 2130837774;
+			public const int Star_Empty = 2130837774;
 			
 			// aapt resource value: 0x7f02010f
-			public const int Star_Gray = 2130837775;
+			public const int Star_Gold = 2130837775;
 			
 			// aapt resource value: 0x7f020110
-			public const int Star_Green = 2130837776;
+			public const int Star_Gray = 2130837776;
 			
 			// aapt resource value: 0x7f020111
-			public const int Star_LightBlue = 2130837777;
+			public const int Star_Green = 2130837777;
 			
 			// aapt resource value: 0x7f020112
-			public const int Star_Pink = 2130837778;
+			public const int Star_LightBlue = 2130837778;
 			
 			// aapt resource value: 0x7f020113
-			public const int Star_Purple = 2130837779;
+			public const int Star_Pink = 2130837779;
 			
 			// aapt resource value: 0x7f020114
-			public const int Star_Red = 2130837780;
+			public const int Star_Purple = 2130837780;
 			
 			// aapt resource value: 0x7f020115
-			public const int Teethsmile_Character = 2130837781;
+			public const int Star_Red = 2130837781;
 			
 			// aapt resource value: 0x7f020116
-			public const int Tutorial_Clouds = 2130837782;
+			public const int Teethsmile_Character = 2130837782;
 			
 			// aapt resource value: 0x7f020117
-			public const int Tutorial_Competition = 2130837783;
+			public const int Tutorial_Clouds = 2130837783;
 			
 			// aapt resource value: 0x7f020118
-			public const int User_Invite = 2130837784;
+			public const int Tutorial_Competition = 2130837784;
 			
 			// aapt resource value: 0x7f020119
-			public const int User_ViewClubs = 2130837785;
+			public const int User_Invite = 2130837785;
+			
+			// aapt resource value: 0x7f02011a
+			public const int User_ViewClubs = 2130837786;
 			
 			static Drawable()
 			{

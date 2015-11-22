@@ -39,7 +39,7 @@ namespace FrontEnd
                     headerL,
                     recentTextL
                 },
-                Padding = new Thickness(0, 10, 0, 10),
+                Padding = new Thickness(20, 10, 0, 10),
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand
             };

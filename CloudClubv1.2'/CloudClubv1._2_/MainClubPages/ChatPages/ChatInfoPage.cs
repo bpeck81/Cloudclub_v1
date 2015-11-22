@@ -22,6 +22,7 @@ namespace FrontEnd
         bool isMember;
         string founderUsername;
         TapGestureRecognizer starTap;
+        Entry addTagEntry;
         int previousRating;
         public ChatInfoPage(List<Tag> tagsList, ParentFrontClub club, List<FrontClubMember> usersList, bool isMember, string founderUsername, int previousRating)
         {
@@ -169,9 +170,13 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white"),
                 SeparatorColor = ch.fromStringToColor("lisghtGray"),
+                HeightRequest = 150,
                 RowHeight = 50
 
             };
+
+            
+
             var middleBar = getMiddleBar();
             StackLayout middleBandSLayout = new StackLayout
             {
@@ -218,6 +223,7 @@ namespace FrontEnd
                     bottomButton
                 },
                 Padding = new Thickness(15, 5, 15, 15),
+                Spacing = 15,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand
 
@@ -233,7 +239,8 @@ namespace FrontEnd
                     ItemsSource = tagsList,
                     RowHeight = 30,
                     SeparatorColor = ch.fromStringToColor("lightGray"),
-                    VerticalOptions = LayoutOptions.Center,
+                    
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
                     ItemTemplate = new DataTemplate(() =>
                     {
                         var label = new Label
@@ -250,11 +257,36 @@ namespace FrontEnd
                     )
 
                 };
+                bool entryVisible = false;
+                if (App.dbWrapper.GetUser().Username == founderUsername) entryVisible = true;
+                addTagEntry = new Entry
+                {
+                    TextColor = ch.fromStringToColor("black"),
+                    IsVisible = entryVisible,
+                    Placeholder = "tap to add tag",
+                    IsEnabled = entryVisible,
+                    BackgroundColor = ch.fromStringToColor("lightGray"),
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    
+                };
+                addTagEntry.Completed += async(sender, args) =>
+                {
+                    this.tagsList.Add(new Tag(addTagEntry.Text, club.Id, club.cloudId));
+                    var stringTagsList = new List<string>();
+                    for(int i =0; i<tagsList.Count; i++)
+                    {
+                        stringTagsList.Add(tagsList[i].Key);
+                    }
+                    await App.dbWrapper.AddTags(club.Id, club.cloudId, stringTagsList);
+                    updatePage();
+
+                };
                 return new StackLayout
                 {
                     Children =
                     {
-                        tagsListView
+                        tagsListView,
+                        addTagEntry
                     },
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     HeightRequest = 70,

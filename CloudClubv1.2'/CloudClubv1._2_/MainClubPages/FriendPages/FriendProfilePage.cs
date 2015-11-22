@@ -137,7 +137,7 @@ namespace FrontEnd
              inviteImage = new Image
             {
                 Aspect = Aspect.AspectFit,
-                WidthRequest = 180,
+                WidthRequest = 188,
                 HorizontalOptions = LayoutOptions.Fill,
                 VerticalOptions= LayoutOptions.Fill,
                 Source = FileImageSource.FromFile("User_Invite.png")
@@ -148,7 +148,7 @@ namespace FrontEnd
             {
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.Fill,
-                WidthRequest = 180,
+                WidthRequest = 188,
                 VerticalOptions = LayoutOptions.Fill,
                 Source = FileImageSource.FromFile("User_ViewClubs.png")
             };
@@ -266,8 +266,13 @@ namespace FrontEnd
         {
             var userClubList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
             var friendClubList = await App.dbWrapper.GetAccountClubs(user.Id);
-            var pendingInviteList = new List<Club>();
+            var pendingInviteList = await App.dbWrapper.GetAccountInvites(user.Id);            
             var mutualClubList = new List<Club>();
+            var pendingInviteClubList = new List<Club>();
+            for (int i =0; i< pendingInviteList.Count; i++)
+            {
+                pendingInviteClubList.Add(await App.dbWrapper.GetClub(pendingInviteList[i].ClubId));
+            }
             for(int i =0; i<userClubList.Count; i++)
             {
                 for(int j = 0; j< friendClubList.Count; j++)
@@ -278,12 +283,8 @@ namespace FrontEnd
                     }
                 }
 
-                if(await App.dbWrapper.IsPendingClubRequest(user.Id))
-                {
-                    pendingInviteList.Add(userClubList[i]);
-                }
             }
-          await Navigation.PushAsync(new InviteToClubsPage(userClubList,mutualClubList,pendingInviteList,user));
+          await Navigation.PushAsync(new InviteToClubsPage(userClubList,mutualClubList,pendingInviteClubList,user));
         } 
 
         private async void BSendFriendRequest_Clicked(object sender, EventArgs e)
@@ -304,9 +305,9 @@ namespace FrontEnd
                     },
                     Orientation = StackOrientation.Horizontal,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Spacing =2,
+                    Spacing =10,
                     VerticalOptions = LayoutOptions.FillAndExpand,
-                    Padding = new Thickness(15, 10, 15, 15)
+                //    Padding = new Thickness(15, 10, 15, 15)
 
                 };
 
