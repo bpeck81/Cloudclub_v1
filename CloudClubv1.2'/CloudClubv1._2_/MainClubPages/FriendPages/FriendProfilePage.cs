@@ -270,19 +270,21 @@ namespace FrontEnd
             var mutualClubList = new List<Club>();
             for(int i =0; i<userClubList.Count; i++)
             {
-                if (friendClubList.Contains(userClubList[i]))
+                for(int j = 0; j< friendClubList.Count; j++)
                 {
-                    mutualClubList.Add(friendClubList[i]);
+                    if (userClubList[i].Id.Equals(friendClubList[j].Id))
+                    {
+                        mutualClubList.Add(userClubList[i]);
+                    }
                 }
+
                 if(await App.dbWrapper.IsPendingClubRequest(user.Id))
                 {
                     pendingInviteList.Add(userClubList[i]);
                 }
             }
-
-            System.Diagnostics.Debug.WriteLine(mutualClubList.Count.ToString());
-          Navigation.PushAsync(new InviteToClubsPage(userClubList,mutualClubList,pendingInviteList,user));
-        }
+          await Navigation.PushAsync(new InviteToClubsPage(userClubList,mutualClubList,pendingInviteList,user));
+        } 
 
         private async void BSendFriendRequest_Clicked(object sender, EventArgs e)
         {
