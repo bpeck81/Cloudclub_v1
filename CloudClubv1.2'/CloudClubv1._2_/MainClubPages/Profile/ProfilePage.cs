@@ -111,7 +111,10 @@ namespace FrontEnd
             userText = new Label
             {
                 Text = user.Description,
+
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
+                TextColor = ch.fromStringToColor("black"),
+
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
 
             };
@@ -120,7 +123,7 @@ namespace FrontEnd
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Text = userText.Text,
-                BackgroundColor = ch.fromStringToColor("white"),
+                BackgroundColor = ch.fromStringToColor("lightGray"),
                 TextColor = ch.fromStringToColor("black"),
                 IsVisible = false,
             };
@@ -135,7 +138,7 @@ namespace FrontEnd
             {
                 Source = FileImageSource.FromFile("Friends_Profile1.png"),
                 Aspect = Aspect.AspectFit,
-                WidthRequest = 187,
+                WidthRequest = 185,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
@@ -147,7 +150,7 @@ namespace FrontEnd
                 Source = FileImageSource.FromFile("News_Profile1.png"),
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                WidthRequest = 187,
+                WidthRequest = 185,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
             newsImg.GestureRecognizers.Add(newsImagetgr);
@@ -213,7 +216,7 @@ namespace FrontEnd
                     userTextEntry
                 },
                 Padding = new Thickness(20, 20, 20, 0),
-                Spacing = 25
+                Spacing = 5
             };
             var friendsNewsSLayout = new StackLayout
             {
@@ -233,7 +236,7 @@ namespace FrontEnd
                     topLayout,
                     friendsNewsSLayout
                 },
-                Spacing = 10
+                Spacing = 25
             };
 
             Content = contentLayout;

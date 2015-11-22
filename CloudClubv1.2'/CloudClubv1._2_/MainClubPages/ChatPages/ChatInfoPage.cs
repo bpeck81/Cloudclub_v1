@@ -167,7 +167,8 @@ namespace FrontEnd
                 ItemTemplate = new DataTemplate(typeof(ClubMemberViewCell)),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = ch.fromStringToColor("lightGray"),
+                BackgroundColor = ch.fromStringToColor("white"),
+                SeparatorColor = ch.fromStringToColor("lisghtGray"),
                 RowHeight = 50
 
             };
@@ -231,6 +232,7 @@ namespace FrontEnd
                 {
                     ItemsSource = tagsList,
                     RowHeight = 30,
+                    SeparatorColor = ch.fromStringToColor("lightGray"),
                     VerticalOptions = LayoutOptions.Center,
                     ItemTemplate = new DataTemplate(() =>
                     {
@@ -257,7 +259,7 @@ namespace FrontEnd
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     HeightRequest = 70,
                     Spacing = 1,
-                    BackgroundColor = ch.fromStringToColor("lightGray"),
+                    BackgroundColor = ch.fromStringToColor("white"),
                     VerticalOptions = LayoutOptions.Center
                 };
             }

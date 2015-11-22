@@ -322,6 +322,8 @@
     <AndroidResource Include="Resources\drawable-hdpi\cloudIcon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\cloudIcon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\cloudIcon.png" />
+    <AndroidResource Include="Resources\drawable\club_Android50.png" />
+    <AndroidResource Include="Resources\drawable\arrow_back.png" />
     <Content Include="Resources\drawable\DropletEmpty_WhiteB.png" />
     <Content Include="Resources\drawable\Friends_Profile.png" />
     <AndroidResource Include="Resources\drawable\News_Profile.png" />
@@ -331,6 +333,20 @@
     <AndroidResource Include="Resources\drawable\News_Profile1.png" />
     <AndroidResource Include="Resources\drawable\Friends_Profile1.png" />
     <AndroidResource Include="Resources\drawable\Tutorial_Clouds.png" />
+    <AndroidResource Include="Resources\drawable\oie_transparent.png" />
+    <AndroidResource Include="Resources\drawable\search_iOS2.png" />
+    <AndroidResource Include="Resources\drawable\myclubs_Android1.png" />
+    <AndroidResource Include="Resources\drawable\myclubs_Android2.png" />
+    <AndroidResource Include="Resources\drawable\profile_Android1.png" />
+    <AndroidResource Include="Resources\drawable\profile_Android2.png" />
+    <AndroidResource Include="Resources\drawable\search_Android2.png" />
+    <AndroidResource Include="Resources\drawable\search_Android1.png" />
+    <AndroidResource Include="Resources\drawable\search_Android50.png" />
+    <AndroidResource Include="Resources\drawable\search_Android35.png" />
+    <AndroidResource Include="Resources\drawable\profile_Android50.png" />
+    <AndroidResource Include="Resources\drawable\reportflag.png" />
+    <AndroidResource Include="Resources\drawable\User_Invite.png" />
+    <AndroidResource Include="Resources\drawable\User_ViewClubs.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">

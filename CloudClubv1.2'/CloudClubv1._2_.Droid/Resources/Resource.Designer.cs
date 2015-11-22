@@ -2100,262 +2100,310 @@ namespace CloudClubv1._2_.Droid
 			public const int AN9 = 2130837684;
 			
 			// aapt resource value: 0x7f0200b5
-			public const int Baby_Character = 2130837685;
+			public const int arrow_back = 2130837685;
 			
 			// aapt resource value: 0x7f0200b6
-			public const int Burger_Character = 2130837686;
+			public const int Baby_Character = 2130837686;
 			
 			// aapt resource value: 0x7f0200b7
-			public const int Cat_Character = 2130837687;
+			public const int Burger_Character = 2130837687;
 			
 			// aapt resource value: 0x7f0200b8
-			public const int Cloud = 2130837688;
+			public const int Cat_Character = 2130837688;
 			
 			// aapt resource value: 0x7f0200b9
-			public const int cloudIcon = 2130837689;
+			public const int Cloud = 2130837689;
 			
 			// aapt resource value: 0x7f0200ba
-			public const int Club_News = 2130837690;
+			public const int cloudIcon = 2130837690;
 			
 			// aapt resource value: 0x7f0200bb
-			public const int ClubSearch_TabView = 2130837691;
+			public const int club_Android50 = 2130837691;
 			
 			// aapt resource value: 0x7f0200bc
-			public const int Cookie_Character = 2130837692;
+			public const int Club_News = 2130837692;
 			
 			// aapt resource value: 0x7f0200bd
-			public const int Demon_Character = 2130837693;
+			public const int ClubSearch_TabView = 2130837693;
 			
 			// aapt resource value: 0x7f0200be
-			public const int design_fab_background = 2130837694;
+			public const int Cookie_Character = 2130837694;
 			
 			// aapt resource value: 0x7f0200bf
-			public const int design_snackbar_background = 2130837695;
+			public const int Demon_Character = 2130837695;
 			
 			// aapt resource value: 0x7f0200c0
-			public const int Devil_Character = 2130837696;
+			public const int design_fab_background = 2130837696;
 			
 			// aapt resource value: 0x7f0200c1
-			public const int Dog_Character = 2130837697;
+			public const int design_snackbar_background = 2130837697;
 			
 			// aapt resource value: 0x7f0200c2
-			public const int Dolphin_Character = 2130837698;
+			public const int Devil_Character = 2130837698;
 			
 			// aapt resource value: 0x7f0200c3
-			public const int DropletFull_WhiteB = 2130837699;
+			public const int Dog_Character = 2130837699;
 			
 			// aapt resource value: 0x7f0200c4
-			public const int Eek_Character = 2130837700;
+			public const int Dolphin_Character = 2130837700;
 			
 			// aapt resource value: 0x7f0200c5
-			public const int Friends_Profile1 = 2130837701;
+			public const int DropletFull_WhiteB = 2130837701;
 			
 			// aapt resource value: 0x7f0200c6
-			public const int Ghost_Character = 2130837702;
+			public const int Eek_Character = 2130837702;
 			
 			// aapt resource value: 0x7f0200c7
-			public const int Headphones_Character = 2130837703;
+			public const int Friends_Profile1 = 2130837703;
 			
 			// aapt resource value: 0x7f0200c8
-			public const int Horse_Character = 2130837704;
+			public const int Ghost_Character = 2130837704;
 			
 			// aapt resource value: 0x7f0200c9
-			public const int ic_cast_dark = 2130837705;
+			public const int Headphones_Character = 2130837705;
 			
 			// aapt resource value: 0x7f0200ca
-			public const int ic_cast_disabled_light = 2130837706;
+			public const int Horse_Character = 2130837706;
 			
 			// aapt resource value: 0x7f0200cb
-			public const int ic_cast_light = 2130837707;
+			public const int ic_cast_dark = 2130837707;
 			
 			// aapt resource value: 0x7f0200cc
-			public const int ic_cast_off_light = 2130837708;
+			public const int ic_cast_disabled_light = 2130837708;
 			
 			// aapt resource value: 0x7f0200cd
-			public const int ic_cast_on_0_light = 2130837709;
+			public const int ic_cast_light = 2130837709;
 			
 			// aapt resource value: 0x7f0200ce
-			public const int ic_cast_on_1_light = 2130837710;
+			public const int ic_cast_off_light = 2130837710;
 			
 			// aapt resource value: 0x7f0200cf
-			public const int ic_cast_on_2_light = 2130837711;
+			public const int ic_cast_on_0_light = 2130837711;
 			
 			// aapt resource value: 0x7f0200d0
-			public const int ic_cast_on_light = 2130837712;
+			public const int ic_cast_on_1_light = 2130837712;
 			
 			// aapt resource value: 0x7f0200d1
-			public const int ic_media_pause = 2130837713;
+			public const int ic_cast_on_2_light = 2130837713;
 			
 			// aapt resource value: 0x7f0200d2
-			public const int ic_media_play = 2130837714;
+			public const int ic_cast_on_light = 2130837714;
 			
 			// aapt resource value: 0x7f0200d3
-			public const int ic_media_route_disabled_mono_dark = 2130837715;
+			public const int ic_media_pause = 2130837715;
 			
 			// aapt resource value: 0x7f0200d4
-			public const int ic_media_route_off_mono_dark = 2130837716;
+			public const int ic_media_play = 2130837716;
 			
 			// aapt resource value: 0x7f0200d5
-			public const int ic_media_route_on_0_mono_dark = 2130837717;
+			public const int ic_media_route_disabled_mono_dark = 2130837717;
 			
 			// aapt resource value: 0x7f0200d6
-			public const int ic_media_route_on_1_mono_dark = 2130837718;
+			public const int ic_media_route_off_mono_dark = 2130837718;
 			
 			// aapt resource value: 0x7f0200d7
-			public const int ic_media_route_on_2_mono_dark = 2130837719;
+			public const int ic_media_route_on_0_mono_dark = 2130837719;
 			
 			// aapt resource value: 0x7f0200d8
-			public const int ic_media_route_on_mono_dark = 2130837720;
+			public const int ic_media_route_on_1_mono_dark = 2130837720;
 			
 			// aapt resource value: 0x7f0200d9
-			public const int ic_pause_dark = 2130837721;
+			public const int ic_media_route_on_2_mono_dark = 2130837721;
 			
 			// aapt resource value: 0x7f0200da
-			public const int ic_pause_light = 2130837722;
+			public const int ic_media_route_on_mono_dark = 2130837722;
 			
 			// aapt resource value: 0x7f0200db
-			public const int ic_play_dark = 2130837723;
+			public const int ic_pause_dark = 2130837723;
 			
 			// aapt resource value: 0x7f0200dc
-			public const int ic_play_light = 2130837724;
+			public const int ic_pause_light = 2130837724;
 			
 			// aapt resource value: 0x7f0200dd
-			public const int ic_setting_dark = 2130837725;
+			public const int ic_play_dark = 2130837725;
 			
 			// aapt resource value: 0x7f0200de
-			public const int ic_setting_light = 2130837726;
+			public const int ic_play_light = 2130837726;
 			
 			// aapt resource value: 0x7f0200df
-			public const int Icecream_Character = 2130837727;
+			public const int ic_setting_dark = 2130837727;
 			
 			// aapt resource value: 0x7f0200e0
-			public const int icon = 2130837728;
+			public const int ic_setting_light = 2130837728;
 			
 			// aapt resource value: 0x7f0200e1
-			public const int Laugh_Character = 2130837729;
+			public const int Icecream_Character = 2130837729;
 			
 			// aapt resource value: 0x7f0200e2
-			public const int Medal_WhiteB = 2130837730;
+			public const int icon = 2130837730;
 			
 			// aapt resource value: 0x7f0200e3
-			public const int Middlefinger_Character = 2130837731;
+			public const int Laugh_Character = 2130837731;
 			
 			// aapt resource value: 0x7f0200e4
-			public const int Mouse_Character = 2130837732;
+			public const int Medal_WhiteB = 2130837732;
 			
 			// aapt resource value: 0x7f0200e5
-			public const int mr_ic_cast_dark = 2130837733;
+			public const int Middlefinger_Character = 2130837733;
 			
 			// aapt resource value: 0x7f0200e6
-			public const int mr_ic_cast_light = 2130837734;
+			public const int Mouse_Character = 2130837734;
 			
 			// aapt resource value: 0x7f0200e7
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837735;
+			public const int mr_ic_cast_dark = 2130837735;
 			
 			// aapt resource value: 0x7f0200e8
-			public const int mr_ic_media_route_connecting_mono_light = 2130837736;
+			public const int mr_ic_cast_light = 2130837736;
 			
 			// aapt resource value: 0x7f0200e9
-			public const int mr_ic_media_route_mono_dark = 2130837737;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837737;
 			
 			// aapt resource value: 0x7f0200ea
-			public const int mr_ic_media_route_mono_light = 2130837738;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837738;
 			
 			// aapt resource value: 0x7f0200eb
-			public const int mr_ic_pause_dark = 2130837739;
+			public const int mr_ic_media_route_mono_dark = 2130837739;
 			
 			// aapt resource value: 0x7f0200ec
-			public const int mr_ic_pause_light = 2130837740;
+			public const int mr_ic_media_route_mono_light = 2130837740;
 			
 			// aapt resource value: 0x7f0200ed
-			public const int mr_ic_play_dark = 2130837741;
+			public const int mr_ic_pause_dark = 2130837741;
 			
 			// aapt resource value: 0x7f0200ee
-			public const int mr_ic_play_light = 2130837742;
+			public const int mr_ic_pause_light = 2130837742;
 			
 			// aapt resource value: 0x7f0200ef
-			public const int mr_ic_settings_dark = 2130837743;
+			public const int mr_ic_play_dark = 2130837743;
 			
 			// aapt resource value: 0x7f0200f0
-			public const int mr_ic_settings_light = 2130837744;
+			public const int mr_ic_play_light = 2130837744;
 			
 			// aapt resource value: 0x7f0200f1
-			public const int MyClubs_TabView = 2130837745;
+			public const int mr_ic_settings_dark = 2130837745;
 			
 			// aapt resource value: 0x7f0200f2
-			public const int News_Profile = 2130837746;
+			public const int mr_ic_settings_light = 2130837746;
 			
 			// aapt resource value: 0x7f0200f3
-			public const int News_Profile1 = 2130837747;
-			
-			// aapt resource value: 0x7f02010a
-			public const int notification_template_icon_bg = 2130837770;
+			public const int myclubs_Android1 = 2130837747;
 			
 			// aapt resource value: 0x7f0200f4
-			public const int page2Tutorial = 2130837748;
+			public const int myclubs_Android2 = 2130837748;
 			
 			// aapt resource value: 0x7f0200f5
-			public const int page3Tutorial = 2130837749;
+			public const int MyClubs_TabView = 2130837749;
 			
 			// aapt resource value: 0x7f0200f6
-			public const int page4Tutorial = 2130837750;
+			public const int News_Profile = 2130837750;
 			
 			// aapt resource value: 0x7f0200f7
-			public const int Profile_TabView = 2130837751;
+			public const int News_Profile1 = 2130837751;
+			
+			// aapt resource value: 0x7f02011a
+			public const int notification_template_icon_bg = 2130837786;
 			
 			// aapt resource value: 0x7f0200f8
-			public const int Pumpkin_Character = 2130837752;
+			public const int oie_transparent = 2130837752;
 			
 			// aapt resource value: 0x7f0200f9
-			public const int Santa_Character = 2130837753;
+			public const int page2Tutorial = 2130837753;
 			
 			// aapt resource value: 0x7f0200fa
-			public const int Settings_Top = 2130837754;
+			public const int page3Tutorial = 2130837754;
 			
 			// aapt resource value: 0x7f0200fb
-			public const int Shit_Character = 2130837755;
+			public const int page4Tutorial = 2130837755;
 			
 			// aapt resource value: 0x7f0200fc
-			public const int Skull_Character = 2130837756;
+			public const int profile_Android1 = 2130837756;
 			
 			// aapt resource value: 0x7f0200fd
-			public const int Sleeping_Character = 2130837757;
+			public const int profile_Android2 = 2130837757;
 			
 			// aapt resource value: 0x7f0200fe
-			public const int Spy_Character = 2130837758;
+			public const int profile_Android50 = 2130837758;
 			
 			// aapt resource value: 0x7f0200ff
-			public const int Star_Empty = 2130837759;
+			public const int Profile_TabView = 2130837759;
 			
 			// aapt resource value: 0x7f020100
-			public const int Star_Gold = 2130837760;
+			public const int Pumpkin_Character = 2130837760;
 			
 			// aapt resource value: 0x7f020101
-			public const int Star_Gray = 2130837761;
+			public const int reportflag = 2130837761;
 			
 			// aapt resource value: 0x7f020102
-			public const int Star_Green = 2130837762;
+			public const int Santa_Character = 2130837762;
 			
 			// aapt resource value: 0x7f020103
-			public const int Star_LightBlue = 2130837763;
+			public const int search_Android1 = 2130837763;
 			
 			// aapt resource value: 0x7f020104
-			public const int Star_Pink = 2130837764;
+			public const int search_Android2 = 2130837764;
 			
 			// aapt resource value: 0x7f020105
-			public const int Star_Purple = 2130837765;
+			public const int search_Android35 = 2130837765;
 			
 			// aapt resource value: 0x7f020106
-			public const int Star_Red = 2130837766;
+			public const int search_Android50 = 2130837766;
 			
 			// aapt resource value: 0x7f020107
-			public const int Teethsmile_Character = 2130837767;
+			public const int search_iOS2 = 2130837767;
 			
 			// aapt resource value: 0x7f020108
-			public const int Tutorial_Clouds = 2130837768;
+			public const int Settings_Top = 2130837768;
 			
 			// aapt resource value: 0x7f020109
-			public const int Tutorial_Competition = 2130837769;
+			public const int Shit_Character = 2130837769;
+			
+			// aapt resource value: 0x7f02010a
+			public const int Skull_Character = 2130837770;
+			
+			// aapt resource value: 0x7f02010b
+			public const int Sleeping_Character = 2130837771;
+			
+			// aapt resource value: 0x7f02010c
+			public const int Spy_Character = 2130837772;
+			
+			// aapt resource value: 0x7f02010d
+			public const int Star_Empty = 2130837773;
+			
+			// aapt resource value: 0x7f02010e
+			public const int Star_Gold = 2130837774;
+			
+			// aapt resource value: 0x7f02010f
+			public const int Star_Gray = 2130837775;
+			
+			// aapt resource value: 0x7f020110
+			public const int Star_Green = 2130837776;
+			
+			// aapt resource value: 0x7f020111
+			public const int Star_LightBlue = 2130837777;
+			
+			// aapt resource value: 0x7f020112
+			public const int Star_Pink = 2130837778;
+			
+			// aapt resource value: 0x7f020113
+			public const int Star_Purple = 2130837779;
+			
+			// aapt resource value: 0x7f020114
+			public const int Star_Red = 2130837780;
+			
+			// aapt resource value: 0x7f020115
+			public const int Teethsmile_Character = 2130837781;
+			
+			// aapt resource value: 0x7f020116
+			public const int Tutorial_Clouds = 2130837782;
+			
+			// aapt resource value: 0x7f020117
+			public const int Tutorial_Competition = 2130837783;
+			
+			// aapt resource value: 0x7f020118
+			public const int User_Invite = 2130837784;
+			
+			// aapt resource value: 0x7f020119
+			public const int User_ViewClubs = 2130837785;
 			
 			static Drawable()
 			{

@@ -10,7 +10,7 @@ using System.Collections.ObjectModel;
 
 namespace FrontEnd
 {
-    public class ClubChatPage : ContentPage
+    public class ClubChatPage : ContentPage 
     {
 
         public static ObservableCollection<FrontComment> CurrentCommentsList;
@@ -20,9 +20,14 @@ namespace FrontEnd
         ParentFrontClub club;
         bool isMember;
         ListView listView;
+        TapGestureRecognizer settingsTgr, backButtonTgr;
         public ClubChatPage(ParentFrontClub club, List<DBItem> chatList, List<Account> commentUsers, List<Account> requestUsersList, bool isMember)
         {
             this.isMember = isMember;
+            settingsTgr = new TapGestureRecognizer();
+            settingsTgr.Tapped += SettingsTgr_Tapped;
+            backButtonTgr = new TapGestureRecognizer();
+            backButtonTgr.Tapped += BackButtonTgr_Tapped;
             this.club = club;
             ch = new ColorHandler();
             this.BackgroundColor = Color.Black;
@@ -34,8 +39,12 @@ namespace FrontEnd
                 Order = ToolbarItemOrder.Primary,
                 Command = new Command(() => menuPopup())
             });
+
+
+            NavigationPage.SetHasNavigationBar(this, false);
             this.commentsList = new ObservableCollection<FrontComment>();
             int clubRequestCount = 0;
+            System.Diagnostics.Debug.WriteLine(chatList.Count.ToString());
             for (int i = 0; i < chatList.Count; i++)
             {
                 if (chatList[i].GetType() == typeof(Comment))
@@ -60,8 +69,55 @@ namespace FrontEnd
 
 
         }
+
+
+
         private void updatePage()
         {
+
+            var bBack = new Image
+            {
+                Source = FileImageSource.FromFile("oie_transparent.png"),
+                WidthRequest=50,
+
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                VerticalOptions = LayoutOptions.Center,
+                HeightRequest = 30,
+                Aspect = Aspect.AspectFill
+            };
+            bBack.GestureRecognizers.Add(backButtonTgr);
+
+            var actionBarLabel = new Label
+            {
+                Text = this.club.Title,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Start,
+                TextColor = ch.fromStringToColor("white"),
+                FontSize = 28,
+                FontAttributes = FontAttributes.Bold
+            };
+            var bSettings = new Image
+            {
+                Source = ImageSource.FromFile("Settings_Top.png"),
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                VerticalOptions = LayoutOptions.Center
+            };
+            bSettings.GestureRecognizers.Add(settingsTgr);
+
+
+            var actionBarLayout = new StackLayout
+            {
+                Children =
+                {
+                    bBack,
+                    actionBarLabel,
+                    bSettings
+                },
+                Orientation = StackOrientation.Horizontal,
+                BackgroundColor = ch.fromStringToColor(this.club.clubColor),
+                VerticalOptions = LayoutOptions.Start,
+                Padding = new Thickness(10,20,10,10)
+            };
 
             listView = new ListView
             {
@@ -70,6 +126,7 @@ namespace FrontEnd
                 HasUnevenRows = true
             };
             listView.ItemTapped += ListView_ItemTapped;
+         //   listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count - 1], ScrollToPosition.End, false);
 
             MessagingCenter.Subscribe<CommentViewCell, FrontComment>(this, "hi", async (sender, args) =>
             {
@@ -79,10 +136,15 @@ namespace FrontEnd
                 {
                     await App.dbWrapper.CreateBan(comment.AuthorId, comment.Id, App.dbWrapper.GetUser().Id);
                     comment.ShowReport = false;
+                    comment.UpdateProperty("ShowReport");
 
                 }
+                else
+                {
+                    
+                }
 
-                updatePage();
+                //updatePage();
 
             });
 
@@ -111,6 +173,7 @@ namespace FrontEnd
                 {
                     Children =
                 {
+                   actionBarLayout,
                     listView,
                     userEntry
                 },
@@ -125,6 +188,7 @@ namespace FrontEnd
                 {
                     Children =
                     {
+                        actionBarLayout,
                         lEmptyChat,
                         userEntry
                     },
@@ -138,26 +202,35 @@ namespace FrontEnd
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = (FrontComment)e.Item;
+            for(int i = 0; i < CurrentCommentsList.Count; i++)
+            {
+                if (CurrentCommentsList[i].ShowReport==true)
+                {
+                    CurrentCommentsList[i].ShowReport = false;
+                    CurrentCommentsList[i].UpdateProperty("ShowReport");
+                }
+
+            }
             for (int i = 0; i < CurrentCommentsList.Count; i++)
             {
                 if (CurrentCommentsList[i].Id == item.Id && CurrentCommentsList[i].ClubRequestBool == false)
                 {
                     CurrentCommentsList[i].ShowReport = true;
+                    CurrentCommentsList[i].UpdateProperty("ShowReport");
                 }
-                else
-                {
-                    CurrentCommentsList[i].ShowReport = false;
-                }
-            }
-            updatePage();
 
+            }
+
+         //   updatePage();
+            
         }
+        
 
         private async void UserEntry_Completed(object sender, EventArgs e)
         {
             if (userEntry.Text != "")
             {
-                var joinClub = await App.dbWrapper.JoinClub(club.Id);
+               // var joinClub = await App.dbWrapper.JoinClub(club.Id);
                 var commentOutput = await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
                 //System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
                 userEntry.Text = "";
@@ -166,7 +239,15 @@ namespace FrontEnd
 
 
         }
-
+        private async void BackButtonTgr_Tapped(object sender, EventArgs e)
+        {
+            await App.dbWrapper.RemoveCurrentClubId();
+            await Navigation.PopAsync();
+        }
+        private async void SettingsTgr_Tapped(object sender, EventArgs e)
+        {
+            menuPopup();
+        }
         private async void menuPopup()
         {
             var tagsList = await App.dbWrapper.GetTags(club.Id);

@@ -26,8 +26,8 @@ namespace FrontEnd
         public ClubSearchPage(List<Club> clubList, List<Club> clubMemberList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
             var iconSource = new FileImageSource();
-            iconSource.File = "ClubSearch_TabView.png";
-            Icon = iconSource;
+           // iconSource.File = "search_Android1.png";
+         //   Icon = iconSource;
             ch = new ColorHandler();
             this.firstLineCommentList = firstLineCommentList;
             this.pendingInviteList = pendingInviteList;
@@ -36,7 +36,7 @@ namespace FrontEnd
             this.popularClubs = popularClubs;
             this.newestClubs = newestClubs;
             BackgroundColor = ch.fromStringToColor("purple");
-            this.Icon = "ClubSearch_TabView.png";
+            //this.Icon = "search_Android1.png";
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             returnedSearchedClubs = new List<Club>();
             System.Diagnostics.Debug.WriteLine(firstLineCommentList.Count.ToString());
@@ -502,7 +502,10 @@ namespace FrontEnd
             }
 
             bool isMember = await App.dbWrapper.IsMember(club.Id);
-            await Navigation.PushAsync(new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember));
+            await App.dbWrapper.SetCurrentClubId(club.Id);
+            var ccp = new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember);
+            NavigationPage.SetHasNavigationBar(ccp, false);
+            await Navigation.PushAsync(ccp);
             updateData();
 
             switch (currentPage)

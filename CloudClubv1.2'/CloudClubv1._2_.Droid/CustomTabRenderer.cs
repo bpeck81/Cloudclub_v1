@@ -59,18 +59,15 @@ namespace CloudClubv1._2_.Droid
            
            var clubSearch = actionBar.GetTabAt(0);
             ImageView csTabImage = new ImageView(activity);
-            csTabImage.SetImageResource(Resource.Drawable.ClubSearch_TabView);
-            clubSearch.SetIcon(Resource.Drawable.ClubSearch_TabView);
+            clubSearch.SetIcon(Resource.Drawable.search_Android50);
 
             var myClubs = actionBar.GetTabAt(1);
             var mcTabImage = new ImageView(activity);
-            mcTabImage.SetImageResource(Resource.Drawable.MyClubs_TabView);
-            myClubs.SetIcon(Resource.Drawable.MyClubs_TabView);
+            myClubs.SetIcon(Resource.Drawable.club_Android50);
 
             var profile = actionBar.GetTabAt(2);
             var pTabImage = new ImageView(activity);
-            pTabImage.SetImageResource(Resource.Drawable.Profile_TabView);
-            profile.SetIcon(Resource.Drawable.Profile_TabView);
+            profile.SetIcon(Resource.Drawable.profile_Android50);
 
         }
     }

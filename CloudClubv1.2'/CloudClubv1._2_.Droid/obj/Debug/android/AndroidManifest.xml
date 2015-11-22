@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cloudclub.cloudclubv1.x_2_" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
-  <uses-sdk android:minSdkVersion="15" />
+  <uses-sdk android:minSdkVersion="19" />
   <application android:label="Cloudclub" android:name="mono.android.app.Application" android:debuggable="true">
     <service android:name="md583a5db7bf3698299f4dd7c4eaa4db5c5.GcmService" />
     <receiver android:permission="com.google.android.c2dm.permission.SEND" android:name="md583a5db7bf3698299f4dd7c4eaa4db5c5.PushHandlerBroadcastReceiver">

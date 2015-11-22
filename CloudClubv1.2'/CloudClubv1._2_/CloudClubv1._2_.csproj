@@ -61,6 +61,12 @@
     <Compile Include="Backend\SearchArray.cs" />
     <Compile Include="Backend\TemporaryMemberJunction.cs" />
     <Compile Include="MainClubPages\ChatPages\FrontClubMember.cs" />
+    <Compile Include="MainClubPages\FriendPages\FriendClubListPageViewCell.cs" />
+    <Compile Include="MainClubPages\FriendPages\FrontFriendClub.cs" />
+    <Compile Include="MainClubPages\FriendPages\FrontInviteToClubFriend.cs" />
+    <Compile Include="MainClubPages\FriendPages\InviteFriendsPage.cs" />
+    <Compile Include="MainClubPages\FriendPages\InviteToClubsPage.cs" />
+    <Compile Include="MainClubPages\FriendPages\InviteToClubViewCell.cs" />
     <Compile Include="MainClubPages\Helpers\InvertBoolConverter.cs" />
     <Compile Include="MainClubPages\Helpers\SaveFileDictionary.cs" />
     <Compile Include="MainClubPages\Profile\FrontNews.cs" />
@@ -100,6 +106,7 @@
     <Compile Include="Backend\RatingJunction.cs" />
     <Compile Include="Backend\Tag.cs" />
     <Compile Include="Renderers\MyTabbedPage.cs" />
+    <Compile Include="Renderers\MyViewCell.cs" />
     <Compile Include="SignUpPages\AlternateCustomizeProfilePage.cs" />
     <Compile Include="SignUpPages\CustomizeProfilePage.cs" />
     <Compile Include="MainClubPages\SearchPages\FrontClub.cs" />

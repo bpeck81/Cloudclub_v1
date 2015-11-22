@@ -53,7 +53,7 @@ namespace Backend
 			//datetime is null, passed in by server
 			Emoji = "none";
 			Color = "none";
-			Description = "Edit to add description.";
+			Description = "Tap to add description.";
 			NumDroplets = 0;
 			NumClubsCreated = 0;
 			TotalClubsRatings = 0;

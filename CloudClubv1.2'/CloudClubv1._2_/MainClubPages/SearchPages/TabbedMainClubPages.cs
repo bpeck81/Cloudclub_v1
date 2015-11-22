@@ -38,13 +38,14 @@ namespace FrontEnd
 
             });
             csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList);
+            
             mcp = new MyClubsPage(memberClubList, firstLineCommentList);
             pp = new ProfilePage();
 
             this.Children.Add(csp);
             this.Children.Add(mcp);
             this.Children.Add(pp);
-            this.Title = "Explore";
+            this.Title = "   Explore";
 
 
             CurrentPageChanged += TabbedMainClubPages_CurrentPageChanged;

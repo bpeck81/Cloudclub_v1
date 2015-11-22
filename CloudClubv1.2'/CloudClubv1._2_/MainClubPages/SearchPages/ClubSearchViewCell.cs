@@ -25,7 +25,7 @@ namespace FrontEnd
         Label joinRequestLabel;
         Image star1, star2, star3, star4, star5, iFlag;
         ColorHandler ch;
-        StackLayout starStack;
+        StackLayout starStack, headerLayout;
         TapGestureRecognizer flagTgr;
 
         public ClubSearchViewCell()
@@ -46,6 +46,17 @@ namespace FrontEnd
             };
             header.SetBinding(Label.TextProperty, "Title");
             header.SetBinding(Label.TextColorProperty, "clubColor", converter: new ColorConverter());
+            headerLayout = new StackLayout
+            {
+                Children =
+                {
+                    header
+                },
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions= LayoutOptions.Center,
+                Padding = new Thickness(30,0,0,0)
+            };
+
 
             iFlag = new Image
             {
@@ -162,7 +173,7 @@ namespace FrontEnd
                         {
                             Children =
                             {
-                                header,
+                                headerLayout,
                                 iFlag
                             },
                             Padding = new Thickness(10,5,10,0),

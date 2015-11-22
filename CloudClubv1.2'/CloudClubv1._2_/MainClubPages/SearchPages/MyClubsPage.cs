@@ -150,7 +150,12 @@ namespace FrontEnd
             }
             var memberClubList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id); 
             var isMember = await App.dbWrapper.IsMember(club.Id);
-            await Navigation.PushAsync(new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember));
+            await App.dbWrapper.SetCurrentClubId(club.Id);
+
+            var ccp = new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember);
+            NavigationPage.SetHasNavigationBar(ccp, false);
+
+            await Navigation.PushAsync(ccp);
             generateDisplayList(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id), await App.getMostRecentComment(memberClubList));
             updatePage();
 
