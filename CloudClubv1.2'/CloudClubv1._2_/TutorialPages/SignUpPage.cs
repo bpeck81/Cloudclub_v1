@@ -509,8 +509,8 @@ namespace FrontEnd
             bool validity = false;
             if (email != null)
             {
-              //  var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
-               var match = Regex.Match(email, @"[\w\d-\.]*@[vV]irginia.edu");
+               var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
+              // var match = Regex.Match(email, @"[\w\d-\.]*@[vV]irginia.edu");
 
                 validity = match.Success;
                 if(validity == true) return "Valid";

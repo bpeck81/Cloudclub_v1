@@ -44,6 +44,7 @@ namespace FrontEnd
             };
             usersNearYouSwitch.OnChanged += async (sender, e) =>
             {
+               
                 //TODO does nothing
                 //throw new NotImplementedException();
             };

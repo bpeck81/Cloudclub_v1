@@ -81,7 +81,7 @@ namespace FrontEnd
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center,
-                Text = "Subscribe",
+                Text = "Join Club",
                 FontAttributes = FontAttributes.Bold,
                 BackgroundColor = ch.fromStringToColor("green"),
                 BorderRadius = 15,
@@ -93,7 +93,7 @@ namespace FrontEnd
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center,
-                Text = "Unsubscribe",
+                Text = "Leave Club",
                 FontAttributes = FontAttributes.Bold,
                 TextColor = ch.fromStringToColor("white"),
                 BackgroundColor = ch.fromStringToColor("gray"),

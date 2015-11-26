@@ -19,7 +19,7 @@ namespace FrontEnd
             {
                 Aspect = Aspect.AspectFit,
                 HeightRequest = 50,
-                HorizontalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.Center
 
             };
@@ -28,14 +28,14 @@ namespace FrontEnd
             {
                 TextColor = ch.fromStringToColor("black"),
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-                HorizontalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
             lNotificaton.SetBinding(Label.TextProperty, "Text");
             Label lTimeSpan = new Label
             {
                 TextColor = ch.fromStringToColor("black"),
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             lTimeSpan.SetBinding(Label.TextProperty, "Time");
