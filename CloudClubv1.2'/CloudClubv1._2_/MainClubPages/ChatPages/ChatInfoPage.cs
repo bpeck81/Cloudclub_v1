@@ -65,7 +65,17 @@ namespace FrontEnd
                 starImages.Add(star);
             }
 
+            MessagingCenter.Subscribe<FriendProfilePage>(this, "Refresh User Data", (sender) =>
+             {
+                 updateData();
 
+                 updatePage();
+             });
+            MessagingCenter.Subscribe<ClubMemberViewCell>(this, "Refresh User Data", (sender) =>
+             {
+                 updateData();
+                 updatePage();
+             });
 
             bSubscribe = new Button
             {
@@ -116,7 +126,7 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             bRating.Clicked += BRating_Clicked;
-            MessagingCenter.Subscribe<ClubMemberViewCell, FrontClubMember>(this, "friendsProfilePage", async (sender, args) =>
+           /* MessagingCenter.Subscribe<ClubMemberViewCell, FrontClubMember>(this, "friendsProfilePage", async (sender, args) =>
             {
                 var acc = (FrontClubMember)args;
                 var account = await App.dbWrapper.GetAccount(acc.Id);
@@ -137,11 +147,12 @@ namespace FrontEnd
                     }
 
                 }
+                
 
                 var accountPage = new FriendProfilePage(account, friendship);
                 await Navigation.PushAsync(accountPage);
 
-            });
+            });*/
 
             updatePage();
 
@@ -169,12 +180,12 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white"),
-                SeparatorColor = ch.fromStringToColor("lisghtGray"),
+                SeparatorColor = ch.fromStringToColor("lightGray"),
                 HeightRequest = 150,
                 RowHeight = 50
 
             };
-
+            usersListView.ItemTapped += UsersListView_ItemTapped;
             
 
             var middleBar = getMiddleBar();
@@ -230,6 +241,15 @@ namespace FrontEnd
             };
 
         }
+
+        private async void UsersListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var user = (FrontClubMember)e.Item;
+            var acc  = await App.dbWrapper.GetAccount(user.Id);
+
+            if(user.friendship != 4) await Navigation.PushAsync(new FriendProfilePage(acc, user.friendship));
+        }
+
         private StackLayout getMiddleBar()
         {
             if (currentPage == "tags")
@@ -320,28 +340,33 @@ namespace FrontEnd
         private void StarTap_Tapped(object sender, EventArgs e)
         {
             Image starImage = (Image)sender;
-            System.Diagnostics.Debug.WriteLine(starImages.Count);
-            for (int i = 0; i < starImages.Count; i++)
+            if (isMember)
             {
-                starImages[i].Source = FileImageSource.FromFile(ch.getStarColorString("gray"));
-            }
-            for (int i = 0; i < starImages.Count; i++)
-            {
-                if (starImages[i].Id == starImage.Id)
+                for (int i = 0; i < starImages.Count; i++)
                 {
-                    for (int j = 0; j <= i; j++)
+                    starImages[i].Source = FileImageSource.FromFile(ch.getStarColorString("gray"));
+                }
+                for (int i = 0; i < starImages.Count; i++)
+                {
+                    if (starImages[i].Id == starImage.Id)
                     {
-                        starImages[j].Source = ImageSource.FromFile(ch.getStarColorString(club.clubColor));
-                        App.dbWrapper.RateClub(j, club.Id);
+                        for (int j = 0; j <= i; j++)
+                        {
+                            starImages[j].Source = ImageSource.FromFile(ch.getStarColorString(club.clubColor));
+                            App.dbWrapper.RateClub(j, club.Id);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
+           
         }
 
         private async void BUnsubscribe_Clicked(object sender, EventArgs e)
         {
             await App.dbWrapper.LeaveClub(this.club.Id);
+
+            isMember = false;
             this.bottomButton = bSubscribe;
             updatePage();
 
@@ -350,6 +375,7 @@ namespace FrontEnd
         private async void BSubscribe_Clicked(object sender, EventArgs e)
         {
             await App.dbWrapper.JoinClub(club.Id);
+            isMember = true;
             bottomButton = bUnsubscribe;
             updatePage();
         }
@@ -369,5 +395,39 @@ namespace FrontEnd
             currentPage = "rating";
             updatePage();
         }
+
+        private async void updateData()
+        {
+            var updatedUsersList = await App.dbWrapper.GetClubMembers(club.Id);
+            var frontClubMemberList = new List<FrontClubMember>();
+            for (int i = 0; i < updatedUsersList.Count; i++)
+            {
+                var storedFriendship = await App.dbWrapper.GetFriendship(updatedUsersList[i].Id);
+                if (storedFriendship == 1) //Indicates request was sent from either user
+                {
+                    //  var accReq = App.dbWrapper.GetAccountFriendRequests(usersList[i].Id);
+                    storedFriendship = 3;
+                    var accReq = new List<FriendRequest>();
+                    for (int j = 0; j < accReq.Count; j++)
+                    {
+                        if (accReq[i].AuthorId == App.dbWrapper.GetUser().Id)
+                        {
+                            storedFriendship = 3;//indicates request was sent by user, not other acc
+                        }
+                        else
+                        {
+                            storedFriendship = 1;
+                        }
+                    }
+
+
+                }
+                frontClubMemberList.Add(new FrontClubMember(updatedUsersList[i], storedFriendship));
+
+            }
+            this.usersList = frontClubMemberList;
+        }
     }
+
+
 }

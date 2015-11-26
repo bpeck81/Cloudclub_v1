@@ -274,7 +274,10 @@ namespace FrontEnd
             {
                 frontFriendsList.Add(new FrontFriends(friendsList[i], await App.dbWrapper.InSameClub(friendsList[i].Id)));
             }
+            var img = sender as Image;
+            img.InputTransparent = true;
             await Navigation.PushAsync(new FriendsPage(frontFriendsList));
+            img.InputTransparent = false;
         }
 
         private async void NewsImagetgr_Tapped(object sender, EventArgs e)
@@ -298,7 +301,15 @@ namespace FrontEnd
                 }
             }
 
+            var img = (Image)sender;
+            // img.GestureRecognizers.Remove(newsImagetgr);
+            //var timer = new Timer
+            img.InputTransparent = true;
+            var stackNum = Navigation.NavigationStack.Count;
+
             await Navigation.PushAsync(new NewsPage(news, friendRequest));
+            img.InputTransparent = false;
+
         }
 
 

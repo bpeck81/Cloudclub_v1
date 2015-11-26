@@ -18,7 +18,7 @@ namespace FrontEnd
         public CreateClubPage createClubPage;
         public string title = "Explore";
         ColorHandler ch;
-
+        public Button bCreateClub;
         string currentPage;
         List<Club> clubList, clubMemberList, popularClubs, newestClubs, returnedSearchedClubs;
         List<string> pendingInviteList, firstLineCommentList;
@@ -26,9 +26,10 @@ namespace FrontEnd
         public ClubSearchPage(List<Club> clubList, List<Club> clubMemberList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
             var iconSource = new FileImageSource();
-           // iconSource.File = "search_Android1.png";
-         //   Icon = iconSource;
+
             ch = new ColorHandler();
+            listView = new ListView();
+
             this.firstLineCommentList = firstLineCommentList;
             this.pendingInviteList = pendingInviteList;
             this.clubList = clubList;
@@ -36,6 +37,7 @@ namespace FrontEnd
             this.popularClubs = popularClubs;
             this.newestClubs = newestClubs;
             BackgroundColor = ch.fromStringToColor("purple");
+            
             //this.Icon = "search_Android1.png";
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             returnedSearchedClubs = new List<Club>();
@@ -43,7 +45,8 @@ namespace FrontEnd
             System.Diagnostics.Debug.WriteLine(clubMemberList.Count.ToString());
 
 
-            MessagingCenter.Subscribe<ClubSearchViewCell, string>(this, "Hi", async (sender, arg) => {
+            MessagingCenter.Subscribe<ClubSearchViewCell, string>(this, "Hi", async (sender, arg) =>
+            {
 
                 var clubId = (string)arg;
                 var answer = await DisplayAlert("Report", "Do you really want to report this club?", "Yes", "No");
@@ -55,7 +58,11 @@ namespace FrontEnd
 
                 //DisplayAlert("Report", "This club has been reported.","Ok");
             });
-
+            MessagingCenter.Subscribe<FriendClubListPageViewCell>(this, "Refresh Page", (sender) =>
+             {
+                 this.updateData();
+                 this.Content = generatePopularPage();
+             });
 
 
 
@@ -69,7 +76,7 @@ namespace FrontEnd
             modClubList(popularClubs, clubMemberList);
 
 
-            listView = new ListView
+            var popListView = new ListView
             {
                 ItemsSource = frontClubList,
                 ItemTemplate = new DataTemplate(typeof(ClubSearchViewCell)),
@@ -81,18 +88,11 @@ namespace FrontEnd
                 SeparatorColor = ch.fromStringToColor("gray")
 
             };
-            listView.ItemSelected += ListView_ItemSelected;
-            listView.RefreshCommand = new Command(() =>
-            {
-                updateData();
-                modClubList(popularClubs, clubMemberList);
-                listView.EndRefresh();
+            popListView.ItemSelected += ListView_ItemSelected;
 
-            });
+            popListView.Refreshing += popularListViewRefresh;
 
-            // listView.Refreshing += popularListViewRefresh;
-
-            Button bCreateClub = new Button
+            bCreateClub = new Button
             {
                 Text = "+",
                 TextColor = Color.White,
@@ -153,16 +153,13 @@ namespace FrontEnd
                 BackgroundColor = ch.fromStringToColor("gray"),
                 Spacing = 1
             };
-
-
             return new StackLayout
             {
                 Children = {
-                   listView,
+                   popListView,
                     bottomButtonLayout
                 }
             };
-
 
         }
 
@@ -172,7 +169,7 @@ namespace FrontEnd
             currentPage = "Newest";
             modClubList(newestClubs, clubMemberList);
 
-            listView = new ListView
+            var newListView = new ListView
             {
                 ItemsSource = frontClubList,
                 ItemTemplate = new DataTemplate(typeof(ClubSearchViewCell)),
@@ -180,18 +177,14 @@ namespace FrontEnd
                 RowHeight = 160,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white"),
-                SeparatorColor = ch.fromStringToColor("gray")
+                SeparatorColor = ch.fromStringToColor("gray"),
+                IsPullToRefreshEnabled = true
             };
 
-            listView.ItemSelected += ListView_ItemSelected;
-            listView.RefreshCommand = new Command(() =>
-            {
-                updateData();
-                modClubList(popularClubs, clubMemberList);
-                listView.EndRefresh();
-
-            });
-            Button bCreateClub = new Button
+            newListView.ItemSelected += ListView_ItemSelected;
+            newListView.Refreshing += this.newListViewRefresh;
+ 
+            bCreateClub = new Button
             {
                 Text = "+",
                 TextColor = Color.White,
@@ -257,7 +250,7 @@ namespace FrontEnd
             return new StackLayout
             {
                 Children = {
-                    listView,
+                    newListView,
                     bottomButtonLayout
                 }
             };
@@ -417,6 +410,7 @@ namespace FrontEnd
         private void modClubList(List<Club> clubList, List<Club> memberClubList)
         {
             frontClubList = new ObservableCollection<FrontClub>();
+            //    frontClubList.ch
             var mostRecentComment = "";
 
             for (int i = 0; i < clubList.Count; i++)
@@ -444,7 +438,7 @@ namespace FrontEnd
                 }
                 else
                 {
-                    fClub = new FrontClub(clubList[i], isMember, pendingInvite);
+                    fClub = new FrontClub(clubList[i], isMember, pendingInvite, mostRecentComment);
 
                 }
                 frontClubList.Add(fClub);
@@ -452,10 +446,13 @@ namespace FrontEnd
             }
         }
 
-        private void BCreateClub_Clicked(object sender, EventArgs e)
+        private async void BCreateClub_Clicked(object sender, EventArgs e)
         {
+            var btn = sender as Button;
+            btn.IsEnabled = false;
             createClubPage = new CreateClubPage();
-            Navigation.PushAsync(createClubPage);
+           await Navigation.PushAsync(createClubPage);
+           btn.IsEnabled = true;
         }
         public async void updateData()
         {
@@ -481,31 +478,44 @@ namespace FrontEnd
         {
 
             var club = (FrontClub)e.SelectedItem;
-            var chatList = await App.dbWrapper.GetChat(club.Id, "", "");
-
-            List<Account> requestUsersList = new List<Account>();
-            List<Account> commentUsersList = new List<Account>();
-
-            for (int i = 0; i < chatList.Count; i++)
-            {
-                if (chatList[i].GetType() == typeof(Comment))
-                {
-                    var comment = (Comment)chatList[i];
-                    commentUsersList.Add(await App.dbWrapper.GetAccount(comment.AuthorId));
-
-                }
-                else if (chatList[i].GetType() == typeof(ClubRequest))
-                {
-                    var request = (ClubRequest)chatList[i];
-                    requestUsersList.Add(await App.dbWrapper.GetAccount(request.AccountId));
-                }
-            }
-
             bool isMember = await App.dbWrapper.IsMember(club.Id);
-            await App.dbWrapper.SetCurrentClubId(club.Id);
-            var ccp = new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember);
-            NavigationPage.SetHasNavigationBar(ccp, false);
-            await Navigation.PushAsync(ccp);
+
+            System.Diagnostics.Debug.WriteLine(club.exclusive.ToString());
+            if (club.exclusive == true && isMember == false)
+            {
+                await DisplayAlert("Private Club", "This is a private club. Only club members can view this club.", "Okay");
+
+            }
+            else
+            {
+
+                var chatList = await App.dbWrapper.GetChat(club.Id, "", "");
+
+                List<Account> requestUsersList = new List<Account>();
+                List<Account> commentUsersList = new List<Account>();
+                for (int i = 0; i < chatList.Count; i++)
+                {
+                    if (chatList[i].GetType() == typeof(Comment))
+                    {
+                        var comment = (Comment)chatList[i];
+                        commentUsersList.Add(await App.dbWrapper.GetAccount(comment.AuthorId));
+
+                    }
+                    else if (chatList[i].GetType() == typeof(ClubRequest))
+                    {
+                        var request = (ClubRequest)chatList[i];
+                        requestUsersList.Add(await App.dbWrapper.GetAccount(request.AccountId));
+                    }
+                }
+
+                await App.dbWrapper.SetCurrentClubId(club.Id);
+                var ccp = new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember);
+                NavigationPage.SetHasNavigationBar(ccp, false);
+                var lView = (ListView)sender;
+             //   lView.IsEnabled = false;
+                await Navigation.PushAsync(ccp);
+              //  lView.IsEnabled = true;
+            }
             updateData();
 
             switch (currentPage)
@@ -526,22 +536,97 @@ namespace FrontEnd
 
 
 
+
+
         }
 
-        private void popularListViewRefresh(object sender, EventArgs e)
+        private async void newListViewRefresh(object sender, EventArgs e)
+        {
+            var newListView = sender as ListView;
+            for (int i = frontClubList.Count - 1; i >= 0; i--)
+            {
+                frontClubList.RemoveAt(i);
+            }
+            System.Diagnostics.Debug.WriteLine(frontClubList.Count.ToString());
+            updateData();
+
+
+            var mostRecentComment = "";
+
+            for (int i = 0; i < newestClubs.Count; i++)
+            {
+                bool isMember = false;
+                bool pendingInvite = false;
+
+                for (int j = 0; j < clubMemberList.Count; j++)
+                {
+                    if (newestClubs[i].Id.Equals(clubMemberList[j].Id))
+                    {
+                        isMember = true;
+                        mostRecentComment = firstLineCommentList[j];
+                    }
+
+                }
+                for (int j = 0; j < pendingInviteList.Count; j++)
+                {
+                    if (pendingInviteList[j] == newestClubs[i].Id) pendingInvite = true;
+                }
+                FrontClub fclub = new FrontClub(newestClubs[i], isMember, pendingInvite, mostRecentComment);
+                frontClubList.Add(fclub);
+            }
+            System.Diagnostics.Debug.WriteLine(frontClubList.Count.ToString());
+
+
+            newListView.EndRefresh();
+
+        }
+    
+
+    private async void popularListViewRefresh(object sender, EventArgs e)
         {
 
+
+            var popListView = sender as ListView;
+           // var latestPopClubs = await App.dbWrapper.GetPopularClubs();
+
+            for (int i =  frontClubList.Count -1; i >=0;i--)
+            {
+                frontClubList.RemoveAt(i);
+            }
+            System.Diagnostics.Debug.WriteLine(frontClubList.Count.ToString());
             updateData();
-            listView.EndRefresh();
-            this.Content = generatePopularPage();
+
+
+            var mostRecentComment = "";
+
+            for (int i = 0; i < popularClubs.Count; i++)
+            {
+                bool isMember = false;
+                bool pendingInvite = false;
+
+                for (int j = 0; j < clubMemberList.Count; j++)
+                {
+                    if (popularClubs[i].Id.Equals(clubMemberList[j].Id))
+                    {
+                        isMember = true;
+                        mostRecentComment = firstLineCommentList[j];
+                    }
+
+                }
+                for (int j = 0; j < pendingInviteList.Count; j++)
+                {
+                    if (pendingInviteList[j] == popularClubs[i].Id) pendingInvite = true;
+                }
+                FrontClub fclub = new FrontClub(popularClubs[i], isMember, pendingInvite, mostRecentComment);
+                frontClubList.Add(fclub);
+            }
+
+
+            popListView.EndRefresh();
 
         }
 
-
-
-
+        }
 
     }
-
-}
 

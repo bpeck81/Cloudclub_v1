@@ -23,10 +23,13 @@ namespace CloudClubv1._2_.Droid
             base.OnCreate(bundle);
 
             instance = this;
+    //        Xamarin.Forms.
 
             DBWrapper dbWrapper = new DBWrapper();
 
+            
             global::Xamarin.Forms.Forms.Init(this, bundle);
+           // ConnectivityService
             LoadApplication(new App(dbWrapper));
 
             /*

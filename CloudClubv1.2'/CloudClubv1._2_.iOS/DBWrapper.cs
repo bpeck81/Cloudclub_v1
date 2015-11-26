@@ -442,9 +442,16 @@ namespace CloudClubv1._2_.iOS
 			var list = await friendRequestTable.Where(item => item.RecipientId == User.Id).ToListAsync();
 			return list;
 		}
+        /// Added by Brandon. NOT IMPLEMENTED
+     /*   public List<FriendRequest> GetAccountFriendRequests(string accountId)
+        {
+            // var list = await friendRequestTable.Where(item => item.RecipientId == accountId).ToListAsync();
+            var list = new List<FriendRequest>();
+            return list;
+        }*/
 
-		/// Deletes a friend request; returns true if successful, false if not
-		public async Task<bool> DeclineFriendRequest(string friendRequestId)
+        /// Deletes a friend request; returns true if successful, false if not
+        public async Task<bool> DeclineFriendRequest(string friendRequestId)
 		{
 			try
 			{

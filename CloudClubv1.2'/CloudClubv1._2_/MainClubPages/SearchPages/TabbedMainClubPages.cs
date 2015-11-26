@@ -24,7 +24,13 @@ namespace FrontEnd
             // BarTintColor = ch.fromStringToColor("purple");
             NavigationPage.SetHasNavigationBar(this, true);
             // NavigationPage.SetTitleIcon(CurrentPage,"CloudIcon.png");
+         //   var navPage = (NavigationPage)this.CurrentPage;
+         //   navPage.BarBackgroundColor = ch.fromStringToColor("purple");
+          //  NavigationPage.BarBackgroundColorProperty
+            
             BackgroundColor = ch.fromStringToColor("purple");
+
+
 
 
 
@@ -38,7 +44,7 @@ namespace FrontEnd
 
             });
             csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList);
-            
+            csp.BackgroundColor = ch.fromStringToColor("purple");
             mcp = new MyClubsPage(memberClubList, firstLineCommentList);
             pp = new ProfilePage();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using CloudClubv1._2_;
 using Backend;
-
+using System.ComponentModel;
 namespace FrontEnd
 {
     public class ParentFrontClub

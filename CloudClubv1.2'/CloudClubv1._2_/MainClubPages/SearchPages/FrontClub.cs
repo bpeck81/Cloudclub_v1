@@ -21,11 +21,21 @@ namespace FrontEnd
         public bool isNotMemberNoPending { get; set; }
         private ColorHandler ch;
         public bool pendingInvite { get; set; }
+        public bool exclusive { get; set; }
         public FrontClub(Club club, bool member, bool pendingInvite, string mostRecentComment = "")
         {
             isMember = member;
             mostRecentLine = mostRecentComment;
             this.cloudId = club.CloudId;
+            this.exclusive = club.Exclusive;
+            if (exclusive) {
+                System.Diagnostics.Debug.WriteLine("exclusive club made");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("not exclusive");
+            }
+
             this.pendingInvite = pendingInvite;
             if (member == false && pendingInvite == false)
             {

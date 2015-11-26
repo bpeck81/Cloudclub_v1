@@ -1,3 +1,11 @@
+CloudClubv1._2_.Droid.CustomEditorRenderer, CloudClubv1._2_.Droid;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEditorRenderer
+CloudClubv1._2_.Droid.CustomEditorRenderer, CloudClubv1._2_.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEditorRenderer
+CloudClubv1._2_.Droid.CustomEditorRenderer;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEditorRenderer
+cloudclubv1._2_.droid.CustomEditorRenderer;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEditorRenderer
+CloudClubv1._2_.Droid.CustomEntryRenderer, CloudClubv1._2_.Droid;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEntryRenderer
+CloudClubv1._2_.Droid.CustomEntryRenderer, CloudClubv1._2_.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEntryRenderer
+CloudClubv1._2_.Droid.CustomEntryRenderer;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEntryRenderer
+cloudclubv1._2_.droid.CustomEntryRenderer;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomEntryRenderer
 CloudClubv1._2_.Droid.CustomTabRenderer, CloudClubv1._2_.Droid;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomTabRenderer
 CloudClubv1._2_.Droid.CustomTabRenderer, CloudClubv1._2_.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomTabRenderer
 CloudClubv1._2_.Droid.CustomTabRenderer;md583a5db7bf3698299f4dd7c4eaa4db5c5.CustomTabRenderer

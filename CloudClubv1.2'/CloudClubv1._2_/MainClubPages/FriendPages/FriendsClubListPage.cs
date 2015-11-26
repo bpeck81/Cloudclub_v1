@@ -26,11 +26,11 @@ namespace FrontEnd
                 {
                     mutualBool = true;
                 }
-                else if (clubList[i].Exclusive == true)
+                else if(pendingList[i] == true)
                 {
                     requestBool = true;
                 }
-                else if (clubList[i].Exclusive == false)
+                else
                 {
                     joinBool = true;
                 }

@@ -289,7 +289,13 @@ namespace FrontEnd
 
         private async void BSendFriendRequest_Clicked(object sender, EventArgs e)
         {
+            var btn = sender as Button;
+            btn.BackgroundColor = ch.fromStringToColor("gray");
+            btn.IsEnabled = false;
+            btn.Text = "Request Sent!";
+
             await App.dbWrapper.CreateFriendRequest(user.Id);
+            MessagingCenter.Send<FriendProfilePage>(this, "Refresh User Data");
         }
 
         private StackLayout getBottomlayout()
@@ -348,28 +354,27 @@ namespace FrontEnd
                     Padding = new Thickness(15, 10, 15, 15)
                 };
             }
-            else
+            else //friendrequest = 3
             {
+                bSendFriendRequest.BackgroundColor = ch.fromStringToColor("gray");
+                bSendFriendRequest.IsEnabled = false;
+                bSendFriendRequest.Text = "Request Sent!";
                 return new StackLayout
                 {
                     Children =
                     {
                         new Label
                         {
-                           Text = "Your Friend Request Is Pending",
-                           TextColor = ch.fromStringToColor("black"),
-                           FontAttributes = FontAttributes.Bold,
-                           FontSize = 30,
-                           HorizontalOptions = LayoutOptions.CenterAndExpand,
-                           VerticalOptions = LayoutOptions.CenterAndExpand
-
-                        }
+                            Text = "Request To Be friends",
+                            TextColor = ch.fromStringToColor("white"),
+                            FontAttributes = FontAttributes.Bold,
+                            FontSize = 30,
+                            HorizontalOptions = LayoutOptions.CenterAndExpand
+                        },
+                        bSendFriendRequest
                     },
-                    BackgroundColor = ch.fromStringToColor("white"),
                     VerticalOptions = LayoutOptions.FillAndExpand,
-
                     Padding = new Thickness(15, 10, 15, 15)
-
                 };
             }
 
@@ -400,18 +405,53 @@ namespace FrontEnd
 
         private async void BReject_Clicked(object sender, EventArgs e)
         {
-            await App.dbWrapper.DeclineFriendRequest(friendRequest.Id);
-            this.activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
-            updateView();
-            await Navigation.PopAsync();
+            var friendRequests = await App.dbWrapper.GetFriendRequests();
+            FriendRequest request = null;
+            for (int i = 0; i < friendRequests.Count; i++)
+            {
+                if (friendRequests[i].AuthorId == user.Id)
+                {
+                    request = friendRequests[i];
+                }
+            }
+            if (request != null)
+            {
+                await App.dbWrapper.DeclineFriendRequest(request.Id);
+                this.activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
+                updateView();
+                MessagingCenter.Send<FriendProfilePage>(this, "Refresh User Data");
+
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         private async void BAccept_Clicked(object sender, EventArgs e)
         {
-            await App.dbWrapper.AcceptFriendRequest(friendRequest.Id);
-            this.activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
-            updateView();
-            await Navigation.PopAsync();
+            var friendRequests = await App.dbWrapper.GetFriendRequests();
+            FriendRequest request = null;
+            for(int i =0; i<friendRequests.Count; i++)
+            {
+                if(friendRequests[i].AuthorId == user.Id)
+                {
+                    request = friendRequests[i];
+                }
+            }
+            if (request != null)
+            {
+                await App.dbWrapper.AcceptFriendRequest(request.Id);
+                this.activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
+                updateView();
+                MessagingCenter.Send<FriendProfilePage>(this, "Refresh User Data");
+
+            }
+            else
+            {
+                throw new Exception();
+            }
+           // await Navigation.PopAsync();
         }
 
         private void menuPopup()

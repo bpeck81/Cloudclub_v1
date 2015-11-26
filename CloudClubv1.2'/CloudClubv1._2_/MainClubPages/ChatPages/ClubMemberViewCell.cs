@@ -53,7 +53,12 @@ namespace FrontEnd
             {
                 Text = "+",
                 FontAttributes = FontAttributes.Bold,
-                TextColor = ch.fromStringToColor("gray"),
+                TextColor = ch.fromStringToColor("black"),
+                WidthRequest = 34,
+
+                HeightRequest = 34,
+                FontSize = 12,
+                // FontSize = 16,
                 BackgroundColor = ch.fromStringToColor("white"),
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.Center
@@ -66,29 +71,35 @@ namespace FrontEnd
                 HeightRequest = 20,
                 WidthRequest = 20,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
+
                 VerticalOptions = LayoutOptions.Center,
                 BackgroundColor = ch.fromStringToColor("yellow")
 
             };
             bFriendsIndicator.SetBinding(Button.BackgroundColorProperty, "FriendIndicator");
             bFriendsIndicator.SetBinding(Button.IsVisibleProperty, "AreFriends");
+            var sFriendsIndicator = new StackLayout
+            {
+                Children =
+                {
+                    bFriendsIndicator
+
+                },
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+
+                VerticalOptions = LayoutOptions.Center,
+                Padding = new Thickness(0, 0, 2, 0)
+            };
+
+      //      sFriendsIndicator.SetBini
             View = new StackLayout
             {
                 Children ={
                     iEmoji,
                     lUsername,
                     bAddFriend,
-                    new StackLayout
-                    {
-                        Children =
-                        {
-                            bFriendsIndicator
-                        },
-                        HorizontalOptions = LayoutOptions.EndAndExpand,
-                        VerticalOptions = LayoutOptions.Center,
-                        Padding = new Thickness(0,0,5,0)
+                    bFriendsIndicator
 
-                    }
 
                 },
                 Orientation = StackOrientation.Horizontal,
@@ -99,21 +110,27 @@ namespace FrontEnd
         }
         private void NameTGR_Tapped(object sender, EventArgs e)
         {
+            //UNIMPLEMENTED
             var name = (Label)sender;
 
             var user = (FrontClubMember)BindingContext;
-            MessagingCenter.Send<ClubMemberViewCell, FrontClubMember>(this, "friendsProfilePage", user);
         }
 
         private async void BAddFriend_Clicked(object sender, EventArgs e)
         {
             FrontClubMember clubMember = (FrontClubMember)BindingContext;
             var btn = sender as Button;
+            btn.IsVisible = false;
+            bFriendsIndicator.IsVisible = true;
+            bFriendsIndicator.BackgroundColor = ch.fromStringToColor("yellow");
+
+            MessagingCenter.Send<ClubMemberViewCell>(this, "Refresh User Data");
 
             await App.dbWrapper.CreateFriendRequest(clubMember.Id);
             //clubMember.friendship = await App.dbWrapper.GetFriendship(clubMember.Id
 
             clubMember.NotFriends = false;
+            
             clubMember.AreFriends = true;
             clubMember.FriendIndicator = ch.fromStringToColor("yellow");
 

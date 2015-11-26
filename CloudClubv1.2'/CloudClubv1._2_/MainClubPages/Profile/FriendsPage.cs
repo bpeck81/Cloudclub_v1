@@ -7,22 +7,27 @@ using System.Text;
 using Xamarin.Forms;
 using Backend;
 using CloudClubv1._2_;
+using System.Collections.ObjectModel;
 
 namespace FrontEnd
 {
     public class FriendsPage : ContentPage
     {
         List<FrontFriends> friendsList;
-        List<FrontFriends> displayedFriends;
+        ObservableCollection<FrontFriends> displayedFriends;
         ColorHandler ch;
         Entry searchBar;
         public FriendsPage(List<FrontFriends> friendsList)
         {
             this.friendsList = friendsList;
-            displayedFriends = friendsList;
+            displayedFriends = new ObservableCollection<FrontFriends>();
+            for(int i =0; i<friendsList.Count; i++)
+            {
+                displayedFriends.Add(friendsList[i]);
+            }
             Title = "Friends";
             ch = new ColorHandler();
-            Entry searchBar = new Entry
+            searchBar = new Entry
             {
                 Placeholder = "Search",
                 BackgroundColor = ch.fromStringToColor("white"),
@@ -52,14 +57,44 @@ namespace FrontEnd
         private void SearchBar_Completed(object sender, EventArgs e)
         {
             var searchedList = new List<FrontFriends>();
-            for (int i = 0; i < friendsList.Count; i++)
+            var bar = (Entry)sender;
+            for (int i = displayedFriends.Count - 1; i >= 0; i--)
             {
-                if (friendsList[i].Username.Contains(searchBar.Text))
+
+                displayedFriends.Remove(displayedFriends[i]);
+            }// displayedFriends = searchedList;
+
+
+
+
+                for (int i = 0; i < friendsList.Count; i++)
                 {
-                    searchedList.Add(friendsList[i]);
+                    if (friendsList[i].Username.Contains(bar.Text))
+                    {
+                        searchedList.Add(friendsList[i]);
+                        System.Diagnostics.Debug.WriteLine(friendsList[i].Username);
+                    }
+                }
+                if(searchedList.Count ==0)
+            {
+                for (int i = 0; i < friendsList.Count; i++)
+                {
+                    displayedFriends.Add(friendsList[i]);
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < searchedList.Count; i++)
+                {
+                    displayedFriends.Add(searchedList[i]);
+                    System.Diagnostics.Debug.WriteLine(searchedList[i].Username);
+
                 }
             }
-            displayedFriends = searchedList;
+
+        
+
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -51,10 +51,24 @@ namespace FrontEnd
             bJoinIndicator.Clicked += async (sender, args) =>
             {
                 FrontFriendClub ffc = (FrontFriendClub)BindingContext;
-                await App.dbWrapper.CreateClubRequest("Please let me join your club!", ffc.Id);
-                bJoinIndicator.Text = "Request Sent";
-                bJoinIndicator.BackgroundColor = ch.fromStringToColor("gray");
-                bJoinIndicator.IsEnabled = false;
+                
+                var club  = await App.dbWrapper.GetClub(ffc.Id);
+                if (club.Exclusive)
+                {
+                    await App.dbWrapper.CreateClubRequest("Please let me join your club!", ffc.Id);
+
+                    bJoinIndicator.Text = "Request Sent";
+                    bJoinIndicator.BackgroundColor = ch.fromStringToColor("gray");
+                    bJoinIndicator.IsEnabled = false;
+                }
+                else
+                {
+                    await App.dbWrapper.JoinClub(club.Id);
+                    bJoinIndicator.IsVisible = false;
+                    bMutualIndiicator.IsVisible = true;
+                    MessagingCenter.Send<FriendClubListPageViewCell>(this, "Refresh Page");
+                }
+
             };
 
             var brequestJoinIndicator = new Button
@@ -62,13 +76,14 @@ namespace FrontEnd
                 BackgroundColor = ch.fromStringToColor("gray"),
                 TextColor = ch.fromStringToColor("white"),
                 BorderRadius = 5,
-                Text = "Request Join",
+                Text = "Request Sent",
+                IsEnabled = false,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.Center,
                // WidthRequest = 30
             };
             brequestJoinIndicator.SetBinding(Button.IsVisibleProperty, "requestJoinBool");
-            brequestJoinIndicator.Clicked += async (sender, args) =>
+          /*  brequestJoinIndicator.Clicked += async (sender, args) =>
             {
                 FrontFriendClub ffc = (FrontFriendClub)sender;
                 await App.dbWrapper.CreateClubRequest("Please let me join your club!",ffc.Id);
@@ -90,7 +105,7 @@ namespace FrontEnd
                 Text = "Pending Request",
                 IsEnabled = false
             };
-            bpendingJoinRequest.SetBinding(Button.IsVisibleProperty, "pendingRequest");
+            bpendingJoinRequest.SetBinding(Button.IsVisibleProperty, "pendingRequest");*/
 
             this.View = new StackLayout
             {
@@ -100,7 +115,7 @@ namespace FrontEnd
                     bMutualIndiicator,
                     bJoinIndicator,
                     brequestJoinIndicator,
-                    bpendingJoinRequest
+                  //  bpendingJoinRequest
                 },
                 Orientation = StackOrientation.Horizontal,
                 Padding = new Thickness(10,10,10,10),

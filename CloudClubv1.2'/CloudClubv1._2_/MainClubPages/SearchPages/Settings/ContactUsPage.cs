@@ -19,11 +19,12 @@ namespace FrontEnd
             ch = new ColorHandler();
             Title = "Contact Us";
 
-            Editor = new Editor
+            Editor = new MyEditor
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Fill,
                 HeightRequest = 200,
+                
                 //  Placeholder = "Message",
                 //  TextColor = ch.fromStringToColor("black"),
                 BackgroundColor = ch.fromStringToColor("white")

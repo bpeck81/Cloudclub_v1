@@ -19,6 +19,7 @@ namespace FrontEnd
         Entry userEntry;
         ParentFrontClub club;
         bool isMember;
+        Image bBack, bSettings;
         ListView listView;
         TapGestureRecognizer settingsTgr, backButtonTgr;
         public ClubChatPage(ParentFrontClub club, List<DBItem> chatList, List<Account> commentUsers, List<Account> requestUsersList, bool isMember)
@@ -32,13 +33,7 @@ namespace FrontEnd
             ch = new ColorHandler();
             this.BackgroundColor = Color.Black;
             this.Title = club.Title;
-            this.ToolbarItems.Add(new ToolbarItem
-            {
-                Icon = "Settings_Top.png",
 
-                Order = ToolbarItemOrder.Primary,
-                Command = new Command(() => menuPopup())
-            });
 
 
             NavigationPage.SetHasNavigationBar(this, false);
@@ -75,7 +70,7 @@ namespace FrontEnd
         private void updatePage()
         {
 
-            var bBack = new Image
+            bBack = new Image
             {
                 Source = FileImageSource.FromFile("arrow_back.png"),
                 WidthRequest=30,
@@ -92,12 +87,12 @@ namespace FrontEnd
             {
                 Text = this.club.Title,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Center,
                 TextColor = ch.fromStringToColor("white"),
-                FontSize = 28,
+                FontSize = 22,
                 FontAttributes = FontAttributes.Bold
             };
-            var bSettings = new Image
+             bSettings = new Image
             {
                 Source = ImageSource.FromFile("settings.png"),
                 Scale = .8,
@@ -115,10 +110,11 @@ namespace FrontEnd
                     actionBarLabel,
                     bSettings
                 },
+                HeightRequest= 30,
                 Orientation = StackOrientation.Horizontal,
                 BackgroundColor = ch.fromStringToColor(this.club.clubColor),
-                VerticalOptions = LayoutOptions.Start,
-                Padding = new Thickness(10,20,0,10)
+                VerticalOptions = LayoutOptions.Center,
+                Padding = new Thickness(10,10,0,10)
             };
 
             listView = new ListView
@@ -236,34 +232,66 @@ namespace FrontEnd
                 var commentOutput = await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
                 //System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
                 userEntry.Text = "";
-                updatePage();
+              //  updatePage();
             }
 
 
         }
         private async void BackButtonTgr_Tapped(object sender, EventArgs e)
         {
+
             await App.dbWrapper.RemoveCurrentClubId();
+            var btn = sender as Image;
+            btn.IsEnabled = false;
             await Navigation.PopAsync();
+            btn.IsEnabled = true;
         }
         private async void SettingsTgr_Tapped(object sender, EventArgs e)
         {
-            menuPopup();
-        }
-        private async void menuPopup()
-        {
+            //var btn = sender as TapGestureRecognizer;
+            //btn.Tapped -= SettingsTgr_Tapped;
+         //   bSettings.GestureRecognizers.Remove(settingsTgr);
             var tagsList = await App.dbWrapper.GetTags(club.Id);
             var usersList = await App.dbWrapper.GetClubMembers(club.Id);
             var frontClubMemberList = new List<FrontClubMember>();
             var isMember = await App.dbWrapper.IsMember(club.Id);
             var founderAccount = await App.dbWrapper.GetAccount(club.founderId);
             var prevRating = await App.dbWrapper.GetUserRating(club.Id);
+            var myFriendRequests = await App.dbWrapper.GetFriendRequests();
             for (int i = 0; i < usersList.Count; i++)
             {
-                frontClubMemberList.Add(new FrontClubMember(usersList[i], await App.dbWrapper.GetFriendship(usersList[i].Id)));
+                var storedFriendship = await App.dbWrapper.GetFriendship(usersList[i].Id);
+                
+                if(storedFriendship == 1) //Indicates request was sent from either user
+                {
+                    //  var accReq = App.dbWrapper.GetAccountFriendRequests(usersList[i].Id);
+                    storedFriendship = 3;
+                    var accReq = new List<FriendRequest>();
+                    for (int j = 0; j < myFriendRequests.Count; j++)
+                    {
+                        if (myFriendRequests[j].AuthorId == usersList[i].Id)
+                        {
+                            storedFriendship = 1;//indicates request was sent by other acc
+                        }
+
+                     }
+
+
+                }
+                if (usersList[i].Id == App.dbWrapper.GetUser().Id) storedFriendship= 4;
+
+                frontClubMemberList.Add(new FrontClubMember(usersList[i], storedFriendship));
+
+                
 
             }
+            var btn = sender as Image;
+            btn.GestureRecognizers.Remove(settingsTgr);
+            btn.InputTransparent = true;
             await Navigation.PushAsync(new ChatInfoPage(tagsList, club, frontClubMemberList, isMember, founderAccount.Username, prevRating));
+            btn.GestureRecognizers.Add(settingsTgr);
+            btn.InputTransparent = false;
         }
+
     }
 }

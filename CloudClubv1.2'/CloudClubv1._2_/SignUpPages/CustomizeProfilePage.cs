@@ -629,7 +629,10 @@ namespace FrontEnd
 
             var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
-            Application.Current.MainPage = navPage;
+            var btn = sender as Button;
+            btn.IsEnabled = false;
+            await Navigation.PushModalAsync(navPage);
+            btn.IsEnabled = true;
         }
 
         private async void BSkip_Clicked(object sender, EventArgs e)

@@ -27,12 +27,7 @@ namespace FrontEnd
             this.joinBool = joinBool;
 
             this.requestJoinBool = requestJoin;
-            if(pendingRequest == true)
-            {
-                this.requestJoinBool = false;
-                this.joinBool = false;
 
-            }
            
             exclusive = club.Exclusive;
             this.Id = club.Id;

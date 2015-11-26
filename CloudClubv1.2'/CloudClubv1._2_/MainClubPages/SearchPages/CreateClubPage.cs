@@ -27,6 +27,8 @@ namespace FrontEnd
         public CreateClubPage()
 
         {
+
+
             ch = new ColorHandler();
             tagPage = new AddTagsPage();
             clubPublic = true;
@@ -201,7 +203,9 @@ namespace FrontEnd
             bool created = false;
             if (nameValidity == "Valid")
             {
+
                 created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor, !clubPublic, tagList);
+                System.Diagnostics.Debug.WriteLine(clubPublic.ToString());
             }
             if (created)
             {
@@ -361,13 +365,19 @@ namespace FrontEnd
             {
                 frontFriendsList.Add(new FrontFriends(friends[i], true));
             }
-            await Navigation.PushAsync(new AddFriendsToCreateClubPage(frontFriendsList));
 
+            var btn = (Button)sender;
+            btn.IsEnabled = false;
+            await Navigation.PushAsync(new AddFriendsToCreateClubPage(frontFriendsList));
+            btn.IsEnabled = true;
         }
 
-        private void BAddTags_Clicked(object sender, EventArgs e)
+        private async void BAddTags_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(tagPage);
+            var btn = (Button)sender;
+            btn.IsEnabled = false;
+            await Navigation.PushAsync(tagPage);
+            btn.IsEnabled = true;
             var frontTagList = tagPage.addedTags;
             tagList = new List<string>();
             for (int i = 0; i < frontTagList.Count; i++)

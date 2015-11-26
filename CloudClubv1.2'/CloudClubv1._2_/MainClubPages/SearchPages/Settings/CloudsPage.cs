@@ -39,10 +39,11 @@ namespace FrontEnd
                 }
 
 
-                var s = new SwitchCell
+                var s = new CustomSwitch
                 {
+                   
                     Text = savedClouds[i],
-
+                    
                     On = saved,
 
 
@@ -54,7 +55,7 @@ namespace FrontEnd
             var cloudSwitchTable = new TableView
             {
                 Root = new TableRoot(),
-                BackgroundColor = ch.fromStringToColor("black")
+                BackgroundColor = ch.fromStringToColor("white")
 
             };
             cloudSwitchTable.Root.Add(tableSection);
@@ -63,6 +64,7 @@ namespace FrontEnd
 
         private async void S_OnChanged(object sender, ToggledEventArgs e)
         {
+            return;
             var s = (SwitchCell)sender;
             var saveFileKey = new SaveFileDictionary();
 

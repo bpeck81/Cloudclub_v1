@@ -576,6 +576,7 @@ namespace FrontEnd
 
             var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList, firstLineCommentList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
+            navPage.BackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }
 

@@ -111,9 +111,10 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
 
             };
+            clubTextLabel.SetBinding(Label.TextProperty, "mostRecentLine");
+
             clubTextLabel.SetBinding(Label.IsVisibleProperty, "isMember");
 
-            clubTextLabel.SetBinding(Label.TextProperty, "mostRecentLine");
 
             activityTimeLabel = new Label
             {
@@ -216,20 +217,25 @@ namespace FrontEnd
 
         private async void BRequestJoin_Clicked(object sender, EventArgs e)
         {
+
             var thisClub = (FrontClub)BindingContext;
-            await App.dbWrapper.CreateClubRequest("Please let me join your club!", thisClub.Id);
+            if (thisClub.exclusive)
+            {
+                await App.dbWrapper.CreateClubRequest("Please let me join your club!", thisClub.Id);
+                bPendingRequest.IsVisible = true;
+            }
+            else
+            {
+                await App.dbWrapper.JoinClub(thisClub.Id);
+                clubTextLabel.IsVisible = true;
+
+            }
 
             var btn = sender as Button;
-            Color prevColor = btn.BackgroundColor; //= ch.fromStringToColor("grayPressed");
-            int r = (int)prevColor.R; int g = (int)prevColor.G; int b = (int)prevColor.B;
-            if (prevColor.R + 20 <= 250) r = (int)prevColor.R + 20;
-            if (prevColor.G + 20 <= 250) g = (int)prevColor.G + 20;
-
-            if (prevColor.B + 20 <= 250) b = (int)prevColor.B + 20;
-
 
             btn.IsVisible = false;
-            bPendingRequest.IsVisible = true;
+            btn.IsEnabled = false;
+
 
         }
 

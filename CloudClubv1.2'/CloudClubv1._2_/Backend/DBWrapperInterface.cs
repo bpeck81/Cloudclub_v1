@@ -87,5 +87,6 @@ namespace CloudClubv1._2_
           Task<Comment> GetRecentComment(string clubId);
           Task<List<Invite>> GetAccountInvites(string recipientId);
           Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags);
+       //   List<FriendRequest> GetAccountFriendRequests(string accountId); ///Added by Brandon -- is empty
     }
 }

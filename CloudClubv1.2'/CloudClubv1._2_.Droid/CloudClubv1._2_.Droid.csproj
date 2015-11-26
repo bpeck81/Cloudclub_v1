@@ -136,7 +136,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomTabRenderer.cs" />
+    <Compile Include="Android Renderers\CustomEditorRenderer.cs" />
+    <Compile Include="Android Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Android Renderers\CustomSwitchCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomTabRenderer.cs" />
     <Compile Include="DBWrapper.cs" />
     <Compile Include="GcmPushes.cs" />
     <Compile Include="GcmService.cs" />
