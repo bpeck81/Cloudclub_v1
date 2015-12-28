@@ -12,7 +12,7 @@ namespace FrontEnd
 {
     public class NewsPage : ContentPage
     {
-        ColorHandler ch;
+        ColorHandler ch; 
         List<FrontNews> frontNewsList;
         public NewsPage(List<DBItem> newsItems, string friendRequestUsername)
         {

@@ -16,7 +16,7 @@ namespace FrontEnd
         public string Time { get; set; }
         public string NotificationType { get; set; }
         public DBItem dbItem { get; set; }
-        public FrontNews(string type, string text, DateTime? time, DBItem dbItem)
+        public FrontNews(string type, string text, DateTime? time, DBItem dbItem) 
         {
             this.dbItem = dbItem;
             NotificationType = type;

@@ -14,7 +14,7 @@ namespace FrontEnd
         bool clubPublic;
         string clubColor;
         ScrollView colorBoxes;
-        Label titleLabel, colorLabel, tagsLabel, inviteLabel, lcouldntCreate;
+        Label titleLabel, colorLabel, tagsLabel, inviteLabel, lcouldntCreate; 
         Grid colorGrid;
         Button bContinue, bAddFriends, bPublic, bPrivate;
         public Button bAddTags; //Must fix

@@ -17,6 +17,7 @@ namespace FrontEnd
         ObservableCollection<FrontFriends> displayedFriends;
         ColorHandler ch;
         Entry searchBar;
+        SearchBar sb;
         public FriendsPage(List<FrontFriends> friendsList)
         {
             this.friendsList = friendsList;
@@ -27,37 +28,51 @@ namespace FrontEnd
             }
             Title = "Friends";
             ch = new ColorHandler();
+            var sbCommand = new Command(() => this.SearchBar_Completed());
+            sb = new MySearchBar
+            {
+                Placeholder = "Search",
+                BackgroundColor = ch.fromStringToColor("lightGray"),
+             //   SearchCommand = sbCommand
+            };
+            sb.TextChanged += Sb_TextChanged;
             searchBar = new Entry
             {
                 Placeholder = "Search",
-                BackgroundColor = ch.fromStringToColor("white"),
+               // BackgroundColor = ch.fromStringToColor("white"),
                 TextColor = ch.fromStringToColor("black")
 
             };
-            searchBar.Completed += SearchBar_Completed;
             ListView listView = new ListView
             {
                 ItemsSource = displayedFriends,
                 ItemTemplate = new DataTemplate(typeof(FriendsListViewCell)),
-                RowHeight = 75
+                RowHeight = 75,
+                SeparatorColor = ch.fromStringToColor("gray")
             };
             listView.ItemSelected += ListView_ItemSelected;
 
-            BackgroundColor = ch.fromStringToColor("lightGray");
+            BackgroundColor = ch.fromStringToColor("white");
             Content = new StackLayout
             {
                 Children =
                 {
-                    searchBar,
+                    sb,
                     listView
                 }
             };
         }
 
-        private void SearchBar_Completed(object sender, EventArgs e)
+        private void Sb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.SearchBar_Completed();
+        }
+
+        private void SearchBar_Completed()
         {
             var searchedList = new List<FrontFriends>();
-            var bar = (Entry)sender;
+            
+           
             for (int i = displayedFriends.Count - 1; i >= 0; i--)
             {
 
@@ -69,7 +84,7 @@ namespace FrontEnd
 
                 for (int i = 0; i < friendsList.Count; i++)
                 {
-                    if (friendsList[i].Username.Contains(bar.Text))
+                    if (friendsList[i].Username.Contains(sb.Text))
                     {
                         searchedList.Add(friendsList[i]);
                         System.Diagnostics.Debug.WriteLine(friendsList[i].Username);

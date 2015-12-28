@@ -15,7 +15,7 @@ namespace FrontEnd
 
         ListView listView;
         ObservableCollection<FrontClub> frontClubList;
-        public CreateClubPage createClubPage;
+        public CreateClubPage createClubPage; 
         public string title = "Explore";
         ColorHandler ch;
         public Button bCreateClub;

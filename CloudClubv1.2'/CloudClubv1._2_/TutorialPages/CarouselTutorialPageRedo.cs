@@ -17,6 +17,7 @@ namespace FrontEnd
         {
             ch = new ColorHandler();
             this.BackgroundColor = ch.fromStringToColor("purple");
+            NavigationPage.SetHasNavigationBar(this, true);
             this.Title = "Tutorial";
             NavigationPage.SetHasNavigationBar(this, false);
             this.Children.Add(new Tutorial1Page());

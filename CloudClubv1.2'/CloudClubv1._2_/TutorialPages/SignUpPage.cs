@@ -158,8 +158,17 @@ namespace FrontEnd
             StackLayout sLayout = new StackLayout
             {
                 Children = {
-                    topHeader,
-                    invalidSignupLabel,
+                    new StackLayout
+                    {
+                        Children =
+                        {
+                        topHeader,
+                        invalidSignupLabel
+                        },
+
+                        Spacing = 10
+                    },
+
                     entryFields,
                     new StackLayout
                     {
@@ -175,8 +184,8 @@ namespace FrontEnd
                     }
                  },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
-                Spacing = 50f,
-                Padding = new Thickness(0, 0, 0, 20),
+                Spacing = 35f,
+                Padding = new Thickness(0, 20, 0, 20),
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             Content = sLayout;
@@ -194,6 +203,7 @@ namespace FrontEnd
             {
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center,
+
                 FontSize = 24,
                 TextColor = ch.fromStringToColor("white"),
                 FontAttributes = FontAttributes.Bold
@@ -303,8 +313,16 @@ namespace FrontEnd
             {
                 Children = {
 
-                    topHeader,
-                    invalidLoginLabel,
+                    new StackLayout
+                    {
+                        Children =
+                        {
+                            topHeader,
+                        invalidLoginLabel,
+                        },
+                        Spacing = 10
+
+                    },
                     entryFields,
                     new StackLayout
                     {
@@ -322,7 +340,7 @@ namespace FrontEnd
                  },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
                 Spacing = 50f,
-                Padding = new Thickness(0, 0, 0, 20),
+                Padding = new Thickness(0, 20, 0, 20),
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             Content = sLayout;

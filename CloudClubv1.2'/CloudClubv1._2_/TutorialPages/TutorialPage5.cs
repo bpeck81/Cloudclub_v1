@@ -12,7 +12,9 @@ namespace FrontEnd
     {
         public TutorialPage5()
         {
-        ColorHandler ch = new ColorHandler();
+            Padding = new Thickness(20, 0, 20, 20);
+    
+         ColorHandler ch = new ColorHandler();
             BackgroundColor = ch.fromStringToColor("purple");
 
             Label header = new Label

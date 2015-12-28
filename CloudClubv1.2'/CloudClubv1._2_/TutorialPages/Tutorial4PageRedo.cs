@@ -62,6 +62,9 @@ namespace FrontEnd
             {
                 Text = "Finish",
                 TextColor = ch.fromStringToColor("white"),
+                BorderRadius = 10,
+                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Button)),
+                FontAttributes=FontAttributes.Bold,
                 BackgroundColor = ch.fromStringToColor("green"),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center

@@ -12,29 +12,29 @@ namespace FrontEnd
     {
         public Tutorial4Page()
         {
+            ColorHandler ch = new ColorHandler();
+
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             // page 4 of tutorial
             Label topHeader = new Label
             {
+
                 Text = "How It Works",
-                XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.Center,
+                TextColor = ch.fromStringToColor("white"),
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 42,
-                TextColor = Color.White,
-                FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
-                BackgroundColor = Color.FromRgb(210, 61, 235)
-
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand
             };
             Image cloudImage = new Image
             {
                 Aspect = Aspect.AspectFit,
                 Source = ImageSource.FromFile("Tutorial_Competition.png"),
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
 
                 Scale = .75,
-                HorizontalOptions = LayoutOptions.Center
+                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
 
@@ -42,7 +42,7 @@ namespace FrontEnd
             {
                 Text = "Achieve Greatness",
                 XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 36,
                 FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
@@ -52,7 +52,7 @@ namespace FrontEnd
             {
                 Text = "Earn rewards for creating popular clubs and chats! Rise through the ranks to become a Cloudclub legend!",
                 XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                 TextColor = Color.White
@@ -69,8 +69,8 @@ namespace FrontEnd
 
                 },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
-                Spacing = 30,
-                Padding = new Thickness(20, 0, 20, 20)
+                Spacing = 20,
+                Padding = new Thickness(10, 20, 10, 20)
 
 
             };

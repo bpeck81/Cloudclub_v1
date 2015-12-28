@@ -13,7 +13,7 @@ public class SwipeDismissBehavior_OnDismissListenerImplementor
 			"n_onDismiss:(Landroid/view/View;)V:GetOnDismiss_Landroid_view_View_Handler:Android.Support.Design.Widget.SwipeDismissBehavior/IOnDismissListenerInvoker, Xamarin.Android.Support.Design\n" +
 			"n_onDragStateChanged:(I)V:GetOnDragStateChanged_IHandler:Android.Support.Design.Widget.SwipeDismissBehavior/IOnDismissListenerInvoker, Xamarin.Android.Support.Design\n" +
 			"";
-		mono.android.Runtime.register ("Android.Support.Design.Widget.SwipeDismissBehavior/IOnDismissListenerImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", SwipeDismissBehavior_OnDismissListenerImplementor.class, __md_methods);
+		mono.android.Runtime.register ("Android.Support.Design.Widget.SwipeDismissBehavior+IOnDismissListenerImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", SwipeDismissBehavior_OnDismissListenerImplementor.class, __md_methods);
 	}
 
 
@@ -21,7 +21,7 @@ public class SwipeDismissBehavior_OnDismissListenerImplementor
 	{
 		super ();
 		if (getClass () == SwipeDismissBehavior_OnDismissListenerImplementor.class)
-			mono.android.TypeManager.Activate ("Android.Support.Design.Widget.SwipeDismissBehavior/IOnDismissListenerImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("Android.Support.Design.Widget.SwipeDismissBehavior+IOnDismissListenerImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 

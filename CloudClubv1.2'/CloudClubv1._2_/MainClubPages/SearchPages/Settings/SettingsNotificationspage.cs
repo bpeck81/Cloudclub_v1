@@ -18,7 +18,7 @@ namespace FrontEnd
             ch = new ColorHandler();
             Title = "Notifications";
 
-            var dailyRankSwitch = new CustomSwitch
+            var dailyRankSwitch = new CustomDailyRankSwitch
             {
                 Text = "Daily Rank",
                 On = false
@@ -29,7 +29,6 @@ namespace FrontEnd
                 if (dailyRankSwitch.On)
                 {
                     await App.dbWrapper.EnableRankingNotification();
-
 
                 }
                 else

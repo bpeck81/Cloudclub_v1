@@ -15,58 +15,50 @@ namespace FrontEnd
 
         ColorHandler ch;
         List<Cloud> cloudList;
-        List<Cloud> currentCloudField;
-        public CloudsPage(List<Cloud> cloudList, List<string> savedClouds)
+        public CloudsPage(List<Cloud> cloudList)
         {
             ch = new ColorHandler();
-            currentCloudField = new List<Cloud>();
             cloudList = new List<Cloud>();
             var tableSection = new TableSection();
-            // BackgroundColor = ch.fromStringToColor("black");
             Title = "Clouds";
+            cloudList.Add(new Cloud("cloud","sdfdsf",0,0,0));
 
-            for (int i = 0; i < savedClouds.Count; i++)
+            for (int i = 0; i < cloudList.Count; i++)
             {
-                bool saved = false;
-                for (int j = 0; j < cloudList.Count; j++)
-                {
-                    if (savedClouds[i].Equals(cloudList[j].Title))
-                    {
-                        saved = true;
-                        currentCloudField.Add(cloudList[j]);
-                    }
-
-                }
 
 
                 var s = new CustomSwitch
                 {
-                   
-                    Text = savedClouds[i],
-                    
-                    On = saved,
 
+                    Text = cloudList[i].Title+"",
+                    ClassId = cloudList[i].Id              
 
                 };
                 s.OnChanged += S_OnChanged;
                 tableSection.Add(s);
             }
 
-            var cloudSwitchTable = new TableView
+            var cloudSwitchTable = new MyTableView
             {
-                Root = new TableRoot(),
+                Root = new TableRoot
+                {
+                    tableSection
+                },
                 BackgroundColor = ch.fromStringToColor("white")
 
             };
-            cloudSwitchTable.Root.Add(tableSection);
+          //  cloudSwitchTable.Root.Add(tableSection);
             Content = cloudSwitchTable;
         }
 
         private async void S_OnChanged(object sender, ToggledEventArgs e)
         {
-            return;
             var s = (SwitchCell)sender;
-            var saveFileKey = new SaveFileDictionary();
+
+            return;
+        
+	
+         /*   var saveFileKey = new SaveFileDictionary();
 
             var fileSystem = FileSystem.Current.LocalStorage;
             var exists = fileSystem.CheckExistsAsync("PhoneData.txt");
@@ -187,7 +179,7 @@ namespace FrontEnd
             else
             {
                 throw new System.IO.FileNotFoundException("PhoneData.txt");
-            }
+            }*/
 
         }
     }

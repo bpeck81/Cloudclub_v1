@@ -12,21 +12,19 @@ namespace FrontEnd
     class ContactUsPage : ContentPage
     {
         ColorHandler ch;
-        Editor Editor;
+        Editor editor;
 
         public ContactUsPage()
         {
             ch = new ColorHandler();
             Title = "Contact Us";
 
-            Editor = new MyEditor
+            editor = new MyEditor
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Fill,
                 HeightRequest = 200,
-                
-                //  Placeholder = "Message",
-                //  TextColor = ch.fromStringToColor("black"),
+            
                 BackgroundColor = ch.fromStringToColor("white")
             };
             Button bCancel = new Button
@@ -35,7 +33,11 @@ namespace FrontEnd
                 TextColor = ch.fromStringToColor("white"),
                 BackgroundColor = ch.fromStringToColor("lightGray"),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                FontAttributes = FontAttributes.Bold,
+               // VerticalOptions = LayoutOptions.FillAndExpand,
+                FontSize= 32,
+                BorderRadius =10,
+                WidthRequest = 20,
                 HeightRequest = 100
             };
             bCancel.Clicked += BCancel_Clicked;
@@ -43,9 +45,13 @@ namespace FrontEnd
             {
                 Text = "Send",
                 TextColor = ch.fromStringToColor("white"),
+                FontSize = 32,
                 BackgroundColor = ch.fromStringToColor("green"),
+                FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
+                BorderRadius =10,
+                
                 HeightRequest = 100
             };
             bSend.Clicked += BSend_Clicked;
@@ -54,7 +60,7 @@ namespace FrontEnd
             {
                 Children =
                 {
-                    Editor,
+                    editor,
                     new StackLayout
                     {
                         Children =
@@ -77,7 +83,7 @@ namespace FrontEnd
 
         private void BCancel_Clicked(object sender, EventArgs e)
         {
-            Editor.Text = "";
+            editor.Text = "";
 
         }
 
@@ -85,7 +91,7 @@ namespace FrontEnd
         {
             DisplayAlert("Alert", "Your message has been sent", "OK");
             Navigation.PopToRootAsync();
-            //send message to db
+            await App.dbWrapper.CreateContactUs(editor.Text);
         }
     }
 }

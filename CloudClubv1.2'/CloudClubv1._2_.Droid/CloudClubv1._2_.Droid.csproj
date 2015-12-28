@@ -138,14 +138,19 @@
   <ItemGroup>
     <Compile Include="Android Renderers\CustomEditorRenderer.cs" />
     <Compile Include="Android Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Android Renderers\CustomDRSwitchCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomSearchBarRenderer.cs" />
     <Compile Include="Android Renderers\CustomSwitchCellRenderer.cs" />
     <Compile Include="Android Renderers\CustomTabRenderer.cs" />
+    <Compile Include="Android Renderers\ImprovedTextCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomTableViewRenderer.cs" />
     <Compile Include="DBWrapper.cs" />
     <Compile Include="GcmPushes.cs" />
     <Compile Include="GcmService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -351,6 +356,8 @@
     <AndroidResource Include="Resources\drawable\User_Invite.png" />
     <AndroidResource Include="Resources\drawable\User_ViewClubs.png" />
     <AndroidResource Include="Resources\drawable\settings.png" />
+    <AndroidResource Include="Resources\Values\Styles.xml" />
+    <AndroidResource Include="Resources\drawable\RoundCorner.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">

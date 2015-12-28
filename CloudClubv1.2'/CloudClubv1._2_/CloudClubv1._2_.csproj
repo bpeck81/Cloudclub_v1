@@ -106,10 +106,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Backend\RatingJunction.cs" />
     <Compile Include="Backend\Tag.cs" />
+    <Compile Include="Renderers\CustomDailyRankSwitch.cs" />
     <Compile Include="Renderers\CustomSwitch.cs" />
     <Compile Include="Renderers\MyEditor.cs" />
     <Compile Include="Renderers\MyEntry.cs" />
+    <Compile Include="Renderers\MySearchBar.cs" />
     <Compile Include="Renderers\MyTabbedPage.cs" />
+    <Compile Include="Renderers\MyTableView.cs" />
+    <Compile Include="Renderers\MyTextCellRenderer.cs" />
     <Compile Include="Renderers\MyViewCell.cs" />
     <Compile Include="SignUpPages\AlternateCustomizeProfilePage.cs" />
     <Compile Include="SignUpPages\CustomizeProfilePage.cs" />

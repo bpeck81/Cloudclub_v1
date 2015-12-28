@@ -15,20 +15,17 @@ namespace FrontEnd
         {
             ch = new ColorHandler();
             BackgroundColor = ch.fromStringToColor("purple");
-            this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
-            // page 3 of tutorial
+            this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
             Label topHeader = new Label
             {
+
                 Text = "How It Works",
-                XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.End,
+                TextColor = ch.fromStringToColor("white"),
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 42,
-                TextColor = Color.White,
-                FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
-                BackgroundColor = Color.FromRgb(210, 61, 235)
-
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
             Image cloudImage = new Image
@@ -36,15 +33,15 @@ namespace FrontEnd
                 Aspect = Aspect.AspectFit,
                 Source = ImageSource.FromFile("page3Tutorial.png"),
                 HeightRequest = 175,
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
             Label lowerHeader = new Label
             {
                 Text = "Interact Dynamically",
-                XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 36,
                 FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
@@ -54,8 +51,8 @@ namespace FrontEnd
             {
                 Text = "Stay active! Clubs are deleted after 24 hours of inactivity",
                 XAlign = TextAlignment.Center,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                 TextColor = Color.White
@@ -73,9 +70,8 @@ namespace FrontEnd
 
                 },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
-                Spacing = 35,
-                Padding = new Thickness(20, 30, 20, 20)
-
+                Spacing = 20,
+                Padding = new Thickness(10, 20, 10, 20)
 
             };
 
