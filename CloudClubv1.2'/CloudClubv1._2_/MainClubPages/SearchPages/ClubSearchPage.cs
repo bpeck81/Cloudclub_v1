@@ -375,7 +375,6 @@ namespace FrontEnd
             return new StackLayout
             {
                 Children = {
-                    searchEntry,
                     new ScrollView
                         {
                             Content = listView,
