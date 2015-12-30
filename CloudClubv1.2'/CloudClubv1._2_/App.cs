@@ -8,8 +8,6 @@ using Backend;
 using PCLStorage;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using FrontEnd;
-using Xamarin.Forms;
 
 namespace CloudClubv1._2_
 {
@@ -22,7 +20,9 @@ namespace CloudClubv1._2_
         {
 
             dbWrapper = myDBWrapper;
-            
+            MainPage = new LoadingPage();
+
+
 
         }
         
@@ -30,17 +30,23 @@ namespace CloudClubv1._2_
 
         protected override async void OnStart()
         {
+            systemSetup();
+
+        }
+
+        public async void systemSetup()
+        {
             ch = new ColorHandler();
             bool connected = true;
-         //   try
-          //  {
+            try
+            {
                 await App.dbWrapper.GetClubs();
                 var saveFileKey = new SaveFileDictionary();
 
                 System.Diagnostics.Debug.WriteLine(FileSystem.Current.LocalStorage.Path);
                 var fileSystem = FileSystem.Current.LocalStorage;
                 var fileExists = await fileSystem.CheckExistsAsync("PhoneData.txt");
-               // createCleanFileSystem(fileSystem);
+                // createCleanFileSystem(fileSystem);
                 if (fileExists.Equals(ExistenceCheckResult.FileExists))
                 {
                     IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
@@ -56,7 +62,7 @@ namespace CloudClubv1._2_
                         var clubs = await App.dbWrapper.GetClubs();
                         var popularClubs = await App.dbWrapper.GetPopularClubs();
                         var newestClubs = await App.dbWrapper.GetNewestClubs();
-                        
+
                         var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
                         var pendingClubList = new List<string>();
                         for (int i = 0; i < clubs.Count; i++)
@@ -86,13 +92,13 @@ namespace CloudClubv1._2_
 
                     createFileSystem(fileSystem);
                 }
-          /*  }
-            catch(Exception e)
+            }
+            catch (Exception e)
             {
                 var navPage = new NavigationPage(new NoConnectionPage());
                 navPage.BarBackgroundColor = ch.fromStringToColor("purple");
                 MainPage = navPage;
-            }*/
+            }
 
             System.Diagnostics.Debug.WriteLine("end");
             //regular onstart functions
@@ -106,7 +112,6 @@ namespace CloudClubv1._2_
             navigationStyle.Setters.Add(barBackgroundColorSetter);
             Current.Resources.Add(navigationStyle);
             // Handle when your app starts
-
         }
 
         public static async Task<List<string>> getMostRecentComment(List<Club> mememberClubs)

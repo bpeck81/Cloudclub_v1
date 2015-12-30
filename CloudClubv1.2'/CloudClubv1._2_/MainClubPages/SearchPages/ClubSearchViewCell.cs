@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    public class ClubSearchViewCell : ViewCell
+    public class ClubSearchViewCell : MyViewCell
     {
         static int clubStatus;
         //  Club club;
@@ -38,7 +38,7 @@ namespace FrontEnd
 
             header = new Label
             {
-                BackgroundColor = Color.White,
+           //     BackgroundColor = Color.White,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
@@ -189,7 +189,7 @@ namespace FrontEnd
                      },
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                BackgroundColor = Color.White,
+          //     BackgroundColor = Color.White,
                 Spacing = 9f
 
             };

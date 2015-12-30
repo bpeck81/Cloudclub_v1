@@ -1467,10 +1467,27 @@ namespace CloudClubv1._2_.iOS
 		}
 
 
-		//PRIVATE FUNCTIONS
+        /// Returns a list of all invites the user has received
+        public async Task<List<Invite>> GetAccountInvites(string recipientId)
+        {
+            var list = await inviteTable.Where(item => item.RecipientId == recipientId && item.AuthorId == User.Id).ToListAsync();
+            return list;
+        }
 
-		//calculate distance from one point to another
-		private double Distance(double x1, double y1, double x2, double y2) {
+        /// Add tags to a club
+        public async Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags)
+        {
+            foreach (string key in tags)
+            {
+                await tagTable.InsertAsync(new Tag(key, clubId, cloudId));
+            }
+            return tags;
+        }
+
+        //PRIVATE FUNCTIONS
+
+        //calculate distance from one point to another
+        private double Distance(double x1, double y1, double x2, double y2) {
 			double dist = Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2));
 			return dist;
 		}

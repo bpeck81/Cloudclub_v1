@@ -2427,7 +2427,7 @@ containing a value of this type.
         public static final int myclubs_tabview=0x7f0200f5;
         public static final int news_profile=0x7f0200f6;
         public static final int news_profile1=0x7f0200f7;
-        public static final int notification_template_icon_bg=0x7f02011c;
+        public static final int notification_template_icon_bg=0x7f02011f;
         public static final int oie_transparent=0x7f0200f8;
         public static final int page2tutorial=0x7f0200f9;
         public static final int page3tutorial=0x7f0200fa;
@@ -2450,20 +2450,23 @@ containing a value of this type.
         public static final int shit_character=0x7f02010b;
         public static final int skull_character=0x7f02010c;
         public static final int sleeping_character=0x7f02010d;
-        public static final int spy_character=0x7f02010e;
-        public static final int star_empty=0x7f02010f;
-        public static final int star_gold=0x7f020110;
-        public static final int star_gray=0x7f020111;
-        public static final int star_green=0x7f020112;
-        public static final int star_lightblue=0x7f020113;
-        public static final int star_pink=0x7f020114;
-        public static final int star_purple=0x7f020115;
-        public static final int star_red=0x7f020116;
-        public static final int teethsmile_character=0x7f020117;
-        public static final int tutorial_clouds=0x7f020118;
-        public static final int tutorial_competition=0x7f020119;
-        public static final int user_invite=0x7f02011a;
-        public static final int user_viewclubs=0x7f02011b;
+        public static final int splashcloud=0x7f02010e;
+        public static final int splashscreen=0x7f02010f;
+        public static final int spy_character=0x7f020110;
+        public static final int star_empty=0x7f020111;
+        public static final int star_gold=0x7f020112;
+        public static final int star_gray=0x7f020113;
+        public static final int star_green=0x7f020114;
+        public static final int star_lightblue=0x7f020115;
+        public static final int star_pink=0x7f020116;
+        public static final int star_purple=0x7f020117;
+        public static final int star_red=0x7f020118;
+        public static final int teethsmile_character=0x7f020119;
+        public static final int trophy_whiteb=0x7f02011a;
+        public static final int tutorial_clouds=0x7f02011b;
+        public static final int tutorial_competition=0x7f02011c;
+        public static final int user_invite=0x7f02011d;
+        public static final int user_viewclubs=0x7f02011e;
     }
     public static final class id {
         public static final int action0=0x7f0b0074;

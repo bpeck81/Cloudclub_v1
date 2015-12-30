@@ -40,12 +40,13 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
             lUsername.SetBinding(Label.TextProperty, "Username");
-            lUsername.SetBinding(Label.TextColorProperty, "UserColor", converter: new ColorConverter());
+            lUsername.SetBinding(Label.TextColorProperty, "Color", converter: new ColorConverter());
 
             bAddFriend = new Button
             {
                 Text = "+",
                 FontAttributes = FontAttributes.Bold,
+                FontSize = Device.GetNamedSize(NamedSize.Large,typeof(Button)),
                 TextColor = ch.fromStringToColor("gray"),
                 BackgroundColor = ch.fromStringToColor("white"),
                 HorizontalOptions = LayoutOptions.EndAndExpand,
@@ -80,10 +81,12 @@ namespace FrontEnd
         }
         private async void BAddFriend_Clicked(object sender, EventArgs e)
         {
-            FrontClubMember clubMember = (FrontClubMember)BindingContext;
+            throw new NotImplementedException();
+            var clubMember = (FrontFriends)BindingContext;
             var btn = sender as Button;
 
-            clubMember.friendship = await App.dbWrapper.GetFriendship(clubMember.Id);
+          //  clubMember. = await App.dbWrapper.GetFriendship(clubMember.Id);
+         
             bAddFriend.IsVisible = false;
             bFriendsIndicator.IsVisible = true;
             updateView();

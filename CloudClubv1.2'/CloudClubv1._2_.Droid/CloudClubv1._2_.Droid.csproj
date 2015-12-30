@@ -136,6 +136,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Android Renderers\CustomClubViewCellRenderer.cs" />
     <Compile Include="Android Renderers\CustomEditorRenderer.cs" />
     <Compile Include="Android Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Android Renderers\CustomDRSwitchCellRenderer.cs" />
@@ -332,6 +333,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\cloudIcon.png" />
     <AndroidResource Include="Resources\drawable\club_Android50.png" />
     <AndroidResource Include="Resources\drawable\arrow_back.png" />
+    <AndroidResource Include="Resources\drawable\splashcloud.png" />
     <Content Include="Resources\drawable\DropletEmpty_WhiteB.png" />
     <Content Include="Resources\drawable\Friends_Profile.png" />
     <AndroidResource Include="Resources\drawable\News_Profile.png" />
@@ -356,8 +358,14 @@
     <AndroidResource Include="Resources\drawable\User_Invite.png" />
     <AndroidResource Include="Resources\drawable\User_ViewClubs.png" />
     <AndroidResource Include="Resources\drawable\settings.png" />
-    <AndroidResource Include="Resources\Values\Styles.xml" />
+    <AndroidResource Include="Resources\Values\Styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable\RoundCorner.xml" />
+    <AndroidResource Include="Resources\drawable\SplashScreen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Trophy_WhiteB.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">

@@ -262,7 +262,6 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Xamarin.Mobile.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.ObjectModel.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\System.Threading.Tasks.dll
-C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.Edm.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.Data.OData.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Microsoft.WindowsAzure.Mobile.xml
@@ -302,7 +301,6 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\ru\System.Spatial.resources.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hans\System.Spatial.resources.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\zh-Hant\System.Spatial.resources.dll
-C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.pdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\android\bin\com.cloudclub.cloudclubv1.x_2_.apk
@@ -765,5 +763,10 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\settings.png
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\values\styles.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\roundcorner.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\splashscreen.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\splashcloud.png
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\trophy_whiteb.png
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll.mdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.mdb

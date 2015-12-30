@@ -456,7 +456,7 @@ namespace FrontEnd
 
         private void menuPopup()
         {
-            Navigation.PushAsync(new FriendSettingsPage());
+            Navigation.PushAsync(new FriendSettingsPage(user.Id));
         }
 
     }

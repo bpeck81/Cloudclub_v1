@@ -12,12 +12,13 @@ namespace FrontEnd
     public class FriendSettingsPage : ContentPage
     {
         ColorHandler ch;
-
-        public FriendSettingsPage()
+        string userId;
+        public FriendSettingsPage(string userId)
         {
+            this.userId = userId;
             ch = new ColorHandler();
             Title = "User Settings";
-            BackgroundColor = ch.fromStringToColor("lightGray");
+            BackgroundColor = ch.fromStringToColor("white");
             TableView tableView = new TableView
             {
                 Root = new TableRoot()
@@ -27,14 +28,15 @@ namespace FrontEnd
             TextCell removeFriendCell = new TextCell
             {
                 Text = "Remove Friend",
-                TextColor = ch.fromStringToColor("gray"),
+                TextColor = ch.fromStringToColor("black"),
+                              
 
             };
             removeFriendCell.Tapped += RemoveFriendCell_Tapped;
             TextCell reportTextCell = new TextCell
             {
                 Text = "Report",
-                TextColor = ch.fromStringToColor("gray"),
+                TextColor = ch.fromStringToColor("black"),
 
 
             };
@@ -52,6 +54,7 @@ namespace FrontEnd
             if (answer == true)
             {
                 // await App.dbWrapper.CreateBan()
+                await App.dbWrapper.CreateBan(userId, "", App.dbWrapper.GetUser().Id);
                 await Navigation.PopAsync();
             }
 
@@ -61,10 +64,13 @@ namespace FrontEnd
         private async void RemoveFriendCell_Tapped(object sender, EventArgs e)
         {
             var answer = await DisplayAlert("Removed Friend", "Do you really want to remove your Friend", "Yes", "No");
+
+            throw new NotImplementedException();
             if (answer == true)
             {
                 await Navigation.PopAsync();
             }
+            
 
             //TODO:tie to backend
         }

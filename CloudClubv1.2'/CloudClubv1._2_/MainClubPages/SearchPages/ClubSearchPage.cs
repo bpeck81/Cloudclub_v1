@@ -36,7 +36,7 @@ namespace FrontEnd
             this.clubMemberList = clubMemberList;
             this.popularClubs = popularClubs;
             this.newestClubs = newestClubs;
-            BackgroundColor = ch.fromStringToColor("purple");
+           // BackgroundColor = ch.fromStringToColor("black");
             
             //this.Icon = "search_Android1.png";
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
@@ -83,9 +83,9 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowHeight = 160,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = ch.fromStringToColor("white"),
+                BackgroundColor = ch.fromStringToColor("lightGray"),
                 IsPullToRefreshEnabled = true,
-                SeparatorColor = ch.fromStringToColor("gray")
+                SeparatorColor = ch.fromStringToColor("lightGray")
 
             };
             popListView.ItemSelected += ListView_ItemSelected;
@@ -158,7 +158,8 @@ namespace FrontEnd
                 Children = {
                    popListView,
                     bottomButtonLayout
-                }
+                },
+                BackgroundColor = ch.fromStringToColor("lightGray")
             };
 
         }
@@ -176,8 +177,8 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowHeight = 160,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = ch.fromStringToColor("white"),
-                SeparatorColor = ch.fromStringToColor("gray"),
+                BackgroundColor = ch.fromStringToColor("lightGray"),
+                SeparatorColor = ch.fromStringToColor("lightGray"),
                 IsPullToRefreshEnabled = true
             };
 
@@ -252,17 +253,18 @@ namespace FrontEnd
                 Children = {
                     newListView,
                     bottomButtonLayout
-                }
+                },
+                BackgroundColor = ch.fromStringToColor("lightGray")
+
             };
 
         }
         private View generateSearchPage()
         {
             currentPage = "search";
-            Entry searchEntry = new Entry
+            var searchEntry = new MySearchBar
             {
-                TextColor = ch.fromStringToColor("black"),
-                BackgroundColor = ch.fromStringToColor("white"),
+               // BackgroundColor = ch.fromStringToColor("white"),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Start
             };
@@ -276,11 +278,13 @@ namespace FrontEnd
                 ItemTemplate = new DataTemplate(typeof(ClubSearchViewCell)),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowHeight = 160,
+                
                 VerticalOptions = LayoutOptions.Start,
-                BackgroundColor = ch.fromStringToColor("white"),
-                SeparatorColor = ch.fromStringToColor("gray")
+                BackgroundColor = ch.fromStringToColor("lightGray"),
+                SeparatorColor = ch.fromStringToColor("lightGray")
             };
             listView.ItemSelected += ListView_ItemSelected;
+
             Button bCreateClub = new Button
             {
                 Text = "+",
@@ -328,6 +332,7 @@ namespace FrontEnd
             bSearchClubsPage.Clicked += BSearchClubsPage_Clicked; ;
 
             StackLayout bottomButtonLayout = new StackLayout
+
             {
                 Children =
                 {
@@ -350,7 +355,7 @@ namespace FrontEnd
             {
                 bottomButtonLayout.IsVisible = true;
             };
-            searchEntry.Completed += async (sender, e) =>
+            searchEntry.SearchButtonPressed += async (sender, e) =>
             {
                 //TODO see how to get tags to search by
                 List<string> tagsList = new List<string>();
@@ -378,7 +383,7 @@ namespace FrontEnd
                             Orientation = ScrollOrientation.Vertical,
                             HorizontalOptions = LayoutOptions.FillAndExpand,
                             VerticalOptions = LayoutOptions.FillAndExpand,
-                            BackgroundColor = Color.White
+                            BackgroundColor = ch.fromStringToColor("white")
                         },
                     bottomButtonLayout,
 
