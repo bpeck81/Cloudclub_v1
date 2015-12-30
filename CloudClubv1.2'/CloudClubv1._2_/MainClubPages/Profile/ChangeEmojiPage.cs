@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using CloudClubv1._2_;
+
 namespace FrontEnd
 {
     class ChangeEmojiPage: ContentPage
@@ -14,27 +16,33 @@ namespace FrontEnd
         ColorHandler ch;
         string chosenColorId;
         string chosenEmojiId;
-        TapGestureRecognizer extendedImagesTgr;
+        TapGestureRecognizer extendedImagesTgr, backButtonTgr;
         Grid characterGrid, colorGrid;
         ScrollView colorBoxes;
+        Image bBack;
 
 
-        public ChangeEmojiPage()
+        public ChangeEmojiPage(string currentEmoji, string currentColor)
         {
             ch = new ColorHandler();
-            characterButtons = this.generateExtendedCharacterButtons();
             characterNames = new List<string>();
+            NavigationPage.SetHasNavigationBar(this, false);
+
+            characterButtons = this.generateExtendedCharacterButtons();
             colorButtons = this.generateColorButtons();
-            chosenColorId = "default";
-            chosenEmojiId = "default";
+            chosenColorId = currentColor;
+            chosenEmojiId = currentEmoji;
             extendedImagesTgr = new TapGestureRecognizer();
             extendedImagesTgr.Tapped += ExtendedImagesTgr_Tapped;
+            backButtonTgr = new TapGestureRecognizer();
+            backButtonTgr.Tapped += BackButtonTgr_Tapped;
 
             Content = new StackLayout
             {
                 Children =
                 {
-                   // generateColorView(),
+                    generateActionBar(),
+                    generateColorView(),
                    generateExtendedCharacterView()
 
                 },
@@ -47,9 +55,78 @@ namespace FrontEnd
 
         }
 
+
+        private View generateActionBar()
+        {
+            bBack = new Image
+            {
+                Source = FileImageSource.FromFile("arrow_back.png"),
+                WidthRequest = 30,
+                // Scale = ,
+
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Center,
+                HeightRequest = 30,
+                Aspect = Aspect.AspectFill
+            };
+            bBack.GestureRecognizers.Add(backButtonTgr);
+
+            var actionBarLabel = new Label
+            {
+               Text = "Customize Your Profile",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                TextColor = ch.fromStringToColor("white"),
+                FontSize = 22,
+                FontAttributes = FontAttributes.Bold
+            };
+
+            var actionBarLayout = new StackLayout
+            {
+                Children =
+                {
+                    
+                    bBack,
+                    actionBarLabel
+
+                },
+                HeightRequest = 30,
+                Orientation = StackOrientation.Horizontal,
+                BackgroundColor = ch.fromStringToColor("purple"),
+                VerticalOptions = LayoutOptions.Center,
+                Padding = new Thickness(10, 10, 0, 10)
+            };
+            return actionBarLayout;
+        }
+        private async void BackButtonTgr_Tapped(object sender, EventArgs e)
+        {
+
+            await App.dbWrapper.SetUserColor(this.chosenColorId);
+            await App.dbWrapper.SetUserEmoji(this.chosenEmojiId);
+
+            MessagingCenter.Send<ChangeEmojiPage>(this, "updateData");
+            await Navigation.PopAsync();
+        }
+
         private void ExtendedImagesTgr_Tapped(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
+            Image b = sender as Image;
+            var source = b.Source as FileImageSource;
+            if (source != null)
+            {
+                chosenEmojiId = source.File;
+            }
+
+            foreach (Image character in characterButtons)
+            {
+                character.BackgroundColor = ch.fromStringToColor("white");
+                if (character.Source == b.Source)
+                {
+                    character.BackgroundColor = ch.fromStringToColor("black");
+                    //character.Source = FileImageSource.FromFile("cloudIcon.png");
+                }
+            }
         }
 
         private ScrollView generateColorView()
@@ -99,7 +176,7 @@ namespace FrontEnd
             };
             return colorBoxes;
         }
-        private Grid generateExtendedCharacterView()
+        private View generateExtendedCharacterView()
         {
             // characterButtons = generateExtendedCharacterButtons();
 
@@ -132,12 +209,20 @@ namespace FrontEnd
             {
                 for (int j = 0; j < 5; j++)
                 {
-
+                    characterButtons[counter].GestureRecognizers.Add(extendedImagesTgr);
                     characterGrid.Children.Add(characterButtons[counter], i, j);
                     counter++;
                 }
             }
-            return characterGrid;
+            ScrollView characterScrollView = new ScrollView
+            {
+                Content = characterGrid,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                BackgroundColor = ch.fromStringToColor("white"),
+                Orientation = ScrollOrientation.Horizontal
+            };
+            return characterScrollView;
         }
 
         private List<Image> generateExtendedCharacterButtons()
@@ -273,12 +358,19 @@ namespace FrontEnd
             var imageButtons = new List<Image>();
             for (int i = 0; i < characterNames.Count; i++)
             {
+                var bc = "white";
+                if(chosenEmojiId == characterNames[i])
+                {
+                    bc = "blue";
+                }
                 var img = new Image
                 {
                     Source = FileImageSource.FromFile(characterNames[i]),
                     Aspect = Aspect.AspectFit,
                     HeightRequest = 70,
-                    WidthRequest = 70
+                    WidthRequest = 70,
+                    BackgroundColor = ch.fromStringToColor(bc)
+
                 };
                 img.GestureRecognizers.Add(extendedImagesTgr);
                 imageButtons.Add(img);
@@ -287,17 +379,27 @@ namespace FrontEnd
 
 
         }
+
         private List<Button> generateColorButtons()
         {
             var colorButtons = new List<Button>();
             for (int i = 0; i < ch.colorList.Count; i++)
             {
+                var radius = 5;
+                if (chosenColorId != null && chosenColorId != "")
+                {
+                    if (ch.fromStringToColor(this.chosenColorId) == ch.colorList[i])
+                    {
+                        radius = 150;
+                    }
+                }
+
                 Button bcolor = new Button
                 {
 
                     BackgroundColor = ch.colorList[i],
                     ClassId = BackgroundColor.ToString(),
-                    BorderRadius = 5,
+                    BorderRadius = radius,
                     VerticalOptions = LayoutOptions.Center
                 };
                 bcolor.Clicked += Bcolor_Clicked;

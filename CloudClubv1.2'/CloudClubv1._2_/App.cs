@@ -37,10 +37,13 @@ namespace CloudClubv1._2_
         public async void systemSetup()
         {
             ch = new ColorHandler();
+
+
             bool connected = true;
+
+
             try
             {
-                await App.dbWrapper.GetClubs();
                 var saveFileKey = new SaveFileDictionary();
 
                 System.Diagnostics.Debug.WriteLine(FileSystem.Current.LocalStorage.Path);
@@ -172,15 +175,8 @@ namespace CloudClubv1._2_
 
         protected async override void OnResume()
         {
-            try
-            {
-                await App.dbWrapper.GetDBMessages();
-            }
-            catch (Exception e)
-            {
-                MainPage = new NavigationPage(new NoConnectionPage());
-
-            }
+            MainPage =new  LoadingPage();
+            systemSetup();
         }
     }
 }

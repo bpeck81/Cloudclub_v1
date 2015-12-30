@@ -23,13 +23,14 @@ namespace FrontEnd
         TapGestureRecognizer userEmojiTgr;
         Label userText;
         Entry userTextEntry;
-
+        Account user;
         public ProfilePage()
         {
             friendsImagetgr = new TapGestureRecognizer();
             friendsImagetgr.Tapped += FriendsImagetgr_Tapped;
             newsImagetgr = new TapGestureRecognizer();
             newsImagetgr.Tapped += NewsImagetgr_Tapped;
+            
             userTextTgr = new TapGestureRecognizer();
             userTextTgr.Tapped += UserTextTgr_Tapped;
             userEmojiTgr = new TapGestureRecognizer();
@@ -40,8 +41,17 @@ namespace FrontEnd
             medals = new List<Medal>();
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             BackgroundColor = ch.fromStringToColor("white");
-            Account user = App.dbWrapper.GetUser();
+            user = App.dbWrapper.GetUser();
+            generatePage();
+            MessagingCenter.Subscribe<ChangeEmojiPage>(this, "updateData", (sender) => {
+                this.user = App.dbWrapper.GetUser();
+                generatePage();
+            });
+        }
 
+
+        private void generatePage()
+        {
 
             Label lAccountName = new Label
             {
@@ -62,8 +72,8 @@ namespace FrontEnd
                 WidthRequest = 115,
                 Scale = .8
             };
-            userEmoji.GestureRecognizers.Add(userEmojiTgr); 
-            
+            userEmoji.GestureRecognizers.Add(userEmojiTgr);
+
             Image medalsImg = new Image
             {
                 Source = ImageSource.FromFile("Medal_WhiteB.png"),
@@ -102,7 +112,7 @@ namespace FrontEnd
             var rank = App.dbWrapper.GetUser().Ranking;
             Label lInCloudClub = new Label
             {
-                Text = "Top "+ rank+"%",
+                Text = "Top " + rank + "%",
                 TextColor = ch.fromStringToColor("gold"),
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
@@ -110,9 +120,9 @@ namespace FrontEnd
             };
             var lNumClubs = new Image
             {
-                Aspect= Aspect.AspectFit,
+                Aspect = Aspect.AspectFit,
                 Source = FileImageSource.FromFile("Trophy_WhiteB.png"),
-                
+
             };
             userText = new Label
             {
@@ -248,9 +258,15 @@ namespace FrontEnd
             Content = contentLayout;
         }
 
+        public void refreshData()
+        {
+
+        }
+
         private void UserEmojiTgr_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChangeEmojiPage());
+         //   Navigation.PushAsync(new Tutorial1Page());
+            Navigation.PushAsync(new ChangeEmojiPage(user.Emoji, user.Color));
         }
 
         private void UserTextEntry_TextChanged(object sender, TextChangedEventArgs e)
