@@ -91,6 +91,8 @@ class MonoPackageManager_Resources {
 		"Newtonsoft.Json.dll",
 		"PCLStorage.Abstractions.dll",
 		"PCLStorage.dll",
+		"Plugin.Connectivity.Abstractions.dll",
+		"Plugin.Connectivity.dll",
 		"System.Net.Http.Extensions.dll",
 		"System.Net.Http.Primitives.dll",
 		"System.Spatial.dll",

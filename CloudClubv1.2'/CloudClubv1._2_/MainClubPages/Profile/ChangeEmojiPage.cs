@@ -25,13 +25,14 @@ namespace FrontEnd
         public ChangeEmojiPage(string currentEmoji, string currentColor)
         {
             ch = new ColorHandler();
+            chosenColorId = currentColor;
+            chosenEmojiId = currentEmoji;
             characterNames = new List<string>();
             NavigationPage.SetHasNavigationBar(this, false);
 
             characterButtons = this.generateExtendedCharacterButtons();
             colorButtons = this.generateColorButtons();
-            chosenColorId = currentColor;
-            chosenEmojiId = currentEmoji;
+
             extendedImagesTgr = new TapGestureRecognizer();
             extendedImagesTgr.Tapped += ExtendedImagesTgr_Tapped;
             backButtonTgr = new TapGestureRecognizer();
@@ -46,6 +47,7 @@ namespace FrontEnd
                    generateExtendedCharacterView()
 
                 },
+                
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white")
@@ -113,6 +115,14 @@ namespace FrontEnd
 
             Image b = sender as Image;
             var source = b.Source as FileImageSource;
+            foreach(Image character  in characterButtons)
+            {
+                var s = character.Source as FileImageSource;
+                if(chosenEmojiId == s.File)
+                {
+                    character.Scale = 1;
+                }
+            }
             if (source != null)
             {
                 chosenEmojiId = source.File;
@@ -120,10 +130,10 @@ namespace FrontEnd
 
             foreach (Image character in characterButtons)
             {
-                character.BackgroundColor = ch.fromStringToColor("white");
+                
                 if (character.Source == b.Source)
                 {
-                    character.BackgroundColor = ch.fromStringToColor("black");
+                    character.Scale = .7;
                     //character.Source = FileImageSource.FromFile("cloudIcon.png");
                 }
             }
@@ -131,24 +141,25 @@ namespace FrontEnd
 
         private ScrollView generateColorView()
         {
-            RowDefinition rd = new RowDefinition { Height = 60 };
+            RowDefinition rd = new RowDefinition { Height = 60,};
             colorGrid = new Grid
             {
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Center,
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = rd.Height},
-                    new RowDefinition { Height =  rd.Height},
+                    new RowDefinition { Height = 50},
+                    new RowDefinition { Height =  50},
 
                 },
                 ColumnDefinitions =
                 {
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height},
-                    new ColumnDefinition { Width = rd.Height}
+                    new ColumnDefinition { Width = 50 },
+                    new ColumnDefinition { Width = 50 },
+                    new ColumnDefinition { Width = 50},
+                    new ColumnDefinition { Width = 50}
                 },
                 HorizontalOptions = LayoutOptions.Center,
+                
                 ColumnSpacing = 20f,
                 RowSpacing = 20f,
                 BackgroundColor = Color.White,
@@ -358,10 +369,10 @@ namespace FrontEnd
             var imageButtons = new List<Image>();
             for (int i = 0; i < characterNames.Count; i++)
             {
-                var bc = "white";
+                double scale = 1;
                 if(chosenEmojiId == characterNames[i])
                 {
-                    bc = "blue";
+                    scale = .7;
                 }
                 var img = new Image
                 {
@@ -369,8 +380,7 @@ namespace FrontEnd
                     Aspect = Aspect.AspectFit,
                     HeightRequest = 70,
                     WidthRequest = 70,
-                    BackgroundColor = ch.fromStringToColor(bc)
-
+                    Scale  = scale
                 };
                 img.GestureRecognizers.Add(extendedImagesTgr);
                 imageButtons.Add(img);
@@ -385,9 +395,13 @@ namespace FrontEnd
             var colorButtons = new List<Button>();
             for (int i = 0; i < ch.colorList.Count; i++)
             {
+                System.Diagnostics.Debug.WriteLine(this.chosenColorId);
+
                 var radius = 5;
                 if (chosenColorId != null && chosenColorId != "")
                 {
+
+
                     if (ch.fromStringToColor(this.chosenColorId) == ch.colorList[i])
                     {
                         radius = 150;

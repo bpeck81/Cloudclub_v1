@@ -32,7 +32,7 @@ namespace FrontEnd
                 ItemTemplate = new DataTemplate(typeof(NewsPageViewCell)),
                 BackgroundColor = ch.fromStringToColor("white"),
                 HasUnevenRows = true
-
+                
             };
             listView.ItemTapped += ListView_ItemSelected;
 

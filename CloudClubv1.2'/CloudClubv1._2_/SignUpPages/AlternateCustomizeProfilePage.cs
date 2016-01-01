@@ -114,22 +114,22 @@ namespace FrontEnd
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
             };
 
-            RowDefinition rd = new RowDefinition { Height = 60 };
+            int boxSize = 50;
             colorGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = rd.Height},
-                    new RowDefinition { Height =  rd.Height},
+                    new RowDefinition { Height = boxSize},
+                    new RowDefinition { Height =  boxSize},
 
                 },
                 ColumnDefinitions =
                 {
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height},
-                    new ColumnDefinition { Width = rd.Height}
+                    new ColumnDefinition { Width = boxSize },
+                    new ColumnDefinition { Width = boxSize },
+                    new ColumnDefinition { Width = boxSize},
+                    new ColumnDefinition { Width = boxSize}
                 },
                 HorizontalOptions = LayoutOptions.Center,
                 ColumnSpacing = 20f,

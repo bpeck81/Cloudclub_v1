@@ -768,5 +768,13 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.pdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.csprojResolveAssemblyReference.cache
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\res\drawable\trophy_whiteb.png
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.Abstractions.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.Abstractions.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.Abstractions.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.dll.mdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\Plugin.Connectivity.Abstractions.dll.mdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\CloudClubv1._2_.Droid.dll.mdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\bin\Debug\CloudClubv1._2_.Droid.dll.mdb

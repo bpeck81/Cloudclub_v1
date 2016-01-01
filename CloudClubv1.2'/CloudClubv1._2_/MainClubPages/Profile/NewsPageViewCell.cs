@@ -19,24 +19,27 @@ namespace FrontEnd
             {
                 Aspect = Aspect.AspectFit,
                 HeightRequest = 50,
-                HorizontalOptions = LayoutOptions.StartAndExpand,
-                VerticalOptions = LayoutOptions.Center
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Center,
+                Scale =.7
 
             };
             imgNotification.SetBinding(Image.SourceProperty, "NotificationImage");
             Label lNotificaton = new Label
             {
                 TextColor = ch.fromStringToColor("black"),
-                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.Center
+                FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Center,
+                LineBreakMode  = LineBreakMode.CharacterWrap
             };
             lNotificaton.SetBinding(Label.TextProperty, "Text");
             Label lTimeSpan = new Label
             {
                 TextColor = ch.fromStringToColor("black"),
                 HorizontalOptions = LayoutOptions.EndAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                VerticalOptions = LayoutOptions.Center,
+                LineBreakMode   = LineBreakMode.NoWrap
             };
             lTimeSpan.SetBinding(Label.TextProperty, "Time");
 
@@ -46,11 +49,12 @@ namespace FrontEnd
                 {
                     imgNotification,
                     lNotificaton,
+                    
                     lTimeSpan
                 },
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Padding = new Thickness(7, 0, 7, 0)
+                Padding = new Thickness(2, 0, 7, 0)
             };
             View = sLayout;
         }

@@ -8,6 +8,7 @@ using Backend;
 using PCLStorage;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using Plugin.Connectivity;
 
 namespace CloudClubv1._2_
 {
@@ -28,7 +29,7 @@ namespace CloudClubv1._2_
         
 
 
-        protected override async void OnStart()
+        protected override void OnStart()
         {
             systemSetup();
 
@@ -37,83 +38,87 @@ namespace CloudClubv1._2_
         public async void systemSetup()
         {
             ch = new ColorHandler();
-
-
-            bool connected = true;
-
-
-            try
-            {
-                var saveFileKey = new SaveFileDictionary();
-
-                System.Diagnostics.Debug.WriteLine(FileSystem.Current.LocalStorage.Path);
-                var fileSystem = FileSystem.Current.LocalStorage;
-                var fileExists = await fileSystem.CheckExistsAsync("PhoneData.txt");
-                // createCleanFileSystem(fileSystem);
-                if (fileExists.Equals(ExistenceCheckResult.FileExists))
-                {
-                    IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
-                    var data = await file.ReadAllTextAsync();
-                    var dataLines = data.Split('\n');
-                    string id = dataLines[saveFileKey.dict["USERID"]];
-                    System.Diagnostics.Debug.WriteLine(id);
-                    if (!id.Equals("a"))
-                    {
-                        var userAccount = await dbWrapper.GetAccount(id);
-                        await App.dbWrapper.LoginAccount(userAccount.Username, userAccount.Password);
-
-                        var clubs = await App.dbWrapper.GetClubs();
-                        var popularClubs = await App.dbWrapper.GetPopularClubs();
-                        var newestClubs = await App.dbWrapper.GetNewestClubs();
-
-                        var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
-                        var pendingClubList = new List<string>();
-                        for (int i = 0; i < clubs.Count; i++)
-                        {
-                            if (await App.dbWrapper.IsPendingClubRequest(clubs[i].Id))
-                            {
-                                pendingClubList.Add(clubs[i].Id);
-                            }
-
-                        }
-                        var firstLineCommentList = await App.getMostRecentComment(memberClubsList);
-                        //  await App.dbWrapper.cloud
-
-                        var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList, firstLineCommentList));
-                        navPage.BarBackgroundColor = ch.fromStringToColor("purple");
-                        MainPage = navPage;
-                    }
-                    else
-                    {
-                        createCleanFileSystem(fileSystem);
-                    }
-
-
-                }
-                else
-                {
-
-                    createFileSystem(fileSystem);
-                }
-            }
-            catch (Exception e)
-            {
-                var navPage = new NavigationPage(new NoConnectionPage());
-                navPage.BarBackgroundColor = ch.fromStringToColor("purple");
-                MainPage = navPage;
-            }
-
-            System.Diagnostics.Debug.WriteLine("end");
-            //regular onstart functions
-
-
-
+           var cc = CrossConnectivity.Current;
 
             Current.Resources = new ResourceDictionary();
             var navigationStyle = new Style(typeof(NavigationPage));
             var barBackgroundColorSetter = new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = ch.fromStringToColor("purple") };
             navigationStyle.Setters.Add(barBackgroundColorSetter);
             Current.Resources.Add(navigationStyle);
+
+            try {
+                if (cc.IsConnected) {
+
+                    System.Diagnostics.Debug.WriteLine("connected");
+                    var saveFileKey = new SaveFileDictionary();
+
+                    System.Diagnostics.Debug.WriteLine(FileSystem.Current.LocalStorage.Path);
+                    var fileSystem = FileSystem.Current.LocalStorage;
+                    var fileExists = await fileSystem.CheckExistsAsync("PhoneData.txt");
+                    // createCleanFileSystem(fileSystem);
+                    if (fileExists.Equals(ExistenceCheckResult.FileExists))
+                    {
+                        IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
+                        var data = await file.ReadAllTextAsync();
+                        var dataLines = data.Split('\n');
+                        string id = dataLines[saveFileKey.dict["USERID"]];
+                        System.Diagnostics.Debug.WriteLine(id);
+                        if (!id.Equals("a"))
+                        {
+                            var userAccount = await dbWrapper.GetAccount(id);
+                            await App.dbWrapper.LoginAccount(userAccount.Username, userAccount.Password);
+
+                            var clubs = await App.dbWrapper.GetClubs();
+                            var popularClubs = await App.dbWrapper.GetPopularClubs();
+                            var newestClubs = await App.dbWrapper.GetNewestClubs();
+
+                            var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+                            var pendingClubList = new List<string>();
+                            for (int i = 0; i < clubs.Count; i++)
+                            {
+                                if (await App.dbWrapper.IsPendingClubRequest(clubs[i].Id))
+                                {
+                                    pendingClubList.Add(clubs[i].Id);
+                                }
+
+                            }
+                            var firstLineCommentList = await App.getMostRecentComment(memberClubsList);
+                            //  await App.dbWrapper.cloud
+
+                            var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList, firstLineCommentList));
+                            navPage.BarBackgroundColor = ch.fromStringToColor("purple");
+                            MainPage = navPage;
+                        }
+                        else
+                        {
+                            createCleanFileSystem(fileSystem);
+                        }
+
+
+                    }
+                    else
+                    {
+
+                        createFileSystem(fileSystem);
+                    }
+                }
+
+                else
+                {
+                    var navPage = new NoConnectionPage();
+                    MainPage = navPage;
+                }
+            }
+            catch(Exception e)
+            {
+                MainPage = new NoConnectionPage();
+            }
+            //regular onstart functions
+
+
+
+
+
             // Handle when your app starts
         }
 

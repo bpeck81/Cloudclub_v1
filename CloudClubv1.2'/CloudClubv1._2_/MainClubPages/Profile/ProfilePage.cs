@@ -265,7 +265,7 @@ namespace FrontEnd
 
         private void UserEmojiTgr_Tapped(object sender, EventArgs e)
         {
-         //   Navigation.PushAsync(new Tutorial1Page());
+            //   Navigation.PushAsync(new Tutorial1Page());
             Navigation.PushAsync(new ChangeEmojiPage(user.Emoji, user.Color));
         }
 

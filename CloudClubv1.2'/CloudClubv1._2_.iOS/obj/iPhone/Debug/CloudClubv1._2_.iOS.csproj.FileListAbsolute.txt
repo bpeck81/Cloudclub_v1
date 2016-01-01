@@ -66,6 +66,12 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1._2_.iOS.csproj.CloudClubv1_2_iOS.exe.config
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.exe
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.pdb
-C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\System.Diagnostics.Tools.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\Plugin.Connectivity.Abstractions.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\Plugin.Connectivity.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\CloudClubv1._2_.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\Plugin.Connectivity.Abstractions.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\Plugin.Connectivity.Abstractions.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\Plugin.Connectivity.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\Plugin.Connectivity.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\obj\iPhone\Debug\CloudClubv1_2_iOS.exe.mdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.iOS\bin\iPhone\Debug\CloudClubv1_2_iOS.exe.mdb
