@@ -104,21 +104,21 @@ namespace FrontEnd
             switch (colorString)
             {
                 case "red":
-                    return ("Star_Red.png");
+                    return ("Star_RedChatInfo.png");
                 case "green":
-                    return ("Star_Green.png");
+                    return ("Star_GreenChatInfo.png");
                 case "blue":
-                    return ("Star_LightBlue.png");
+                    return ("Star_LightBlueChatInfo.png");
                 case "navy":
-                    return ("Star_LightBlue.png");
+                    return ("Star_LightBlueChatInfo.png");
                 case "magenta":
-                    return ("Star_Pink.png");
+                    return ("Star_PinkChatInfo.png");
                 case "gray":
-                    return ("Star_Gray.png");
+                    return ("Star_GrayChatInfo.png");
                 case "purple":
-                    return ("Star_Purple.png");
+                    return ("Star_PurpleChatInfo.png");
                 default:
-                    return "Star_Gold.png";
+                    return "Star_GoldChatInfo.png";
             }
         }
 

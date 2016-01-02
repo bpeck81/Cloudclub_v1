@@ -40,6 +40,7 @@ namespace FrontEnd
             this.commentsList = new ObservableCollection<FrontComment>();
             int clubRequestCount = 0;
             System.Diagnostics.Debug.WriteLine(chatList.Count.ToString());
+            chatList.Reverse();
             for (int i = 0; i < chatList.Count; i++)
             {
                 if (chatList[i].GetType() == typeof(Comment))
@@ -121,10 +122,11 @@ namespace FrontEnd
             {
                 ItemsSource = CurrentCommentsList,
                 ItemTemplate = new DataTemplate(typeof(CommentViewCell)),
-                HasUnevenRows = true
+                HasUnevenRows = true,
+                
             };
+            listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count() - 1], ScrollToPosition.End, false);
             listView.ItemTapped += ListView_ItemTapped;
-         //   listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count - 1], ScrollToPosition.End, false);
 
             MessagingCenter.Subscribe<CommentViewCell, FrontComment>(this, "hi", async (sender, args) =>
             {
@@ -232,7 +234,9 @@ namespace FrontEnd
                 var commentOutput = await App.dbWrapper.CreateComment(userEntry.Text, club.Id);
                 //System.Diagnostics.Debug.WriteLine("OUTPUT: "+joinClub);
                 userEntry.Text = "";
-              //  updatePage();
+                listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count() - 1], ScrollToPosition.End, false);
+
+                //  updatePage();
             }
 
 

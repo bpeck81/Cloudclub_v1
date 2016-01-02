@@ -7,6 +7,9 @@ using System.Text;
 using Xamarin.Forms;
 using Backend;
 using CloudClubv1._2_;
+using Plugin.Contacts;
+using Plugin.Contacts.Abstractions;
+using System.Threading.Tasks;
 
 namespace FrontEnd
 {
@@ -24,11 +27,20 @@ namespace FrontEnd
         TapGestureRecognizer starTap;
         Entry addTagEntry;
         int previousRating;
+        Image bBack;
+        Label bInviteFriends;
+        TapGestureRecognizer backButtonTgr, inviteFriendsTgr;
+        StackLayout actionBarLayout;
         public ChatInfoPage(List<Tag> tagsList, ParentFrontClub club, List<FrontClubMember> usersList, bool isMember, string founderUsername, int previousRating)
         {
             this.previousRating = previousRating;
+            backButtonTgr = new TapGestureRecognizer();
+            backButtonTgr.Tapped += BackButtonTgr_Tapped;
+            inviteFriendsTgr = new TapGestureRecognizer();
+            inviteFriendsTgr.Tapped += SettingsTgr_Tapped;
             starTap = new TapGestureRecognizer();
             starTap.Tapped += StarTap_Tapped;
+            NavigationPage.SetHasNavigationBar(this, false);
             this.tagsList = tagsList;
             this.founderUsername = founderUsername;
             this.isMember = isMember;
@@ -40,6 +52,57 @@ namespace FrontEnd
             bottomButton = new Button();
             BackgroundColor = ch.fromStringToColor("white");
             starImages = new List<Image>();
+
+            bBack = new Image
+            {
+                Source = FileImageSource.FromFile("arrow_back.png"),
+                WidthRequest = 30,
+                // Scale = ,
+
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                VerticalOptions = LayoutOptions.Center,
+                HeightRequest = 30,
+                Aspect = Aspect.AspectFill
+            };
+            bBack.GestureRecognizers.Add(backButtonTgr);
+
+            var actionBarLabel = new Label
+            {
+                Text = "Info",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Center,
+                TextColor = ch.fromStringToColor("white"),
+                FontSize = 22,
+                FontAttributes = FontAttributes.Bold
+            };
+            bInviteFriends = new Label
+            {
+                Text = "Invite +",
+               // BackgroundColor = ch.fromStringToColor("purple"),
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                FontSize= Device.GetNamedSize(NamedSize.Medium,typeof(Label)),
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                TextColor = ch.fromStringToColor("white"),
+              
+            };
+            bInviteFriends.GestureRecognizers.Add(inviteFriendsTgr);
+
+
+            actionBarLayout = new StackLayout
+            {
+                Children =
+                {
+                    bBack,
+                    actionBarLabel,
+                    bInviteFriends
+                },
+                HeightRequest = 30,
+                Orientation = StackOrientation.Horizontal,
+                BackgroundColor = ch.fromStringToColor(this.club.clubColor),
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Padding = new Thickness(10, 10, 0, 10)
+            };
             for (int i = 0; i < 5; i++)
             {
                 Image star = new Image
@@ -158,6 +221,42 @@ namespace FrontEnd
 
         }
 
+        private async void SettingsTgr_Tapped(object sender, EventArgs e)
+        {
+            List<Contact> contacts = null;
+            try {
+
+                if (await CrossContacts.Current.RequestPermission())
+                {
+
+                    CrossContacts.Current.PreferContactAggregation = false;//recommended
+                                                                           //run in background
+                    await Task.Run(() =>
+                    {
+                        if (CrossContacts.Current.Contacts == null)
+                            return;
+
+                        contacts = CrossContacts.Current.Contacts
+                          .Where(c => !string.IsNullOrWhiteSpace(c.LastName) && c.Phones.Count > 0)
+                          .ToList();
+
+                        contacts = contacts.OrderBy(c => c.LastName).ToList();
+                    });
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+            await Navigation.PushAsync(new InviteFromContacts(contacts));
+
+        }
+
+        private void BackButtonTgr_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
         public void updatePage()
         {
             StackLayout topBarSLayout = new StackLayout
@@ -226,6 +325,7 @@ namespace FrontEnd
             {
                 Children =
                 {
+                    actionBarLayout,
                     topBarSLayout,
                     middleBar,
                     middleBandSLayout,
@@ -233,7 +333,7 @@ namespace FrontEnd
                     usersListView,
                     bottomButton
                 },
-                Padding = new Thickness(15, 5, 15, 15),
+//Padding = new Thickness(15, 5, 15, 15),
                 Spacing = 15,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand

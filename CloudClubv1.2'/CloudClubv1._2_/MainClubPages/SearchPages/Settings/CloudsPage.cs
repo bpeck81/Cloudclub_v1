@@ -15,26 +15,36 @@ namespace FrontEnd
 
         ColorHandler ch;
         List<Cloud> cloudList;
+        List<CustomSwitch> cloudSwitchList;
         public CloudsPage(List<Cloud> cloudList)
         {
             ch = new ColorHandler();
             cloudList = new List<Cloud>();
             var tableSection = new TableSection();
+            cloudSwitchList = new List<CustomSwitch>();
             Title = "Clouds";
-            cloudList.Add(new Cloud("cloud","sdfdsf",0,0,0));
+       //     cloudList.Add(new Cloud("cloud","sdfdsf",0,0,0));
+            var user = App.dbWrapper.GetUser();
+            
 
             for (int i = 0; i < cloudList.Count; i++)
             {
-
+                bool toggleOn = false;
+                if (user.CurrentCloudId == cloudList[i].Id)
+                {
+                    toggleOn = true;
+                }
 
                 var s = new CustomSwitch
                 {
 
-                    Text = cloudList[i].Title+"",
-                    ClassId = cloudList[i].Id              
+                    Text = cloudList[i].Title,
+                    ClassId = cloudList[i].Id,
+                    On = toggleOn          
 
                 };
                 s.OnChanged += S_OnChanged;
+                cloudSwitchList.Add(s);
                 tableSection.Add(s);
             }
 
@@ -54,7 +64,20 @@ namespace FrontEnd
         private async void S_OnChanged(object sender, ToggledEventArgs e)
         {
             var s = (SwitchCell)sender;
-
+            bool swtchState = s.On;
+            foreach(CustomSwitch swtch in cloudSwitchList)
+            {
+                swtch.On = false;
+            }
+            if (swtchState)
+            {
+                s.On = true;
+               await App.dbWrapper.SetCurrentCloud(s.ClassId);
+            }
+            else
+            {
+                s.On = true;
+            }
             return;
         
 	

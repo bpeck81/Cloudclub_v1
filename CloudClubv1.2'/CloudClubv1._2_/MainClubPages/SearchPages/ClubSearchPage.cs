@@ -383,7 +383,7 @@ namespace FrontEnd
                             Orientation = ScrollOrientation.Vertical,
                             HorizontalOptions = LayoutOptions.FillAndExpand,
                             VerticalOptions = LayoutOptions.FillAndExpand,
-                            BackgroundColor = ch.fromStringToColor("white")
+                            BackgroundColor = ch.fromStringToColor("lightGray")
                         },
                     bottomButtonLayout,
 

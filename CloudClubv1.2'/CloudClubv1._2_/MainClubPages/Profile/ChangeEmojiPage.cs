@@ -190,6 +190,7 @@ namespace FrontEnd
         private View generateExtendedCharacterView()
         {
             // characterButtons = generateExtendedCharacterButtons();
+           
 
             characterGrid = new Grid
             {
@@ -231,7 +232,8 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = ch.fromStringToColor("white"),
-                Orientation = ScrollOrientation.Horizontal
+                Orientation = ScrollOrientation.Horizontal,
+                
             };
             return characterScrollView;
         }

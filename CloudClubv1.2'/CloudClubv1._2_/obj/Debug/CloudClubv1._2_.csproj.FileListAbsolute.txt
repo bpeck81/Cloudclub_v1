@@ -179,5 +179,17 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Connectivity.xml
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Connectivity.Abstractions.pdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Connectivity.Abstractions.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.Abstractions.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.Abstractions.pdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.Abstractions.xml
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll.mdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.mdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll.mdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.mdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll.mdb
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.mdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll.mdb
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.mdb

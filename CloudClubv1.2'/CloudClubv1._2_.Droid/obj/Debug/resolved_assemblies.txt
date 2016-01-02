@@ -15,6 +15,11 @@ C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\PCLStorage.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.Connectivity.Abstractions.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.Connectivity.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.Contacts.Abstractions.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.Contacts.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.CurrentActivity.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.Permissions.Abstractions.dll
+C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\Plugin.Permissions.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\System.Core.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\System.dll
 C:\Users\brand_000\Documents\Coding\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_.Droid\obj\Debug\assemblies\System.Net.Http.dll

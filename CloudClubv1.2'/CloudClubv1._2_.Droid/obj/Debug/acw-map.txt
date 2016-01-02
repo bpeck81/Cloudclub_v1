@@ -30,6 +30,10 @@ CloudClubv1._2_.Droid.MainActivity, CloudClubv1._2_.Droid;md583a5db7bf3698299f4d
 CloudClubv1._2_.Droid.MainActivity, CloudClubv1._2_.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainActivity
 CloudClubv1._2_.Droid.MainActivity;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainActivity
 cloudclubv1._2_.droid.MainActivity;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainActivity
+CloudClubv1._2_.Droid.MainApplication, CloudClubv1._2_.Droid;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainApplication
+CloudClubv1._2_.Droid.MainApplication, CloudClubv1._2_.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainApplication
+CloudClubv1._2_.Droid.MainApplication;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainApplication
+cloudclubv1._2_.droid.MainApplication;md583a5db7bf3698299f4dd7c4eaa4db5c5.MainApplication
 CloudClubv1._2_.Droid.SplashActivity, CloudClubv1._2_.Droid;md583a5db7bf3698299f4dd7c4eaa4db5c5.SplashActivity
 CloudClubv1._2_.Droid.SplashActivity, CloudClubv1._2_.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md583a5db7bf3698299f4dd7c4eaa4db5c5.SplashActivity
 CloudClubv1._2_.Droid.SplashActivity;md583a5db7bf3698299f4dd7c4eaa4db5c5.SplashActivity

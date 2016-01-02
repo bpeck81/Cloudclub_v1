@@ -71,6 +71,26 @@
       <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.2\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Plugin.Contacts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\MonoAndroid10\Plugin.Contacts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Contacts.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\MonoAndroid10\Plugin.Contacts.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.CurrentActivity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.0\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Permissions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -157,6 +177,7 @@
     <Compile Include="GcmPushes.cs" />
     <Compile Include="GcmService.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
@@ -166,6 +187,9 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\ContactItemView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -174,6 +198,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PluginsHelp\CrossActivityReadme.txt" />
+    <Content Include="PluginsHelp\PermissionsReadme.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\Cloud.png" />
     <AndroidResource Include="Resources\drawable\page2Tutorial.png" />
@@ -374,6 +400,14 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\Trophy_WhiteB.png" />
+    <AndroidResource Include="Resources\drawable\Star_GrayChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_GreenChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_LightBlueChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_PinkChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_PurpleChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_RedChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_EmptyChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_GoldChatInfo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">

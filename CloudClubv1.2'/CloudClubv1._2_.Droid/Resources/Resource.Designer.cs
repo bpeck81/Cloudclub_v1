@@ -2300,8 +2300,8 @@ namespace CloudClubv1._2_.Droid
 			// aapt resource value: 0x7f0200f7
 			public const int News_Profile1 = 2130837751;
 			
-			// aapt resource value: 0x7f02011f
-			public const int notification_template_icon_bg = 2130837791;
+			// aapt resource value: 0x7f020127
+			public const int notification_template_icon_bg = 2130837799;
 			
 			// aapt resource value: 0x7f0200f8
 			public const int oie_transparent = 2130837752;
@@ -2382,43 +2382,67 @@ namespace CloudClubv1._2_.Droid
 			public const int Star_Empty = 2130837777;
 			
 			// aapt resource value: 0x7f020112
-			public const int Star_Gold = 2130837778;
+			public const int Star_EmptyChatInfo = 2130837778;
 			
 			// aapt resource value: 0x7f020113
-			public const int Star_Gray = 2130837779;
+			public const int Star_Gold = 2130837779;
 			
 			// aapt resource value: 0x7f020114
-			public const int Star_Green = 2130837780;
+			public const int Star_GoldChatInfo = 2130837780;
 			
 			// aapt resource value: 0x7f020115
-			public const int Star_LightBlue = 2130837781;
+			public const int Star_Gray = 2130837781;
 			
 			// aapt resource value: 0x7f020116
-			public const int Star_Pink = 2130837782;
+			public const int Star_GrayChatInfo = 2130837782;
 			
 			// aapt resource value: 0x7f020117
-			public const int Star_Purple = 2130837783;
+			public const int Star_Green = 2130837783;
 			
 			// aapt resource value: 0x7f020118
-			public const int Star_Red = 2130837784;
+			public const int Star_GreenChatInfo = 2130837784;
 			
 			// aapt resource value: 0x7f020119
-			public const int Teethsmile_Character = 2130837785;
+			public const int Star_LightBlue = 2130837785;
 			
 			// aapt resource value: 0x7f02011a
-			public const int Trophy_WhiteB = 2130837786;
+			public const int Star_LightBlueChatInfo = 2130837786;
 			
 			// aapt resource value: 0x7f02011b
-			public const int Tutorial_Clouds = 2130837787;
+			public const int Star_Pink = 2130837787;
 			
 			// aapt resource value: 0x7f02011c
-			public const int Tutorial_Competition = 2130837788;
+			public const int Star_PinkChatInfo = 2130837788;
 			
 			// aapt resource value: 0x7f02011d
-			public const int User_Invite = 2130837789;
+			public const int Star_Purple = 2130837789;
 			
 			// aapt resource value: 0x7f02011e
-			public const int User_ViewClubs = 2130837790;
+			public const int Star_PurpleChatInfo = 2130837790;
+			
+			// aapt resource value: 0x7f02011f
+			public const int Star_Red = 2130837791;
+			
+			// aapt resource value: 0x7f020120
+			public const int Star_RedChatInfo = 2130837792;
+			
+			// aapt resource value: 0x7f020121
+			public const int Teethsmile_Character = 2130837793;
+			
+			// aapt resource value: 0x7f020122
+			public const int Trophy_WhiteB = 2130837794;
+			
+			// aapt resource value: 0x7f020123
+			public const int Tutorial_Clouds = 2130837795;
+			
+			// aapt resource value: 0x7f020124
+			public const int Tutorial_Competition = 2130837796;
+			
+			// aapt resource value: 0x7f020125
+			public const int User_Invite = 2130837797;
+			
+			// aapt resource value: 0x7f020126
+			public const int User_ViewClubs = 2130837798;
 			
 			static Drawable()
 			{
@@ -2937,76 +2961,79 @@ namespace CloudClubv1._2_.Droid
 			public const int abc_select_dialog_material = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int design_layout_snackbar = 2130903064;
+			public const int ContactItemView = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int design_layout_snackbar_include = 2130903065;
+			public const int design_layout_snackbar = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int design_layout_tab_icon = 2130903066;
+			public const int design_layout_snackbar_include = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int design_layout_tab_text = 2130903067;
+			public const int design_layout_tab_icon = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int design_navigation_item = 2130903068;
+			public const int design_layout_tab_text = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int design_navigation_item_header = 2130903069;
+			public const int design_navigation_item = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int design_navigation_item_separator = 2130903070;
+			public const int design_navigation_item_header = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int design_navigation_item_subheader = 2130903071;
+			public const int design_navigation_item_separator = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int design_navigation_menu = 2130903072;
+			public const int design_navigation_item_subheader = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int mr_media_route_chooser_dialog = 2130903073;
+			public const int design_navigation_menu = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int mr_media_route_controller_material_dialog_b = 2130903074;
+			public const int mr_media_route_chooser_dialog = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int mr_media_route_list_item = 2130903075;
+			public const int mr_media_route_controller_material_dialog_b = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int notification_media_action = 2130903076;
+			public const int mr_media_route_list_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int notification_media_cancel_action = 2130903077;
+			public const int notification_media_action = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int notification_template_big_media = 2130903078;
+			public const int notification_media_cancel_action = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int notification_template_big_media_narrow = 2130903079;
+			public const int notification_template_big_media = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notification_template_lines = 2130903080;
+			public const int notification_template_big_media_narrow = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_template_media = 2130903081;
+			public const int notification_template_lines = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int notification_template_part_chronometer = 2130903082;
+			public const int notification_template_media = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_template_part_time = 2130903083;
+			public const int notification_template_part_chronometer = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int select_dialog_item_material = 2130903084;
+			public const int notification_template_part_time = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int select_dialog_multichoice_material = 2130903085;
+			public const int select_dialog_item_material = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int select_dialog_singlechoice_material = 2130903086;
+			public const int select_dialog_multichoice_material = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int support_simple_spinner_dropdown_item = 2130903087;
+			public const int select_dialog_singlechoice_material = 2130903087;
+			
+			// aapt resource value: 0x7f030030
+			public const int support_simple_spinner_dropdown_item = 2130903088;
 			
 			static Layout()
 			{

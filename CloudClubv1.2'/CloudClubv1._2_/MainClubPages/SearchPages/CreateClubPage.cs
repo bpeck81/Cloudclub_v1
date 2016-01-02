@@ -64,27 +64,27 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
             RowDefinition rd = new RowDefinition { Height = 60 };
+            int rowDim = 50;
 
             colorGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.Center,
-
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = rd.Height},
-                    new RowDefinition { Height =  rd.Height},
+                    new RowDefinition { Height = rowDim},
+                    new RowDefinition { Height = rowDim },
 
                 },
                 ColumnDefinitions =
                 {
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height }
+                    new ColumnDefinition { Width = rowDim },
+                    new ColumnDefinition { Width = rowDim },
+                    new ColumnDefinition { Width = rowDim },
+                    new ColumnDefinition { Width = rowDim }
 
                 },
 
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowSpacing = 5,
                 ColumnSpacing = 10,
                 BackgroundColor = Color.White,

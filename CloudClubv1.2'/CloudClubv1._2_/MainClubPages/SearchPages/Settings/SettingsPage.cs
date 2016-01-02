@@ -18,7 +18,7 @@ namespace FrontEnd
         {
             Title = "Settings";
             ch = new ColorHandler();
-
+            var user = App.dbWrapper.GetUser();
             var cloudsTCell = new TextCell
             {
                 Text = "Clouds",
@@ -45,10 +45,11 @@ namespace FrontEnd
              {
                  Navigation.PushAsync(new SettingsNotificationspage());
              };*/
+             
             var dailyRankSwitch = new CustomSwitch
             {
                 Text = "Daily Rank Notification                               ",
-                On = false
+                On = user.RatingNotificationToggle
 
             };
             dailyRankSwitch.OnChanged += async (sender, e) =>

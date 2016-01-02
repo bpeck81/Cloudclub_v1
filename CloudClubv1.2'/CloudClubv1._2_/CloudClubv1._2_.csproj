@@ -61,6 +61,7 @@
     <Compile Include="Backend\SearchArray.cs" />
     <Compile Include="Backend\TemporaryMemberJunction.cs" />
     <Compile Include="MainClubPages\ChatPages\FrontClubMember.cs" />
+    <Compile Include="MainClubPages\ChatPages\InviteFromContacts.cs" />
     <Compile Include="MainClubPages\FriendPages\FriendClubListPageViewCell.cs" />
     <Compile Include="MainClubPages\FriendPages\FrontFriendClub.cs" />
     <Compile Include="MainClubPages\FriendPages\FrontInviteToClubFriend.cs" />
@@ -161,6 +162,14 @@
     </Reference>
     <Reference Include="Plugin.Connectivity.Abstractions, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.2\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Contacts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Contacts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Contacts.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Contacts.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
