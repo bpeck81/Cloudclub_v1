@@ -154,9 +154,11 @@ namespace FrontEnd
                 BackgroundColor = ch.fromStringToColor("white"),
                 TextColor = ch.fromStringToColor("black"),
                 VerticalOptions = LayoutOptions.End,
-                IsEnabled = isMember
+                IsEnabled = isMember,
+                Placeholder = "Tap to chat"
             };
             userEntry.Completed += UserEntry_Completed;
+            userEntry.Focused += UserEntry_Focused;
             Label lEmptyChat = new Label
             {
                 Text = "There are no messages. Type below!",
@@ -197,6 +199,11 @@ namespace FrontEnd
                     VerticalOptions = LayoutOptions.FillAndExpand
                 };
             }
+        }
+
+        private void UserEntry_Focused(object sender, FocusEventArgs e)
+        {
+            
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

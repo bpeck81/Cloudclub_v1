@@ -65,7 +65,7 @@ namespace FrontEnd
             star4 = "Star_Empty.png";
             star5 = "Star_Empty.png";
 
-            string starPath = ch.getStarColorString(clubColor);
+            string starPath = ch.getClubStarColorString(clubColor);
 
             switch (starNumber)
             {

@@ -122,5 +122,27 @@ namespace FrontEnd
             }
         }
 
+        public string getClubStarColorString(string colorString)
+        {
+            switch (colorString)
+            {
+                case "red":
+                    return ("Star_Red.png");
+                case "green":
+                    return ("Star_Green.png");
+                case "blue":
+                    return ("Star_LightBlue.png");
+                case "navy":
+                    return ("Star_LightBlue.png");
+                case "magenta":
+                    return ("Star_Pink.png");
+                case "gray":
+                    return ("Star_Gray.png");
+                case "purple":
+                    return ("Star_Purple.png");
+                default:
+                    return "Star_Gold.png";
+            }
+        }
     }
 }

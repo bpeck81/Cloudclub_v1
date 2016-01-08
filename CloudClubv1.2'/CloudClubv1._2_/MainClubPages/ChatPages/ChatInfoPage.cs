@@ -7,9 +7,10 @@ using System.Text;
 using Xamarin.Forms;
 using Backend;
 using CloudClubv1._2_;
-using Plugin.Contacts;
-using Plugin.Contacts.Abstractions;
+
 using System.Threading.Tasks;
+using Plugin.Contacts.Abstractions;
+using Plugin.Contacts;
 
 namespace FrontEnd
 {
@@ -229,6 +230,7 @@ namespace FrontEnd
                 if (await CrossContacts.Current.RequestPermission())
                 {
 
+                  //  List<Contact> contacts = null;
                     CrossContacts.Current.PreferContactAggregation = false;//recommended
                                                                            //run in background
                     await Task.Run(() =>
@@ -248,7 +250,15 @@ namespace FrontEnd
             {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
-            await Navigation.PushAsync(new InviteFromContacts(contacts));
+            if (contacts != null)
+            {
+                System.Diagnostics.Debug.WriteLine(contacts.Count.ToString());
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("null");
+            }
+           // await Navigation.PushAsync(new InviteFromContacts(contacts));
 
         }
 
@@ -453,8 +463,9 @@ namespace FrontEnd
                         for (int j = 0; j <= i; j++)
                         {
                             starImages[j].Source = ImageSource.FromFile(ch.getStarColorString(club.clubColor));
-                            App.dbWrapper.RateClub(j, club.Id);
+                            App.dbWrapper.RateClub(j + 1, club.Id);
                         }
+
                         break;
                     }
                 }

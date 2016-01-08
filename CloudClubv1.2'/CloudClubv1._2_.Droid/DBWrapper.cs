@@ -223,6 +223,7 @@ namespace CloudClubv1._2_.Droid
                 //make DBNotification
                 DBNotification DBNotification = new DBNotification(User.Id, "join", "You created the club " + club.Title + "!");
                 await dbNotificationTable.InsertAsync(DBNotification);
+                await CreateComment(club.Title + " was created", club.Id);
 
                 return true;
             }
