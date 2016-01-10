@@ -10,19 +10,21 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Text;
-using System.Net.Http;
 //add for push notifications
-//using Gcm.Client;
-using UIKit;
-using Foundation;
+using Gcm.Client;
+//add geolocation and file pickers, etc. 
 using Xamarin.Geolocation;
 
-
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 using CloudClubv1._2_;
 using Backend;
 
-
-namespace CloudClubv1._2_.iOS
+namespace CloudClubv1._2_.Droid
 {
 	public class DBWrapper:DBWrapperInterface
 	{
@@ -221,6 +223,9 @@ namespace CloudClubv1._2_.iOS
 				//make DBNotification
 				DBNotification DBNotification = new DBNotification(User.Id, "join", "You created the club " + club.Title + "!");
 				await dbNotificationTable.InsertAsync(DBNotification);
+
+				//make default comment to avoid null memory-push append frontendlist exception
+				await CreateComment(club.Title+" was created",club.Id);
 
 				return true;
 			}
@@ -442,16 +447,9 @@ namespace CloudClubv1._2_.iOS
 			var list = await friendRequestTable.Where(item => item.RecipientId == User.Id).ToListAsync();
 			return list;
 		}
-        /// Added by Brandon. NOT IMPLEMENTED
-     /*   public List<FriendRequest> GetAccountFriendRequests(string accountId)
-        {
-            // var list = await friendRequestTable.Where(item => item.RecipientId == accountId).ToListAsync();
-            var list = new List<FriendRequest>();
-            return list;
-        }*/
 
-        /// Deletes a friend request; returns true if successful, false if not
-        public async Task<bool> DeclineFriendRequest(string friendRequestId)
+		/// Deletes a friend request; returns true if successful, false if not
+		public async Task<bool> DeclineFriendRequest(string friendRequestId)
 		{
 			try
 			{
@@ -974,25 +972,24 @@ namespace CloudClubv1._2_.iOS
 		/// Creates a push register so the device can receive push notifications
 		private void CreatePushRegister(){
 			//error handling for push notifications
-			/*
-            try
-            {
-                // Check to ensure everything's setup right
-                GcmClient.CheckDevice(MainActivity.Instance);
-                GcmClient.CheckManifest(MainActivity.Instance);
+			try
+			{
+				// Check to ensure everything's setup right
+				GcmClient.CheckDevice(MainActivity.Instance);
+				GcmClient.CheckManifest(MainActivity.Instance);
 
-                // Register for push notifications
-                System.Diagnostics.Debug.WriteLine("Registering...");
-                GcmClient.Register(MainActivity.Instance, PushHandlerBroadcastReceiver.SENDER_IDS);
-            }
-            catch (Java.Net.MalformedURLException)
-            {
-                //CreateAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
-            }
-            catch (Exception e)
-            {
-                //CreateAndShowDialog(e, "Error");
-            }*/
+				// Register for push notifications
+				System.Diagnostics.Debug.WriteLine("Registering...");
+				GcmClient.Register(MainActivity.Instance, PushHandlerBroadcastReceiver.SENDER_IDS);
+			}
+			catch (Java.Net.MalformedURLException)
+			{
+				//CreateAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+			}
+			catch (Exception e)
+			{
+				//CreateAndShowDialog(e, "Error");
+			}
 		}
 
 		/// sets the user to null rather than an account value
@@ -1314,7 +1311,7 @@ namespace CloudClubv1._2_.iOS
 
 			System.Diagnostics.Debug.WriteLine("mydebug--started getting position");
 
-			var locator = new Geolocator() { DesiredAccuracy = 50 };
+			var locator = new Geolocator(MainActivity.Instance) { DesiredAccuracy = 50 };
 			await locator.GetPositionAsync(timeout: 10000).ContinueWith(t =>
 				{
 					System.Diagnostics.Debug.WriteLine("mydebug--Position Status: {0}", t.Result.Timestamp);
@@ -1462,35 +1459,44 @@ namespace CloudClubv1._2_.iOS
 
 		///Returns the most recent comment to be written in a club
 		public async Task<Comment> GetRecentComment(string clubId) {
-			var comment = (await commentTable.Where(item=>item.ClubId==clubId).OrderByDescending(item=>item.Time).Take(1).ToListAsync())[0];
+			var comments = await commentTable.Where(item=>item.ClubId==clubId).OrderByDescending(item=>item.Time).Take(1).ToListAsync();
+			Comment comment;
+			//if comment exists
+			if (comments.Count > 0)
+			{
+				comment = comments[0];
+			}
+			else {
+				//create an empty comment so not null value
+				comment = new Comment("", "", "");
+			}
+
 			return comment;
 		}
 
+		/// Returns a list of all invites the user has received
+		public async Task<List<Invite>> GetAccountInvites(string recipientId) {
+			var list = await inviteTable.Where(item=>item.RecipientId==recipientId && item.AuthorId==User.Id).ToListAsync();
+			return list;
+		}
 
-        /// Returns a list of all invites the user has received
-        public async Task<List<Invite>> GetAccountInvites(string recipientId)
-        {
-            var list = await inviteTable.Where(item => item.RecipientId == recipientId && item.AuthorId == User.Id).ToListAsync();
-            return list;
-        }
+		/// Add tags to a club
+		public async Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags) {
+			foreach (string key in tags) {
+				await tagTable.InsertAsync(new Tag(key,clubId,cloudId));
+			}
+			return tags;
+		}
 
-        /// Add tags to a club
-        public async Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags)
-        {
-            foreach (string key in tags)
-            {
-                await tagTable.InsertAsync(new Tag(key, clubId, cloudId));
-            }
-            return tags;
-        }
 
-        //PRIVATE FUNCTIONS
+		//PRIVATE FUNCTIONS
 
-        //calculate distance from one point to another
-        private double Distance(double x1, double y1, double x2, double y2) {
+		//calculate distance from one point to another
+		private double Distance(double x1, double y1, double x2, double y2) {
 			double dist = Math.Sqrt(Math.Pow(x2-x1,2)+Math.Pow(y2-y1,2));
 			return dist;
 		}
 
 	}
 }
+

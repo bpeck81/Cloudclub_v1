@@ -20,7 +20,7 @@ namespace FrontEnd
         ParentFrontClub club;
         bool isMember;
         Image bBack, bSettings;
-        ListView listView;
+        public static ListView listView;
         TapGestureRecognizer settingsTgr, backButtonTgr;
         public ClubChatPage(ParentFrontClub club, List<DBItem> chatList, List<Account> commentUsers, List<Account> requestUsersList, bool isMember)
         {
@@ -128,7 +128,9 @@ namespace FrontEnd
                 BackgroundColor = ch.fromStringToColor("white")                
                 
             };
-            listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count() - 1], ScrollToPosition.End, false);
+			if (CurrentCommentsList.Count != 0) {
+				listView.ScrollTo (CurrentCommentsList [CurrentCommentsList.Count () - 1], ScrollToPosition.End, false);
+			}
             listView.ItemTapped += ListView_ItemTapped;
 
             MessagingCenter.Subscribe<CommentViewCell, FrontComment>(this, "hi", async (sender, args) =>
@@ -306,6 +308,11 @@ namespace FrontEnd
             btn.GestureRecognizers.Add(settingsTgr);
             btn.InputTransparent = false;
         }
+
+		//used by backend push notifications to scroll to new comments
+		public static void ScrollToCurrent(){
+			listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count() - 1], ScrollToPosition.End, false);
+		}
 
     }
 }

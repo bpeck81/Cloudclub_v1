@@ -19,7 +19,7 @@ namespace FrontEnd
         public CloudsPage(List<Cloud> cloudList)
         {
             ch = new ColorHandler();
-            cloudList = new List<Cloud>();
+            this.cloudList = cloudList;
             var tableSection = new TableSection();
             cloudSwitchList = new List<CustomSwitch>();
             Title = "Clouds";
