@@ -123,6 +123,9 @@ namespace FrontEnd
                 ItemsSource = CurrentCommentsList,
                 ItemTemplate = new DataTemplate(typeof(CommentViewCell)),
                 HasUnevenRows = true,
+                SeparatorVisibility = SeparatorVisibility.None,
+                SeparatorColor = ch.fromStringToColor("white"),
+                BackgroundColor = ch.fromStringToColor("white")                
                 
             };
             listView.ScrollTo(CurrentCommentsList[CurrentCommentsList.Count() - 1], ScrollToPosition.End, false);

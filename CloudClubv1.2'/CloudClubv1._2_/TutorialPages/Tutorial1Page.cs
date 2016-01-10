@@ -7,6 +7,7 @@ using Backend;
 using CloudClubv1._2_;
 
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace FrontEnd
 {
@@ -31,8 +32,19 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.Center,
                 Scale = .7
             };
-          
+            var running = true;
+            Task.Run(async () =>
+            {
+                while (running)
+                {
+                    Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => {
+                        await cloudImage.TranslateTo(0, 15, 1000, Easing.SinInOut);
+                        await cloudImage.TranslateTo(0, -15, 1000, Easing.SinInOut);
+                    });
+                    await Task.Delay(2000);
+                }
 
+            });
             Label headerLabel = new Label
             {
                 Text = "Welcome To CloudClub",

@@ -395,7 +395,7 @@ namespace FrontEnd
                     IsVisible = entryVisible,
                     Placeholder = "tap to add tag",
                     IsEnabled = entryVisible,
-                    BackgroundColor = ch.fromStringToColor("lightGray"),
+                    BackgroundColor = ch.fromStringToColor("white"),
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     
                 };
