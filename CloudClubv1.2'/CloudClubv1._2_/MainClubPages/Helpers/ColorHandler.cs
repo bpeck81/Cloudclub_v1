@@ -115,6 +115,8 @@ namespace FrontEnd
                     return ("Star_PinkChatInfo.png");
                 case "gray":
                     return ("Star_GrayChatInfo.png");
+                case "empty":
+                    return ("Star_EmptyChatInfo.png");
                 case "purple":
                     return ("Star_PurpleChatInfo.png");
                 default:

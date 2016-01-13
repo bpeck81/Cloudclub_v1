@@ -31,7 +31,8 @@ namespace FrontEnd
                 ItemsSource = frontNewsList,
                 ItemTemplate = new DataTemplate(typeof(NewsPageViewCell)),
                 BackgroundColor = ch.fromStringToColor("white"),
-                HasUnevenRows = true
+                HasUnevenRows = true,
+
                 
             };
             listView.ItemTapped += ListView_ItemSelected;

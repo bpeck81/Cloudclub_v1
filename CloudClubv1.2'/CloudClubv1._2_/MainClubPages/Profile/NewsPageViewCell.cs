@@ -49,12 +49,18 @@ namespace FrontEnd
                 {
                     imgNotification,
                     lNotificaton,
-                    
-                    lTimeSpan
+                    new StackLayout
+                    {
+                        Children  = {lTimeSpan},
+                        HorizontalOptions = LayoutOptions.EndAndExpand,
+                        VerticalOptions = LayoutOptions.Center,
+                        Padding= new Thickness(3,0,20,0)
+                    }
+
                 },
                 Orientation = StackOrientation.Horizontal,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Padding = new Thickness(2, 0, 7, 0)
+                Padding = new Thickness(2, 0, -10, 0)
             };
             View = sLayout;
         }

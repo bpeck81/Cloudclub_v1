@@ -120,7 +120,7 @@ namespace FrontEnd
                 }
                 else
                 {
-                    star.Source = ImageSource.FromFile(ch.getStarColorString("gray"));
+                    star.Source = ImageSource.FromFile(ch.getStarColorString("empty"));
                 }
                 if (isMember)
                 {
@@ -454,7 +454,7 @@ namespace FrontEnd
             {
                 for (int i = 0; i < starImages.Count; i++)
                 {
-                    starImages[i].Source = FileImageSource.FromFile(ch.getStarColorString("gray"));
+                    starImages[i].Source = FileImageSource.FromFile(ch.getStarColorString("empty"));
                 }
                 for (int i = 0; i < starImages.Count; i++)
                 {
