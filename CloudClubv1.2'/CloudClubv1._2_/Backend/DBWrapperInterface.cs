@@ -87,5 +87,7 @@ namespace CloudClubv1._2_
           Task<Comment> GetRecentComment(string clubId);
           Task<List<Invite>> GetAccountInvites(string recipientId);
           Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags);
+		  Task<List<PhoneContact>> GetContacts();
+		  void SendInviteSMS(string phoneNumber);
     }
 }

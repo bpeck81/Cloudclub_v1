@@ -16,7 +16,7 @@ namespace FrontEnd
         public Tutorial1Page()
         {
             //Michael's debug function
-          //  DebugDatabase();
+            //DebugDatabase();
 
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
@@ -82,7 +82,10 @@ namespace FrontEnd
         }
         
         private async void DebugDatabase(){
-            string debug = "MYDEBUG-----";
+			System.Diagnostics.Debug.WriteLine ("GETCONTACTS CALLED------");
+			await App.dbWrapper.GetContacts ();
+			App.dbWrapper.SendInviteSMS ("5714396965");
+            /*string debug = "MYDEBUG-----";
 
             //await App.dbWrapper.CreateCloud("Wahoos","wahoo was",38.03,-78.500,.00001);
             //await App.dbWrapper.CreateCloud("Wahoos3", "wahoo was", 38.03, -78.500, .02);
@@ -103,7 +106,7 @@ namespace FrontEnd
 
             //await App.dbWrapper.CreateCloud("title","desc",1,2,3);
             //await App.dbWrapper.JoinCloud((await App.dbWrapper.GetClouds())[0].Id);
-            
+            */
         }
 
     }

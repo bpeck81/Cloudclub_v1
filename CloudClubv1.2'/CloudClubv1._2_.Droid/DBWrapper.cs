@@ -10,10 +10,13 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Text;
+using System.Text.RegularExpressions;
 //add for push notifications
 using Gcm.Client;
 //add geolocation and file pickers, etc. 
 using Xamarin.Geolocation;
+//contacts
+using Xamarin.Contacts;
 
 using Android.App;
 using Android.Content;
@@ -21,6 +24,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+//import for text message
+using Android.Telephony;
 using CloudClubv1._2_;
 using Backend;
 
@@ -1485,6 +1490,42 @@ namespace CloudClubv1._2_.Droid
             }
             return tags;
         }
+
+		/// Returns a list of phone contacts
+		public async Task<List<PhoneContact>> GetContacts(){
+			List<PhoneContact> contacts = new List<PhoneContact> ();
+			var book = new Xamarin.Contacts.AddressBook (MainActivity.Instance);
+			//char[] illegalCharacters = {'(',')',' ','-','+'};
+
+			//if no permission, exit function
+			if (!await book.RequestPermission()) {
+				System.Diagnostics.Debug.WriteLine ("Permission denied by user or manifest");
+				return contacts;
+			}
+
+			//loop through contacts
+			foreach (Contact contact in book.ToList()) {
+				//if the contact has a phone number, add them to list
+				if(contact.Phones.ToList().Count()>0){
+					//parse number before making contact
+					string parsedNumber = contact.Phones.ToList()[0].Number;
+					parsedNumber = Regex.Replace(parsedNumber, "[^0-9]", "");
+					//add contact
+					contacts.Add(new PhoneContact(contact.FirstName,contact.LastName,parsedNumber));
+
+					System.Diagnostics.Debug.WriteLine(contacts[contacts.Count-1].ToString());
+				}
+			}
+
+			return contacts;
+		}
+
+		//send a text message to invite friends using background services
+		public void SendInviteSMS(string phoneNumber){
+			//NOTE: must include both android and ios links
+			SmsManager.Default.SendTextMessage (phoneNumber, null,
+				"You have been invited to join your friends on Cloudclub! Download the app from: http://play.google.com/store/apps/details?id=com.cloudclub.cloudclubv1.x_2_", null, null);
+		}
 
 
         //PRIVATE FUNCTIONS

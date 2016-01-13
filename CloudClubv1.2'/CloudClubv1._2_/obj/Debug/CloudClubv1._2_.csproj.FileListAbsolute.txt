@@ -213,6 +213,9 @@ C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Microsoft.WindowsAzure.Storage.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\PCLStorage.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\PCLStorage.Abstractions.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Connectivity.pdb
@@ -223,9 +226,6 @@ C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.Abstractions.pdb
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Plugin.Contacts.Abstractions.xml
-C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Extensions.xml
-C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\System.Spatial.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Core.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\de\Microsoft.Data.Edm.resources.dll
@@ -258,7 +258,5 @@ C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.csproj.App.config
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.pdb
-C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll.mdb
-C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.mdb
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\obj\Debug\CloudClubv1._2_.dll.mdb
 C:\Users\Student\Documents\Github_2016\Cloudclub_v1\CloudClubv1.2'\CloudClubv1._2_\bin\Debug\CloudClubv1._2_.dll.mdb

@@ -1,16 +1,30 @@
 ﻿<Properties StartupItem="CloudClubv1.2'\CloudClubv1._2_.Droid\CloudClubv1._2_.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.05157df50a232832" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CloudClubv1.2'\CloudClubv1._2_\MainClubPages\ChatPages\ChatInfoPage.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (KitKat)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CloudClubv1.2'\CloudClubv1._2_.Droid\DBWrapper.cs">
     <Files>
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_.iOS\AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_.iOS\DBWrapper.cs" Line="220" Column="19" />
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_\MainClubPages\ChatPages\ClubChatPage.cs" Line="163" Column="44" />
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_.Droid\GcmPushes.cs" Line="41" Column="78" />
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_\MainClubPages\SearchPages\Settings\SettingsPage.cs" Line="32" Column="54" />
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_\MainClubPages\SearchPages\Settings\CloudsPage.cs" Line="23" Column="51" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_.Droid\DBWrapper.cs" Line="1510" Column="101" />
       <File FileName="CloudClubv1.2'\CloudClubv1._2_.Droid\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="CloudClubv1.2'\CloudClubv1._2_\MainClubPages\ChatPages\ChatInfoPage.cs" Line="467" Column="26" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_\Backend\DBWrapperInterface.cs" Line="90" Column="9" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_\TutorialPages\Tutorial1Page.cs" Line="86" Column="10" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CloudClubv1.2'" expanded="True">
+            <Node name="CloudClubv1._2_" expanded="True">
+              <Node name="Backend" expanded="True" />
+              <Node name="TutorialPages" expanded="True" />
+            </Node>
+            <Node name="CloudClubv1._2_.Droid" expanded="True">
+              <Node name="ComponentReferenceFolder" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="DBWrapper.cs" selected="True" />
+            </Node>
+            <Node name="CloudClubv1._2_.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
