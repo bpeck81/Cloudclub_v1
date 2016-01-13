@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    public class ClubSearchViewCell : ViewCell
+    public class ClubSearchViewCell : MyViewCell
     {
         static int clubStatus;
         //  Club club;
@@ -25,7 +25,7 @@ namespace FrontEnd
         Label joinRequestLabel;
         Image star1, star2, star3, star4, star5, iFlag;
         ColorHandler ch;
-        StackLayout starStack;
+        StackLayout starStack, headerLayout;
         TapGestureRecognizer flagTgr;
 
         public ClubSearchViewCell()
@@ -38,7 +38,7 @@ namespace FrontEnd
 
             header = new Label
             {
-                BackgroundColor = Color.White,
+           //     BackgroundColor = Color.White,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
@@ -46,6 +46,17 @@ namespace FrontEnd
             };
             header.SetBinding(Label.TextProperty, "Title");
             header.SetBinding(Label.TextColorProperty, "clubColor", converter: new ColorConverter());
+            headerLayout = new StackLayout
+            {
+                Children =
+                {
+                    header
+                },
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions= LayoutOptions.Center,
+                Padding = new Thickness(30,0,0,0)
+            };
+
 
             iFlag = new Image
             {
@@ -100,9 +111,10 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
 
             };
+            clubTextLabel.SetBinding(Label.TextProperty, "mostRecentLine");
+
             clubTextLabel.SetBinding(Label.IsVisibleProperty, "isMember");
 
-            clubTextLabel.SetBinding(Label.TextProperty, "mostRecentLine");
 
             activityTimeLabel = new Label
             {
@@ -162,7 +174,7 @@ namespace FrontEnd
                         {
                             Children =
                             {
-                                header,
+                                headerLayout,
                                 iFlag
                             },
                             Padding = new Thickness(10,5,10,0),
@@ -177,7 +189,7 @@ namespace FrontEnd
                      },
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                BackgroundColor = Color.White,
+          //     BackgroundColor = Color.White,
                 Spacing = 9f
 
             };
@@ -205,20 +217,25 @@ namespace FrontEnd
 
         private async void BRequestJoin_Clicked(object sender, EventArgs e)
         {
+
             var thisClub = (FrontClub)BindingContext;
-            await App.dbWrapper.CreateClubRequest("Please let me join your club!", thisClub.Id);
+            if (thisClub.exclusive)
+            {
+                await App.dbWrapper.CreateClubRequest("Please let me join your club!", thisClub.Id);
+                bPendingRequest.IsVisible = true;
+            }
+            else
+            {
+                await App.dbWrapper.JoinClub(thisClub.Id);
+                clubTextLabel.IsVisible = true;
+
+            }
 
             var btn = sender as Button;
-            Color prevColor = btn.BackgroundColor; //= ch.fromStringToColor("grayPressed");
-            int r = (int)prevColor.R; int g = (int)prevColor.G; int b = (int)prevColor.B;
-            if (prevColor.R + 20 <= 250) r = (int)prevColor.R + 20;
-            if (prevColor.G + 20 <= 250) g = (int)prevColor.G + 20;
-
-            if (prevColor.B + 20 <= 250) b = (int)prevColor.B + 20;
-
 
             btn.IsVisible = false;
-            bPendingRequest.IsVisible = true;
+            btn.IsEnabled = false;
+
 
         }
 

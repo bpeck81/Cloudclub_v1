@@ -18,7 +18,7 @@ namespace FrontEnd
             ch = new ColorHandler();
             Title = "Notifications";
 
-            var dailyRankSwitch = new SwitchCell
+            var dailyRankSwitch = new CustomDailyRankSwitch
             {
                 Text = "Daily Rank",
                 On = false
@@ -30,21 +30,22 @@ namespace FrontEnd
                 {
                     await App.dbWrapper.EnableRankingNotification();
 
-
                 }
                 else
                 {
                     await App.dbWrapper.DisableRankingNotification();
                 }
             };
-            var usersNearYouSwitch = new SwitchCell
+            var usersNearYouSwitch = new CustomSwitch
             {
                 Text = "Users Near You"
 
             };
             usersNearYouSwitch.OnChanged += async (sender, e) =>
             {
-                throw new NotImplementedException();
+               
+                //TODO does nothing
+                //throw new NotImplementedException();
             };
 
             Content = new StackLayout

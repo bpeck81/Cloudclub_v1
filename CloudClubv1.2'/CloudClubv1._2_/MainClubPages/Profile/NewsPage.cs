@@ -12,7 +12,7 @@ namespace FrontEnd
 {
     public class NewsPage : ContentPage
     {
-        ColorHandler ch;
+        ColorHandler ch; 
         List<FrontNews> frontNewsList;
         public NewsPage(List<DBItem> newsItems, string friendRequestUsername)
         {
@@ -32,7 +32,7 @@ namespace FrontEnd
                 ItemTemplate = new DataTemplate(typeof(NewsPageViewCell)),
                 BackgroundColor = ch.fromStringToColor("white"),
                 HasUnevenRows = true
-
+                
             };
             listView.ItemTapped += ListView_ItemSelected;
 
@@ -47,6 +47,7 @@ namespace FrontEnd
             {
                 FriendRequest request = (FriendRequest)news.dbItem;
                 var authAcc = await App.dbWrapper.GetAccount(request.AuthorId);
+                
                 await Navigation.PushAsync(new FriendProfilePage(authAcc, 1, request));
 
             }
@@ -81,6 +82,7 @@ namespace FrontEnd
 
                 bool isMember = await App.dbWrapper.IsMember(invite.ClubId);
                 var club = await App.dbWrapper.GetClub(invite.ClubId);
+                await App.dbWrapper.SetCurrentClubId(invite.ClubId);
 
                 await Navigation.PushAsync(new ClubChatPage(new FrontClub(club, false, false), chatList, commentUsersList, requestUsersList, isMember));
 

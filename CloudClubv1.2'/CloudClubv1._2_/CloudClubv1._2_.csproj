@@ -61,8 +61,16 @@
     <Compile Include="Backend\SearchArray.cs" />
     <Compile Include="Backend\TemporaryMemberJunction.cs" />
     <Compile Include="MainClubPages\ChatPages\FrontClubMember.cs" />
+    <Compile Include="MainClubPages\ChatPages\InviteFromContacts.cs" />
+    <Compile Include="MainClubPages\FriendPages\FriendClubListPageViewCell.cs" />
+    <Compile Include="MainClubPages\FriendPages\FrontFriendClub.cs" />
+    <Compile Include="MainClubPages\FriendPages\FrontInviteToClubFriend.cs" />
+    <Compile Include="MainClubPages\FriendPages\InviteFriendsPage.cs" />
+    <Compile Include="MainClubPages\FriendPages\InviteToClubsPage.cs" />
+    <Compile Include="MainClubPages\FriendPages\InviteToClubViewCell.cs" />
     <Compile Include="MainClubPages\Helpers\InvertBoolConverter.cs" />
     <Compile Include="MainClubPages\Helpers\SaveFileDictionary.cs" />
+    <Compile Include="MainClubPages\Profile\ChangeEmojiPage.cs" />
     <Compile Include="MainClubPages\Profile\FrontNews.cs" />
     <Compile Include="MainClubPages\Profile\NewsPageViewCell.cs" />
     <Compile Include="MainClubPages\SearchPages\AddFriendsToCreateClubPage.cs" />
@@ -96,9 +104,20 @@
     <Compile Include="MainClubPages\SearchPages\Settings\SettingsPage.cs" />
     <Compile Include="MainClubPages\SearchPages\TabbedMainClubPages.cs" />
     <Compile Include="MainClubPages\SearchPages\TagViewCell.cs" />
+    <Compile Include="Network Connection\LoadingPage.cs" />
+    <Compile Include="Network Connection\NoConnectionPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Backend\RatingJunction.cs" />
     <Compile Include="Backend\Tag.cs" />
+    <Compile Include="Renderers\CustomDailyRankSwitch.cs" />
+    <Compile Include="Renderers\CustomSwitch.cs" />
+    <Compile Include="Renderers\MyEditor.cs" />
+    <Compile Include="Renderers\MyEntry.cs" />
+    <Compile Include="Renderers\MySearchBar.cs" />
+    <Compile Include="Renderers\MyTabbedPage.cs" />
+    <Compile Include="Renderers\MyTableView.cs" />
+    <Compile Include="Renderers\MyTextCellRenderer.cs" />
+    <Compile Include="Renderers\MyViewCell.cs" />
     <Compile Include="SignUpPages\AlternateCustomizeProfilePage.cs" />
     <Compile Include="SignUpPages\CustomizeProfilePage.cs" />
     <Compile Include="MainClubPages\SearchPages\FrontClub.cs" />
@@ -111,6 +130,8 @@
     <Compile Include="TutorialPages\Tutorial3Page.cs" />
     <Compile Include="TutorialPages\Tutorial4Page.cs" />
     <Compile Include="TutorialPages\Tutorial4PageRedo.cs" />
+    <Compile Include="TutorialPages\TutorialPage5.cs" />
+    <Compile Include="Backend\PhoneContact.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
@@ -128,14 +149,6 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\..\packages\Microsoft.Net.Http.2.2.28\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
@@ -145,17 +158,32 @@
     <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\..\packages\System.Spatial.5.6.4\lib\portable-net45+wp8+win8+wpa\System.Spatial.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.2\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.2\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Contacts, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Contacts.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Contacts.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Contacts.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Xamarin.Forms.Xaml, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +191,6 @@
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

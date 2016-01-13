@@ -14,51 +14,119 @@ namespace FrontEnd
     {
 
         ColorHandler ch;
-        public CloudsPage(List<Cloud> cloudList, List<string> savedClouds)
+        List<Cloud> cloudList;
+        List<CustomSwitch> cloudSwitchList;
+        public CloudsPage(List<Cloud> cloudList)
         {
-            ch = new ColorHandler(); 
+            ch = new ColorHandler();
+            this.cloudList = cloudList;
             var tableSection = new TableSection();
+            cloudSwitchList = new List<CustomSwitch>();
+            Title = "Clouds";
+       //     cloudList.Add(new Cloud("cloud","sdfdsf",0,0,0));
+            var user = App.dbWrapper.GetUser();
+            
 
-            for (int i = 0; i < savedClouds.Count; i++)
+            for (int i = 0; i < cloudList.Count; i++)
             {
-                bool saved = false;
-                for (int j = 0; j < cloudList.Count; j++)
+                bool toggleOn = false;
+                if (user.CurrentCloudId == cloudList[i].Id)
                 {
-                    if (savedClouds[i].Equals(cloudList[j].Title))
-                    {
-                        saved = true;
-                    }
-
+                    toggleOn = true;
                 }
 
-
-                var s = new SwitchCell
+                var s = new CustomSwitch
                 {
-                    Text = savedClouds[i],
-                    On = saved
+
+                    Text = cloudList[i].Title,
+                    ClassId = cloudList[i].Id,
+                    On = toggleOn          
 
                 };
                 s.OnChanged += S_OnChanged;
+                cloudSwitchList.Add(s);
                 tableSection.Add(s);
             }
 
-            var cloudSwitchTable = new TableView
+            var cloudSwitchTable = new MyTableView
             {
-                Root = new TableRoot(),
+                Root = new TableRoot
+                {
+                    tableSection
+                },
                 BackgroundColor = ch.fromStringToColor("white")
 
             };
-            cloudSwitchTable.Root.Add(tableSection);
+          //  cloudSwitchTable.Root.Add(tableSection);
             Content = cloudSwitchTable;
         }
 
         private async void S_OnChanged(object sender, ToggledEventArgs e)
         {
             var s = (SwitchCell)sender;
-            var saveFileKey = new SaveFileDictionary();
+            bool swtchState = s.On;
+            foreach(CustomSwitch swtch in cloudSwitchList)
+            {
+                swtch.On = false;
+            }
+            if (swtchState)
+            {
+                s.On = true;
+               await App.dbWrapper.SetCurrentCloud(s.ClassId);
+            }
+            else
+            {
+                s.On = true;
+            }
+            return;
+        
+	
+         /*   var saveFileKey = new SaveFileDictionary();
 
             var fileSystem = FileSystem.Current.LocalStorage;
             var exists = fileSystem.CheckExistsAsync("PhoneData.txt");
+
+            if (s.On == true)
+            {
+                for (int i = 0; i < cloudList.Count; i++)
+                {
+                    if (s.On == true)
+                    {
+                        if (cloudList[i].Title == s.Text)
+                        {
+                            await App.dbWrapper.JoinCloud(cloudList[i].Id);
+                            currentCloudField.Add(cloudList[i]);
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < cloudList.Count; i++)
+                {
+                    if (cloudList[i].Title == s.Text)
+                    {
+                        if (currentCloudField.Contains(cloudList[i]))
+                        {
+                            currentCloudField.Remove(cloudList[i]);
+                        }
+                        else
+                        {
+                            throw new Exception("Cloud Not Contained In field");
+                        }
+                        //await App.dbWrapper.(cloudList[i].Id);
+                    }
+                }
+                for (int i = 0; i < currentCloudField.Count; i++)
+                {
+                    await App.dbWrapper.SetCurrentCloud(currentCloudField[i].Id);
+                }
+            }
             if (exists.Equals(ExistenceCheckResult.FileExists))
             {
                 var file = await fileSystem.GetFileAsync("PhoneData.txt");
@@ -96,46 +164,46 @@ namespace FrontEnd
 
 
                     }
-                    }
-                    else //Remove cloud from file
-                    {
-                        if (savedClouds.Count == 0) throw new IndexOutOfRangeException("No Clouds Were In List");
+                }
+                else //Remove cloud from file
+                {
+                    if (savedClouds.Count == 0) throw new IndexOutOfRangeException("No Clouds Were In List");
 
-                        bool aleadySaved = true;
+                    bool aleadySaved = true;
+                    for (int i = 0; i < savedClouds.Count; i++)
+                    {
+                        if (!savedClouds[i].Equals(s.Text))
+                        {
+                            aleadySaved = false;
+
+                        }
+                    }
+                    if (aleadySaved) //TODO make compile savestring method
+                    {
+                        var index = savedClouds.IndexOf(s.Text);
+                        savedClouds.RemoveAt(index);
+                        var saveString = "";
                         for (int i = 0; i < savedClouds.Count; i++)
                         {
-                            if (!savedClouds[i].Equals(s.Text))
-                            {
-                                aleadySaved = false;
-
-                            }
+                            saveString += savedClouds[i] + ",";
                         }
-                        if (aleadySaved) //TODO make compile savestring method
+
+                        fileLines[saveFileKey.dict["CLOUDREGION"]] = saveString;
+                        saveString = "";
+                        for (int i = 0; i < fileLines.Length; i++)
                         {
-                            var index = savedClouds.IndexOf(s.Text);
-                            savedClouds.RemoveAt(index);
-                            var saveString = "";
-                            for (int i = 0; i < savedClouds.Count; i++)
-                            {
-                                saveString += savedClouds[i] + ",";
-                            }
-
-                            fileLines[saveFileKey.dict["CLOUDREGION"]] = saveString;
-                            saveString = "";
-                            for (int i = 0; i < fileLines.Length; i++)
-                            {
-                                saveString += fileLines[i] + "\n";
-                            }
-                            await file.WriteAllTextAsync(saveString);
+                            saveString += fileLines[i] + "\n";
                         }
-
+                        await file.WriteAllTextAsync(saveString);
                     }
+
                 }
-                else
-                {
-                    throw new System.IO.FileNotFoundException("PhoneData.txt");
-                }
-            
+            }
+            else
+            {
+                throw new System.IO.FileNotFoundException("PhoneData.txt");
+            }*/
+
         }
     }
 }

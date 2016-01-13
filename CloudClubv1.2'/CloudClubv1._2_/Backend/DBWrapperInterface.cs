@@ -85,5 +85,9 @@ namespace CloudClubv1._2_
           Task<string> SetCurrentCloud(string cloudId);
           Task<List<Cloud>> GetAvailableClouds(double latitude, double longitude);
           Task<Comment> GetRecentComment(string clubId);
+          Task<List<Invite>> GetAccountInvites(string recipientId);
+          Task<List<string>> AddTags(string clubId, string cloudId, List<string> tags);
+		  Task<List<PhoneContact>> GetContacts();
+		  void SendInviteSMS(string phoneNumber);
     }
 }

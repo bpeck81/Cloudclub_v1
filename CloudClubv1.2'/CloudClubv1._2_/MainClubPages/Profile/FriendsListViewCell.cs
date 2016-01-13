@@ -20,21 +20,22 @@ namespace FrontEnd
             {
                 Aspect = Aspect.AspectFit,
                 WidthRequest = 50,
-                HorizontalOptions = LayoutOptions.Center
+                HorizontalOptions = LayoutOptions.StartAndExpand
             };
-            userEmoji.SetBinding(Image.SourceProperty, "UserEmoji");
+            userEmoji.SetBinding(Image.SourceProperty, "Emoji");
             var lUserName = new Label
             {
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                FontSize = 26
             };
             lUserName.SetBinding(Label.TextProperty, "Username");
             lUserName.SetBinding(Label.TextColorProperty, "Color", converter: new ColorConverter());
             Button friendshipIndicator = new Button // TODO: custom renderer
             {
-                HeightRequest = 50,
-                WidthRequest = 50,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HeightRequest = 25,
+                WidthRequest = 25,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
             friendshipIndicator.SetBinding(Button.BackgroundColorProperty, "SharedClubIndicator");
@@ -48,7 +49,8 @@ namespace FrontEnd
                 },
                 BackgroundColor = ch.fromStringToColor("white"),
                 Orientation = StackOrientation.Horizontal,
-                HorizontalOptions = LayoutOptions.CenterAndExpand
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Padding = new Thickness(10,0,10,0)
             };
         }
     }

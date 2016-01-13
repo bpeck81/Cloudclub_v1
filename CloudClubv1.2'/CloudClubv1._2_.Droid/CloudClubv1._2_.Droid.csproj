@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\xamstore-xamarin.mobile.0.7.1\build\monoandroid\xamstore-xamarin.mobile.props" Condition="Exists('..\..\packages\xamstore-xamarin.mobile.0.7.1\build\monoandroid\xamstore-xamarin.mobile.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -63,9 +64,38 @@
       <HintPath>..\..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Plugin.Connectivity, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.2\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.0.2\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Contacts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\MonoAndroid10\Plugin.Contacts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Contacts.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Contacts.2.0.0-beta1\lib\MonoAndroid10\Plugin.Contacts.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.CurrentActivity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.0\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Permissions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.1\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.Permissions.1.1.1\lib\MonoAndroid10\Plugin.Permissions.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
@@ -135,18 +165,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Android Renderers\CustomClubViewCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomEditorRenderer.cs" />
+    <Compile Include="Android Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Android Renderers\CustomDRSwitchCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomSearchBarRenderer.cs" />
+    <Compile Include="Android Renderers\CustomSwitchCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomTabRenderer.cs" />
+    <Compile Include="Android Renderers\ImprovedTextCellRenderer.cs" />
+    <Compile Include="Android Renderers\CustomTableViewRenderer.cs" />
+    <Compile Include="ContactsAdapter.cs" />
     <Compile Include="DBWrapper.cs" />
     <Compile Include="GcmPushes.cs" />
     <Compile Include="GcmService.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\ContactItemView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -155,6 +200,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PluginsHelp\CrossActivityReadme.txt" />
+    <Content Include="PluginsHelp\PermissionsReadme.txt" />
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\Cloud.png" />
     <AndroidResource Include="Resources\drawable\page2Tutorial.png" />
@@ -320,6 +367,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\cloudIcon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\cloudIcon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\cloudIcon.png" />
+    <AndroidResource Include="Resources\drawable\club_Android50.png" />
+    <AndroidResource Include="Resources\drawable\arrow_back.png" />
+    <AndroidResource Include="Resources\drawable\splashcloud.png" />
     <Content Include="Resources\drawable\DropletEmpty_WhiteB.png" />
     <Content Include="Resources\drawable\Friends_Profile.png" />
     <AndroidResource Include="Resources\drawable\News_Profile.png" />
@@ -328,6 +378,38 @@
     <AndroidResource Include="Resources\drawable\Tutorial_Competition.png" />
     <AndroidResource Include="Resources\drawable\News_Profile1.png" />
     <AndroidResource Include="Resources\drawable\Friends_Profile1.png" />
+    <AndroidResource Include="Resources\drawable\Tutorial_Clouds.png" />
+    <AndroidResource Include="Resources\drawable\oie_transparent.png" />
+    <AndroidResource Include="Resources\drawable\search_iOS2.png" />
+    <AndroidResource Include="Resources\drawable\myclubs_Android1.png" />
+    <AndroidResource Include="Resources\drawable\myclubs_Android2.png" />
+    <AndroidResource Include="Resources\drawable\profile_Android1.png" />
+    <AndroidResource Include="Resources\drawable\profile_Android2.png" />
+    <AndroidResource Include="Resources\drawable\search_Android2.png" />
+    <AndroidResource Include="Resources\drawable\search_Android1.png" />
+    <AndroidResource Include="Resources\drawable\search_Android50.png" />
+    <AndroidResource Include="Resources\drawable\search_Android35.png" />
+    <AndroidResource Include="Resources\drawable\profile_Android50.png" />
+    <AndroidResource Include="Resources\drawable\reportflag.png" />
+    <AndroidResource Include="Resources\drawable\User_Invite.png" />
+    <AndroidResource Include="Resources\drawable\User_ViewClubs.png" />
+    <AndroidResource Include="Resources\drawable\settings.png" />
+    <AndroidResource Include="Resources\Values\Styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\RoundCorner.xml" />
+    <AndroidResource Include="Resources\drawable\SplashScreen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Trophy_WhiteB.png" />
+    <AndroidResource Include="Resources\drawable\Star_GrayChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_GreenChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_LightBlueChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_PinkChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_PurpleChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_RedChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_EmptyChatInfo.png" />
+    <AndroidResource Include="Resources\drawable\Star_GoldChatInfo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudClubv1._2_\CloudClubv1._2_.csproj">
@@ -364,6 +446,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Xamarin.Forms.1.4.4.6449\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.1.4.4.6449\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\xamstore-xamarin.mobile.0.7.1\build\monoandroid\xamstore-xamarin.mobile.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xamstore-xamarin.mobile.0.7.1\build\monoandroid\xamstore-xamarin.mobile.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

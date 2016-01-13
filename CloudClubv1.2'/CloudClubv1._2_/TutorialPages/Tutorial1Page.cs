@@ -7,6 +7,7 @@ using Backend;
 using CloudClubv1._2_;
 
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace FrontEnd
 {
@@ -15,7 +16,7 @@ namespace FrontEnd
         public Tutorial1Page()
         {
             //Michael's debug function
-          //  DebugDatabase();
+            //DebugDatabase();
 
 
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
@@ -31,8 +32,19 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.Center,
                 Scale = .7
             };
-          
+            var running = true;
+            Task.Run(async () =>
+            {
+                while (running)
+                {
+                    Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => {
+                        await cloudImage.TranslateTo(0, 15, 1000, Easing.SinInOut);
+                        await cloudImage.TranslateTo(0, -15, 1000, Easing.SinInOut);
+                    });
+                    await Task.Delay(2000);
+                }
 
+            });
             Label headerLabel = new Label
             {
                 Text = "Welcome To CloudClub",
@@ -70,7 +82,10 @@ namespace FrontEnd
         }
         
         private async void DebugDatabase(){
-            string debug = "MYDEBUG-----";
+			System.Diagnostics.Debug.WriteLine ("GETCONTACTS CALLED------");
+			await App.dbWrapper.GetContacts ();
+			App.dbWrapper.SendInviteSMS ("5714396965");
+            /*string debug = "MYDEBUG-----";
 
             //await App.dbWrapper.CreateCloud("Wahoos","wahoo was",38.03,-78.500,.00001);
             //await App.dbWrapper.CreateCloud("Wahoos3", "wahoo was", 38.03, -78.500, .02);
@@ -91,7 +106,7 @@ namespace FrontEnd
 
             //await App.dbWrapper.CreateCloud("title","desc",1,2,3);
             //await App.dbWrapper.JoinCloud((await App.dbWrapper.GetClouds())[0].Id);
-            
+            */
         }
 
     }

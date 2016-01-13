@@ -36,8 +36,15 @@ namespace FrontEnd
             ch = new ColorHandler();
             chosenEmojiId = "Dog_Character.png";
             chosenColorId = "purple";
+            characterNames = new List<string>();
             characterButtons = generateExtendedCharacterButtons();
-            displayedEmoji = characterButtons[0];
+            displayedEmoji = new Image
+            {
+                Source = FileImageSource.FromFile(characterNames[0]),
+                Aspect = Aspect.AspectFit,
+                HeightRequest = 70,
+                WidthRequest = 70
+            };
             displayedEmoji.GestureRecognizers.Add(characterBoxTgr);
 
             colorButtons = generateColorButtons();
@@ -107,22 +114,22 @@ namespace FrontEnd
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
             };
 
-            RowDefinition rd = new RowDefinition { Height = 60 };
+            int boxSize = 50;
             colorGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = rd.Height},
-                    new RowDefinition { Height =  rd.Height},
+                    new RowDefinition { Height = boxSize},
+                    new RowDefinition { Height =  boxSize},
 
                 },
                 ColumnDefinitions =
                 {
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height},
-                    new ColumnDefinition { Width = rd.Height}
+                    new ColumnDefinition { Width = boxSize },
+                    new ColumnDefinition { Width = boxSize },
+                    new ColumnDefinition { Width = boxSize},
+                    new ColumnDefinition { Width = boxSize}
                 },
                 HorizontalOptions = LayoutOptions.Center,
                 ColumnSpacing = 20f,
@@ -247,6 +254,7 @@ namespace FrontEnd
             {
                 for (int j = 0; j < 5; j++)
                 {
+
                     characterGrid.Children.Add(characterButtons[counter], i, j);
                     counter++;
                 }
@@ -289,39 +297,15 @@ namespace FrontEnd
         }
         private void CharacterBoxTgr_Tapped(object sender, EventArgs e)
         {
+            
             generateExtendedCharacterView();
         }
 
         private List<Image> generateExtendedCharacterButtons()
         {
 
-            var characterNames = new List<string>();
-            characterNames.Add("AF1.png");
-            characterNames.Add("AF33.png");
-            characterNames.Add("AF32.png");
-            characterNames.Add("AF30.png");
-            characterNames.Add("AF38.png");
-            characterNames.Add("AF3.png");
-            characterNames.Add("AF40.png");
-            characterNames.Add("AF15.png");
-            characterNames.Add("AN11.png");
-            characterNames.Add("AN13.png");
-            characterNames.Add("AN20.png");
-            characterNames.Add("AN19.png");
-            characterNames.Add("AN31.png");
-            characterNames.Add("AN28.png");
-            characterNames.Add("AN33.png");
-            characterNames.Add("AN5.png");
-            characterNames.Add("AA10.png");
-            characterNames.Add("AA11.png");
-            characterNames.Add("AA12.png");
-            characterNames.Add("AA13.png");
-            characterNames.Add("AA31.png");
-            characterNames.Add("AA30.png");
-            characterNames.Add("AA1.png");
-            characterNames.Add("AA17.png");
-            characterNames.Add("AA17.png");
-            characterNames.Add("AA17.png");
+       //     var characterNames = new List<string>();
+
             characterNames.Add("AF1.png");
             characterNames.Add("AF2.png");
             characterNames.Add("AF3.png");
@@ -485,30 +469,6 @@ namespace FrontEnd
 
 
 
-        private List<Image> generateCharacterButtons()
-        {
-            characterNames = new List<string>();
-            characterNames.Add("AF1.png");
-
-
-            var imageButtons = new List<Image>();
-            for (int i = 0; i < characterNames.Count; i++)
-            {
-                var img = new Image
-                {
-                    Source = FileImageSource.FromFile(characterNames[i]),
-                    Aspect = Aspect.AspectFit,
-                    HeightRequest = 60,
-                    WidthRequest = 60
-                };
-
-            }
-            return imageButtons;
-
-
-            //     return characterButtons;
-
-        }
 
 
         private void Bcolor_Clicked(object sender, EventArgs e)
@@ -522,14 +482,9 @@ namespace FrontEnd
             {
                 colorButtons[i].BorderRadius = 5;
                 b.BorderRadius = 150;
-
             }
-
-
         }
-
-
-
+                
         private void ExtendedImagesTgr_Tapped(object sender, EventArgs e)
         {
             Image b = sender as Image;
@@ -540,10 +495,10 @@ namespace FrontEnd
             }
             displayedEmoji.Source = b.Source;
 
+
             generateInitialView();
 
             System.Diagnostics.Debug.WriteLine(chosenEmojiId);
-
         }
 
         private async void BContinue_Clicked(object sender, EventArgs e)
@@ -576,6 +531,7 @@ namespace FrontEnd
 
             var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingClubList, firstLineCommentList));
             navPage.BarBackgroundColor = ch.fromStringToColor("purple");
+            navPage.BackgroundColor = ch.fromStringToColor("purple");
             Application.Current.MainPage = navPage;
         }
 

@@ -1,10 +1,30 @@
-﻿<Properties StartupItem="CloudClubv1.2'/CloudClubv1._2_.iOS/CloudClubv1._2_.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Jared's iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CloudClubv1.2'/CloudClubv1._2_.iOS/DBWrapper.cs">
+﻿<Properties StartupItem="CloudClubv1.2'\CloudClubv1._2_.Droid\CloudClubv1._2_.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (KitKat)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CloudClubv1.2'\CloudClubv1._2_.Droid\DBWrapper.cs">
     <Files>
-      <File FileName="CloudClubv1.2'/CloudClubv1._2_.iOS/AppDelegate.cs" Line="1473" Column="1" />
-      <File FileName="CloudClubv1.2'/CloudClubv1._2_.iOS/DBWrapper.cs" Line="25" Column="32" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_.Droid\DBWrapper.cs" Line="1510" Column="101" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_.Droid\MainActivity.cs" Line="1" Column="1" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_\Backend\DBWrapperInterface.cs" Line="90" Column="9" />
+      <File FileName="CloudClubv1.2'\CloudClubv1._2_\TutorialPages\Tutorial1Page.cs" Line="86" Column="10" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CloudClubv1.2'" expanded="True">
+            <Node name="CloudClubv1._2_" expanded="True">
+              <Node name="Backend" expanded="True" />
+              <Node name="TutorialPages" expanded="True" />
+            </Node>
+            <Node name="CloudClubv1._2_.Droid" expanded="True">
+              <Node name="ComponentReferenceFolder" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="DBWrapper.cs" selected="True" />
+            </Node>
+            <Node name="CloudClubv1._2_.iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

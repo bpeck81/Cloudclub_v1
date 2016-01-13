@@ -15,36 +15,36 @@ namespace FrontEnd
         {
             ch = new ColorHandler();
             BackgroundColor = ch.fromStringToColor("purple");
-            // page 2 of tutorial
+
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+
+            // page 4 of tutorial
             Label topHeader = new Label
             {
+
                 Text = "How It Works",
-                XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.End,
+                TextColor = ch.fromStringToColor("white"),
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 42,
-                TextColor = Color.White,
-                FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
-                BackgroundColor = Color.FromRgb(210, 61, 235)
-
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand
             };
-            
+
 
             Image cloudImage = new Image
             {
                 Aspect = Aspect.AspectFit,
                 Source = ImageSource.FromFile("page2Tutorial.png"),
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 Scale = .75,
-                HorizontalOptions = LayoutOptions.Center
+                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
             Label lowerHeader = new Label
             {
                 Text = "Find & Join Clubs",
                 XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 36,
                 FontFamily = Device.OnPlatform(iOS: "MarkerFelt-Thin", Android: "Droid Sans Mono", WinPhone: "Comic Sans MS"),
@@ -54,7 +54,7 @@ namespace FrontEnd
             {
                 Text = "Chat and build friendships with similar people in a care-free environment.",
                 XAlign = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                 TextColor = Color.White
@@ -72,8 +72,7 @@ namespace FrontEnd
                 },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
                 Spacing = 20,
-                Padding = new Thickness(0, 0, 0, 0)
-
+                Padding = new Thickness(10, 20, 10, 20)
             };
 
 

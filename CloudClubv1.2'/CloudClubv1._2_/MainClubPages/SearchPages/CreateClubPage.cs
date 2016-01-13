@@ -14,7 +14,7 @@ namespace FrontEnd
         bool clubPublic;
         string clubColor;
         ScrollView colorBoxes;
-        Label titleLabel, colorLabel, tagsLabel, inviteLabel, lcouldntCreate;
+        Label titleLabel, colorLabel, tagsLabel, inviteLabel, lcouldntCreate; 
         Grid colorGrid;
         Button bContinue, bAddFriends, bPublic, bPrivate;
         public Button bAddTags; //Must fix
@@ -27,6 +27,8 @@ namespace FrontEnd
         public CreateClubPage()
 
         {
+
+
             ch = new ColorHandler();
             tagPage = new AddTagsPage();
             clubPublic = true;
@@ -62,27 +64,27 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.Center
             };
             RowDefinition rd = new RowDefinition { Height = 60 };
+            int rowDim = 50;
 
             colorGrid = new Grid
             {
                 VerticalOptions = LayoutOptions.Center,
-
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = rd.Height},
-                    new RowDefinition { Height =  rd.Height},
+                    new RowDefinition { Height = rowDim},
+                    new RowDefinition { Height = rowDim },
 
                 },
                 ColumnDefinitions =
                 {
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height },
-                    new ColumnDefinition { Width = rd.Height }
+                    new ColumnDefinition { Width = rowDim },
+                    new ColumnDefinition { Width = rowDim },
+                    new ColumnDefinition { Width = rowDim },
+                    new ColumnDefinition { Width = rowDim }
 
                 },
 
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 RowSpacing = 5,
                 ColumnSpacing = 10,
                 BackgroundColor = Color.White,
@@ -201,7 +203,9 @@ namespace FrontEnd
             bool created = false;
             if (nameValidity == "Valid")
             {
+
                 created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor, !clubPublic, tagList);
+                System.Diagnostics.Debug.WriteLine(clubPublic.ToString());
             }
             if (created)
             {
@@ -361,13 +365,19 @@ namespace FrontEnd
             {
                 frontFriendsList.Add(new FrontFriends(friends[i], true));
             }
-            await Navigation.PushAsync(new AddFriendsToCreateClubPage(frontFriendsList));
 
+            var btn = (Button)sender;
+            btn.IsEnabled = false;
+            await Navigation.PushAsync(new AddFriendsToCreateClubPage(frontFriendsList));
+            btn.IsEnabled = true;
         }
 
-        private void BAddTags_Clicked(object sender, EventArgs e)
+        private async void BAddTags_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(tagPage);
+            var btn = (Button)sender;
+            btn.IsEnabled = false;
+            await Navigation.PushAsync(tagPage);
+            btn.IsEnabled = true;
             var frontTagList = tagPage.addedTags;
             tagList = new List<string>();
             for (int i = 0; i < frontTagList.Count; i++)

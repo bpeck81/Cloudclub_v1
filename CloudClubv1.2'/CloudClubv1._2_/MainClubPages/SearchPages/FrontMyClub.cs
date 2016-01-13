@@ -16,6 +16,7 @@ namespace FrontEnd
         public FrontMyClub(Club club, string recentText)
         {
             this.Id = club.Id;
+            this.cloudId = club.CloudId;
             ColorHandler ch = new ColorHandler();
             this.recentText = recentText;
             clubColor = club.Color;

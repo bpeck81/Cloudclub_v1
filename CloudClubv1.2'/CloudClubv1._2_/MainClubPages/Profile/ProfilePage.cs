@@ -20,23 +20,38 @@ namespace FrontEnd
         TapGestureRecognizer friendsImagetgr;
         TapGestureRecognizer newsImagetgr;
         TapGestureRecognizer userTextTgr;
+        TapGestureRecognizer userEmojiTgr;
         Label userText;
         Entry userTextEntry;
-
+        Account user;
         public ProfilePage()
         {
             friendsImagetgr = new TapGestureRecognizer();
             friendsImagetgr.Tapped += FriendsImagetgr_Tapped;
             newsImagetgr = new TapGestureRecognizer();
             newsImagetgr.Tapped += NewsImagetgr_Tapped;
+            
             userTextTgr = new TapGestureRecognizer();
             userTextTgr.Tapped += UserTextTgr_Tapped;
+            userEmojiTgr = new TapGestureRecognizer();
+               
+            userEmojiTgr.Tapped += UserEmojiTgr_Tapped;
             ch = new ColorHandler();
             friendRequests = new List<FriendRequest>();
             medals = new List<Medal>();
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
             BackgroundColor = ch.fromStringToColor("white");
-            Account user = App.dbWrapper.GetUser();
+            user = App.dbWrapper.GetUser();
+            generatePage();
+            MessagingCenter.Subscribe<ChangeEmojiPage>(this, "updateData", (sender) => {
+                this.user = App.dbWrapper.GetUser();
+                generatePage();
+            });
+        }
+
+
+        private void generatePage()
+        {
 
             Label lAccountName = new Label
             {
@@ -57,6 +72,8 @@ namespace FrontEnd
                 WidthRequest = 115,
                 Scale = .8
             };
+            userEmoji.GestureRecognizers.Add(userEmojiTgr);
+
             Image medalsImg = new Image
             {
                 Source = ImageSource.FromFile("Medal_WhiteB.png"),
@@ -92,26 +109,28 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
+            var rank = App.dbWrapper.GetUser().Ranking;
             Label lInCloudClub = new Label
             {
-                Text = "In Cloudclub",
-                TextColor = ch.fromStringToColor("gray"),
+                Text = "Top " + rank + "%",
+                TextColor = ch.fromStringToColor("gold"),
                 FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
-            Label lNumClubs = new Label
+            var lNumClubs = new Image
             {
-                Text = user.NumClubsIn.ToString(),
-                FontSize = 42,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-                TextColor = ch.fromStringToColor("yellow")
+                Aspect = Aspect.AspectFit,
+                Source = FileImageSource.FromFile("Trophy_WhiteB.png"),
+
             };
             userText = new Label
             {
                 Text = user.Description,
+
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
+                TextColor = ch.fromStringToColor("black"),
+
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label))
 
             };
@@ -120,7 +139,7 @@ namespace FrontEnd
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Text = userText.Text,
-                BackgroundColor = ch.fromStringToColor("white"),
+                BackgroundColor = ch.fromStringToColor("lightGray"),
                 TextColor = ch.fromStringToColor("black"),
                 IsVisible = false,
             };
@@ -135,7 +154,7 @@ namespace FrontEnd
             {
                 Source = FileImageSource.FromFile("Friends_Profile1.png"),
                 Aspect = Aspect.AspectFit,
-                WidthRequest = 187,
+                WidthRequest = 185,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
 
@@ -147,7 +166,7 @@ namespace FrontEnd
                 Source = FileImageSource.FromFile("News_Profile1.png"),
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                WidthRequest = 187,
+                WidthRequest = 185,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
             newsImg.GestureRecognizers.Add(newsImagetgr);
@@ -213,7 +232,7 @@ namespace FrontEnd
                     userTextEntry
                 },
                 Padding = new Thickness(20, 20, 20, 0),
-                Spacing = 25
+                Spacing = 5
             };
             var friendsNewsSLayout = new StackLayout
             {
@@ -233,10 +252,21 @@ namespace FrontEnd
                     topLayout,
                     friendsNewsSLayout
                 },
-                Spacing = 10
+                Spacing = 25
             };
 
             Content = contentLayout;
+        }
+
+        public void refreshData()
+        {
+
+        }
+
+        private void UserEmojiTgr_Tapped(object sender, EventArgs e)
+        {
+            //   Navigation.PushAsync(new Tutorial1Page());
+            Navigation.PushAsync(new ChangeEmojiPage(user.Emoji, user.Color));
         }
 
         private void UserTextEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -271,7 +301,10 @@ namespace FrontEnd
             {
                 frontFriendsList.Add(new FrontFriends(friendsList[i], await App.dbWrapper.InSameClub(friendsList[i].Id)));
             }
+            var img = sender as Image;
+            img.InputTransparent = true;
             await Navigation.PushAsync(new FriendsPage(frontFriendsList));
+            img.InputTransparent = false;
         }
 
         private async void NewsImagetgr_Tapped(object sender, EventArgs e)
@@ -295,7 +328,15 @@ namespace FrontEnd
                 }
             }
 
+            var img = (Image)sender;
+            // img.GestureRecognizers.Remove(newsImagetgr);
+            //var timer = new Timer
+            img.InputTransparent = true;
+            var stackNum = Navigation.NavigationStack.Count;
+
             await Navigation.PushAsync(new NewsPage(news, friendRequest));
+            img.InputTransparent = false;
+
         }
 
 

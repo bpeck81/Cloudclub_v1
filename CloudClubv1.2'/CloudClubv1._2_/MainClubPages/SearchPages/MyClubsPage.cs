@@ -7,12 +7,13 @@ using Backend;
 using CloudClubv1._2_;
 
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
 namespace FrontEnd
 {
     public class MyClubsPage : ContentPage
     {
-        List<FrontMyClub> frontMyClubList;
+        ObservableCollection<FrontMyClub> frontMyClubList;
         public string title = "Subscriptions";
         ColorHandler ch;
         ListView listView;
@@ -36,12 +37,16 @@ namespace FrontEnd
                 ItemsSource = frontMyClubList,
                 ItemTemplate = new DataTemplate(typeof(MyClubViewCell)),
                 SeparatorColor = ch.fromStringToColor("gray"),
-                HasUnevenRows = true
+                HasUnevenRows = true,
+                IsPullToRefreshEnabled = true
             };
             listView.ItemSelected += ListView_ItemSelected;
-
+            //listView.ItemTapped += ListView_ItemSelected;
+            listView.Refreshing += ListView_Refreshing;
+            
             clubScroll = new ScrollView
             {
+               
                 Content = listView,
                 Orientation = ScrollOrientation.Vertical,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -68,9 +73,13 @@ namespace FrontEnd
                     VerticalOptions = LayoutOptions.CenterAndExpand,
 
                 };
-                bNewClub.Clicked += (object sender, EventArgs e) =>
+                bNewClub.Clicked += async (object sender, EventArgs e) =>
                 {
-                    Navigation.PushAsync(new CreateClubPage());
+                    var btn = (Button)sender;
+                    btn.IsEnabled = false;
+                    await Navigation.PushAsync(new CreateClubPage());
+                    btn.IsEnabled = true;
+                   
                 };
                 Content = new StackLayout
                 {
@@ -126,6 +135,32 @@ namespace FrontEnd
             }
         }
 
+        private void ListView_ItemSelected(object sender, ItemTappedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async void ListView_Refreshing(object sender, EventArgs e)
+        {
+
+            var lView = (ListView)sender;
+            for(int i = frontMyClubList.Count-1; i>=0; i--)
+            {
+                frontMyClubList.RemoveAt(i);
+            }
+            var memberClubsList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+            var commentList = new List<Comment>();
+            for(int i =0; i<memberClubsList.Count; i++)
+            {
+                var recentComment = await App.dbWrapper.GetRecentComment(memberClubsList[i].Id);
+                if (recentComment.Text == "") recentComment.Text = "The chat is empty!";
+                frontMyClubList.Add(new FrontMyClub(memberClubsList[i], recentComment.Text));
+            }
+            lView.IsRefreshing = false;
+            
+
+        }
+
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var club = (FrontMyClub)e.SelectedItem;
@@ -150,7 +185,12 @@ namespace FrontEnd
             }
             var memberClubList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id); 
             var isMember = await App.dbWrapper.IsMember(club.Id);
-            await Navigation.PushAsync(new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember));
+            await App.dbWrapper.SetCurrentClubId(club.Id);
+
+            var ccp = new ClubChatPage(club, chatList, commentUsersList, requestUsersList, isMember);
+            NavigationPage.SetHasNavigationBar(ccp, false);
+
+            await Navigation.PushAsync(ccp);
             generateDisplayList(await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id), await App.getMostRecentComment(memberClubList));
             updatePage();
 
@@ -166,7 +206,7 @@ namespace FrontEnd
 
         private void generateDisplayList(List<Club> clubList, List<string> commentList)
         {
-            frontMyClubList = new List<FrontMyClub>();
+            frontMyClubList = new ObservableCollection<FrontMyClub>();
 
             for (int i = 0; i < clubList.Count; i++)
             {

@@ -15,15 +15,20 @@ namespace FrontEnd
         ColorHandler ch;
         StackLayout bottomLayout;
         Label clubsLabel, lFriendRequestReceived, lAccountName, lMedals, lDroplet, userText;
-        Image userEmoji, medalsImg, dropletImg;
+        Image userEmoji, medalsImg, dropletImg, viewClubsImage, inviteImage;
         Button bNumClubs, bAccept, bReject, bSendFriendRequest;
         FriendRequest friendRequest;
+        TapGestureRecognizer invitetgr, viewClubstgr;
         int activeFriendRequest;
         public FriendProfilePage(Account user, int activeFriendRequest, FriendRequest friendRequest = null)
         {
             //activeFriendRequest key 0 = not friends 1 = pending request from them 2 =friends 3= pending request from you
 
+
             ch = new ColorHandler();
+            viewClubstgr = new TapGestureRecognizer();
+            invitetgr = new TapGestureRecognizer();
+
             this.activeFriendRequest = activeFriendRequest;
             this.friendRequest = friendRequest;
             this.user = user;
@@ -59,7 +64,8 @@ namespace FrontEnd
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center,
                 WidthRequest = 115,
-                Scale = .8
+
+                Scale = .9
             };
             medalsImg = new Image
             {
@@ -102,7 +108,10 @@ namespace FrontEnd
             userText = new Label
             {
                 Text = user.Description,
+                TextColor = ch.fromStringToColor("gray"),
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+
 
             };
             clubsLabel = new Label
@@ -125,6 +134,28 @@ namespace FrontEnd
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             bNumClubs.Clicked += BNumClubs_Clicked;
+             inviteImage = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                WidthRequest = 188,
+                HorizontalOptions = LayoutOptions.Fill,
+                VerticalOptions= LayoutOptions.Fill,
+                Source = FileImageSource.FromFile("User_Invite.png")
+            };
+            inviteImage.GestureRecognizers.Add(invitetgr);
+            invitetgr.Tapped += Invitetgr_Tapped;
+             viewClubsImage = new Image
+            {
+                Aspect = Aspect.AspectFit,
+                HorizontalOptions = LayoutOptions.Fill,
+                WidthRequest = 188,
+                VerticalOptions = LayoutOptions.Fill,
+                Source = FileImageSource.FromFile("User_ViewClubs.png")
+            };
+            viewClubstgr.Tapped += BNumClubs_Clicked;
+            viewClubsImage.GestureRecognizers.Add(viewClubstgr);
+
+            
             lFriendRequestReceived = new Label
             {
                 Text = "Friend Request Received",
@@ -176,6 +207,7 @@ namespace FrontEnd
                     medalsImg,
                     lMedals
                                 },
+                Padding = new Thickness(0,20,0,0),
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             var dropletSLayout = new StackLayout
@@ -186,6 +218,8 @@ namespace FrontEnd
                     lDroplet
 
                 },
+                Padding = new Thickness(0,20, 0, 0),
+
                 HorizontalOptions = LayoutOptions.FillAndExpand
 
             };
@@ -210,7 +244,8 @@ namespace FrontEnd
                     lAccountName,
                     userText
                 },
-                Spacing = 15,
+                Spacing = 10,
+                Padding = new Thickness(0,0,0,20),
                 BackgroundColor = ch.fromStringToColor("white"),
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
@@ -227,9 +262,40 @@ namespace FrontEnd
             };
         }
 
+        private async void Invitetgr_Tapped(object sender, EventArgs e)
+        {
+            var userClubList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+            var friendClubList = await App.dbWrapper.GetAccountClubs(user.Id);
+            var pendingInviteList = await App.dbWrapper.GetAccountInvites(user.Id);            
+            var mutualClubList = new List<Club>();
+            var pendingInviteClubList = new List<Club>();
+            for (int i =0; i< pendingInviteList.Count; i++)
+            {
+                pendingInviteClubList.Add(await App.dbWrapper.GetClub(pendingInviteList[i].ClubId));
+            }
+            for(int i =0; i<userClubList.Count; i++)
+            {
+                for(int j = 0; j< friendClubList.Count; j++)
+                {
+                    if (userClubList[i].Id.Equals(friendClubList[j].Id))
+                    {
+                        mutualClubList.Add(userClubList[i]);
+                    }
+                }
+
+            }
+          await Navigation.PushAsync(new InviteToClubsPage(userClubList,mutualClubList,pendingInviteClubList,user));
+        } 
+
         private async void BSendFriendRequest_Clicked(object sender, EventArgs e)
         {
+            var btn = sender as Button;
+            btn.BackgroundColor = ch.fromStringToColor("gray");
+            btn.IsEnabled = false;
+            btn.Text = "Request Sent!";
+
             await App.dbWrapper.CreateFriendRequest(user.Id);
+            MessagingCenter.Send<FriendProfilePage>(this, "Refresh User Data");
         }
 
         private StackLayout getBottomlayout()
@@ -240,11 +306,14 @@ namespace FrontEnd
                 {
                     Children =
                     {
-                        clubsLabel,
-                        bNumClubs
+                        inviteImage,
+                        viewClubsImage,
                     },
+                    Orientation = StackOrientation.Horizontal,
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    Spacing =10,
                     VerticalOptions = LayoutOptions.FillAndExpand,
-                    Padding = new Thickness(15, 10, 15, 15)
+                //    Padding = new Thickness(15, 10, 15, 15)
 
                 };
 
@@ -285,28 +354,27 @@ namespace FrontEnd
                     Padding = new Thickness(15, 10, 15, 15)
                 };
             }
-            else
+            else //friendrequest = 3
             {
+                bSendFriendRequest.BackgroundColor = ch.fromStringToColor("gray");
+                bSendFriendRequest.IsEnabled = false;
+                bSendFriendRequest.Text = "Request Sent!";
                 return new StackLayout
                 {
                     Children =
                     {
                         new Label
                         {
-                           Text = "Your Friend Request Is Pending",
-                           TextColor = ch.fromStringToColor("black"),
-                           FontAttributes = FontAttributes.Bold,
-                           FontSize = 30,
-                           HorizontalOptions = LayoutOptions.CenterAndExpand,
-                           VerticalOptions = LayoutOptions.CenterAndExpand
-
-                        }
+                            Text = "Request To Be friends",
+                            TextColor = ch.fromStringToColor("white"),
+                            FontAttributes = FontAttributes.Bold,
+                            FontSize = 30,
+                            HorizontalOptions = LayoutOptions.CenterAndExpand
+                        },
+                        bSendFriendRequest
                     },
-                    BackgroundColor = ch.fromStringToColor("white"),
                     VerticalOptions = LayoutOptions.FillAndExpand,
-
                     Padding = new Thickness(15, 10, 15, 15)
-
                 };
             }
 
@@ -314,37 +382,81 @@ namespace FrontEnd
         private async void BNumClubs_Clicked(object sender, EventArgs e)
         {
             //TODO: change method for getting membership list
-            var memberList = new List<Club>();
-            var allClubs = await App.dbWrapper.GetClubs();
-            for (int i = 0; i < allClubs.Count; i++)
+            var friendMemberList = await App.dbWrapper.GetAccountClubs(this.user.Id);
+            var selfMemberList = await App.dbWrapper.GetAccountClubs(App.dbWrapper.GetUser().Id);
+            var mutualClubList = new List<Club>();
+            var pendingList = new List<bool>();
+
+            for (int i =0; i<friendMemberList.Count; i++)
             {
-                if (await App.dbWrapper.IsClubMember(allClubs[i].Id, user.Id))
+                for(int j=0; j<selfMemberList.Count;j++)
                 {
-                    memberList.Add(allClubs[i]);
+                    if (friendMemberList[i].Id.Equals(selfMemberList[j].Id))
+                        {
+                        mutualClubList.Add(friendMemberList[i]);
+                    }
+
                 }
+                pendingList.Add(await App.dbWrapper.IsPendingClubRequest(friendMemberList[i].Id));
             }
-            await Navigation.PushAsync(new FriendsClubListPage(memberList));
+            
+            await Navigation.PushAsync(new FriendsClubListPage(friendMemberList,mutualClubList,pendingList));
         }
 
         private async void BReject_Clicked(object sender, EventArgs e)
         {
-            await App.dbWrapper.DeclineFriendRequest(friendRequest.Id);
-            activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
-            updateView();
-            await Navigation.PopAsync();
+            var friendRequests = await App.dbWrapper.GetFriendRequests();
+            FriendRequest request = null;
+            for (int i = 0; i < friendRequests.Count; i++)
+            {
+                if (friendRequests[i].AuthorId == user.Id)
+                {
+                    request = friendRequests[i];
+                }
+            }
+            if (request != null)
+            {
+                await App.dbWrapper.DeclineFriendRequest(request.Id);
+                this.activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
+                updateView();
+                MessagingCenter.Send<FriendProfilePage>(this, "Refresh User Data");
+
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         private async void BAccept_Clicked(object sender, EventArgs e)
         {
-            await App.dbWrapper.AcceptFriendRequest(friendRequest.Id);
-            activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
-            updateView();
-            await Navigation.PopAsync();
+            var friendRequests = await App.dbWrapper.GetFriendRequests();
+            FriendRequest request = null;
+            for(int i =0; i<friendRequests.Count; i++)
+            {
+                if(friendRequests[i].AuthorId == user.Id)
+                {
+                    request = friendRequests[i];
+                }
+            }
+            if (request != null)
+            {
+                await App.dbWrapper.AcceptFriendRequest(request.Id);
+                this.activeFriendRequest = await App.dbWrapper.GetFriendship(user.Id);
+                updateView();
+                MessagingCenter.Send<FriendProfilePage>(this, "Refresh User Data");
+
+            }
+            else
+            {
+                throw new Exception();
+            }
+           // await Navigation.PopAsync();
         }
 
         private void menuPopup()
         {
-            Navigation.PushAsync(new FriendSettingsPage());
+            Navigation.PushAsync(new FriendSettingsPage(user.Id));
         }
 
     }

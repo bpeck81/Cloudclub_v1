@@ -43,6 +43,13 @@ namespace FrontEnd
                 case 2:
                     FriendIndicator = ch.fromStringToColor("green");
                     break;
+                case 3:
+                    FriendIndicator = ch.fromStringToColor("yellow");
+                    break;
+                case 4:
+                    FriendIndicator = ch.fromStringToColor("green");
+                    break;
+
                 default:
 
                     break;

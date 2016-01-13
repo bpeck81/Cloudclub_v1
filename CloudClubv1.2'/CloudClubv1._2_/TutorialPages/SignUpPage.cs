@@ -17,7 +17,7 @@ namespace FrontEnd
     public class SignUpPage : ContentPage
     {
         string username, password, invalidSignupText;
-        Entry userNameEntry, passwordEntry, emailEntry;
+        MyEntry userNameEntry, passwordEntry, emailEntry;
         ColorHandler ch;
         Label invalidSignupLabel, invalidLoginLabel;
         bool invalidSignup, invalidLogin;
@@ -40,7 +40,7 @@ namespace FrontEnd
             {
                 FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 TextColor = ch.fromStringToColor("white"),
-                Text = "Invalid Entry",
+                Text = invalidSignupText,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center,
                 IsVisible = invalidSignup
@@ -61,7 +61,7 @@ namespace FrontEnd
                 BackgroundColor = Color.FromRgb(210, 61, 235)
 
             };
-            this.userNameEntry = new Entry
+            this.userNameEntry = new MyEntry
             {
                 Placeholder = "Username",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -72,7 +72,7 @@ namespace FrontEnd
                 BackgroundColor = Color.White,
 
             };
-            this.passwordEntry = new Entry
+            this.passwordEntry = new MyEntry
             {
                 Placeholder = "Password",
 
@@ -83,7 +83,7 @@ namespace FrontEnd
                 BackgroundColor = Color.White
 
             };
-            this.emailEntry = new Entry
+            this.emailEntry = new MyEntry
             {
                 Placeholder = "Email",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -158,8 +158,17 @@ namespace FrontEnd
             StackLayout sLayout = new StackLayout
             {
                 Children = {
-                    topHeader,
-                    invalidSignupLabel,
+                    new StackLayout
+                    {
+                        Children =
+                        {
+                        topHeader,
+                        invalidSignupLabel
+                        },
+
+                        Spacing = 10
+                    },
+
                     entryFields,
                     new StackLayout
                     {
@@ -175,8 +184,8 @@ namespace FrontEnd
                     }
                  },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
-                Spacing = 50f,
-                Padding = new Thickness(0, 0, 0, 20),
+                Spacing = 35f,
+                Padding = new Thickness(0, 20, 0, 20),
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             Content = sLayout;
@@ -194,6 +203,7 @@ namespace FrontEnd
             {
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center,
+
                 FontSize = 24,
                 TextColor = ch.fromStringToColor("white"),
                 FontAttributes = FontAttributes.Bold
@@ -219,7 +229,7 @@ namespace FrontEnd
                 IsVisible = invalidLogin
 
             };
-            userNameEntry = new Entry
+            userNameEntry = new MyEntry
             {
                 Placeholder = "Username",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -229,7 +239,7 @@ namespace FrontEnd
                 BackgroundColor = Color.White,
 
             };
-            passwordEntry = new Entry
+            passwordEntry = new MyEntry
             {
                 Placeholder = "Password",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -303,8 +313,16 @@ namespace FrontEnd
             {
                 Children = {
 
-                    topHeader,
-                    invalidLoginLabel,
+                    new StackLayout
+                    {
+                        Children =
+                        {
+                            topHeader,
+                        invalidLoginLabel,
+                        },
+                        Spacing = 10
+
+                    },
                     entryFields,
                     new StackLayout
                     {
@@ -322,7 +340,7 @@ namespace FrontEnd
                  },
                 BackgroundColor = Color.FromRgb(210, 61, 235),
                 Spacing = 50f,
-                Padding = new Thickness(0, 0, 0, 20),
+                Padding = new Thickness(0, 20, 0, 20),
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             Content = sLayout;
@@ -349,8 +367,10 @@ namespace FrontEnd
                    
                     fileLines[sfd.dict["USERID"]] = App.dbWrapper.GetUser().Id.ToString();
                     string contents = "";
+
                     for (int i = 0; i < fileLines.Length; i++)
                     {
+                        System.Diagnostics.Debug.WriteLine(fileLines[i]);
                         contents += fileLines[i] + '\n';
                     }
                     System.Diagnostics.Debug.WriteLine(contents);
@@ -385,14 +405,15 @@ namespace FrontEnd
                 for (int i = 0; i < memberClubsList.Count; i++)
                 {
                     var comment = await App.dbWrapper.GetRecentComment(memberClubsList[i].Id);
-
+                    System.Diagnostics.Debug.WriteLine(memberClubList[i].Id);
                     firstLineCommentList.Add(comment.Text);
                 }
 
                 var navPage = new NavigationPage(new TabbedMainClubPages(clubs, memberClubsList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList));
                 navPage.BarBackgroundColor = ch.fromStringToColor("purple");
-                Application.Current.MainPage = navPage;
-
+                await Navigation.PushModalAsync(navPage);
+               // Application.Current.Resources.Add(navigationStyle1);
+            //    Application.Current.MainPage = navPage;
             }/// return value if dne check 
             else
             {
@@ -415,13 +436,32 @@ namespace FrontEnd
             this.password = passwordEntry.Text;
 
 
-            bool emailValidity = checkEmailValidity(email);
-            string validityText = "valid";//await checkUserPassValidity(username, password);
-            if (validityText.Equals("valid") && emailValidity)
+            var emailValidity = checkEmailValidity(email);
+       //     string validityText = "valid";//await checkUserPassValidity(username, password);
+            var usernameValidity = this.checkUsernameValidity(username);
+            var passwordValidity = this.checkPasswordValidity(password);
+
+            if (emailValidity.Equals("Valid") && usernameValidity.Equals("Valid")&& passwordValidity.Equals("Valid"))
             {
                 invalidSignup = false;
                 System.Diagnostics.Debug.WriteLine(email);
-                await App.dbWrapper.CreateAccount(username, password, email);
+                var createAccount = await App.dbWrapper.CreateAccount(username, password, email);
+                if ( createAccount!= 0)
+                {
+                    if(createAccount == 1)
+                    {
+                        invalidSignupText = "Username Already In Use";
+                        displaySignUpContent();
+                        return;
+                    }
+                    else if(createAccount == 2)
+                    {
+                        invalidSignupText = "Email Already In Use";
+                        displaySignUpContent();
+                        return;
+                    }
+                    
+                }
                 await App.dbWrapper.LoginAccount(username, password);
                 var userId = App.dbWrapper.GetUser().Id;
 
@@ -453,7 +493,22 @@ namespace FrontEnd
             else
             {
                 invalidSignup = true;
-                invalidSignupText = validityText;
+                if (!usernameValidity.Equals("Valid"))
+                {
+                    invalidSignupText = usernameValidity;
+                }
+                else if (!passwordValidity.Equals("Valid"))
+                {
+                    invalidSignupText = passwordValidity;
+                }
+                else if(!emailValidity.Equals("Valid"))
+                {
+                    invalidSignupText = "Invalid Email";
+                }
+                else
+                {
+                    invalidSignupText = "Invalid Input";
+                }
                 this.displaySignUpContent();
             }
 
@@ -467,20 +522,85 @@ namespace FrontEnd
 
 
         }
-        private bool checkEmailValidity(string email)
+        private string checkEmailValidity(string email)
         {
             bool validity = false;
             if (email != null)
             {
-                var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
+               var match = Regex.Match(email, @"[\w\d-\.]*@[\w\d-]{1,}\.[\w\d-]{2,}");
+              // var match = Regex.Match(email, @"[\w\d-\.]*@[vV]irginia.edu");
+
                 validity = match.Success;
+                if(validity == true) return "Valid";
+                else
+                {
+                    return "Invalid Email";
+                }
 
             }
             else
             {
-                return false;
+                return "Invalid Email";
             }
-            return true;
+            return "Valid";
+        }
+        private string checkUsernameValidity(string username)
+        {
+            string[] invalidChars = new string[13] { " ", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "," };
+
+            if (username == null || username == "")
+            {
+                return "Invalid Username";
+            }
+            else if (username.Length < 7)
+            {
+                return "Username Must Be More than Seven Characters";
+            }
+            string badWords = "pussy cock penis fuck porn sex vagina cum cunt orgy";
+            var badWordsList = badWords.Split(' ');
+            for (int i = 0; i < badWordsList.Length; i++)
+            {
+                if (username.Contains(badWordsList[i]))
+                {
+                    return "Invalid Name";
+                }
+
+            }
+            for (int i = 0; i < invalidChars.Length; i++)
+            {
+                if (username.Contains(invalidChars[i]))
+                {
+                    return "Username Contains Invalid Characters";
+                }
+            } 
+            
+                return "Valid";
+            
+            
+
+        }
+        private string checkPasswordValidity(string password)
+        {
+            string[] invalidChars = new string[12] { " ", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "," };
+            if(password== "" || password == null)
+            {
+                return "Invalid Password";
+            }
+            else if (password.Length < 6)
+            {
+                return "Password Must Be Greater Than 6 Characters";
+            }
+            for(int i =0; i <invalidChars.Length; i++)
+            {
+                if (password.Contains(invalidChars[i]))
+                {
+                    return "Password Contains Invalid Characters";
+                }
+                
+            }            
+            
+            return "Valid";
+            
         }
         private async Task<string> checkUserPassValidity(string username, string password)
         {
@@ -533,16 +653,7 @@ namespace FrontEnd
         }
         private string checkNameValidity(string username)
         {
-            string badWords = "pussy cock penis fuck porn sex vagina cum cunt orgy";
-            var badWordsList = badWords.Split(' ');
-            for (int i = 0; i < badWordsList.Length; i++)
-            {
-                if (username.Contains(badWordsList[i]))
-                {
-                    return "Invalid Name";
-                }
 
-            }
             return "Valid";
 
         }

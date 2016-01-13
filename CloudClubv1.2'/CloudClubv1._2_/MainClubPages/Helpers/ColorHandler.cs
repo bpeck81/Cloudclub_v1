@@ -25,7 +25,7 @@ namespace FrontEnd
             colorMap.Add("green", Color.FromRgb(0, 234, 106));
             colorMap.Add("blue", Color.FromRgb(0, 176, 240));
             colorMap.Add("yellow", Color.FromRgb(255, 192, 0));
-            colorMap.Add("gold", Color.FromRgb(255, 192, 0));
+  //          colorMap.Add("gold", Color.FromRgb(255, 192, 0));
             colorMap.Add("red", Color.FromRgb(255, 0, 0));
             colorMap.Add("redPressed", Color.FromRgb(255, 200, 200));
             colorMap.Add("black", Color.FromRgb(0, 0, 0));
@@ -38,6 +38,8 @@ namespace FrontEnd
 
             colorMap.Add("lightGray", Color.FromRgb(231, 230, 230));
             colorMap.Add("lightGrayPressed", colorMap["gray"]);
+            colorMap.Add("gold", Color.FromRgb(200, 161, 84));
+
 
 
             colorMap.Add("magenta", Color.FromRgb(251, 33, 241));
@@ -51,6 +53,8 @@ namespace FrontEnd
             nameMap.Add(Color.FromRgb(210, 61, 235), "purple");
             nameMap.Add(Color.FromRgb(127, 127, 127), "gray");
             nameMap.Add(Color.FromRgb(251, 33, 241), "magenta");
+            nameMap.Add( Color.FromRgb(200, 161, 84),"gold");
+
             nameMap.Add(Color.FromRgb(231, 230, 230), "lightGray");
 
 
@@ -100,6 +104,29 @@ namespace FrontEnd
             switch (colorString)
             {
                 case "red":
+                    return ("Star_RedChatInfo.png");
+                case "green":
+                    return ("Star_GreenChatInfo.png");
+                case "blue":
+                    return ("Star_LightBlueChatInfo.png");
+                case "navy":
+                    return ("Star_LightBlueChatInfo.png");
+                case "magenta":
+                    return ("Star_PinkChatInfo.png");
+                case "gray":
+                    return ("Star_GrayChatInfo.png");
+                case "purple":
+                    return ("Star_PurpleChatInfo.png");
+                default:
+                    return "Star_GoldChatInfo.png";
+            }
+        }
+
+        public string getClubStarColorString(string colorString)
+        {
+            switch (colorString)
+            {
+                case "red":
                     return ("Star_Red.png");
                 case "green":
                     return ("Star_Green.png");
@@ -117,6 +144,5 @@ namespace FrontEnd
                     return "Star_Gold.png";
             }
         }
-
     }
 }

@@ -16,8 +16,10 @@ namespace FrontEnd
         public Color SharedClubIndicator { get; set; }
         ColorHandler ch;
         public string Id { get; set; }
+        public string Color { get; set; }
         public FrontFriends(Account account, bool inSameClub)
         {
+            this.Color = account.Color;
             ch = new ColorHandler();
             Emoji = account.Emoji;
             Username = account.Username;

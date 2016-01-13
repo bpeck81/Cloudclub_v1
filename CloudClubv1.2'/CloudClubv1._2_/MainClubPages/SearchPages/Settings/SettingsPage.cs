@@ -18,31 +18,52 @@ namespace FrontEnd
         {
             Title = "Settings";
             ch = new ColorHandler();
-
+            var user = App.dbWrapper.GetUser();
             var cloudsTCell = new TextCell
             {
                 Text = "Clouds",
-                TextColor = ch.fromStringToColor("black")
+                TextColor = ch.fromStringToColor("black"),
+                DetailColor = ch.fromStringToColor("gray"),
+                
             };
             cloudsTCell.Tapped += async (sender, e) =>
             {
                 var location = await App.dbWrapper.GetLocation();
-                var cloudsList = await App.dbWrapper.GetAvailableClouds(location[0],location[1]);
-                this.getSavedClouds();
-                await Navigation.PushAsync(new CloudsPage(cloudsList,savedCloudList));
+                var cloudsList = await App.dbWrapper.GetAvailableClouds(location[0], location[1]);
+                //this.getSavedClouds();
+                await Navigation.PushAsync(new CloudsPage(cloudsList));
 
             };
 
             var notificationsTCell = new TextCell
             {
                 Text = "Notifications",
-                TextColor = ch.fromStringToColor("black")
+                TextColor = ch.fromStringToColor("black"),
+                
             };
-            notificationsTCell.Tapped += (sender, e) =>
+            /* notificationsTCell.Tapped += (sender, e) =>
+             {
+                 Navigation.PushAsync(new SettingsNotificationspage());
+             };*/
+             
+            var dailyRankSwitch = new CustomSwitch
             {
-                Navigation.PushAsync(new SettingsNotificationspage());
-            };
+                Text = "Daily Rank Notification                               ",
+                On = user.RatingNotificationToggle
 
+            };
+            dailyRankSwitch.OnChanged += async (sender, e) =>
+            {
+                if (dailyRankSwitch.On)
+                {
+                    await App.dbWrapper.EnableRankingNotification();
+
+                }
+                else
+                {
+                    await App.dbWrapper.DisableRankingNotification();
+                }
+            };
             var tutorialTCell = new TextCell
             {
                 Text = "Tutorial",
@@ -71,7 +92,7 @@ namespace FrontEnd
             };
             signOutTCell.Tapped += async (sender, args) =>
             {
-
+                
                 var response = await DisplayAlert("Logout", "Are you sure you want to logout?", "Yes", "No");
                 if (response)
                 {
@@ -91,26 +112,30 @@ namespace FrontEnd
                     }
                 }
 
-
+                
             };
-            // Navigation.PushModalAsync(new SignUpPage());
 
-            TableView tableView = new TableView
-            {
-                Intent = TableIntent.Settings,
+
+            var tableView = new MyTableView
+             {
+                Intent = TableIntent.Data,
                 Root = new TableRoot
                 {
                     new TableSection
                     {
+
                         cloudsTCell,
-                        notificationsTCell,
+                        dailyRankSwitch,
                         tutorialTCell,
                         contactUsTCell,
-                        signOutTCell
-                    }
+                        signOutTCell,
+
+                    },                   
                 },
                 BackgroundColor = ch.fromStringToColor("white"),
                 
+               
+                          
             };
             Content = tableView;
 
@@ -130,7 +155,7 @@ namespace FrontEnd
                 var fileLines = text.Split('\n');
                 var cloudsList = fileLines[saveFileKey.dict["CLOUDREGION"]].Split(',');
                 System.Diagnostics.Debug.WriteLine(cloudsList[0].ToString());
-                savedCloudList= cloudsList.ToList<string>();
+                savedCloudList = cloudsList.ToList<string>();
             }
             else throw new System.IO.IOException();
         }

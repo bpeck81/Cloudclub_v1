@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace FrontEnd
 {
-    public class TabbedMainClubPages : TabbedPage
+    public class TabbedMainClubPages : MyTabbedPage
     {
         ColorHandler ch;
         public string var;
@@ -19,12 +19,19 @@ namespace FrontEnd
         public TabbedMainClubPages(List<Club> clubList, List<Club> memberClubList, List<Club> popularClubs, List<Club> newestClubs, List<string> pendingInviteList, List<string> firstLineCommentList)
         {
             ch = new ColorHandler();
-            BackgroundColor = ch.fromStringToColor("purple");
             
 
             // BarTintColor = ch.fromStringToColor("purple");
             NavigationPage.SetHasNavigationBar(this, true);
             // NavigationPage.SetTitleIcon(CurrentPage,"CloudIcon.png");
+         //   var navPage = (NavigationPage)this.CurrentPage;
+         //   navPage.BarBackgroundColor = ch.fromStringToColor("purple");
+          //  NavigationPage.BarBackgroundColorProperty
+            
+            BackgroundColor = ch.fromStringToColor("purple");
+
+
+
 
 
             this.ToolbarItems.Add(new ToolbarItem
@@ -37,12 +44,14 @@ namespace FrontEnd
 
             });
             csp = new ClubSearchPage(clubList, memberClubList, popularClubs, newestClubs, pendingInviteList, firstLineCommentList);
+            csp.BackgroundColor = ch.fromStringToColor("purple");
             mcp = new MyClubsPage(memberClubList, firstLineCommentList);
             pp = new ProfilePage();
+
             this.Children.Add(csp);
             this.Children.Add(mcp);
             this.Children.Add(pp);
-            this.Title = "Explore";
+            this.Title = "   Explore";
 
 
             CurrentPageChanged += TabbedMainClubPages_CurrentPageChanged;

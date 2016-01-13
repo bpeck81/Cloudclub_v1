@@ -9,7 +9,8 @@
     <RootNamespace>CloudClubv1._2_.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>CloudClubv1_2_iOS</AssemblyName>
-    <NuGetPackageImportStamp>b5fa3e79</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -121,15 +122,61 @@
     <BundleResource Include="Resources\Icon-Small.png" />
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <AndroidResource Include="Resources\Friends_Profile1.png" />
+    <AndroidResource Include="Resources\myclubs_Android1.png" />
+    <AndroidResource Include="Resources\myclubs_Android2.png" />
+    <AndroidResource Include="Resources\News_Profile1.png" />
+    <AndroidResource Include="Resources\oie_transparent.png" />
+    <AndroidResource Include="Resources\profile_Android1.png" />
+    <AndroidResource Include="Resources\profile_Android2.png" />
+    <AndroidResource Include="Resources\profile_Android50.png" />
+    <AndroidResource Include="Resources\reportflag.png" />
+    <AndroidResource Include="Resources\RoundCorner.xml" />
+    <AndroidResource Include="Resources\search_Android1.png" />
+    <AndroidResource Include="Resources\search_Android2.png" />
+    <AndroidResource Include="Resources\search_Android35.png" />
+    <AndroidResource Include="Resources\search_Android50.png" />
+    <AndroidResource Include="Resources\search_iOS2.png" />
+    <AndroidResource Include="Resources\settings.png" />
+    <AndroidResource Include="Resources\splashcloud.png" />
+    <AndroidResource Include="Resources\SplashScreen.xml" />
+    <AndroidResource Include="Resources\Tutorial_Clouds.png" />
+    <AndroidResource Include="Resources\Tutorial_Competition.png" />
+    <AndroidResource Include="Resources\User_Invite.png" />
+    <AndroidResource Include="Resources\User_ViewClubs.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <BundleResource Include="Resources\DropletEmpty_WhiteB.png" />
-    <BundleResource Include="Resources\Friends_Profile.png" />
+    <Content Include="Resources\DropletEmpty_WhiteB.png" />
+    <Content Include="Resources\Friends_Profile.png" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Xamarin.Forms.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.4.4.6449\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.4\lib\portable-net45+wp8+win8+wpa\Microsoft.Data.Edm.dll</HintPath>
@@ -142,18 +189,6 @@
     </Reference>
     <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\..\packages\System.Spatial.5.6.4\lib\portable-net45+wp8+win8+wpa\System.Spatial.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform.iOS">
-      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
@@ -178,7 +213,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Import Project="..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
     <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
@@ -237,4 +271,377 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AA9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AE1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AF9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\AN9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\club_Android50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Club_News.png" />
+  </ItemGroup>
+  <Import Project="..\..\packages\Xamarin.Forms.1.4.4.6449\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.4.4.6449\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.1.4.4.6449\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.1.4.4.6449\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
 </Project>

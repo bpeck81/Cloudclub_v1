@@ -13,7 +13,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace CloudClubv1._2_.Droid
 {
-    [Activity(Label = "CloudClubv1._2_", Icon = "@drawable/cloudIcon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "CloudClubv1._2_", Icon = "@drawable/cloudIcon", ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         static MainActivity instance;
@@ -25,7 +25,9 @@ namespace CloudClubv1._2_.Droid
             instance = this;
 
             DBWrapper dbWrapper = new DBWrapper();
+            
 
+            
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App(dbWrapper));
 
