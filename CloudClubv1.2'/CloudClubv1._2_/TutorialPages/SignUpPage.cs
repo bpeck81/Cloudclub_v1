@@ -441,7 +441,7 @@ namespace FrontEnd
             var usernameValidity = this.checkUsernameValidity(username);
             var passwordValidity = this.checkPasswordValidity(password);
 
-            if (emailValidity.Equals("Valid") && usernameValidity.Equals("Valid")&& passwordValidity.Equals("Valid"))
+            if (true)//(emailValidity.Equals("Valid") && usernameValidity.Equals("Valid")&& passwordValidity.Equals("Valid"))
             {
                 invalidSignup = false;
                 System.Diagnostics.Debug.WriteLine(email);

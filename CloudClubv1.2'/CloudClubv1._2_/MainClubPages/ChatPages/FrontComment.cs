@@ -91,7 +91,6 @@ namespace FrontEnd
 
         }
 
-        //raise the event, which will cause the class to update
         public void UpdateProperty(string propertyName) {
             PropertyChangedEventHandler handler = PropertyChanged;
             if(handler != null){

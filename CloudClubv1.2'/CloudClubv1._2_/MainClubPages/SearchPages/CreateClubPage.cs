@@ -24,18 +24,29 @@ namespace FrontEnd
         Entry clubNameEntry;
         public AddTagsPage tagPage;
         ColorHandler ch;
+        int tagCount;
         public CreateClubPage()
 
         {
 
 
             ch = new ColorHandler();
+            tagCount = 0;
             tagPage = new AddTagsPage();
             clubPublic = true;
             clubColor = "default";
             tagList = new List<string>();
             colorButtons = this.generateColorButtons();
             this.Padding = new Thickness(0, Device.OnPlatform(10, 0, 0), 0, 0);
+            MessagingCenter.Subscribe<AddTagsPage, string>(this,"Tag Added",(sender, arg)=>{
+                this.tagList.Add(arg as string);
+                tagCount++;
+                bAddTags.Text = tagCount.ToString();
+            });
+            MessagingCenter.Subscribe<TagViewCell, string>(this, "Remove Tag", (sender, arg) => {
+                tagCount--;
+                bAddTags.Text = tagCount.ToString();
+            });
             this.Title = "Create A Club";
             titleLabel = new Label
             {
@@ -123,7 +134,7 @@ namespace FrontEnd
             };
             bAddTags = new Button
             {
-                Text = tagPage.addedTags.Count.ToString(),
+                Text = tagCount.ToString(),
                 TextColor = Color.White,
                 BackgroundColor = ch.fromStringToColor("lightGray"),
                 FontAttributes = FontAttributes.Bold,
@@ -201,10 +212,15 @@ namespace FrontEnd
             //NOTE: for the parameter for exclusive, true means it is exclusive, but whether or not the club is public is tracked here, so reverse it when creating club
             var nameValidity = checkNameValidity();
             bool created = false;
+            var tagsToSend = new List<string>();
+            foreach(FrontTag t in tagPage.addedTags)
+            {
+                tagsToSend.Add(t.Tag);   
+            }
             if (nameValidity == "Valid")
             {
 
-                created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor, !clubPublic, tagList);
+                created = await App.dbWrapper.CreateClub(this.clubNameEntry.Text, clubColor, !clubPublic,tagsToSend);
                 System.Diagnostics.Debug.WriteLine(clubPublic.ToString());
             }
             if (created)
@@ -378,13 +394,7 @@ namespace FrontEnd
             btn.IsEnabled = false;
             await Navigation.PushAsync(tagPage);
             btn.IsEnabled = true;
-            var frontTagList = tagPage.addedTags;
-            tagList = new List<string>();
-            for (int i = 0; i < frontTagList.Count; i++)
-            {
-                tagList.Add(frontTagList[i].Tag);
-            }
-            bAddTags.Text = tagList.Count.ToString();
+           
         }
 
         private void BPrivate_Clicked(object sender, EventArgs e)
