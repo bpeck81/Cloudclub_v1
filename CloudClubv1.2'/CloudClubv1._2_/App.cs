@@ -55,7 +55,7 @@ namespace CloudClubv1._2_
                     System.Diagnostics.Debug.WriteLine(FileSystem.Current.LocalStorage.Path);
                     var fileSystem = FileSystem.Current.LocalStorage;
                     var fileExists = await fileSystem.CheckExistsAsync("PhoneData.txt");
-                  //   createCleanFileSystem(fileSystem);
+                //     createCleanFileSystem(fileSystem);
                     if (fileExists.Equals(ExistenceCheckResult.FileExists))
                     {
                         IFile file = await fileSystem.GetFileAsync("PhoneData.txt");
